@@ -1,0 +1,252 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Placements</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Placement Dashboard</h1>
+                <p class="text-white-50 small m-0 mt-1">Empowering students through career preparation and robust industry placement linkages.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Placements Stats Highlights -->
+<section class="py-5 bg-light-slate">
+    <div class="container">
+        <div class="row g-4 text-center">
+            <!-- Highest Package -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                <div class="glassmorphism p-4 rounded-4 border border-white-50 shadow-sm h-100">
+                    <div class="text-accent mb-2"><i class="bi bi-rocket-takeoff-fill display-6"></i></div>
+                    <h2 class="fw-extrabold text-navy mb-1">12.0 LPA</h2>
+                    <p class="text-muted small m-0 text-uppercase tracking-wider fw-bold">Highest Package</p>
+                </div>
+            </div>
+            <!-- Average Package -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                <div class="glassmorphism p-4 rounded-4 border border-white-50 shadow-sm h-100">
+                    <div class="text-primary mb-2"><i class="bi bi-graph-up-arrow display-6"></i></div>
+                    <h2 class="fw-extrabold text-navy mb-1">4.8 LPA</h2>
+                    <p class="text-muted small m-0 text-uppercase tracking-wider fw-bold">Average Package</p>
+                </div>
+            </div>
+            <!-- Placement Percentage -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                <div class="glassmorphism p-4 rounded-4 border border-white-50 shadow-sm h-100">
+                    <div class="text-success mb-2"><i class="bi bi-mortarboard-fill display-6"></i></div>
+                    <h2 class="fw-extrabold text-navy mb-1">90%+</h2>
+                    <p class="text-muted small m-0 text-uppercase tracking-wider fw-bold">Placement Rate</p>
+                </div>
+            </div>
+            <!-- Placed Students -->
+            <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                <div class="glassmorphism p-4 rounded-4 border border-white-50 shadow-sm h-100">
+                    <div class="text-warning mb-2"><i class="bi bi-briefcase-fill display-6"></i></div>
+                    <h2 class="fw-extrabold text-navy mb-1">120+</h2>
+                    <p class="text-muted small m-0 text-uppercase tracking-wider fw-bold">Offers This Year</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Placement Graphs (Chart.js Containers) -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">Analytics</span>
+            <h2 class="fw-bold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Placement Trends</h2>
+            <p class="text-muted">Graphical analysis of our annual salary packages and department recruitment details.</p>
+        </div>
+
+        <div class="row g-5">
+            <!-- Graph 1: Salary Trends -->
+            <div class="col-lg-6" data-aos="fade-right">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                    <h5 class="fw-bold text-navy mb-4"><i class="bi bi-bar-chart-fill text-primary me-2"></i>Yearly Packages (LPA)</h5>
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="packageTrendChart"></canvas>
+                    </div>
+                </div>
+            </div>
+            <!-- Graph 2: Branch-wise rate -->
+            <div class="col-lg-6" data-aos="fade-left">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                    <h5 class="fw-bold text-navy mb-4"><i class="bi bi-pie-chart-fill text-secondary me-2"></i>Branch-Wise Placements (%)</h5>
+                    <div style="position: relative; height: 320px; width: 100%;">
+                        <canvas id="branchPlacementChart"></canvas>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recruiters Slider & Cards -->
+<section class="py-5 bg-light-slate overflow-hidden">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">Partnerships</span>
+            <h2 class="fw-bold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Our Top Recruiter Alliances</h2>
+            <p class="text-muted">Multinational giants and leading tech organizations recruiting graduates from AGMRCET.</p>
+        </div>
+
+        <!-- Recruiters grid -->
+        <div class="row row-cols-2 row-cols-md-4 g-4 recruiter-grid" data-aos="fade-up">
+            <!-- Recruiter 1 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">Capgemini</h6>
+                </div>
+            </div>
+            <!-- Recruiter 2 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">TCS</h6>
+                </div>
+            </div>
+            <!-- Recruiter 3 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">Infosys</h6>
+                </div>
+            </div>
+            <!-- Recruiter 4 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">Wipro</h6>
+                </div>
+            </div>
+            <!-- Recruiter 5 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">Cognizant</h6>
+                </div>
+            </div>
+            <!-- Recruiter 6 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">IBM</h6>
+                </div>
+            </div>
+            <!-- Recruiter 7 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">Qspiders</h6>
+                </div>
+            </div>
+            <!-- Recruiter 8 -->
+            <div class="col">
+                <div class="card border-0 shadow-sm rounded-3 p-3 text-center bg-white h-100 d-flex align-items-center justify-content-center">
+                    <h6 class="fw-extrabold text-navy mb-0">KPIT Tech</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Success Stories -->
+<section class="py-5">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">Hall of Fame</span>
+            <h2 class="fw-bold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Placement Success</h2>
+            <p class="text-muted">A few of our recent graduates placed in top roles with impressive package values.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center">
+            <!-- Student 1 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100 hover-translate">
+                    <div class="rounded-circle overflow-hidden shadow-sm mx-auto mb-3" style="width: 90px; height: 90px;">
+                        <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=200&q=80" alt="Success Student" class="w-100 h-100 object-fit-cover">
+                    </div>
+                    <h5 class="fw-bold text-navy mb-1">Deepa S.</h5>
+                    <span class="text-muted small d-block">B.E. Computer Science (2025 batch)</span>
+                    <span class="badge bg-primary-light text-primary my-2 px-3 py-1">Placed at: Capgemini</span>
+                    <h6 class="fw-bold text-success m-0">Package: 12.0 LPA</h6>
+                </div>
+            </div>
+            <!-- Student 2 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100 hover-translate">
+                    <div class="rounded-circle overflow-hidden shadow-sm mx-auto mb-3" style="width: 90px; height: 90px;">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=200&q=80" alt="Success Student" class="w-100 h-100 object-fit-cover">
+                    </div>
+                    <h5 class="fw-bold text-navy mb-1">Rohan Patil</h5>
+                    <span class="text-muted small d-block">B.E. CSE-AIML (2025 batch)</span>
+                    <span class="badge bg-primary-light text-primary my-2 px-3 py-1">Placed at: IBM</span>
+                    <h6 class="fw-bold text-success m-0">Package: 10.5 LPA</h6>
+                </div>
+            </div>
+            <!-- Student 3 -->
+            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white h-100 hover-translate">
+                    <div class="rounded-circle overflow-hidden shadow-sm mx-auto mb-3" style="width: 90px; height: 90px;">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=200&q=80" alt="Success Student" class="w-100 h-100 object-fit-cover">
+                    </div>
+                    <h5 class="fw-bold text-navy mb-1">Ananya K.</h5>
+                    <span class="text-muted small d-block">B.E. Electronics & Comm (2025 batch)</span>
+                    <span class="badge bg-primary-light text-primary my-2 px-3 py-1">Placed at: Bosch</span>
+                    <h6 class="fw-bold text-success m-0">Package: 9.0 LPA</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Alumni Testimonials -->
+<section class="py-5 bg-light-slate">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">Testimonials</span>
+            <h2 class="fw-bold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Alumni Speak</h2>
+            <p class="text-muted">Listen to how AGMRCET built the technical competencies that accelerated our alumni careers.</p>
+        </div>
+
+        <div class="row g-4 justify-content-center" data-aos="fade-up">
+            <div class="col-lg-5">
+                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 d-flex flex-column justify-content-between">
+                    <p class="text-muted small italic">
+                        "Choosing CSE at AGMRCET was the best decision of my career. The lab sessions, hardware access, and constant guidance from my mentors helped me crack the complex coding rounds at Capgemini. Today I work as a Senior Software Engineer, thanks to AGMRCET."
+                    </p>
+                    <div class="d-flex align-items-center gap-3 border-top pt-3">
+                        <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
+                            <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=150&q=80" alt="Alumni" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0">Pavitra G.</h6>
+                            <span class="text-muted text-xs">Alumni (2021 Batch) | Senior Analyst, Capgemini</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-5">
+                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 d-flex flex-column justify-content-between">
+                    <p class="text-muted small italic">
+                        "The hands-on learning at ECE labs gave me deep hardware knowledge. Project building and participating in national technical symposia at AGMRCET built my leadership qualities and critical thinking capabilities. I highly recommend AGMRCET to technical aspirants."
+                    </p>
+                    <div class="d-flex align-items-center gap-3 border-top pt-3">
+                        <div class="rounded-circle overflow-hidden" style="width: 50px; height: 50px;">
+                            <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?auto=format&fit=crop&w=150&q=80" alt="Alumni" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0">Suresh Kulkarni</h6>
+                            <span class="text-muted text-xs">Alumni (2020 Batch) | Hardware Designer, Bosch</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Register script handler for charts -->
+<script src="/js/charts.js" defer></script>

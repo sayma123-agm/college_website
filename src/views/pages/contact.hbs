@@ -1,0 +1,185 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Contact</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Contact Us</h1>
+                <p class="text-white-50 small m-0 mt-1">Get in touch with our administrative offices, academic departments, or request campus visits.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Main Details & Maps Section -->
+<section class="py-5 bg-light-slate">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Left: Contact Details & Map -->
+            <div class="col-lg-5" data-aos="fade-right">
+                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 d-flex flex-column justify-content-between">
+                    <div>
+                        <h4 class="fw-bold text-navy mb-4">Contact Information</h4>
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="text-primary fs-4 me-3"><i class="bi bi-geo-alt-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold text-navy mb-1">Campus Address</h6>
+                                <p class="text-muted small m-0">AGMR College of Engineering & Technology,<br>Navagraha Teertha, NH-4 Road, Varur,<br>Hubballi, Karnataka - 581207</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="text-primary fs-4 me-3"><i class="bi bi-telephone-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold text-navy mb-1">Phone Numbers</h6>
+                                <p class="text-muted small m-0">Principal Desk: +91 94810 87999<br>Admissions Desk: +91 98802 85666</p>
+                            </div>
+                        </div>
+                        <div class="d-flex align-items-start mb-4">
+                            <div class="text-primary fs-4 me-3"><i class="bi bi-envelope-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold text-navy mb-1">Email Addresses</h6>
+                                <p class="text-muted small m-0">General queries: <a href="mailto:info@agmrcet.ac.in" class="text-decoration-none">info@agmrcet.ac.in</a><br>Academic office: <a href="mailto:principal@agmrcet.ac.in" class="text-decoration-none">principal@agmrcet.ac.in</a></p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Embed Google Maps -->
+                    <div class="map-container rounded-3 overflow-hidden border shadow-sm mt-3" style="height: 200px;">
+                        <!-- Embed Google Map for Varur, Hubli, Karnataka -->
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.5298816785116!2d75.18342417578275!3d15.239012361139433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8df7dfaaaaaaf%3A0xea8c7e97d1e8ef95!2sAGMR%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1720849200000!5m2!1sen!2sin" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right: Contact Form -->
+            <div class="col-lg-7" data-aos="fade-left">
+                <div class="glassmorphism p-5 rounded-4 shadow-lg border border-white-50 bg-white">
+                    <h3 class="fw-bold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Inquiry & Feedback</h3>
+                    <p class="text-muted small mb-4">Complete the fields below to submit any general queries, complaints, or event registration interest.</p>
+
+                    <div id="contact-alert" class="alert alert-success d-none mb-3" role="alert"></div>
+
+                    <form id="contact-inquiry-form">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="contact-name" class="form-label small fw-bold text-navy mb-1">Your Full Name</label>
+                                <input type="text" class="form-control shadow-none rounded-2" id="contact-name" placeholder="John Doe" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="contact-email" class="form-label small fw-bold text-navy mb-1">Your Email</label>
+                                <input type="email" class="form-control shadow-none rounded-2" id="contact-email" placeholder="john@example.com" required>
+                            </div>
+                            <div class="col-md-12">
+                                <label for="contact-subject" class="form-label small fw-bold text-navy mb-1">Subject</label>
+                                <input type="text" class="form-control shadow-none rounded-2" id="contact-subject" placeholder="General Inquiry / Complaint" required>
+                            </div>
+                            <div class="col-12">
+                                <label for="contact-message" class="form-label small fw-bold text-navy mb-1">Your Message</label>
+                                <textarea class="form-control shadow-none rounded-2" id="contact-message" rows="5" placeholder="Detailed message details..." required></textarea>
+                            </div>
+                            <!-- reCAPTCHA Simulated Placeholder -->
+                            <div class="col-12">
+                                <div class="p-3 border rounded-3 bg-light d-flex align-items-center justify-content-between">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <input type="checkbox" id="captcha-checkbox" class="form-check-input shadow-none cursor-pointer" required>
+                                        <label for="captcha-checkbox" class="form-check-label small fw-semibold text-muted">I am not a robot</label>
+                                    </div>
+                                    <div class="text-center" style="line-height: 1;">
+                                        <i class="bi bi-shield-check text-success fs-3"></i><br>
+                                        <span class="text-muted" style="font-size: 8px;">reCAPTCHA protected</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-12 mt-4">
+                                <button type="submit" id="contact-submit-btn" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-2">
+                                    Send Message <i class="bi bi-send-fill ms-1"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Department Directory & Emergency Contacts -->
+<section class="py-5">
+    <div class="container">
+        <h3 class="fw-bold text-navy mb-4 text-center" style="font-family: 'Plus Jakarta Sans', sans-serif;">Key Contact Directory</h3>
+        <div class="row g-4">
+            <!-- Registrar Desk -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="100">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                    <h6 class="fw-bold text-primary mb-2">Registrar Office</h6>
+                    <p class="text-muted small mb-0">
+                        Responsible for marks verification, transcripts, and VTU affiliations registrations.<br>
+                        <strong>Phone:</strong> +91 94810 87900<br>
+                        <strong>Email:</strong> registrar@agmrcet.ac.in
+                    </p>
+                </div>
+            </div>
+            <!-- Placement Officer -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="200">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                    <h6 class="fw-bold text-secondary mb-2">Placement Officer</h6>
+                    <p class="text-muted small mb-0">
+                        Oversees campus hiring drives, student resume logs, and recruiters linkages.<br>
+                        <strong>Phone:</strong> +91 98802 85111<br>
+                        <strong>Email:</strong> placement@agmrcet.ac.in
+                    </p>
+                </div>
+            </div>
+            <!-- Hostels Warden -->
+            <div class="col-md-4" data-aos="fade-up" data-aos-delay="300">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100">
+                    <h6 class="fw-bold text-accent mb-2">Hostels Warden Desk</h6>
+                    <p class="text-muted small mb-0">
+                        Manages secure room allocation, food menu grievances, and campus discipline.<br>
+                        <strong>Phone:</strong> +91 94810 87912<br>
+                        <strong>Email:</strong> warden@agmrcet.ac.in
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Form submission AJAX script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const form = document.getElementById('contact-inquiry-form');
+        const alertBox = document.getElementById('contact-alert');
+
+        if (form) {
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                const name = document.getElementById('contact-name').value;
+                const email = document.getElementById('contact-email').value;
+                
+                // Fire simulated POST request
+                fetch('/api/inquiry', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ name, email, phone: '0000000000', course: 'General Inquiry', message: 'Subject: ' + document.getElementById('contact-subject').value })
+                })
+                .then(res => res.json())
+                .then(data => {
+                    if (data.success) {
+                        alertBox.innerText = `Thank you, ${name}! Your feedback message has been delivered successfully.`;
+                        alertBox.classList.remove('d-none');
+                        form.reset();
+                        window.scrollTo({ top: alertBox.offsetTop - 120, behavior: 'smooth' });
+                    }
+                })
+                .catch(err => console.error(err));
+            });
+        }
+    });
+</script>

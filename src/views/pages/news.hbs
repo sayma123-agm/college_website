@@ -1,0 +1,132 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">News & Circulars</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">News & Announcements</h1>
+                <p class="text-white-50 small m-0 mt-1">Stay updated with official academic announcements, circulars, and event logs.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Filters Bar -->
+<section class="py-4 bg-light-slate border-bottom border-light-subtle">
+    <div class="container">
+        <div class="row g-3 justify-content-between align-items-center">
+            <!-- Search bar -->
+            <div class="col-md-4">
+                <div class="input-group border rounded-3 overflow-hidden bg-white shadow-sm">
+                    <span class="input-group-text bg-white border-0 text-muted"><i class="bi bi-search"></i></span>
+                    <input type="text" id="news-search-input" class="form-control border-0 shadow-none px-2 small" placeholder="Search news and announcements...">
+                </div>
+            </div>
+            <!-- Category buttons -->
+            <div class="col-md-8 text-md-end">
+                <div class="d-flex flex-wrap gap-2 justify-content-md-end" id="news-category-filters">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3 news-filter-btn active" data-filter="all">All News</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 news-filter-btn" data-filter="circular">Circulars</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 news-filter-btn" data-filter="admissions">Admissions</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 news-filter-btn" data-filter="placement">Placements</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 news-filter-btn" data-filter="event">Events</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Bulletins List -->
+<section class="py-5">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-10">
+                <div class="d-flex flex-column gap-4" id="news-cards-list">
+                    {{#each allNews}}
+                    <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white news-item-row" data-category="{{this.category}}" data-title="{{this.title}}" data-content="{{this.content}}" data-aos="fade-up">
+                        <div class="card-body p-4">
+                            <div class="d-flex justify-content-between align-items-center mb-3">
+                                <span class="badge bg-primary text-uppercase tracking-wider fw-bold text-xs">{{this.category}}</span>
+                                <small class="text-muted"><i class="bi bi-calendar3 me-1"></i>{{this.date}}</small>
+                            </div>
+                            <h5 class="fw-bold text-navy mb-2">{{this.title}}</h5>
+                            <p class="text-muted small m-0">{{this.content}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+                <!-- No results -->
+                <div id="no-news-results" class="text-center py-5 d-none">
+                    <i class="bi bi-chat-left-text display-3 text-muted"></i>
+                    <h5 class="fw-bold text-muted mt-3">No Notifications Found</h5>
+                    <p class="text-muted small">Try refining your search query or choosing another category filter.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Search and Filter Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('news-search-input');
+        const filterBtns = document.querySelectorAll('.news-filter-btn');
+        const items = document.querySelectorAll('.news-item-row');
+        const noResults = document.getElementById('no-news-results');
+
+        let currentSearch = '';
+        let currentFilter = 'all';
+
+        function applyFilter() {
+            let visibleCount = 0;
+            items.forEach(item => {
+                const title = item.getAttribute('data-title').toLowerCase();
+                const content = item.getAttribute('data-content').toLowerCase();
+                const cat = item.getAttribute('data-category').toLowerCase();
+
+                const matchesSearch = title.includes(currentSearch) || content.includes(currentSearch);
+                const matchesFilter = currentFilter === 'all' || cat === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    item.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    item.classList.add('d-none');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                noResults.classList.add('d-none');
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentSearch = e.target.value.toLowerCase().trim();
+                applyFilter();
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('btn-primary', 'active'));
+                filterBtns.forEach(b => b.classList.add('btn-outline-secondary'));
+
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'active');
+
+                currentFilter = btn.getAttribute('data-filter').toLowerCase();
+                applyFilter();
+            });
+        });
+    });
+</script>

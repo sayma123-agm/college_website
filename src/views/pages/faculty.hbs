@@ -1,0 +1,143 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Faculty</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Faculty Directory</h1>
+                <p class="text-white-50 small m-0 mt-1">Meet our highly qualified professors and research guides at AGMRCET.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Search and Filter Bar -->
+<section class="py-4 bg-light-slate border-bottom border-light-subtle">
+    <div class="container">
+        <div class="row g-3 justify-content-between align-items-center">
+            <!-- Search field -->
+            <div class="col-md-4">
+                <div class="input-group border rounded-3 overflow-hidden bg-white shadow-sm">
+                    <span class="input-group-text bg-white border-0 text-muted"><i class="bi bi-search"></i></span>
+                    <input type="text" id="faculty-search-input" class="form-control border-0 shadow-none px-2 small" placeholder="Search by name, designation, research...">
+                </div>
+            </div>
+            <!-- Department filter -->
+            <div class="col-md-8">
+                <div class="d-flex flex-wrap gap-2 justify-content-md-end" id="faculty-filter-buttons">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3 filter-btn active" data-filter="all">All Departments</button>
+                    {{#each deptsList}}
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 filter-btn" data-filter="{{this.id}}">{{this.shortName}}</button>
+                    {{#if (eq this.id "me")}}
+                    <!-- Break row on small filters -->
+                    {{/if}}
+                    {{/each}}
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Faculty Cards Grid -->
+<section class="py-5">
+    <div class="container">
+        <!-- Faculty cards wrapper -->
+        <div class="row g-4" id="faculty-cards-grid">
+            {{#each facultyList}}
+            <div class="col-lg-4 col-md-6 faculty-profile-card" data-department="{{this.department}}" data-name="{{this.name}}" data-research="{{this.researchArea}}">
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white h-100 transition-all hover-translate">
+                    <div class="d-flex align-items-center gap-3 mb-3">
+                        <div class="rounded-circle overflow-hidden shadow-sm" style="width: 75px; height: 75px; flex-shrink: 0;">
+                            <img src="{{this.image}}" alt="{{this.name}}" class="w-100 h-100 object-fit-cover">
+                        </div>
+                        <div class="overflow-hidden">
+                            <h6 class="fw-bold text-navy m-0 text-truncate">{{this.name}}</h6>
+                            <span class="text-muted text-xs d-block text-truncate">{{this.designation}}</span>
+                            <span class="text-muted text-xs d-block text-truncate">{{this.qualification}}</span>
+                        </div>
+                    </div>
+                    <div class="border-top pt-3 small text-muted flex-grow-1">
+                        <div class="mb-2"><strong>Research Area:</strong> <span class="research-text">{{this.researchArea}}</span></div>
+                        <div class="text-truncate"><strong>Email ID:</strong> <a href="mailto:{{this.email}}" class="text-decoration-none">{{this.email}}</a></div>
+                    </div>
+                    <div class="mt-3 text-end">
+                        <span class="badge bg-light text-dark text-uppercase border">{{this.department}}</span>
+                        <span class="badge bg-primary-light text-primary border small ms-1">{{this.experience}} Exp</span>
+                    </div>
+                </div>
+            </div>
+            {{/each}}
+        </div>
+        <!-- No results display -->
+        <div id="no-faculty-results" class="text-center py-5 d-none">
+            <i class="bi bi-person-x display-3 text-muted"></i>
+            <h5 class="fw-bold text-muted mt-3">No Faculty Members Found</h5>
+            <p class="text-muted small">Try refining your search query or choosing another department filter.</p>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('faculty-search-input');
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.faculty-profile-card');
+        const noResults = document.getElementById('no-faculty-results');
+
+        let currentSearch = '';
+        let currentFilter = 'all';
+
+        function applyFilter() {
+            let visibleCount = 0;
+            cards.forEach(card => {
+                const name = card.getAttribute('data-name').toLowerCase();
+                const research = card.getAttribute('data-research').toLowerCase();
+                const dept = card.getAttribute('data-department').toLowerCase();
+
+                const matchesSearch = name.includes(currentSearch) || research.includes(currentSearch);
+                const matchesFilter = currentFilter === 'all' || dept === currentFilter;
+
+                if (matchesSearch && matchesFilter) {
+                    card.classList.remove('d-none');
+                    visibleCount++;
+                } else {
+                    card.classList.add('d-none');
+                }
+            });
+
+            if (visibleCount === 0) {
+                noResults.classList.remove('d-none');
+            } else {
+                noResults.classList.add('d-none');
+            }
+        }
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                currentSearch = e.target.value.toLowerCase().trim();
+                applyFilter();
+            });
+        }
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                // Update active button styling
+                filterBtns.forEach(b => b.classList.remove('btn-primary', 'active'));
+                filterBtns.forEach(b => b.classList.add('btn-outline-secondary'));
+                
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'active');
+
+                currentFilter = btn.getAttribute('data-filter').toLowerCase();
+                applyFilter();
+            });
+        });
+    });
+</script>

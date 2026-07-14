@@ -1,0 +1,411 @@
+/* ==========================================================================
+   AGMRCET Master Stylesheet
+   ========================================================================== */
+
+/* Design Tokens & Theme Variables */
+:root {
+    --primary-color: #0f2b5c;      /* Royal Navy */
+    --primary-light: rgba(15, 43, 92, 0.1);
+    --secondary-color: #0088cc;    /* Classic Academic Blue */
+    --secondary-light: rgba(0, 136, 204, 0.1);
+    --accent-color: #d4af37;       /* Prestige Gold */
+    --accent-light: rgba(212, 175, 55, 0.15);
+    --success-color: #10b981;      /* Emerald Green */
+    --success-light: rgba(16, 185, 129, 0.1);
+    
+    --bg-light: #ffffff;
+    --bg-light-slate: #f8f9fa;
+    --bg-navy: #0f2b5c;
+    
+    --text-main: #2b303a;
+    --text-muted: #6c757d;
+    --border-color: #e5e7eb;
+    
+    --glass-bg: rgba(255, 255, 255, 0.65);
+    --glass-border: rgba(255, 255, 255, 0.4);
+    --glass-shadow: rgba(31, 38, 135, 0.06);
+    
+    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --transition-speed: 0.3s;
+}
+
+/* Dark Theme Tokens Override */
+html.dark-theme {
+    --primary-color: #3b82f6;      /* Bright Blue */
+    --primary-light: rgba(59, 130, 246, 0.15);
+    --secondary-color: #00f2fe;    /* Bright Teal */
+    --secondary-light: rgba(0, 242, 254, 0.15);
+    --accent-color: #f59e0b;       /* Amber Gold */
+    
+    --bg-light: #0B0F19;           /* Dark Slate */
+    --bg-light-slate: #111827;     /* Dark Charcoal */
+    --bg-navy: #030712;            /* Deepest Black */
+    
+    --text-main: #f3f4f6;
+    --text-muted: #9ca3af;
+    --border-color: #1f2937;
+    
+    --glass-bg: rgba(17, 24, 39, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: rgba(0, 0, 0, 0.5);
+}
+
+/* General Resets */
+body {
+    font-family: var(--font-body);
+    color: var(--text-main);
+    background-color: var(--bg-light);
+    transition: background-color var(--transition-speed), color var(--transition-speed);
+    overflow-x: hidden;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Global Logo Watermark Overlay for Accreditation Audit */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: -1;
+    background-image: url("https://www.agmrcet.ac.in/images/logo.png");
+    background-repeat: repeat;
+    background-position: center;
+    background-size: 180px 180px;
+    opacity: 0.025; /* Highly subtle watermark */
+}
+
+/* Dark mode adjustment for visibility */
+html.dark-theme body::before {
+    opacity: 0.015;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    font-weight: 700;
+}
+
+/* Smooth Scrolling overrides */
+html.lenis {
+    height: auto;
+}
+.lenis-smooth {
+    scroll-behavior: initial !important;
+}
+
+/* Accessibility Outlines */
+a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible, textarea:focus-visible {
+    outline: 3px solid var(--secondary-color) !important;
+    outline-offset: 2px;
+}
+
+/* Scroll Progress Bar */
+#scroll-progress {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--secondary-color), var(--accent-color));
+    width: 0%;
+    z-index: 9999;
+    transition: width 0.1s ease-out;
+}
+
+/* Page Loader Animation */
+#loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--bg-light);
+    z-index: 10000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: opacity var(--transition-speed) ease, visibility var(--transition-speed) ease;
+}
+
+#loader-wrapper.fade-out {
+    opacity: 0;
+    visibility: hidden;
+}
+
+/* Background Gradients & Helper Classes */
+.bg-navy {
+    background-color: var(--bg-navy) !important;
+}
+
+.text-accent {
+    color: var(--accent-color) !important;
+}
+
+.bg-primary-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;
+}
+
+.text-gradient {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+html.dark-theme .text-gradient {
+    background: linear-gradient(135deg, #60a5fa, #00f2fe);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.bg-primary-light { background-color: var(--primary-light) !important; }
+.bg-secondary-light { background-color: var(--secondary-light) !important; }
+.bg-accent-light { background-color: var(--accent-light) !important; }
+.bg-success-light { background-color: var(--success-light) !important; }
+
+/* Custom Buttons */
+.btn-primary {
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    border: none;
+    color: #ffffff;
+    transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.btn-primary:hover, .btn-primary:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(15, 43, 92, 0.3);
+    background: linear-gradient(135deg, var(--secondary-color), var(--primary-color));
+    color: #ffffff;
+}
+
+.btn-outline-primary {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+    font-weight: 600;
+}
+.btn-outline-primary:hover, .btn-outline-primary:focus {
+    background-color: var(--primary-color);
+    color: #ffffff;
+}
+
+/* Glassmorphism Cards */
+.glassmorphism {
+    background: var(--glass-bg);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border: 1px solid var(--glass-border);
+    box-shadow: 0 8px 32px 0 var(--glass-shadow);
+}
+
+.hover-translate {
+    transition: transform var(--transition-speed) cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow var(--transition-speed) ease;
+}
+
+.hover-translate:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0,0,0,0.1) !important;
+}
+
+/* Header & Navbar styling */
+.top-bar {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    font-family: var(--font-body);
+}
+
+.navbar-theme {
+    background: var(--glass-bg);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--glass-border);
+    box-shadow: 0 4px 20px var(--glass-shadow);
+}
+
+.navbar-theme.scrolled {
+    background: var(--bg-navy);
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.navbar-theme.scrolled .nav-link {
+    color: rgba(255, 255, 255, 0.75) !important;
+}
+.navbar-theme.scrolled .nav-link.active, .navbar-theme.scrolled .nav-link:hover {
+    color: var(--accent-color) !important;
+}
+.navbar-theme.scrolled .nav-logo-title {
+    color: #ffffff !important;
+}
+.navbar-theme.scrolled .nav-logo-sub {
+    color: rgba(255, 255, 255, 0.5) !important;
+}
+.navbar-theme.scrolled .theme-toggle-btn, .navbar-theme.scrolled .btn-icon {
+    color: #ffffff !important;
+}
+
+.nav-link {
+    color: var(--text-main);
+    font-size: 14px;
+    position: relative;
+    transition: color 0.2s;
+}
+
+.nav-link.active, .nav-link:hover {
+    color: var(--primary-color) !important;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 15%;
+    width: 0%;
+    height: 2px;
+    background-color: var(--accent-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link.active::after, .nav-link:hover::after {
+    width: 70%;
+}
+
+/* Mega Menu & Dropdowns */
+.mega-menu {
+    border-radius: 12px;
+    margin-top: 0;
+}
+
+.mega-menu-link {
+    display: block;
+    padding: 6px 12px;
+    color: var(--text-main);
+    font-size: 13px;
+    text-decoration: none;
+    border-radius: 6px;
+    transition: background-color 0.2s, color 0.2s;
+}
+.mega-menu-link:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
+    padding-left: 16px;
+}
+
+/* Hero Section */
+.hero-section {
+    position: relative;
+}
+
+.video-shade {
+    background: linear-gradient(135deg, rgba(15, 43, 92, 0.85), rgba(3, 7, 18, 0.95));
+}
+
+.hero-title {
+    font-size: 3.5rem;
+    line-height: 1.15;
+}
+
+@media (max-width: 768px) {
+    .hero-title {
+        font-size: 2.2rem;
+    }
+}
+
+.floating-shape {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(80px);
+    opacity: 0.15;
+    animation: floatAround 15s infinite alternate;
+    z-index: 0;
+}
+
+.shape-1 {
+    width: 300px;
+    height: 300px;
+    background-color: var(--primary-color);
+    top: 20%;
+    left: 10%;
+}
+
+.shape-2 {
+    width: 400px;
+    height: 400px;
+    background-color: var(--secondary-color);
+    bottom: 10%;
+    right: 5%;
+    animation-delay: 5s;
+}
+
+/* Mouse Scroll Indicator */
+.mouse-scroll {
+    width: 24px;
+    height: 38px;
+    border: 2px solid rgba(255, 255, 255, 0.7);
+    border-radius: 12px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.mouse-wheel {
+    width: 4px;
+    height: 8px;
+    background-color: #ffffff;
+    border-radius: 2px;
+    position: absolute;
+    top: 8px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: scrollDown 1.5s infinite;
+}
+
+/* Timelines styling */
+.timeline-dot {
+    left: 50%;
+    transform: translate(-50%, -50%) !important;
+}
+
+@media (max-width: 767.98px) {
+    .timeline-line {
+        display: none !important;
+    }
+    .timeline-dot {
+        display: none !important;
+    }
+    .timeline-item {
+        text-align: left !important;
+    }
+}
+
+/* Footer Section */
+.footer-section {
+    background-color: var(--bg-navy);
+    color: #ffffff;
+    border-top: 4px solid var(--accent-color);
+}
+
+.footer-links a {
+    transition: color 0.2s, padding-left 0.2s;
+}
+.footer-links a:hover {
+    color: var(--accent-color) !important;
+    padding-left: 6px;
+}
+
+/* Animations declarations */
+@keyframes floatAround {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -40px) scale(1.2); }
+}
+
+@keyframes scrollDown {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 15px); }
+}
+
+/* ERP Student gauge styles */
+.progress-ring-circle {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}

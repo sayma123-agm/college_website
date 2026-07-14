@@ -1,0 +1,190 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Departments</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">{{department.shortName}}</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{department.name}}</h1>
+                <p class="text-white-50 small m-0 mt-1">Established: {{department.established}} | Annual Intake: {{department.intake}} seats</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<section class="py-5">
+    <div class="container">
+        <div class="row g-5">
+            <!-- Sidebar: Other Departments Links -->
+            <div class="col-lg-3 d-none d-lg-block" data-aos="fade-right">
+                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-light-subtle position-sticky" style="top: 100px;">
+                    <h6 class="text-uppercase fw-bold text-navy mb-3 tracking-wider" style="font-size: 11px;">Select Department</h6>
+                    <div class="list-group list-group-flush rounded-3 overflow-hidden" id="dept-sidebar-list">
+                        {{#each depts}}
+                        <a href="/departments/{{this.id}}" class="list-group-item list-group-item-action py-3 px-3 border-0 small fw-semibold text-muted dept-sidebar-link d-flex justify-content-between align-items-center">
+                            {{this.shortName}} <i class="bi bi-chevron-right text-xs"></i>
+                        </a>
+                        {{/each}}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Main Content Panel -->
+            <div class="col-lg-9" data-aos="fade-left">
+                <!-- Overview & Stats -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 text-center border rounded-3 bg-light-slate">
+                            <h3 class="fw-bold text-primary mb-1">{{department.stats.faculty}}</h3>
+                            <span class="text-muted small">Teachers</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 text-center border rounded-3 bg-light-slate">
+                            <h3 class="fw-bold text-secondary mb-1">{{department.stats.labs}}</h3>
+                            <span class="text-muted small">Laboratories</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 text-center border rounded-3 bg-light-slate">
+                            <h3 class="fw-bold text-accent mb-1">{{department.stats.placementRate}}</h3>
+                            <span class="text-muted small">Placement Rate</span>
+                        </div>
+                    </div>
+                    <div class="col-md-3 col-6">
+                        <div class="p-3 text-center border rounded-3 bg-light-slate">
+                            <h3 class="fw-bold text-success mb-1">{{department.stats.avgPackage}}</h3>
+                            <span class="text-muted small">Avg. Package</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOD Message -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-5 bg-white">
+                    <div class="row align-items-center g-4">
+                        <div class="col-md-3 text-center">
+                            <div class="rounded-circle overflow-hidden shadow border mx-auto mb-2" style="width: 120px; height: 120px;">
+                                <img src="{{department.hod.photo}}" alt="HOD" class="w-100 h-100 object-fit-cover">
+                            </div>
+                            <h6 class="fw-bold text-navy m-0">{{department.hod.name}}</h6>
+                            <span class="text-muted text-xs">{{department.hod.designation}}</span><br>
+                            <span class="badge bg-light text-dark border small mt-1">{{department.hod.experience}}</span>
+                        </div>
+                        <div class="col-md-9 border-start-md">
+                            <h5 class="fw-bold text-navy mb-2"><i class="bi bi-chat-left-quote-fill text-primary me-2"></i>HOD Message</h5>
+                            <p class="text-muted small m-0 italic">
+                                "{{department.hod.message}}"
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Laboratories Section -->
+                <h4 class="fw-bold text-navy mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Laboratories</h4>
+                <div class="row g-4 mb-5">
+                    {{#each department.labs}}
+                    <div class="col-md-6">
+                        <div class="glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100">
+                            <h5 class="fw-bold text-navy mb-2"><i class="bi bi-cpu text-secondary me-2"></i>{{this.name}}</h5>
+                            <p class="text-muted small m-0">{{this.description}}</p>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+                <!-- Achievements & Research Projects -->
+                <div class="row g-4 mb-5">
+                    <div class="col-md-6">
+                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Key Achievements</h4>
+                        <div class="list-group list-group-flush border rounded-3 overflow-hidden shadow-sm">
+                            {{#each department.achievements}}
+                            <div class="list-group-item p-3">
+                                <h6 class="fw-bold text-primary mb-1">{{this.title}}</h6>
+                                <p class="text-muted small m-0">{{this.details}}</p>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+
+                    <div class="col-md-6">
+                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Research & Funding</h4>
+                        <div class="list-group list-group-flush border rounded-3 overflow-hidden shadow-sm">
+                            <div class="list-group-item p-3">
+                                <h6 class="fw-bold text-navy mb-2">Primary Areas of Focus</h6>
+                                <div class="d-flex flex-wrap gap-2">
+                                    {{#each department.research.areas}}
+                                    <span class="badge bg-light text-dark border">{{this}}</span>
+                                    {{/each}}
+                                </div>
+                            </div>
+                            {{#each department.research.projects}}
+                            <div class="list-group-item p-3">
+                                <h6 class="fw-bold text-secondary mb-1">{{this.title}}</h6>
+                                <span class="text-muted small">Funded by: {{this.funding}} | {{this.amount}}</span>
+                            </div>
+                            {{/each}}
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Placements & Recruiter Lists -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-5 bg-white">
+                    <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Department Placements</h4>
+                    <p class="text-muted small">Our placement statistics reflect high employment values with companies like {{#each department.placements.topRecruiters}}{{this}}, {{/each}} recruiting our students.</p>
+                    <div class="row g-3 text-center">
+                        <div class="col-sm-4">
+                            <div class="border rounded-2 p-2">
+                                <span class="text-muted text-xs">Highest Package</span>
+                                <h5 class="fw-bold text-navy m-0">{{department.placements.highestPackage}}</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="border rounded-2 p-2">
+                                <span class="text-muted text-xs">Offers Secured (2025)</span>
+                                <h5 class="fw-bold text-navy m-0">{{department.placements.recentOffers}} Offers</h5>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="border rounded-2 p-2">
+                                <span class="text-muted text-xs">Average Package</span>
+                                <h5 class="fw-bold text-navy m-0">{{department.stats.avgPackage}}</h5>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Faculty Profiles -->
+                <h4 class="fw-bold text-navy mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Meet the Faculty</h4>
+                <div class="row g-4">
+                    {{#each faculty}}
+                    <div class="col-md-6">
+                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white hover-translate">
+                            <div class="d-flex align-items-center gap-3">
+                                <div class="rounded-circle overflow-hidden shadow-sm" style="width: 70px; height: 70px; flex-shrink: 0;">
+                                    <img src="{{this.image}}" alt="{{this.name}}" class="w-100 h-100 object-fit-cover">
+                                </div>
+                                <div class="overflow-hidden">
+                                    <h6 class="fw-bold text-navy m-0 text-truncate">{{this.name}}</h6>
+                                    <span class="text-muted small text-truncate d-block">{{this.designation}} | {{this.qualification}}</span>
+                                    <span class="text-accent text-xs fw-semibold">{{this.experience}} Experience</span>
+                                </div>
+                            </div>
+                            <div class="border-top mt-3 pt-3 small text-muted">
+                                <div><strong>Research:</strong> {{this.researchArea}}</div>
+                                <div class="text-truncate"><strong>Email:</strong> <a href="mailto:{{this.email}}" class="text-decoration-none">{{this.email}}</a></div>
+                            </div>
+                        </div>
+                    </div>
+                    {{/each}}
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>

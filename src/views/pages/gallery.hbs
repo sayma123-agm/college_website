@@ -1,0 +1,152 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Gallery</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Media Gallery</h1>
+                <p class="text-white-50 small m-0 mt-1">Explore our campus landscape, events, and modern academic facilities.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Gallery Filter Controls -->
+<section class="py-4 bg-light-slate border-bottom border-light-subtle">
+    <div class="container">
+        <div class="d-flex flex-wrap gap-2 justify-content-center" id="gallery-filter-buttons">
+            <button class="btn btn-sm btn-primary rounded-pill px-3 gallery-filter-btn active" data-filter="all">All Photos</button>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="campus">Campus Landscape</button>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="labs">Laboratories</button>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="events">College Events</button>
+            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="sports">Sports</button>
+        </div>
+    </div>
+</section>
+
+<!-- Gallery Grid Section -->
+<section class="py-5">
+    <div class="container">
+        <div class="row g-4" id="gallery-masonry-grid">
+            <!-- Image 1 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="campus" data-aos="fade-up">
+                <a href="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=500&q=80" alt="Main Block Campus View" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">Admin Block</h6>
+                            <span class="text-white-50 text-xs">Campus Landscape</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Image 2 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="labs" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=500&q=80" alt="Research Computing Lab" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">CSE Cloud Laboratory</h6>
+                            <span class="text-white-50 text-xs">Laboratories</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Image 3 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500&q=80" alt="Graduation Ceremony" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">Graduation Convocation</h6>
+                            <span class="text-white-50 text-xs">College Events</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Image 4 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="sports" data-aos="fade-up">
+                <a href="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=500&q=80" alt="Basketball Court" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">Basketball Field</h6>
+                            <span class="text-white-50 text-xs">Sports</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Image 5 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="campus" data-aos="fade-up" data-aos-delay="100">
+                <a href="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=500&q=80" alt="Library Interiors" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">Central Library Read Room</h6>
+                            <span class="text-white-50 text-xs">Campus Landscape</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+            <!-- Image 6 -->
+            <div class="col-lg-4 col-md-6 gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
+                <a href="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="Smart India Hackathon Group" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
+                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                        <div>
+                            <h6 class="fw-bold m-0">Student Coding Hackathon</h6>
+                            <span class="text-white-50 text-xs">College Events</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filter Script -->
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const filterBtns = document.querySelectorAll('.gallery-filter-btn');
+        const items = document.querySelectorAll('.gallery-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', (e) => {
+                filterBtns.forEach(b => b.classList.remove('btn-primary', 'active'));
+                filterBtns.forEach(b => b.classList.add('btn-outline-secondary'));
+
+                btn.classList.remove('btn-outline-secondary');
+                btn.classList.add('btn-primary', 'active');
+
+                const filter = btn.getAttribute('data-filter').toLowerCase();
+
+                items.forEach(item => {
+                    const cat = item.getAttribute('data-category').toLowerCase();
+                    if (filter === 'all' || cat === filter) {
+                        item.classList.remove('d-none');
+                        // Fade in animation trigger
+                        item.style.opacity = '0';
+                        setTimeout(() => {
+                            item.style.opacity = '1';
+                        }, 50);
+                    } else {
+                        item.classList.add('d-none');
+                    }
+                });
+            });
+        });
+
+        // Initialize Lightbox
+        const lightbox = GLightbox({
+            selector: '.glightbox',
+            touchNavigation: true,
+            loop: true
+        });
+    });
+</script>
