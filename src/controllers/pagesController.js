@@ -6,7 +6,20 @@ exports.renderHome = async (req, res) => {
     try {
         const importantNews = await newsModel.getImportantNews();
         const allNews = await newsModel.getAllNews();
-        const depts = await departmentModel.getDepartmentsList();
+        const depts = await departmentModel.getAllDepartments();
+        
+        // Parse JSON lists for each department to render top recruiters in HTML
+        depts.forEach(dept => {
+            if (typeof dept.topRecruiters === 'string') {
+                try {
+                    dept.topRecruitersList = JSON.parse(dept.topRecruiters);
+                } catch(e) {
+                    dept.topRecruitersList = ["TCS", "Infosys", "Capgemini", "Wipro"];
+                }
+            } else {
+                dept.topRecruitersList = dept.topRecruiters || ["TCS", "Infosys", "Capgemini", "Wipro"];
+            }
+        });
         
         res.render('home', {
             title: 'AGM Rural College of Engineering & Technology - Varur, Hubballi',
@@ -96,10 +109,21 @@ exports.renderFaculty = async (req, res) => {
 };
 
 exports.renderPortal = (req, res) => {
+    res.redirect('/portal/faculty');
+};
+
+exports.renderPortalRole = (req, res) => {
+    const role = req.params.role;
+    const allowedRoles = ['faculty', 'hod', 'office', 'fee', 'principal', 'admin'];
+    if (!allowedRoles.includes(role)) {
+        return res.redirect('/portal/faculty');
+    }
     res.render('portal', {
-        title: 'Student Portal ERP | AGMRCET',
-        description: 'Access student ERP services, track attendance, check academic marks, and download the syllabus and calendar.',
-        activePortal: true
+        title: `${role.charAt(0).toUpperCase() + role.slice(1)} Portal ERP | AGMRCET`,
+        description: `Access secure ERP services for ${role}.`,
+        activePortal: true,
+        noHeaderFooter: true,
+        selectedRole: role
     });
 };
 

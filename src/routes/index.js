@@ -12,6 +12,7 @@ router.get('/campus-life', pagesController.renderCampusLife);
 router.get('/research', pagesController.renderResearch);
 router.get('/faculty', pagesController.renderFaculty);
 router.get('/portal', pagesController.renderPortal);
+router.get('/portal/:role', pagesController.renderPortalRole);
 router.get('/gallery', pagesController.renderGallery);
 router.get('/contact', pagesController.renderContact);
 router.get('/news', pagesController.renderNews);

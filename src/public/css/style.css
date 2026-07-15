@@ -4,26 +4,26 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-    --primary-color: #0f2b5c;      /* Royal Navy */
-    --primary-light: rgba(15, 43, 92, 0.1);
-    --secondary-color: #0088cc;    /* Classic Academic Blue */
-    --secondary-light: rgba(0, 136, 204, 0.1);
-    --accent-color: #d4af37;       /* Prestige Gold */
-    --accent-light: rgba(212, 175, 55, 0.15);
-    --success-color: #10b981;      /* Emerald Green */
-    --success-light: rgba(16, 185, 129, 0.1);
+    --primary-color: #2C2E43;      /* Deep Blue-Gray */
+    --primary-light: rgba(44, 46, 67, 0.1);
+    --secondary-color: #215E61;    /* Deep Teal */
+    --secondary-light: rgba(33, 94, 97, 0.1);
+    --accent-color: #FF9E20;       /* Vibrant Orange/Amber */
+    --accent-light: rgba(255, 158, 32, 0.15);
+    --success-color: #B8DB80;      /* Light Sage/Lime */
+    --success-light: rgba(184, 219, 128, 0.15);
     
     --bg-light: #ffffff;
-    --bg-light-slate: #f8f9fa;
-    --bg-navy: #0f2b5c;
+    --bg-light-slate: #f5f6f8;
+    --bg-navy: #1D2128;            /* Dark Charcoal */
     
-    --text-main: #2b303a;
-    --text-muted: #6c757d;
-    --border-color: #e5e7eb;
+    --text-main: #2C2E43;
+    --text-muted: #595260;         /* Muted Dark Gray-Purple */
+    --border-color: #e2e8f0;
     
-    --glass-bg: rgba(255, 255, 255, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-shadow: rgba(31, 38, 135, 0.06);
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: rgba(44, 46, 67, 0.05);
     
     --font-heading: 'Plus Jakarta Sans', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -32,23 +32,23 @@
 
 /* Dark Theme Tokens Override */
 html.dark-theme {
-    --primary-color: #3b82f6;      /* Bright Blue */
-    --primary-light: rgba(59, 130, 246, 0.15);
-    --secondary-color: #00f2fe;    /* Bright Teal */
-    --secondary-light: rgba(0, 242, 254, 0.15);
-    --accent-color: #f59e0b;       /* Amber Gold */
+    --primary-color: #215E61;      /* Deep Teal */
+    --primary-light: rgba(33, 94, 97, 0.15);
+    --secondary-color: #B8DB80;    /* Light Sage */
+    --secondary-light: rgba(184, 219, 128, 0.15);
+    --accent-color: #FF9E20;       /* Vibrant Orange */
     
-    --bg-light: #0B0F19;           /* Dark Slate */
-    --bg-light-slate: #111827;     /* Dark Charcoal */
-    --bg-navy: #030712;            /* Deepest Black */
+    --bg-light: #1D2128;           /* Dark Charcoal */
+    --bg-light-slate: #2C2E43;     /* Deep Blue-Gray */
+    --bg-navy: #1D2128;            /* Deepest Charcoal */
     
     --text-main: #f3f4f6;
-    --text-muted: #9ca3af;
-    --border-color: #1f2937;
+    --text-muted: #B8DB80;
+    --border-color: #2F5755;       /* Muted Slate/Teal */
     
-    --glass-bg: rgba(17, 24, 39, 0.7);
+    --glass-bg: rgba(44, 46, 67, 0.8);
     --glass-border: rgba(255, 255, 255, 0.08);
-    --glass-shadow: rgba(0, 0, 0, 0.5);
+    --glass-shadow: rgba(0, 0, 0, 0.4);
 }
 
 /* General Resets */
@@ -303,40 +303,58 @@ html.dark-theme .text-gradient {
 }
 
 .hero-title {
-    font-size: 3.5rem;
-    line-height: 1.15;
+    font-size: 3.8rem;
+    line-height: 1.1;
+    font-weight: 800;
 }
 
 @media (max-width: 768px) {
     .hero-title {
-        font-size: 2.2rem;
+        font-size: 2.4rem;
     }
 }
 
 .floating-shape {
     position: absolute;
     border-radius: 50%;
-    filter: blur(80px);
-    opacity: 0.15;
-    animation: floatAround 15s infinite alternate;
+    filter: blur(100px);
+    opacity: 0.18;
+    animation: floatAround 18s infinite alternate ease-in-out;
     z-index: 0;
 }
 
+@keyframes floatAround {
+    0% { transform: translate(0, 0) scale(1); }
+    50% { transform: translate(50px, 30px) scale(1.15); }
+    100% { transform: translate(-30px, 50px) scale(0.9); }
+}
+
 .shape-1 {
-    width: 300px;
-    height: 300px;
-    background-color: var(--primary-color);
-    top: 20%;
-    left: 10%;
+    width: 350px;
+    height: 350px;
+    background-color: var(--secondary-color);
+    top: 15%;
+    left: 8%;
 }
 
 .shape-2 {
-    width: 400px;
-    height: 400px;
-    background-color: var(--secondary-color);
-    bottom: 10%;
-    right: 5%;
-    animation-delay: 5s;
+    width: 450px;
+    height: 450px;
+    background-color: var(--primary-color);
+    bottom: 8%;
+    right: 3%;
+    animation-delay: 4s;
+}
+
+/* About image effects */
+.about-main-img-container {
+    overflow: hidden;
+    position: relative;
+    border-radius: 16px;
+    box-shadow: 0 20px 40px rgba(15, 43, 92, 0.15) !important;
+}
+.about-main-img-container img:hover {
+    transform: scale(1.04);
 }
 
 /* Mouse Scroll Indicator */
@@ -409,3 +427,75 @@ html.dark-theme .text-gradient {
 .progress-ring-circle {
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
 }
+
+/* Hide horizontal scrollbar but preserve scrolling on touch devices */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Subtle bounce animation for interactive logins */
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.animate-bounce-subtle {
+    animation: bounceSubtle 3s infinite ease-in-out;
+}
+
+/* Responsive medium-screen-only right border */
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid var(--border-color) !important;
+    }
+}
+
+/* Form input hover and focus enhancements */
+.input-group:hover .form-control {
+    border-color: var(--secondary-color);
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px var(--secondary-light) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+/* Gateway button directory styling */
+.gateway-select-btn {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+.gateway-select-btn:hover {
+    transform: translateX(4px);
+    background-color: var(--secondary-light) !important;
+    border-color: var(--secondary-color) !important;
+}
+.gateway-select-btn.btn-primary {
+    box-shadow: 0 4px 15px var(--secondary-light) !important;
+    transform: scale(1.02);
+}
+.gateway-select-btn.btn-primary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Why Choose Us feature card enhancements */
+.feature-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(15, 43, 92, 0.12) !important;
+    border-color: var(--secondary-color) !important;
+}
+.feature-icon {
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.feature-card:hover .feature-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
