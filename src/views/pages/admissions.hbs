@@ -161,6 +161,138 @@
     </div>
 </section>
 
+<!-- Smart Eligibility & Fee Calculator (V2) -->
+<section class="py-5 bg-white position-relative border-bottom border-light-subtle">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">Interactive Planner</span>
+            <h2 class="fw-extrabold text-navy mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Smart Fee & Eligibility Calculator</h2>
+            <p class="text-muted">Instantly estimate your tuition fees, check eligibility criteria, and evaluate admission status dynamically based on entrance rankings and categories.</p>
+        </div>
+
+        <div class="row justify-content-center" data-aos="fade-up">
+            <div class="col-lg-10">
+                <div class="glassmorphism p-4 p-md-5 rounded-4 shadow-lg border border-white-50 bg-white">
+                    <form id="fee-calculator-form">
+                        <div class="row g-4">
+                            <!-- Input Column -->
+                            <div class="col-md-6 border-end-md">
+                                <h5 class="fw-bold text-navy mb-4"><i class="bi bi-sliders text-primary me-2"></i>Select Parameters</h5>
+                                
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold text-navy mb-1">Target Academic Wing</label>
+                                    <select class="form-select shadow-none" id="calc-course" required>
+                                        <option value="" disabled selected>Select course...</option>
+                                        <option value="ug-cse">B.E. Computer Science (CSE)</option>
+                                        <option value="ug-aiml">B.E. CSE (AI & ML)</option>
+                                        <option value="ug-csd">B.E. Computer Science & Design</option>
+                                        <option value="ug-ece">B.E. Electronics & Communication</option>
+                                        <option value="ug-eee">B.E. Electrical & Electronics</option>
+                                        <option value="ug-me">B.E. Mechanical Engineering</option>
+                                        <option value="ug-ce">B.E. Civil Engineering</option>
+                                        <option value="pg-mba">MBA (Postgraduate)</option>
+                                        <option value="pg-mca">MCA (Postgraduate)</option>
+                                    </select>
+                                </div>
+
+                                <div class="mb-3">
+                                    <label class="form-label small fw-bold text-navy mb-1">Admission Quota / Seat Type</label>
+                                    <select class="form-select shadow-none" id="calc-quota" required>
+                                        <option value="" disabled selected>Select quota...</option>
+                                        <option value="kcet">KCET (Karnataka Govt Quota)</option>
+                                        <option value="comedk">COMEDK (All India Merit)</option>
+                                        <option value="pgcet">PGCET (PG Government Quota)</option>
+                                        <option value="management">Management Quota</option>
+                                    </select>
+                                </div>
+
+                                <div class="row g-2 mb-3">
+                                    <div class="col-6">
+                                        <label class="form-label small fw-bold text-navy mb-1">Candidate Category</label>
+                                        <select class="form-select shadow-none" id="calc-category" required>
+                                            <option value="GM" selected>GM / General</option>
+                                            <option value="OBC">OBC (Karnataka)</option>
+                                            <option value="SC_ST">SC / ST</option>
+                                        </select>
+                                    </div>
+                                    <div class="col-6">
+                                        <label class="form-label small fw-bold text-navy mb-1">Entrance Exam Rank</label>
+                                        <input type="number" class="form-control shadow-none" id="calc-rank" placeholder="e.g. 25000" min="1" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-check mb-4">
+                                    <input class="form-check-input shadow-none" type="checkbox" id="calc-hostel">
+                                    <label class="form-check-label small text-navy fw-semibold" for="calc-hostel">
+                                        Include Campus Hostel & Dining (+85,000 INR/Year)
+                                    </label>
+                                </div>
+
+                                <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-2">
+                                    Calculate Est. Fees & Eligibility <i class="bi bi-calculator ms-1"></i>
+                                </button>
+                            </div>
+
+                            <!-- Result Column -->
+                            <div class="col-md-6 d-flex flex-column justify-content-between">
+                                <div class="p-4 bg-primary-light rounded-3 border border-primary-subtle h-100 d-flex flex-column justify-content-between">
+                                    <div id="calculator-intro" class="text-center my-auto">
+                                        <i class="bi bi-wallet2 text-primary display-5 mb-3 d-block"></i>
+                                        <h6 class="fw-bold text-navy mb-2">Estimate Your Engineering Budget</h6>
+                                        <p class="text-muted small m-0">Select your parameters and click calculate to view eligibility details, estimated tuition fees, and admission odds.</p>
+                                    </div>
+
+                                    <div id="calculator-results" class="d-none">
+                                        <div class="d-flex justify-content-between align-items-center mb-3">
+                                            <h6 class="fw-bold text-navy m-0">Evaluation Summary</h6>
+                                            <span class="badge text-uppercase px-2.5 py-1.5" id="calc-result-badge">Eligible</span>
+                                        </div>
+
+                                        <div class="table-responsive bg-white rounded border p-2 mb-3">
+                                            <table class="table table-sm table-borderless mb-0 small">
+                                                <tbody>
+                                                    <tr>
+                                                        <td class="text-muted">Tuition Fee:</td>
+                                                        <td class="text-end fw-bold text-navy" id="res-tuition">0 INR</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">University & Exam Fee:</td>
+                                                        <td class="text-end fw-bold text-navy" id="res-uni">12,500 INR</td>
+                                                    </tr>
+                                                    <tr>
+                                                        <td class="text-muted">Lab & Library Maintenance:</td>
+                                                        <td class="text-end fw-bold text-navy" id="res-lab">15,000 INR</td>
+                                                    </tr>
+                                                    <tr class="border-top" id="res-hostel-row" style="display: none;">
+                                                        <td class="text-muted">Hostel & Messing:</td>
+                                                        <td class="text-end fw-bold text-navy" id="res-hostel">0 INR</td>
+                                                    </tr>
+                                                    <tr class="border-top table-light font-bold">
+                                                        <td class="text-navy fw-extrabold">Est. Total / Year:</td>
+                                                        <td class="text-end text-primary fw-extrabold fs-6" id="res-total">0 INR</td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </div>
+
+                                        <div class="p-3 bg-white rounded border">
+                                            <h6 class="fw-bold text-navy mb-1" style="font-size: 12px;"><i class="bi bi-exclamation-triangle-fill text-warning me-1"></i>Admission Odds & Advice</h6>
+                                            <p class="text-muted small m-0" id="res-odds-desc">
+                                                Based on your rank and category, you have excellent chances to secure a seat in this branch.
+                                            </p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <!-- Admissions Inquiry & Download Brochure Section -->
 <section id="inquiry-form" class="py-5 bg-light-slate">
     <div class="container">

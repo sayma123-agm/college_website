@@ -1,26 +1,29 @@
-<!-- Page Header Banner -->
-<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
-    <div class="container position-relative z-2 pt-4">
-        <div class="row">
-            <div class="col-12" data-aos="fade-right">
-                <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-2 text-white-50">
-                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item active text-white" aria-current="page">Student Portal</li>
-                    </ol>
-                </nav>
-                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Portal ERP</h1>
-                <p class="text-white-50 small m-0 mt-1">Access attendance, academic reports, and VTU circulars in one place.</p>
-            </div>
+<!-- Portal Branding Header -->
+<header class="py-3 px-4 bg-white border-bottom shadow-xs d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center gap-3">
+        <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" style="width: 50px; height: 50px; object-fit: contain;">
+        <div>
+            <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET Digital Campus</h5>
+            <p class="text-muted small m-0" style="font-size: 10px;">Managed by SDM Jainmatt Trust, Varur</p>
         </div>
     </div>
-    <div class="page-header-glow"></div>
-</section>
+    <a href="/" class="btn btn-outline-secondary btn-sm rounded-2 d-flex align-items-center gap-1.5 fw-semibold" style="font-size: 11px;">
+        <i class="bi bi-house-door"></i> Back to Website
+    </a>
+</header>
 
-<!-- ERP Main Section -->
-<section class="py-5 bg-light-slate">
-    <div class="container">
+<!-- ERP Main Section with Premium Glow Accents -->
+<section class="py-5 bg-light-slate position-relative overflow-hidden" style="min-height: calc(100vh - 80px);">
+    <!-- Background Blur Glows -->
+    <div class="position-absolute bg-primary-light opacity-30 rounded-circle" style="width: 350px; height: 350px; top: 5%; left: -100px; filter: blur(90px); pointer-events: none;"></div>
+    <div class="position-absolute bg-accent-light opacity-20 rounded-circle" style="width: 300px; height: 300px; bottom: 10%; right: -50px; filter: blur(90px); pointer-events: none;"></div>
+    
+    <!-- Dynamic Constellation Nodes Background -->
+    <canvas id="portal-particles" class="position-absolute top-0 start-0 w-100 h-100" style="pointer-events: none; z-index: 1;"></canvas>
+
+    <div class="container-fluid px-md-5 position-relative z-2">
         <!-- Login Stage -->
+<<<<<<< HEAD
         <div id="erp-login-section">
             <div class="text-center mb-5" data-aos="fade-down">
                 <span class="badge bg-primary text-white px-3 py-1 mb-2 text-uppercase tracking-wider fw-bold">Enterprise Portal</span>
@@ -55,9 +58,42 @@
                                 Login Student <i class="bi bi-box-arrow-in-right ms-1"></i>
                             </button>
                         </form>
+=======
+        <div class="row g-4 justify-content-center" id="erp-login-section">
+            <!-- Left Panel: 3 Card Gateway Directory (8 Cols) -->
+            <div class="col-lg-8" data-aos="fade-right">
+                <div class="mb-4">
+                    <span class="text-primary text-uppercase tracking-wider fw-bold small">ERP Ecosystem</span>
+                    <h3 class="fw-extrabold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Portal Directory Information</h3>
+                    <p class="text-muted small">Select your designated gateway from the categories below to initiate secure system authorization on the login console.</p>
+                </div>
+
+                <div class="row g-4">
+                    <!-- Card 1: Academic Wings -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--primary-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;">
+                                <i class="bi bi-book-half fs-4"></i>
+                            </div>
+                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Wings</h5>
+                            <p class="text-muted small mb-4">Gateways for student grade tracking, faculty curriculum boards, and HOD message boards.</p>
+                            
+                             <div class="d-flex flex-column gap-2 mt-auto">
+                                <a href="/portal/faculty" data-role="faculty" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-person-badge-fill text-primary me-2"></i>Faculty Portal</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                                <a href="/portal/hod" data-role="hod" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-award-fill text-primary me-2"></i>HOD Login</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                            </div>
+                        </div>
+>>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
                     </div>
                 </div>
 
+<<<<<<< HEAD
                 <!-- Faculty Login Card -->
                 <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
                     <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
@@ -226,6 +262,101 @@
                     </div>
                 </div>
             </div>
+=======
+                    <!-- Card 2: Office & Finance -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--success-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--success-color), #047857) !important;">
+                                <i class="bi bi-wallet2 fs-4"></i>
+                            </div>
+                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Office & Finance</h5>
+                            <p class="text-muted small mb-4">Gateways for physical registrar records, challans, scholarships, and term fee clearance.</p>
+                            
+                            <div class="d-flex flex-column gap-2 mt-auto">
+                                <a href="/portal/office" data-role="office" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-building-fill text-success me-2"></i>Office Section</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                                <a href="/portal/fee" data-role="fee" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-credit-card-fill text-success me-2"></i>Fee Section Login</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card 3: Executive Portals -->
+                    <div class="col-md-4">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--accent-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), #b45309) !important;">
+                                <i class="bi bi-shield-lock fs-4"></i>
+                            </div>
+                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Executive Portals</h5>
+                            <p class="text-muted small mb-4">Access for Principal supervision metrics and System Admin server statistics consoles.</p>
+                            
+                            <div class="d-flex flex-column gap-2 mt-auto">
+                                <a href="/portal/principal" data-role="principal" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-person-workspace text-dark me-2"></i>Principal Portal</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                                <a href="/portal/admin" data-role="admin" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-gear-fill text-dark me-2"></i>Admin Section</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Panel: Authorization Console Form (4 Cols) -->
+            <div class="col-lg-4" data-aos="fade-left">
+                <div class="glassmorphism p-4 p-md-5 rounded-4 shadow-lg border border-white-50 bg-white h-100 d-flex flex-column justify-content-between position-relative overflow-hidden" id="portal-auth-card" style="box-shadow: 0 15px 35px rgba(15, 43, 92, 0.06) !important;">
+                    <!-- Ribbon Accent Header -->
+                    <div class="position-absolute top-0 start-0 w-100" style="height: 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));"></div>
+                    
+                    <div>
+                        <div class="d-flex align-items-center gap-2 mb-3">
+                            <span class="badge bg-primary text-uppercase px-2.5 py-1" id="portal-selected-badge" style="font-size: 10px;">Student</span>
+                            <span class="text-success small d-flex align-items-center gap-1" style="font-size: 10px;">
+                                <span class="spinner-grow spinner-grow-sm text-success" role="status" style="width: 6px; height: 6px;"></span>
+                                SSL Secure
+                            </span>
+                        </div>
+                        <h4 class="fw-extrabold text-navy mb-2" id="portal-info-title" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Portal ERP</h4>
+                        <p class="text-muted small mb-4 leading-relaxed" id="portal-info-desc">Access your semester grade records, track attendance in real-time, view current CGPA progression, download syllabus guidelines, and access academic calendars.</p>
+                        
+                        <div id="login-error-alert" class="alert alert-danger d-none mb-3 small" role="alert"></div>
+
+                        <form id="erp-login-form">
+                            <div class="mb-3">
+                                <label for="erp-usn" id="username-label" class="form-label small fw-bold text-navy mb-1">University Seat Number (USN)</label>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-muted"></i></span>
+                                    <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light" id="erp-usn" placeholder="2AG22CS001" required>
+                                </div>
+                                <div class="form-text mt-2 text-navy-50" style="font-size: 10px; background-color: var(--primary-light); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(15, 43, 92, 0.08);">
+                                    <span id="hint-text">For demo, use USN: <strong>2AG22CS001</strong></span>
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-1">
+                                    <label for="erp-password" class="form-label small fw-bold text-navy m-0">Password</label>
+                                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-primary fw-bold text-decoration-none" style="font-size: 11px;">Forgot Password?</a>
+                                </div>
+                                <div class="input-group">
+                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
+                                    <input type="password" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="erp-password" placeholder="••••••••" required>
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-2 shadow-sm hover-scale" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;">
+                                Authenticate <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+>>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
         </div>
         <!-- Dashboard Stage (Hidden by default, shown via JS) -->
         <div class="d-none" id="erp-dashboard-section">
@@ -240,6 +371,22 @@
                         <button id="erp-logout-btn" class="btn btn-outline-danger btn-sm rounded-2 text-uppercase tracking-wider fw-bold">
                             Logout <i class="bi bi-box-arrow-right ms-1"></i>
                         </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HOD Announcement Broadcast Banner -->
+            <div class="row g-4 mb-4 d-none" id="erp-announcement-banner">
+                <div class="col-12">
+                    <div class="alert alert-warning border border-warning-subtle rounded-4 p-3 m-0 shadow-sm d-flex align-items-center justify-content-between">
+                        <div class="d-flex align-items-center gap-3">
+                            <div class="fs-4 text-warning"><i class="bi bi-megaphone-fill"></i></div>
+                            <div>
+                                <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">New HOD Broadcast Notice:</h6>
+                                <p class="text-muted small m-0" id="announcement-broadcast-text">Please submit your VTU elective registration sheets by Friday.</p>
+                            </div>
+                        </div>
+                        <button type="button" class="btn-close shadow-none btn-sm" onclick="document.getElementById('erp-announcement-banner').classList.add('d-none');"></button>
                     </div>
                 </div>
             </div>
@@ -260,14 +407,42 @@
                                 <p class="text-muted small m-0 mt-1">Classes: 168 / 200 | Min Req: 75%</p>
                             </div>
                         </div>
+                        
+                        <!-- Target CGPA Grade Predictor Card (V2) -->
                         <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-journal-check text-secondary me-2"></i>Current CGPA</h5>
-                            <div class="d-flex justify-content-between align-items-center mb-2">
-                                <h3 class="fw-extrabold text-navy m-0">8.42 / 10</h3>
-                                <span class="badge bg-primary">First Class</span>
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calculator-fill text-secondary me-2"></i>V2 Grade Predictor</h5>
+                            <div class="mb-3">
+                                <label for="pred-slider-ia" class="form-label small text-muted d-flex justify-content-between m-0 mb-1">
+                                    <span>Internal Marks (IA):</span>
+                                    <span class="fw-bold text-navy"><span id="pred-val-ia">35</span> / 40</span>
+                                </label>
+                                <input type="range" class="form-range shadow-none" min="15" max="40" value="35" id="pred-slider-ia">
                             </div>
-                            <div class="progress rounded-pill" style="height: 8px;">
-                                <div class="progress-bar bg-primary rounded-pill" style="width: 84%;"></div>
+                            <div class="mb-3">
+                                <label for="pred-slider-cgpa" class="form-label small text-muted d-flex justify-content-between m-0 mb-1">
+                                    <span>Target Semester GPA:</span>
+                                    <span class="fw-bold text-navy"><span id="pred-val-cgpa">8.5</span> / 10</span>
+                                </label>
+                                <input type="range" class="form-range shadow-none" min="6.0" max="10.0" step="0.1" value="8.5" id="pred-slider-cgpa">
+                            </div>
+                            <div class="p-2.5 bg-primary-light rounded border border-primary-subtle text-center">
+                                <span class="d-block text-muted small" style="font-size: 10px;">Required VTU Exam Score:</span>
+                                <h5 class="m-0 fw-extrabold text-primary"><span id="pred-val-required">78</span> / 100</h5>
+                            </div>
+                        </div>
+
+                        <!-- Academic Planner Calendar Widget (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calendar3-event text-warning me-2"></i>Upcoming Events</h5>
+                            <div class="list-group list-group-flush small" style="font-size: 11px;">
+                                <div class="list-group-item px-0 py-2">
+                                    <span class="badge bg-danger mb-1">July 20</span><br>
+                                    <strong class="text-navy">VTU Practical Exams</strong>
+                                </div>
+                                <div class="list-group-item px-0 py-2 border-0">
+                                    <span class="badge bg-primary mb-1">Aug 12</span><br>
+                                    <strong class="text-navy">Agratha Tech Fest 2026</strong>
+                                </div>
                             </div>
                         </div>
                     </div>
@@ -288,6 +463,19 @@
                                 </div>
                             </div>
                         </div>
+
+                        <!-- Notice Broadcaster Form (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-megaphone-fill text-warning me-2"></i>Broadcaster Console</h5>
+                            <form id="faculty-broadcast-form">
+                                <div class="mb-3">
+                                    <label class="form-label small text-muted mb-1">Broadcast message to students:</label>
+                                    <textarea class="form-control form-control-sm shadow-none" id="broadcast-message-input" rows="3" placeholder="Type announcement here..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Publish Notice <i class="bi bi-send ms-1"></i></button>
+                            </form>
+                            <div id="broadcast-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Notice Published!</div>
+                        </div>
                     </div>
 
                     <!-- Principal Panel Widgets -->
@@ -296,18 +484,26 @@
                             <h5 class="fw-bold text-navy mb-3"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Enrollment Summary</h5>
                             <div class="row g-2 text-center text-navy font-bold">
                                 <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block">UG Students</span>
+                                    <span class="text-muted small d-block" style="font-size: 10px;">UG Students</span>
                                     <h4 class="m-0 fw-bold">1,240</h4>
                                 </div>
                                 <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block">PG Students</span>
+                                    <span class="text-muted small d-block" style="font-size: 10px;">PG Students</span>
                                     <h4 class="m-0 fw-bold">280</h4>
                                 </div>
                             </div>
                         </div>
+<<<<<<< HEAD
                         <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
                             <h5 class="fw-bold text-navy mb-3"><i class="bi bi-pie-chart-fill text-success me-2"></i>Admission Distribution</h5>
                             <div style="height: 200px; position: relative;">
+=======
+
+                        <!-- Principal Chart Card (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-pie-chart text-success me-2"></i>Enrollment Split</h5>
+                            <div style="height: 180px; position: relative;">
+>>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
                                 <canvas id="principalChart"></canvas>
                             </div>
                         </div>
@@ -325,6 +521,26 @@
                                 <p class="text-muted small m-0">Fee Dues Clear: <span class="text-success fw-bold">Yes</span></p>
                             </div>
                         </div>
+
+                        <!-- Mentor Call Scheduler Form (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calendar-check text-info me-2"></i>Consultation Request</h5>
+                            <form id="parent-schedule-form">
+                                <div class="mb-2">
+                                    <label class="form-label small text-muted mb-0">Select Date:</label>
+                                    <input type="date" class="form-control form-control-sm shadow-none" id="sched-date" required>
+                                </div>
+                                <div class="mb-3">
+                                    <label class="form-label small text-muted mb-0">Select Slot:</label>
+                                    <select class="form-select form-select-sm shadow-none" id="sched-slot" required>
+                                        <option value="1">02:30 PM - 03:00 PM</option>
+                                        <option value="2">04:30 PM - 05:00 PM</option>
+                                    </select>
+                                </div>
+                                <button type="submit" class="btn btn-primary btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Book Slot <i class="bi bi-check2-circle ms-1"></i></button>
+                            </form>
+                            <div id="scheduler-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Slot Requested!</div>
+                        </div>
                     </div>
 
                     <!-- Fee Section Widgets -->
@@ -340,6 +556,14 @@
                                 <div class="progress" style="height: 6px;">
                                     <div class="progress-bar bg-success" style="width: 91%;"></div>
                                 </div>
+                            </div>
+                        </div>
+
+                        <!-- Fee Collection Chart (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-bar-chart-line text-info me-2"></i>Fee Collection Split</h5>
+                            <div style="height: 180px; position: relative;">
+                                <canvas id="feeChart"></canvas>
                             </div>
                         </div>
                     </div>
@@ -368,6 +592,7 @@
                         </div>
                     </div>
 
+<<<<<<< HEAD
                     <!-- Broadcast Panel Widgets -->
                     <div class="space-y-4 d-none" id="panel-broadcast-widgets">
                         <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
@@ -378,6 +603,49 @@
                                 </div>
                                 <h6 class="fw-bold mt-3 text-indigo" style="color: #6366f1 !important;">Gateway Online</h6>
                                 <p class="text-muted small m-0 mt-1">SMS limit: 98,542 / 100,000</p>
+=======
+                    <!-- HOD Panel Widgets -->
+                    <div class="space-y-4 d-none" id="panel-hod-widgets">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-bookmark-star-fill text-primary me-2"></i>Department Intake</h5>
+                            <div class="row g-2 text-center text-navy font-bold">
+                                <div class="col-6 bg-light p-3 rounded">
+                                    <span class="text-muted small d-block" style="font-size: 10px;">Sanctioned Seats</span>
+                                    <h4 class="m-0 fw-bold">120</h4>
+                                </div>
+                                <div class="col-6 bg-light p-3 rounded">
+                                    <span class="text-muted small d-block" style="font-size: 10px;">Admitted Slots</span>
+                                    <h4 class="m-0 fw-bold">114</h4>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- HOD Broadcast Notice Form (V2) -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-megaphone-fill text-warning me-2"></i>HOD Broadcast Console</h5>
+                            <form id="hod-broadcast-form">
+                                <div class="mb-3">
+                                    <label class="form-label small text-muted mb-1">Broadcast notice to department students:</label>
+                                    <textarea class="form-control form-control-sm shadow-none" id="hod-broadcast-message-input" rows="3" placeholder="Type HOD alert notice..." required></textarea>
+                                </div>
+                                <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Publish Notice <i class="bi bi-send ms-1"></i></button>
+                            </form>
+                            <div id="hod-broadcast-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Notice Published!</div>
+                        </div>
+                    </div>
+
+                    <!-- Office Panel Widgets -->
+                    <div class="space-y-4 d-none" id="panel-office-widgets">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-folder-fill text-primary me-2"></i>VTU Dispatch Logs</h5>
+                            <div class="list-group list-group-flush small" style="font-size: 11px;">
+                                <div class="list-group-item px-0 py-2">
+                                    <strong class="text-navy">July 10</strong> - Dispatched 120 CSE Hall Tickets to VTU
+                                </div>
+                                <div class="list-group-item px-0 py-2 border-0">
+                                    <strong class="text-navy">July 08</strong> - Registered 28 MCA PG applications
+                                </div>
+>>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
                             </div>
                         </div>
                     </div>
@@ -424,10 +692,46 @@
                     </div>
                 </div>
             </div>
-        </div>>
+        </div>
         </div>
     </div>
 </section>
 
+<!-- Forgot Password Modal -->
+<div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content border-0 glassmorphism shadow-2xl">
+            <div class="modal-header border-0 pb-0">
+                <h5 class="modal-title fw-bold text-navy text-uppercase tracking-wider" id="forgotPasswordModalLabel">Reset Passcode</h5>
+                <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body py-4">
+                <form id="forgot-password-form">
+                    <div class="mb-3">
+                        <label for="reset-username" class="form-label small fw-bold text-navy mb-1">Enter USN / ID Code</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-muted"></i></span>
+                            <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light" id="reset-username" placeholder="e.g. AGM-FAC-101" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="reset-email" class="form-label small fw-bold text-navy mb-1">Registered Recovery Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
+                            <input type="email" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="reset-email" placeholder="name@college.ac.in" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary w-100 py-2.5 text-uppercase tracking-wider fw-bold small rounded-2 mt-2" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;">
+                        Send Recovery Link <i class="bi bi-send ms-1"></i>
+                    </button>
+                </form>
+                <div id="reset-success-alert" class="alert alert-success d-none mt-3 small py-2 px-3 text-center" role="alert">
+                    Reset link has been dispatched to your registered email!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 <!-- Register Portal Script -->
-<script src="/js/portal.js" defer></script>
+<script src="/js/portal.js?v=2" defer></script>

@@ -98,7 +98,11 @@
     </div>
 
     <!-- Navbar Partial -->
+    {{#unless activePortal}}
     {{> navbar}}
+    <!-- Scroll Progress Indicator -->
+    <div id="scroll-progress"></div>
+    {{/unless}}
 
     <!-- Main Content -->
     <main id="main-content">
@@ -106,7 +110,9 @@
     </main>
 
     <!-- Footer Partial -->
+    {{#unless activePortal}}
     {{> footer}}
+    {{/unless}}
 
     <!-- CDNs Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
@@ -119,6 +125,63 @@
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    <!-- Global V2 AI Campus Assistant Chatbot -->
+    <div id="campus-chatbot-widget" class="position-fixed bottom-4 end-4 z-1000">
+        <!-- Chat Float Trigger Button -->
+        <button id="chatbot-toggle-btn" class="btn btn-primary rounded-circle p-0 shadow-lg d-flex align-items-center justify-content-center" style="width: 56px; height: 56px; border: 2px solid rgba(255, 255, 255, 0.2); cursor: pointer;">
+            <i class="bi bi-chat-dots-fill fs-4 m-0" id="chat-icon-opened"></i>
+            <i class="bi bi-x-lg fs-5 m-0 d-none" id="chat-icon-closed"></i>
+        </button>
+
+        <!-- Chat Panel -->
+        <div id="chatbot-panel" class="glassmorphism rounded-4 shadow-2xl border border-white-50 overflow-hidden d-none bg-white" style="width: 340px; height: 440px; position: absolute; bottom: 70px; right: 0;">
+            <!-- Header -->
+            <div class="bg-primary text-white p-3 d-flex align-items-center justify-content-between">
+                <div class="d-flex align-items-center gap-2">
+                    <div class="bg-white rounded-circle p-1 d-flex align-items-center justify-content-center" style="width: 32px; height: 32px;">
+                        <i class="bi bi-robot text-primary fs-6"></i>
+                    </div>
+                    <div>
+                        <h6 class="fw-bold m-0" style="font-size: 13px;">AGM Campus Guide</h6>
+                        <span class="small opacity-75 d-flex align-items-center gap-1" style="font-size: 10px;">
+                            <span class="spinner-grow spinner-grow-sm text-success" role="status" style="width: 6px; height: 6px;"></span>
+                            AI Assistant Online
+                        </span>
+                    </div>
+                </div>
+                <button type="button" class="btn btn-link text-white p-0 border-0 shadow-none" id="chatbot-close-btn" style="text-decoration: none; cursor: pointer;"><i class="bi bi-x-lg fs-6"></i></button>
+            </div>
+
+            <!-- Messages Area -->
+            <div id="chatbot-messages" class="p-3 overflow-y-auto" style="height: 310px; background-color: var(--bg-light-slate);">
+                <!-- Bot Welcome -->
+                <div class="d-flex align-items-start gap-2 mb-3">
+                    <div class="bg-primary text-white rounded-circle p-1 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; font-size: 10px;">
+                        <i class="bi bi-robot"></i>
+                    </div>
+                    <div class="bg-white rounded-3 p-2 border shadow-xs" style="max-width: 240px;">
+                        <p class="small m-0 text-navy" style="font-size: 11px;">Hello! I am your AGMRCET Campus Guide. How can I assist you today?</p>
+                    </div>
+                </div>
+
+                <!-- Quick actions buttons -->
+                <div class="quick-options-container d-flex flex-wrap gap-1.5 mb-3 ms-4">
+                    <button class="btn btn-outline-secondary btn-xs rounded-pill px-2.5 py-1 text-navy fw-semibold quick-chat-option" style="font-size: 10px; cursor: pointer;" data-query="Admissions Info">Admissions Info</button>
+                    <button class="btn btn-outline-secondary btn-xs rounded-pill px-2.5 py-1 text-navy fw-semibold quick-chat-option" style="font-size: 10px; cursor: pointer;" data-query="Engineering Courses">Engineering Courses</button>
+                    <button class="btn btn-outline-secondary btn-xs rounded-pill px-2.5 py-1 text-navy fw-semibold quick-chat-option" style="font-size: 10px; cursor: pointer;" data-query="Hostel Facilities">Hostel Facilities</button>
+                    <button class="btn btn-outline-secondary btn-xs rounded-pill px-2.5 py-1 text-navy fw-semibold quick-chat-option" style="font-size: 10px; cursor: pointer;" data-query="Training & Placements">Training & Placements</button>
+                    <button class="btn btn-outline-secondary btn-xs rounded-pill px-2.5 py-1 text-navy fw-semibold quick-chat-option" style="font-size: 10px; cursor: pointer;" data-query="Go to ERP Portal">Go to ERP Portal</button>
+                </div>
+            </div>
+
+            <!-- Footer Input -->
+            <form id="chatbot-input-form" class="p-2 border-top bg-white d-flex gap-2">
+                <input type="text" id="chatbot-input" class="form-control form-control-sm border shadow-none px-3 rounded-pill small" style="font-size: 11px;" placeholder="Type a message..." required>
+                <button type="submit" class="btn btn-primary btn-sm rounded-circle d-flex align-items-center justify-content-center p-0 border-0" style="width: 32px; height: 32px; cursor: pointer;"><i class="bi bi-send-fill" style="font-size: 11px;"></i></button>
+            </form>
+        </div>
+    </div>
+
     <!-- Custom Global JS -->
     <script src="/js/search.js"></script>
     <script src="/js/main.js"></script>
