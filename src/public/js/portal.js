@@ -551,15 +551,15 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Attach click listeners to gateway buttons
     document.querySelectorAll('#erp-login-section .gateway-select-btn').forEach(btn => {
-        btn.addEventListener('click', () => {
-            const role = btn.getAttribute('data-role');
-            switchPortalGateway(role);
-        });
+        // Standard href navigation will trigger page reload, loading new route
     });
 
     // Run initial gateway selection if login form exists
     if (loginForm) {
-        switchPortalGateway('faculty');
+        const pathParts = window.location.pathname.split('/');
+        const urlRole = pathParts[pathParts.length - 1];
+        const defaultRole = ['faculty', 'hod', 'office', 'fee', 'principal', 'admin'].includes(urlRole) ? urlRole : 'faculty';
+        switchPortalGateway(defaultRole);
     }
 
     // 1. Check if user is already logged in (session persistence)
