@@ -78,5 +78,35 @@ module.exports = {
             console.warn(`[DB WARNING] Failed to fetch news for category "${catId}", using mock fallback.`);
         }
         return newsData.filter(item => item.category.toLowerCase() === catId);
+    },
+    addNews: async (category, title, content) => {
+        const date = new Date().toISOString().slice(0, 10);
+        const newItem = {
+            id: newsData.length + 1,
+            category,
+            date,
+            title,
+            content,
+            isImportant: false
+        };
+        try {
+            await db.query('INSERT INTO news (category, date, title, content) VALUES (?, ?, ?, ?)', [category, date, title, content]);
+        } catch (err) {
+            console.warn('[DB WARNING] Failed to insert news, saving to in-memory fallback.');
+        }
+        newsData.unshift(newItem);
+        return newItem;
+    },
+    deleteNews: async (id) => {
+        try {
+            await db.query('DELETE FROM news WHERE id = ?', [id]);
+        } catch (err) {
+            console.warn('[DB WARNING] Failed to delete news from database.');
+        }
+        const index = newsData.findIndex(item => item.id == id);
+        if (index !== -1) {
+            newsData.splice(index, 1);
+        }
+        return true;
     }
 };

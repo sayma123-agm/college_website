@@ -9,106 +9,235 @@
                         <li class="breadcrumb-item active text-white" aria-current="page">Gallery</li>
                     </ol>
                 </nav>
-                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Media Gallery</h1>
-                <p class="text-white-50 small m-0 mt-1">Explore our campus landscape, events, and modern academic facilities.</p>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Poppins', sans-serif;">Media Hub & Gallery</h1>
+                <p class="text-white-50 small m-0 mt-1">Explore our campus landscape, academic blocks, drone footage, and 360° virtual tours.</p>
             </div>
         </div>
     </div>
     <div class="page-header-glow"></div>
 </section>
 
-<!-- Gallery Filter Controls -->
-<section class="py-4 bg-light-slate border-bottom border-light-subtle">
+<!-- Tabs Navigation & Media Filters -->
+<section class="py-5 bg-light-slate">
     <div class="container">
-        <div class="d-flex flex-wrap gap-2 justify-content-center" id="gallery-filter-buttons">
-            <button class="btn btn-sm btn-primary rounded-pill px-3 gallery-filter-btn active" data-filter="all">All Photos</button>
-            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="campus">Campus Landscape</button>
-            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="labs">Laboratories</button>
-            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="events">College Events</button>
-            <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="sports">Sports</button>
+        <!-- Main Media Tabs -->
+        <ul class="nav nav-pills justify-content-center mb-5 border-0 gap-3" id="galleryTabs" role="tablist" data-aos="fade-up">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-pill px-4 py-2 border fw-bold" id="photos-tab" data-bs-toggle="pill" data-bs-target="#photos-panel" type="button" role="tab" aria-controls="photos-panel" aria-selected="true">
+                    <i class="bi bi-images me-1"></i> Photo Album
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill px-4 py-2 border fw-bold" id="videos-tab" data-bs-toggle="pill" data-bs-target="#videos-panel" type="button" role="tab" aria-controls="videos-panel" aria-selected="false">
+                    <i class="bi bi-play-btn-fill me-1"></i> Video & Drone Footage
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill px-4 py-2 border fw-bold" id="virtual-tab" data-bs-toggle="pill" data-bs-target="#virtual-panel" type="button" role="tab" aria-controls="virtual-panel" aria-selected="false">
+                    <i class="bi bi-compass-fill me-1"></i> 360° Virtual Campus
+                </button>
+            </li>
+        </ul>
+
+        <!-- Tab Contents -->
+        <div class="tab-content" id="galleryTabsContent">
+            
+            <!-- Photo Album Panel -->
+            <div class="tab-pane fade show active" id="photos-panel" role="tabpanel" aria-labelledby="photos-tab">
+                <!-- Sub Filter controls for photos -->
+                <div class="d-flex flex-wrap gap-2 justify-content-center mb-5" data-aos="fade-up">
+                    <button class="btn btn-sm btn-primary rounded-pill px-3 gallery-filter-btn active" data-filter="all">All Photos</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="campus">Campus Landscape</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="labs">Laboratories</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="events">College Events</button>
+                    <button class="btn btn-sm btn-outline-secondary rounded-pill px-3 gallery-filter-btn" data-filter="sports">Sports</button>
+                </div>
+
+                <!-- Pinterest Masonry Layout Grid -->
+                <div class="masonry-grid-container" data-aos="fade-up">
+                    <div class="masonry-cols">
+                        <!-- Image 1 -->
+                        <div class="masonry-item gallery-item" data-category="campus">
+                            <a href="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=500&q=80" alt="Main Block Campus View" class="w-100 object-fit-cover" style="min-height: 250px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">Main Admin Block</h6>
+                                        <span class="text-white-50 text-xs">Campus Landscape</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Image 2 -->
+                        <div class="masonry-item gallery-item" data-category="labs">
+                            <a href="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=500&q=80" alt="Research Computing Lab" class="w-100 object-fit-cover" style="min-height: 380px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">CSE Cloud Laboratory</h6>
+                                        <span class="text-white-50 text-xs">Laboratories</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Image 3 -->
+                        <div class="masonry-item gallery-item" data-category="events">
+                            <a href="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500&q=80" alt="Graduation Ceremony" class="w-100 object-fit-cover" style="min-height: 280px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">Graduation Convocation</h6>
+                                        <span class="text-white-50 text-xs">College Events</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Image 4 -->
+                        <div class="masonry-item gallery-item" data-category="sports">
+                            <a href="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=500&q=80" alt="Basketball Court" class="w-100 object-fit-cover" style="min-height: 320px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">Basketball Field</h6>
+                                        <span class="text-white-50 text-xs">Sports</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Image 5 -->
+                        <div class="masonry-item gallery-item" data-category="campus">
+                            <a href="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=500&q=80" alt="Library Interiors" class="w-100 object-fit-cover" style="min-height: 400px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">Central Library Reading Room</h6>
+                                        <span class="text-white-50 text-xs">Campus Landscape</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                        <!-- Image 6 -->
+                        <div class="masonry-item gallery-item" data-category="events">
+                            <a href="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" class="glightbox d-block position-relative gallery-img-link" data-gallery="campus-gallery">
+                                <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="Smart India Hackathon Group" class="w-100 object-fit-cover" style="min-height: 270px;" loading="lazy">
+                                <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
+                                    <div>
+                                        <h6 class="fw-bold m-0 text-white">Student Coding Hackathon</h6>
+                                        <span class="text-white-50 text-xs">College Events</span>
+                                    </div>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Video & Drone Footage Panel -->
+            <div class="tab-pane fade" id="videos-panel" role="tabpanel" aria-labelledby="videos-tab">
+                <div class="row g-4 justify-content-center">
+                    <!-- Video 1 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden bg-white">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=600&q=80" alt="Drone Video Thumbnail" class="w-100 object-fit-cover" style="height: 220px;">
+                                <a href="https://assets.mixkit.co/videos/preview/mixkit-campus-of-a-large-university-from-above-4436-large.mp4" class="glightbox position-absolute top-50 start-50 translate-middle btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; padding: 0 !important;" data-gallery="videos">
+                                    <i class="bi bi-play-fill fs-2"></i>
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="fw-bold text-navy mb-2">AGMRCET Drone Campus Tour</h5>
+                                <p class="text-muted small m-0">A panoramic bird's-eye footage capturing our pollution-free 40-acre campus blocks and lush green surroundings near Navagraha Teertha.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 2 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden bg-white">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1540575467063-178a50c2df87?auto=format&fit=crop&w=600&q=80" alt="Auditorium Thumbnail" class="w-100 object-fit-cover" style="height: 220px;">
+                                <a href="https://assets.mixkit.co/videos/preview/mixkit-holding-a-smartphone-showing-a-graph-40552-large.mp4" class="glightbox position-absolute top-50 start-50 translate-middle btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; padding: 0 !important;" data-gallery="videos">
+                                    <i class="bi bi-play-fill fs-2"></i>
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="fw-bold text-navy mb-2">Annual Cultural Fest "Agratha" Highlights</h5>
+                                <p class="text-muted small m-0">Glimpses of multi-disciplinary student exhibitions, cultural dance activities, and technical project contest awards.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Video 3 -->
+                    <div class="col-lg-4 col-md-6">
+                        <div class="card h-100 border-0 shadow-sm overflow-hidden bg-white">
+                            <div class="position-relative">
+                                <img src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?auto=format&fit=crop&w=600&q=80" alt="Lab Thumbnail" class="w-100 object-fit-cover" style="height: 220px;">
+                                <a href="https://assets.mixkit.co/videos/preview/mixkit-data-center-server-racks-telecommunications-42358-large.mp4" class="glightbox position-absolute top-50 start-50 translate-middle btn btn-primary rounded-circle d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; padding: 0 !important;" data-gallery="videos">
+                                    <i class="bi bi-play-fill fs-2"></i>
+                                </a>
+                            </div>
+                            <div class="p-4">
+                                <h5 class="fw-bold text-navy mb-2">Academic Facilities & Labs Walkthrough</h5>
+                                <p class="text-muted small m-0">A detailed walk inside our high-performance CSE computing hubs, ECE VLSI software units, and mechanical workshop facilities.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 360° Virtual Campus Tour Panel -->
+            <div class="tab-pane fade" id="virtual-panel" role="tabpanel" aria-labelledby="virtual-tab">
+                <div class="card border-0 shadow-sm p-4 bg-white">
+                    <h4 class="fw-bold text-navy mb-3"><i class="bi bi-compass text-primary me-2"></i>360° Virtual Campus Navigation</h4>
+                    <p class="text-muted small mb-4">Use the interactive Google Maps Street View projection window below to tour our academic blocks, grounds, and entry hallways virtually.</p>
+                    
+                    <div class="ratio ratio-21x9 rounded-4 overflow-hidden border shadow-sm" style="min-height: 480px;">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3849.5298816785116!2d75.18342417578275!3d15.239012361139433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bb8df7dfaaaaaaf%3A0xea8c7e97d1e8ef95!2sAGMR%20College%20of%20Engineering%20and%20Technology!5e0!3m2!1sen!2sin!4v1720849200000!5m2!1sen!2sin" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </section>
 
-<!-- Gallery Grid Section -->
-<section class="py-5">
-    <div class="container">
-        <div class="row g-4" id="gallery-masonry-grid">
-            <!-- Image 1 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="campus" data-aos="fade-up">
-                <a href="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=500&q=80" alt="Main Block Campus View" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">Admin Block</h6>
-                            <span class="text-white-50 text-xs">Campus Landscape</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Image 2 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="labs" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=500&q=80" alt="Research Computing Lab" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">CSE Cloud Laboratory</h6>
-                            <span class="text-white-50 text-xs">Laboratories</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Image 3 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?auto=format&fit=crop&w=500&q=80" alt="Graduation Ceremony" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">Graduation Convocation</h6>
-                            <span class="text-white-50 text-xs">College Events</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Image 4 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="sports" data-aos="fade-up">
-                <a href="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1541252260730-0412e8e2108e?auto=format&fit=crop&w=500&q=80" alt="Basketball Court" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">Basketball Field</h6>
-                            <span class="text-white-50 text-xs">Sports</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Image 5 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="campus" data-aos="fade-up" data-aos-delay="100">
-                <a href="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1521587760476-6c12a4b040da?auto=format&fit=crop&w=500&q=80" alt="Library Interiors" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">Central Library Read Room</h6>
-                            <span class="text-white-50 text-xs">Campus Landscape</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-            <!-- Image 6 -->
-            <div class="col-lg-4 col-md-6 gallery-item" data-category="events" data-aos="fade-up" data-aos-delay="200">
-                <a href="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=1200&q=80" class="glightbox rounded-4 overflow-hidden shadow-sm d-block position-relative gallery-img-link" data-gallery="campus-gallery">
-                    <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?auto=format&fit=crop&w=500&q=80" alt="Smart India Hackathon Group" class="w-100 object-fit-cover" style="height: 250px;" loading="lazy">
-                    <div class="gallery-overlay position-absolute top-0 start-0 w-100 h-100 d-flex align-items-end p-3 text-white">
-                        <div>
-                            <h6 class="fw-bold m-0">Student Coding Hackathon</h6>
-                            <span class="text-white-50 text-xs">College Events</span>
-                        </div>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+<!-- Masonry layout CSS override helper -->
+<style>
+    .masonry-cols {
+        column-count: 3;
+        column-gap: 20px;
+        width: 100%;
+    }
+    @media (max-width: 991.98px) {
+        .masonry-cols {
+            column-count: 2;
+        }
+    }
+    @media (max-width: 575.98px) {
+        .masonry-cols {
+            column-count: 1;
+        }
+    }
+    .masonry-item {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        background-color: #ffffff;
+    }
+    .gallery-img-link {
+        overflow: hidden;
+        border-radius: 12px;
+        transition: transform 0.3s ease;
+    }
+    .gallery-img-link:hover {
+        transform: scale(1.02);
+    }
+    .gallery-overlay {
+        background: linear-gradient(to top, rgba(11, 61, 145, 0.9), transparent);
+        opacity: 0;
+        transition: opacity 0.3s ease;
+    }
+    .gallery-img-link:hover .gallery-overlay {
+        opacity: 1;
+    }
+</style>
 
 <!-- Filter Script -->
 <script>
@@ -129,20 +258,19 @@
                 items.forEach(item => {
                     const cat = item.getAttribute('data-category').toLowerCase();
                     if (filter === 'all' || cat === filter) {
-                        item.classList.remove('d-none');
-                        // Fade in animation trigger
+                        item.style.display = 'inline-block';
                         item.style.opacity = '0';
                         setTimeout(() => {
                             item.style.opacity = '1';
                         }, 50);
                     } else {
-                        item.classList.add('d-none');
+                        item.style.display = 'none';
                     }
                 });
             });
         });
 
-        // Initialize Lightbox
+        // Initialize Lightbox for both photos and video clips
         const lightbox = GLightbox({
             selector: '.glightbox',
             touchNavigation: true,

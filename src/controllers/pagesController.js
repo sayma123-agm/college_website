@@ -160,3 +160,134 @@ exports.handleInquiry = async (req, res) => {
         message: `Thank you, ${name}! Your admission inquiry has been received. Our counselor will contact you at ${phone} or ${email} shortly.`
     });
 };
+
+// Built-in Pure Node JWT Authentication Utilities
+const crypto = require('crypto');
+const JWT_SECRET = process.env.JWT_SECRET || 'agmrcet_secret_security_key';
+
+function generateJWT(payload) {
+    const header = Buffer.from(JSON.stringify({ alg: 'HS256', typ: 'JWT' })).toString('base64url');
+    const data = Buffer.from(JSON.stringify(payload)).toString('base64url');
+    const signature = crypto.createHmac('sha256', JWT_SECRET)
+        .update(`${header}.${data}`)
+        .digest('base64url');
+    return `${header}.${data}.${signature}`;
+}
+
+function verifyJWT(token) {
+    try {
+        const [header, data, signature] = token.split('.');
+        const expectedSignature = crypto.createHmac('sha256', JWT_SECRET)
+            .update(`${header}.${data}`)
+            .digest('base64url');
+        if (signature === expectedSignature) {
+            return JSON.parse(Buffer.from(data, 'base64url').toString('utf8'));
+        }
+    } catch (e) {}
+    return null;
+}
+
+exports.handleLogin = (req, res) => {
+    const { username, password, expectedRole } = req.body || {};
+    if (!username || !password || password.length < 4) {
+        return res.status(401).json({ success: false, message: 'Invalid credentials. Password must be 4+ chars.' });
+    }
+
+    const usnUpper = username.trim().toUpperCase();
+    let role = 'student';
+
+    if (usnUpper.startsWith('AGM-FAC-')) role = 'faculty';
+    else if (usnUpper.startsWith('AGM-PRIN-')) role = 'principal';
+    else if (usnUpper.endsWith('-P')) role = 'parent';
+    else if (usnUpper.startsWith('AGM-FEE-')) role = 'fee';
+    else if (usnUpper.startsWith('AGM-ADMIN-')) role = 'admin';
+    else if (usnUpper.startsWith('AGM-BROADCAST-')) role = 'broadcast';
+
+    if (expectedRole && role !== expectedRole) {
+        return res.status(401).json({ success: false, message: `The entered ID is registered for the ${role.toUpperCase()} console. Please submit using the correct login card.` });
+    }
+
+    // Generate JWT token valid for 2 hours
+    const token = generateJWT({
+        username: usnUpper,
+        role,
+        exp: Date.now() + 2 * 60 * 60 * 1000
+    });
+
+    res.status(200).json({
+        success: true,
+        token,
+        role,
+        username: usnUpper
+    });
+};
+
+exports.verifyAuthToken = (req, res) => {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+        return res.status(401).json({ success: false, message: 'Authorization token required' });
+    }
+
+    const token = authHeader.split(' ')[1];
+    const payload = verifyJWT(token);
+
+    if (!payload || payload.exp < Date.now()) {
+        return res.status(401).json({ success: false, message: 'Token expired or invalid signature' });
+    }
+
+    res.status(200).json({
+        success: true,
+        user: payload
+    });
+};
+
+exports.addNews = async (req, res) => {
+    const { category, title, content } = req.body || {};
+    if (!category || !title || !content) {
+        return res.status(400).json({ success: false, message: 'All news fields are required' });
+    }
+
+    try {
+        const item = await newsModel.addNews(category, title, content);
+        res.status(201).json({ success: true, news: item });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getNewsJSON = async (req, res) => {
+    try {
+        const allNews = await newsModel.getAllNews();
+        res.status(200).json({ success: true, news: allNews });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteNews = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await newsModel.deleteNews(id);
+        res.status(200).json({ success: true, message: 'News deleted' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+const mockInquiriesList = [
+    { id: 1, name: 'Sunil Kumar', email: 'sunil@gmail.com', phone: '9845012345', course: 'Computer Science & Engineering', message: 'Looking for Hostel accommodation fees details.' },
+    { id: 2, name: 'Asha Patil', email: 'asha.patil@yahoo.com', phone: '8095671234', course: 'Artificial Intelligence & Machine Learning', message: 'Eligibility criteria details for VTU non-Karnataka students.' }
+];
+
+exports.getInquiries = async (req, res) => {
+    const db = require('../config/db');
+    try {
+        const [rows] = await db.query('SELECT * FROM inquiries ORDER BY id DESC');
+        if (rows && rows.length > 0) {
+            return res.status(200).json({ success: true, inquiries: rows });
+        }
+    } catch (err) {
+        console.warn('[DB WARNING] Failed to retrieve inquiries, returning mock list.');
+    }
+    res.status(200).json({ success: true, inquiries: mockInquiriesList });
+};

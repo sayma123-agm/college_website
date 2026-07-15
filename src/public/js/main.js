@@ -256,6 +256,148 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
+
+    // 10. Accessibility Panel Event Listeners
+    const btnIncreaseFont = document.getElementById('btn-increase-font');
+    const btnDecreaseFont = document.getElementById('btn-decrease-font');
+    const btnResetFont = document.getElementById('btn-reset-font');
+    const btnContrastToggle = document.getElementById('btn-contrast-toggle');
+    const btnReadAloud = document.getElementById('btn-read-aloud');
+
+    let fontScale = parseFloat(localStorage.getItem('fontScale')) || 1.0;
+    document.documentElement.style.setProperty('--font-scale', fontScale);
+
+    if (btnIncreaseFont) {
+        btnIncreaseFont.addEventListener('click', () => {
+            if (fontScale < 1.4) {
+                fontScale += 0.1;
+                localStorage.setItem('fontScale', fontScale);
+                document.documentElement.style.setProperty('--font-scale', fontScale);
+            }
+        });
+    }
+
+    if (btnDecreaseFont) {
+        btnDecreaseFont.addEventListener('click', () => {
+            if (fontScale > 0.8) {
+                fontScale -= 0.1;
+                localStorage.setItem('fontScale', fontScale);
+                document.documentElement.style.setProperty('--font-scale', fontScale);
+            }
+        });
+    }
+
+    if (btnResetFont) {
+        btnResetFont.addEventListener('click', () => {
+            fontScale = 1.0;
+            localStorage.setItem('fontScale', fontScale);
+            document.documentElement.style.setProperty('--font-scale', fontScale);
+        });
+    }
+
+    // High Contrast Switch
+    if (localStorage.getItem('highContrast') === 'true') {
+        document.documentElement.classList.add('high-contrast');
+    }
+
+    if (btnContrastToggle) {
+        btnContrastToggle.addEventListener('click', () => {
+            const hasContrast = document.documentElement.classList.toggle('high-contrast');
+            localStorage.setItem('highContrast', hasContrast);
+        });
+    }
+
+    // Text to Speech Read Aloud helper
+    let speaking = false;
+    let utterance = null;
+
+    if (btnReadAloud) {
+        btnReadAloud.addEventListener('click', () => {
+            if (speaking) {
+                window.speechSynthesis.cancel();
+                speaking = false;
+                btnReadAloud.classList.remove('btn-danger');
+                btnReadAloud.classList.add('btn-light');
+                btnReadAloud.title = "Read Aloud Page Text";
+            } else {
+                const textToRead = document.getElementById('main-content')?.innerText || document.body.innerText;
+                utterance = new SpeechSynthesisUtterance(textToRead.slice(0, 1500)); // limit length
+                utterance.onend = () => {
+                    speaking = false;
+                    btnReadAloud.classList.remove('btn-danger');
+                    btnReadAloud.classList.add('btn-light');
+                };
+                window.speechSynthesis.speak(utterance);
+                speaking = true;
+                btnReadAloud.classList.remove('btn-light');
+                btnReadAloud.classList.add('btn-danger');
+                btnReadAloud.title = "Stop Reading";
+            }
+        });
+    }
+
+    // 11. Admissions Inquiry Form AJAX Submit
+    const inquiryForm = document.getElementById('online-inquiry-form');
+    const inquiryAlert = document.getElementById('inquiry-alert');
+    const inquirySubmitBtn = document.getElementById('inquiry-submit-btn');
+
+    if (inquiryForm) {
+        inquiryForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('inquiry-name').value;
+            const email = document.getElementById('inquiry-email').value;
+            const phone = document.getElementById('inquiry-phone').value;
+            const course = document.getElementById('inquiry-course').value;
+            const message = document.getElementById('inquiry-message').value;
+
+            if (inquirySubmitBtn) {
+                inquirySubmitBtn.disabled = true;
+                inquirySubmitBtn.innerHTML = 'Submitting Details... <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>';
+            }
+
+            fetch('/api/inquiry', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, email, phone, course, message })
+            })
+            .then(res => res.json())
+            .then(data => {
+                if (inquirySubmitBtn) {
+                    inquirySubmitBtn.disabled = false;
+                    inquirySubmitBtn.innerHTML = 'Submit Inquiry Details <i class="bi bi-chevron-right ms-1"></i>';
+                }
+                
+                if (data.success) {
+                    if (inquiryAlert) {
+                        inquiryAlert.innerText = `Thank you, ${name}! Your inquiry has been registered. Our counselor will call you back on ${phone}.`;
+                        inquiryAlert.classList.remove('d-none', 'alert-danger');
+                        inquiryAlert.classList.add('alert-success');
+                        inquiryForm.reset();
+                        window.scrollTo({ top: inquiryAlert.offsetTop - 120, behavior: 'smooth' });
+                    }
+                } else {
+                    if (inquiryAlert) {
+                        inquiryAlert.innerText = `Failed to submit inquiry: ${data.message || 'Error occurred.'}`;
+                        inquiryAlert.classList.remove('d-none', 'alert-success');
+                        inquiryAlert.classList.add('alert-danger');
+                    }
+                }
+            })
+            .catch(err => {
+                console.error(err);
+                if (inquirySubmitBtn) {
+                    inquirySubmitBtn.disabled = false;
+                    inquirySubmitBtn.innerHTML = 'Submit Inquiry Details <i class="bi bi-chevron-right ms-1"></i>';
+                }
+                if (inquiryAlert) {
+                    inquiryAlert.innerText = 'Server error. Please check database connection and try again.';
+                    inquiryAlert.classList.remove('d-none', 'alert-success');
+                    inquiryAlert.classList.add('alert-danger');
+                }
+            });
+        });
+    }
 });
 
 // ERP Smart Login Interactive Script

@@ -21,35 +21,212 @@
 <section class="py-5 bg-light-slate">
     <div class="container">
         <!-- Login Stage -->
-        <div class="row justify-content-center" id="erp-login-section">
-            <div class="col-lg-5" data-aos="zoom-in">
-                <div class="glassmorphism p-5 rounded-4 shadow-lg border border-white-50 bg-white">
-                    <div class="text-center mb-4">
-                        <div class="logo-circle bg-primary text-white p-3 rounded-circle d-inline-flex align-items-center justify-content-center mb-3 shadow-sm" style="width: 60px; height: 60px;">
-                            <i class="bi bi-shield-lock-fill fs-3"></i>
+        <div id="erp-login-section">
+            <div class="text-center mb-5" data-aos="fade-down">
+                <span class="badge bg-primary text-white px-3 py-1 mb-2 text-uppercase tracking-wider fw-bold">Enterprise Portal</span>
+                <h2 class="fw-extrabold text-navy display-6" style="font-family: 'Poppins', sans-serif;">AGMRCET Smart-ERP Ecosystem</h2>
+                <p class="text-muted small">Select your designated access console below and enter your credentials.</p>
+                <div id="login-error-alert" class="alert alert-danger d-none mx-auto col-md-6 mb-4 small" role="alert"></div>
+            </div>
+
+            <div class="row g-4 justify-content-center">
+                <!-- Student Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="100">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-success-light text-success p-2 rounded-3">
+                                <i class="bi bi-mortarboard-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Student Portal</h5>
+                                <span class="text-muted text-xs">Access attendance & marks</span>
+                            </div>
                         </div>
-                        <h4 class="fw-bold text-navy">AGMRCET Smart-ERP</h4>
-                        <p class="text-muted small">Enter your University Seat Number (USN) to sign in</p>
+                        <form class="erp-role-form" data-role="student">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">University Seat Number (USN)</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="2AG22CS001" value="2AG22CS001" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-success btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider">
+                                Login Student <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
                     </div>
+                </div>
 
-                    <div id="login-error-alert" class="alert alert-danger d-none mb-3 small" role="alert"></div>
+                <!-- Faculty Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="200">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-primary-light text-primary p-2 rounded-3">
+                                <i class="bi bi-person-badge-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Faculty Board</h5>
+                                <span class="text-muted text-xs">Enter marks & attendance</span>
+                            </div>
+                        </div>
+                        <form class="erp-role-form" data-role="faculty">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Faculty ID</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="AGM-FAC-101" value="AGM-FAC-101" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider">
+                                Login Faculty <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
 
-                    <form id="erp-login-form">
-                        <div class="mb-3">
-                            <label for="erp-usn" class="form-label small fw-bold text-navy mb-1">University Seat Number (USN)</label>
-                            <input type="text" class="form-control shadow-none rounded-2 text-uppercase" id="erp-usn" placeholder="2AG22CS001" required>
-                            <div class="form-text small" style="font-size: 10px;">For demo, use USN: <strong>2AG22CS001</strong></div>
+                <!-- Principal Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="300">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-dark text-white p-2 rounded-3" style="background-color: #0b2240 !important;">
+                                <i class="bi bi-award-fill fs-3 text-warning"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Principal Chief</h5>
+                                <span class="text-muted text-xs">Monitor & provision accounts</span>
+                            </div>
                         </div>
-                        <div class="mb-4">
-                            <label for="erp-password" class="form-label small fw-bold text-navy mb-1">Password</label>
-                            <input type="password" class="form-control shadow-none rounded-2" id="erp-password" placeholder="••••••••" required>
+                        <form class="erp-role-form" data-role="principal">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Principal ID</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="AGM-PRIN-001" value="AGM-PRIN-001" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-dark btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider" style="background-color: #0b2240 !important;">
+                                Login Principal <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Parent Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="400">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-warning-light text-warning p-2 rounded-3">
+                                <i class="bi bi-people-fill fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Parent Desk</h5>
+                                <span class="text-muted text-xs">Monitor ward's status</span>
+                            </div>
                         </div>
-                        <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-2">
-                            Authenticate <i class="bi bi-box-arrow-in-right ms-1"></i>
-                        </button>
-                    </form>
+                        <form class="erp-role-form" data-role="parent">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Registered Ward USN</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="2AG22CS001-P" value="2AG22CS001-P" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-warning btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider text-dark">
+                                Login Parent <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Fee Desk Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="500">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-info-light text-info p-2 rounded-3">
+                                <i class="bi bi-wallet2 fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Fee Desk</h5>
+                                <span class="text-muted text-xs">Verify remittances & receipts</span>
+                            </div>
+                        </div>
+                        <form class="erp-role-form" data-role="fee">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Fee Section ID</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="AGM-FEE-201" value="AGM-FEE-201" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-info btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider text-dark">
+                                Login Fee Desk <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Super Admin Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="600">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-danger-light text-danger p-2 rounded-3">
+                                <i class="bi bi-shield-fill-check fs-3"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Super Admin</h5>
+                                <span class="text-muted text-xs">System settings & News CMS</span>
+                            </div>
+                        </div>
+                        <form class="erp-role-form" data-role="admin">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Admin ID</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="AGM-ADMIN-999" value="AGM-ADMIN-999" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-danger btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider">
+                                Login Admin <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Broadcasting Login Card -->
+                <div class="col-lg-4 col-md-6" data-aos="zoom-in" data-aos-delay="700">
+                    <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all hover-shadow">
+                        <div class="d-flex align-items-center gap-3 mb-3 border-bottom pb-3">
+                            <div class="bg-indigo-light text-indigo p-2 rounded-3" style="background-color: rgba(99, 102, 241, 0.15) !important;">
+                                <i class="bi bi-megaphone-fill fs-3" style="color: #6366f1 !important;"></i>
+                            </div>
+                            <div>
+                                <h5 class="fw-bold text-navy m-0">Broadcasting Desk</h5>
+                                <span class="text-muted text-xs">Send circulars & SMS alerts</span>
+                            </div>
+                        </div>
+                        <form class="erp-role-form" data-role="broadcast">
+                            <div class="mb-2">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Broadcast Desk ID</label>
+                                <input type="text" class="form-control form-control-sm erp-username-input text-uppercase" placeholder="AGM-BROADCAST-888" value="AGM-BROADCAST-888" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label text-xs fw-bold text-navy mb-1">Password</label>
+                                <input type="password" class="form-control form-control-sm erp-password-input" placeholder="••••••••" value="password" required style="font-size: 12px; padding: 6px;">
+                            </div>
+                            <button type="submit" class="btn btn-indigo btn-sm w-100 py-2 fw-semibold rounded-2 text-uppercase tracking-wider" style="background-color: #6366f1 !important; border-color: #6366f1 !important; color: white !important;">
+                                Login Broadcast <i class="bi bi-box-arrow-in-right ms-1"></i>
+                            </button>
+                        </form>
+                    </div>
                 </div>
             </div>
+        </div>
         <!-- Dashboard Stage (Hidden by default, shown via JS) -->
         <div class="d-none" id="erp-dashboard-section">
             <div class="row g-4 mb-4">
@@ -128,6 +305,12 @@
                                 </div>
                             </div>
                         </div>
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-pie-chart-fill text-success me-2"></i>Admission Distribution</h5>
+                            <div style="height: 200px; position: relative;">
+                                <canvas id="principalChart"></canvas>
+                            </div>
+                        </div>
                     </div>
 
                     <!-- Parent Panel Widgets -->
@@ -181,6 +364,20 @@
                                         <strong>2.4x Saved</strong>
                                     </div>
                                 </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Broadcast Panel Widgets -->
+                    <div class="space-y-4 d-none" id="panel-broadcast-widgets">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-broadcast text-primary me-2"></i>Gateway Status</h5>
+                            <div class="text-center py-3">
+                                <div class="progress-ring-circle d-inline-flex align-items-center justify-content-center rounded-circle border border-5 border-indigo mx-auto" style="width: 100px; height: 100px; border-color: #6366f1 !important;">
+                                    <h2 class="fw-extrabold text-navy m-0">1.8K</h2>
+                                </div>
+                                <h6 class="fw-bold mt-3 text-indigo" style="color: #6366f1 !important;">Gateway Online</h6>
+                                <p class="text-muted small m-0 mt-1">SMS limit: 98,542 / 100,000</p>
                             </div>
                         </div>
                     </div>

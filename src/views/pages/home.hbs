@@ -7,8 +7,7 @@
     <div class="hero-video-overlay position-absolute top-0 start-0 w-100 h-100 z-0">
         <!-- Overlay backdrop for readability -->
         <div class="video-shade position-absolute w-100 h-100 top-0 start-0"></div>
-        <!-- We use an elegant high-quality royalty-free video as drone footage -->
-        <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover opacity-30">
+        <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover opacity-25">
             <source src="https://assets.mixkit.co/videos/preview/mixkit-campus-of-a-large-university-from-above-4436-large.mp4" type="video/mp4">
         </video>
     </div>
@@ -19,26 +18,27 @@
 
     <!-- Hero Content -->
     <div class="container position-relative z-2 py-5 mt-5">
-        <div class="row align-items-center justify-content-between">
-            <div class="col-lg-8" data-aos="fade-right">
+        <div class="row align-items-center g-5">
+            <!-- Left Pane: Copywriting and CTA -->
+            <div class="col-lg-7 text-start" data-aos="fade-right">
                 <!-- Accreditation Compliance Indicators -->
                 <div class="d-flex flex-wrap gap-2 mb-3">
-                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px;">
+                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px; color: #0B3D91;">
                         <i class="bi bi-patch-check-fill text-primary me-1"></i> VTU Affiliated
                     </span>
-                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px;">
+                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px; color: #0B3D91;">
                         <i class="bi bi-patch-check-fill text-primary me-1"></i> AICTE Approved
                     </span>
-                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px;">
+                    <span class="badge bg-white text-navy border border-primary-subtle text-uppercase tracking-wider fw-bold px-3 py-2 rounded-1 shadow-sm small" style="font-size: 10px; color: #0B3D91;">
                         <i class="bi bi-patch-check-fill text-primary me-1"></i> UGC 2(f) Status
                     </span>
                 </div>
                 <span class="badge bg-accent text-dark text-uppercase tracking-wider fw-bold px-3 py-2 mb-3 rounded-pill shadow-sm">Welcome to AGMRCET Varur</span>
-                <h1 class="display-3 fw-extrabold tracking-tight mb-3 hero-title" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                <h1 class="display-4 fw-extrabold tracking-tight mb-3 hero-title" style="font-family: 'Plus Jakarta Sans', sans-serif; line-height: 1.2;">
                     Shaping Engineers,<br>
                     <span class="text-gradient"><span id="typed-text"></span></span>
                 </h1>
-                <p class="lead text-white-80 mb-5 fs-5 max-w-600">
+                <p class="lead text-white-80 mb-4 fs-6 max-w-600">
                     A premier institution under SDM Jainmatt Trust, fostering academic excellence, industry integration, and innovative research to engineer a better tomorrow.
                 </p>
                 <div class="d-flex flex-wrap gap-3">
@@ -50,12 +50,68 @@
                     </a>
                 </div>
             </div>
+
+            <!-- Right Pane: Interactive Premium Quick Actions Card -->
+            <div class="col-lg-5" data-aos="fade-left">
+                <div class="glassmorphism p-4 rounded-4 shadow-lg border border-white-10 text-white bg-opacity-10" style="background: rgba(255, 255, 255, 0.08); backdrop-filter: blur(16px);">
+                    <div class="border-bottom border-white-10 pb-3 mb-3">
+                        <div class="d-flex align-items-center gap-2">
+                            <span class="w-3 h-3 rounded-circle bg-success animate-ping"></span>
+                            <span class="small uppercase fw-bold tracking-wider text-accent">Admissions & Portal Hub</span>
+                        </div>
+                        <h4 class="fw-bold m-0 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Quick Navigation</h4>
+                    </div>
+
+                    <div class="d-flex flex-column gap-3">
+                        <!-- Navigation Item 1 -->
+                        <a href="/admissions" class="d-flex align-items-center justify-content-between p-3 rounded bg-white bg-opacity-5 hover-bg-opacity-10 text-decoration-none text-white border border-white-5 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-file-earmark-text text-accent fs-4"></i>
+                                <div>
+                                    <h6 class="fw-bold m-0" style="font-size: 14px;">Online Admission Query</h6>
+                                    <span class="text-white-50" style="font-size: 11px;">Register for academic year 2026</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right text-accent"></i>
+                        </a>
+
+                        <!-- Navigation Item 2 -->
+                        <a href="/departments" class="d-flex align-items-center justify-content-between p-3 rounded bg-white bg-opacity-5 hover-bg-opacity-10 text-decoration-none text-white border border-white-5 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-cpu text-info fs-4"></i>
+                                <div>
+                                    <h6 class="fw-bold m-0" style="font-size: 14px;">Academic Departments</h6>
+                                    <span class="text-white-50" style="font-size: 11px;">CSE, ECE, Civil, Mech, and AI&DS</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right text-info"></i>
+                        </a>
+
+                        <!-- Navigation Item 3 -->
+                        <a href="/portal" class="d-flex align-items-center justify-content-between p-3 rounded bg-white bg-opacity-5 hover-bg-opacity-10 text-decoration-none text-white border border-white-5 transition-all">
+                            <div class="d-flex align-items-center gap-3">
+                                <i class="bi bi-shield-lock text-success fs-4"></i>
+                                <div>
+                                    <h6 class="fw-bold m-0" style="font-size: 14px;">Smart ERP Logins</h6>
+                                    <span class="text-white-50" style="font-size: 11px;">Access student, faculty & principal desks</span>
+                                </div>
+                            </div>
+                            <i class="bi bi-chevron-right text-success"></i>
+                        </a>
+                    </div>
+
+                    <div class="mt-3 p-3 rounded border border-warning-subtle bg-warning bg-opacity-10">
+                        <small class="d-block text-warning fw-bold"><i class="bi bi-info-circle-fill me-1"></i>Important Notice</small>
+                        <p class="m-0 text-white-50 small mt-1" style="font-size: 11px;">VTU End-Semester Exams starts from 20th July. Download hall tickets from the ERP desk.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 
     <!-- Scroll Down Mouse Indicator -->
     <div class="scroll-indicator position-absolute bottom-4 start-50 translate-middle-x z-2">
-        <a href="#stats-section" class="text-white opacity-75 hover-opacity-100 transition-all text-decoration-none">
+        <a href="#marquee-section" class="text-white opacity-75 hover-opacity-100 transition-all text-decoration-none">
             <div class="mouse-scroll mb-2">
                 <span class="mouse-wheel"></span>
             </div>
@@ -64,47 +120,62 @@
     </div>
 </section>
 
+<!-- Continuous Accreditation Rolling Marquee -->
+<div id="marquee-section" class="py-3 bg-navy text-white overflow-hidden border-top border-bottom border-white-10">
+    <div class="d-flex align-items-center justify-content-around flex-wrap gap-4 px-4 text-center">
+        <span class="small fw-bold tracking-widest text-uppercase text-white-50">VTU Affiliated</span>
+        <span class="text-accent">•</span>
+        <span class="small fw-bold tracking-widest text-uppercase text-white-50">AICTE Approved</span>
+        <span class="text-accent">•</span>
+        <span class="small fw-bold tracking-widest text-uppercase text-white-50">UGC 2(f) Recognized Status</span>
+        <span class="text-accent">•</span>
+        <span class="small fw-bold tracking-widest text-uppercase text-white-50">SDM Jainmatt Trust Initiative</span>
+        <span class="text-accent">•</span>
+        <span class="small fw-bold tracking-widest text-uppercase text-white-50">State of the Art Facilities</span>
+    </div>
+</div>
+
 <!-- Animated Statistics Section -->
-<section id="stats-section" class="py-5 bg-light-slate position-relative overflow-hidden border-bottom border-top border-light-subtle">
+<section id="stats-section" class="py-5 bg-light-slate position-relative overflow-hidden border-bottom border-light-subtle">
     <div class="container position-relative z-2">
         <div class="row g-4 text-center">
             <!-- Stat Item 1 -->
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="100">
-                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50">
-                    <div class="stat-icon-wrapper bg-primary-light text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                        <i class="bi bi-people-fill fs-3"></i>
+                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50 bg-white">
+                    <div class="stat-icon-wrapper bg-primary-light text-primary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: var(--primary-light);">
+                        <i class="bi bi-people-fill fs-3" style="color: var(--primary-color);"></i>
                     </div>
-                    <h2 class="fw-extrabold text-navy display-6 mb-1 count-number" data-target="4000">0</h2>
+                    <h2 class="fw-extrabold text-navy display-6 mb-1 count-number" data-target="4000" style="color: var(--primary-color);">0</h2>
                     <p class="text-muted fw-semibold small m-0 text-uppercase tracking-wider">Students Enrolled</p>
                 </div>
             </div>
             <!-- Stat Item 2 -->
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="200">
-                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50">
-                    <div class="stat-icon-wrapper bg-secondary-light text-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                        <i class="bi bi-person-workspace fs-3"></i>
+                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50 bg-white">
+                    <div class="stat-icon-wrapper bg-secondary-light text-secondary rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: var(--secondary-light);">
+                        <i class="bi bi-person-workspace fs-3" style="color: var(--secondary-color);"></i>
                     </div>
-                    <h2 class="fw-extrabold text-navy display-6 mb-1 count-number" data-target="250">0</h2>
+                    <h2 class="fw-extrabold text-navy display-6 mb-1 count-number" data-target="250" style="color: var(--primary-color);">0</h2>
                     <p class="text-muted fw-semibold small m-0 text-uppercase tracking-wider">Expert Faculty</p>
                 </div>
             </div>
             <!-- Stat Item 3 -->
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="300">
-                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50">
-                    <div class="stat-icon-wrapper bg-accent-light text-accent rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                        <i class="bi bi-building-fill fs-3"></i>
+                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50 bg-white">
+                    <div class="stat-icon-wrapper bg-accent-light text-accent rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: var(--accent-light);">
+                        <i class="bi bi-building-fill fs-3" style="color: var(--accent-color);"></i>
                     </div>
-                    <h2 class="fw-extrabold text-navy display-6 mb-1"><span class="count-number" data-target="9">0</span>+</h2>
+                    <h2 class="fw-extrabold text-navy display-6 mb-1" style="color: var(--primary-color);"><span class="count-number" data-target="9">0</span>+</h2>
                     <p class="text-muted fw-semibold small m-0 text-uppercase tracking-wider">Academic Depts</p>
                 </div>
             </div>
             <!-- Stat Item 4 -->
             <div class="col-lg-3 col-md-6" data-aos="zoom-in" data-aos-delay="400">
-                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50">
-                    <div class="stat-icon-wrapper bg-success-light text-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px;">
-                        <i class="bi bi-trophy-fill fs-3"></i>
+                <div class="stat-card glassmorphism p-4 rounded-4 shadow-sm h-100 border border-white-50 bg-white">
+                    <div class="stat-icon-wrapper bg-success-light text-success rounded-circle mx-auto mb-3 d-flex align-items-center justify-content-center" style="width: 60px; height: 60px; background-color: var(--success-light);">
+                        <i class="bi bi-trophy-fill fs-3" style="color: var(--success-color);"></i>
                     </div>
-                    <h2 class="fw-extrabold text-navy display-6 mb-1"><span class="count-number" data-target="90">0</span>%</h2>
+                    <h2 class="fw-extrabold text-navy display-6 mb-1" style="color: var(--primary-color);"><span class="count-number" data-target="90">0</span>%</h2>
                     <p class="text-muted fw-semibold small m-0 text-uppercase tracking-wider">Placement Rate</p>
                 </div>
             </div>
@@ -112,8 +183,54 @@
     </div>
 </section>
 
+<!-- Core Excellence Pillars -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
+            <span class="text-primary text-uppercase tracking-wider fw-bold small">AGMRCET Pillars</span>
+            <h2 class="fw-extrabold text-navy mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0B3D91;">Pillars of Institutional Excellence</h2>
+            <p class="text-muted">Discover our targeted approach to building highly skilled engineering practitioners.</p>
+        </div>
+
+        <div class="row g-4">
+            <!-- Pillar 1 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-start hover-translate bg-light-slate">
+                    <div class="fs-1 text-primary mb-3"><i class="bi bi-book-half"></i></div>
+                    <h5 class="fw-bold text-navy mb-2">Rigorous Academics</h5>
+                    <p class="text-muted small mb-0">Affiliated to VTU with strict compliance to syllabus guidelines, enhanced with modern laboratory electives.</p>
+                </div>
+            </div>
+            <!-- Pillar 2 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-start hover-translate bg-light-slate">
+                    <div class="fs-1 text-success mb-3"><i class="bi bi-briefcase-fill"></i></div>
+                    <h5 class="fw-bold text-navy mb-2">Global Placements</h5>
+                    <p class="text-muted small mb-0">Placement training programs in coding and communications, welcoming premium tech firms on campus.</p>
+                </div>
+            </div>
+            <!-- Pillar 3 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-start hover-translate bg-light-slate">
+                    <div class="fs-1 text-warning mb-3"><i class="bi bi-cpu-fill"></i></div>
+                    <h5 class="fw-bold text-navy mb-2">Innovation & R&D</h5>
+                    <p class="text-muted small mb-0">Dedicated center for prototyping, patenting guidelines support, and national hackathon participation.</p>
+                </div>
+            </div>
+            <!-- Pillar 4 -->
+            <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+                <div class="card h-100 border-0 shadow-sm rounded-4 p-4 text-start hover-translate bg-light-slate">
+                    <div class="fs-1 text-info mb-3"><i class="bi bi-tree-fill"></i></div>
+                    <h5 class="fw-bold text-navy mb-2">Green Infrastructure</h5>
+                    <p class="text-muted small mb-0">A scenic, pollution-free 40-acre campus near Navagraha Teertha offering a peaceful learning atmosphere.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
 <!-- About AGMRCET Section -->
-<section class="py-5 position-relative">
+<section class="py-5 position-relative bg-light-slate">
     <div class="container">
         <div class="row align-items-center g-5">
             <!-- About Image Layout with floating elements -->
@@ -123,7 +240,7 @@
                         <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?auto=format&fit=crop&w=800&q=80" alt="AGMRCET Main Building" class="img-fluid w-100 object-fit-cover" style="height: 450px;">
                     </div>
                     <!-- Absolute glass banner -->
-                    <div class="about-floating-glass glassmorphism p-4 rounded-3 shadow-lg border border-white-10 position-absolute bottom-4 start-0 max-w-300">
+                    <div class="about-floating-glass glassmorphism p-4 rounded-3 shadow-lg border border-white-10 position-absolute bottom-4 start-0 max-w-300 bg-white">
                         <h6 class="fw-bold text-navy m-0"><i class="bi bi-check-circle-fill text-accent me-2"></i>SDM Jainmatt Trust</h6>
                         <p class="text-muted small m-0 mt-1">Nurturing ethical education and holistic development since inception.</p>
                     </div>
@@ -133,14 +250,14 @@
             <!-- About Information -->
             <div class="col-lg-6" data-aos="fade-left">
                 <span class="text-primary text-uppercase tracking-wider fw-bold small">Who We Are</span>
-                <h2 class="fw-extrabold text-navy mt-2 mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Inspiring Innovation, Igniting Minds</h2>
+                <h2 class="fw-extrabold text-navy mt-2 mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0B3D91;">Inspiring Innovation, Igniting Minds</h2>
                 <p class="text-muted mb-4 fs-6">
                     AGM Rural College of Engineering & Technology (AGMRCET) is established at Varur, near Hubli, under the vision of Paramapujya Rastrasanta 108 Acharya Sri Gunadharanandi Maharaj. We believe in providing value-based education that combines intensive curriculum study with practical lab exploration.
                 </p>
                 <div class="row g-3 mb-4">
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center">
-                            <i class="bi bi-patch-check-fill text-accent fs-4 me-3"></i>
+                            <i class="bi bi-patch-check-fill text-accent fs-4 me-3" style="color: var(--accent-color);"></i>
                             <div>
                                 <h6 class="fw-bold text-navy mb-0">VTU Affiliated</h6>
                                 <span class="text-muted small">Standard curriculum</span>
@@ -149,7 +266,7 @@
                     </div>
                     <div class="col-sm-6">
                         <div class="d-flex align-items-center">
-                            <i class="bi bi-patch-check-fill text-accent fs-4 me-3"></i>
+                            <i class="bi bi-patch-check-fill text-accent fs-4 me-3" style="color: var(--accent-color);"></i>
                             <div>
                                 <h6 class="fw-bold text-navy mb-0">AICTE Approved</h6>
                                 <span class="text-muted small">Recognized degrees</span>
@@ -167,182 +284,13 @@
     </div>
 </section>
 
-<!-- Why Choose AGMRCET Section -->
-<section class="py-5 bg-light-slate position-relative overflow-hidden">
-    <div class="container position-relative z-2">
-        <div class="text-center mb-5 max-w-600 mx-auto" data-aos="fade-up">
-            <span class="text-primary text-uppercase tracking-wider fw-bold small">Why AGMRCET</span>
-            <h2 class="fw-extrabold text-navy mt-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">The Catalyst for Your Engineering Career</h2>
-            <p class="text-muted">Explore the core advantages and learning ecosystem that set us apart from ordinary colleges.</p>
-        </div>
-
-        <div class="row g-4">
-            <!-- Feature Card 1 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-primary text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-briefcase fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Excellent Placements</h5>
-                    <p class="text-muted small mb-0">Dedicated training & placement cell preparing students for Day-1 industry ready skills, attracting recruiters like TCS, Capgemini, and Infosys.</p>
-                </div>
-            </div>
-            <!-- Feature Card 2 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-secondary text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-cpu fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Modern Laboratories</h5>
-                    <p class="text-muted small mb-0">High-performance computers, IoT setups, VLSI trainers, and machinery kits providing hands-on training to students.</p>
-                </div>
-            </div>
-            <!-- Feature Card 3 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-accent text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-person-check fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Experienced Faculty</h5>
-                    <p class="text-muted small mb-0">Professors with years of teaching and industrial backgrounds, guiding students through academic research and projects.</p>
-                </div>
-            </div>
-            <!-- Feature Card 4 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="400">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-success text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-journal-check fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Scholarships & Support</h5>
-                    <p class="text-muted small mb-0">Financial assistance options for merit-holders and under-privileged students. Comprehensive career mentoring.</p>
-                </div>
-            </div>
-            <!-- Feature Card 5 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="500">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-warning text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-lightbulb fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Innovation & Hackathons</h5>
-                    <p class="text-muted small mb-0">Active incubation cell that supports prototyping and guides students to register patents and participate in national hackathons.</p>
-                </div>
-            </div>
-            <!-- Feature Card 6 -->
-            <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="600">
-                <div class="feature-card glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100 transition-all hover-translate">
-                    <div class="feature-icon bg-info text-white rounded-3 mb-4 d-flex align-items-center justify-content-center" style="width: 50px; height: 50px;">
-                        <i class="bi bi-tree fs-4"></i>
-                    </div>
-                    <h5 class="fw-bold text-navy mb-3">Lush Serene Campus</h5>
-                    <p class="text-muted small mb-0">Spread across a scenic 40-acre campus near Navagraha Teertha, offering an environment free of pollution and distractions.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- ERP Smart Ecosystem Login Section -->
-<section id="erp-login-section" class="py-12 bg-white relative overflow-hidden">
-    <div class="container mx-auto px-4">
-        <div class="text-center mb-10 max-w-2xl mx-auto" data-aos="fade-up">
-            <span class="text-primary font-bold uppercase tracking-wider text-xs px-3 py-1 bg-blue-50 border border-blue-100 rounded-full">Digital Governance</span>
-            <h2 class="text-3xl font-extrabold text-navy mt-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Smart ERP Ecosystem</h2>
-            <p class="text-gray-500 mt-2">Access college records, performance trackers, fee modules, and governance channels instantly via unified role-based portals.</p>
-        </div>
-
-        <div class="max-w-4xl mx-auto bg-white rounded-2xl shadow-xl border border-gray-100 p-6 md:p-8" data-aos="fade-up" data-aos-delay="100">
-            <!-- Tabs Navigation -->
-            <div class="flex flex-wrap justify-between border-b border-gray-200 pb-3 gap-2">
-                <button type="button" onclick="switchErpTab('student')" id="tab-student" class="erp-tab-btn flex-1 py-3 px-2 text-center font-bold text-sm tracking-wide border-b-2 border-primary text-primary transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-people-fill text-lg"></i> Student
-                </button>
-                <button type="button" onclick="switchErpTab('faculty')" id="tab-faculty" class="erp-tab-btn flex-1 py-3 px-2 text-center font-semibold text-gray-500 text-sm tracking-wide border-b-2 border-transparent hover:text-navy transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-person-badge-fill text-lg"></i> Faculty
-                </button>
-                <button type="button" onclick="switchErpTab('principal')" id="tab-principal" class="erp-tab-btn flex-1 py-3 px-2 text-center font-semibold text-gray-500 text-sm tracking-wide border-b-2 border-transparent hover:text-navy transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-award-fill text-lg"></i> Principal
-                </button>
-                <button type="button" onclick="switchErpTab('parent')" id="tab-parent" class="erp-tab-btn flex-1 py-3 px-2 text-center font-semibold text-gray-500 text-sm tracking-wide border-b-2 border-transparent hover:text-navy transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-heart-fill text-lg"></i> Parent
-                </button>
-                <button type="button" onclick="switchErpTab('fee')" id="tab-fee" class="erp-tab-btn flex-1 py-3 px-2 text-center font-semibold text-gray-500 text-sm tracking-wide border-b-2 border-transparent hover:text-navy transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-credit-card-fill text-lg"></i> Fee Section
-                </button>
-                <button type="button" onclick="switchErpTab('admin')" id="tab-admin" class="erp-tab-btn flex-1 py-3 px-2 text-center font-semibold text-gray-500 text-sm tracking-wide border-b-2 border-transparent hover:text-navy transition-all flex items-center justify-center gap-2 cursor-pointer">
-                    <i class="bi bi-gear-fill text-lg"></i> Admin
-                </button>
-            </div>
-
-            <!-- Login Form Area -->
-            <div class="mt-8">
-                <form id="erp-login-form" onsubmit="handleErpSubmit(event)" class="space-y-6">
-                    <input type="hidden" id="selected-role" name="role" value="student">
-                    
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <!-- Left Panel: Form fields -->
-                        <div class="space-y-4">
-                            <div>
-                                <label id="username-label" class="block text-xs font-bold uppercase tracking-wider text-navy mb-2">Student USN / ID</label>
-                                <div class="relative">
-                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="bi bi-person-vcard text-lg"></i></span>
-                                    <input type="text" id="erp-username" required class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg text-navy bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-blue-100 transition-all font-medium text-sm shadow-sm" placeholder="e.g. 2AG22CS001">
-                                </div>
-                                <p id="hint-text" class="text-xs text-gray-400 mt-2 italic">Hint: Try USN "2AG22CS001" to log in instantly</p>
-                            </div>
-                            
-                            <div>
-                                <label class="block text-xs font-bold uppercase tracking-wider text-navy mb-2">Secure Passcode</label>
-                                <div class="relative">
-                                    <span class="absolute inset-y-0 left-0 pl-3 flex items-center text-gray-400"><i class="bi bi-lock text-lg"></i></span>
-                                    <input type="password" id="erp-password" required class="block w-full pl-10 pr-3 py-3 border border-gray-200 rounded-lg text-navy bg-gray-50 focus:bg-white focus:border-primary focus:ring-2 focus:ring-blue-100 transition-all font-medium text-sm shadow-sm" placeholder="••••••••">
-                                </div>
-                            </div>
-                            
-                            <div class="flex items-center justify-between pt-2">
-                                <label class="flex items-center text-xs text-gray-500 font-semibold cursor-pointer">
-                                    <input type="checkbox" class="mr-2 rounded text-primary focus:ring-0"> Remember Session
-                                </label>
-                                <a href="#" class="text-xs text-primary font-bold hover:underline">Reset Passcode?</a>
-                            </div>
-
-                            <button type="submit" class="w-full bg-primary hover:bg-navy text-white font-bold py-3.5 px-4 rounded-lg tracking-wider text-uppercase text-xs transition-all shadow-md hover:shadow-lg mt-3 flex items-center justify-center gap-2 cursor-pointer border-0">
-                                Access ERP Portal <i class="bi bi-arrow-right-short text-lg"></i>
-                            </button>
-                        </div>
-                        
-                        <!-- Right Panel: Visual Context -->
-                        <div class="bg-gradient-to-br from-blue-50 to-indigo-50 border border-blue-100 rounded-xl p-6 flex flex-col justify-between">
-                            <div>
-                                <h5 id="info-title" class="font-extrabold text-navy flex items-center gap-2 text-base"><i class="bi bi-patch-check-fill text-primary"></i> Academic Tracker Portal</h5>
-                                <p id="info-desc" class="text-xs text-gray-500 mt-2 leading-relaxed">Access real-time attendance percentages, internal assessments results, course syllabi guidelines, VTU end-semester marks, and submit elective preferences dynamically.</p>
-                            </div>
-                            
-                            <!-- Mini Metrics display -->
-                            <div class="grid grid-cols-2 gap-4 mt-6">
-                                <div class="bg-white border border-gray-100 rounded-lg p-3 shadow-xs">
-                                    <span class="block text-gray-400 uppercase font-bold text-[9px] tracking-wider">Avg Latency</span>
-                                    <span class="font-extrabold text-navy text-sm">12ms</span>
-                                </div>
-                                <div class="bg-white border border-gray-100 rounded-lg p-3 shadow-xs">
-                                    <span class="block text-gray-400 uppercase font-bold text-[9px] tracking-wider">Status</span>
-                                    <span class="font-extrabold text-green-600 text-sm flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-green-500 inline-block animate-ping"></span> Online</span>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
 <!-- Latest News and Events Section -->
-<section class="py-5">
+<section class="py-5 bg-white">
     <div class="container">
         <div class="d-flex justify-content-between align-items-end mb-5" data-aos="fade-up">
             <div>
                 <span class="text-primary text-uppercase tracking-wider fw-bold small">Latest Bulletins</span>
-                <h2 class="fw-extrabold text-navy mt-1 m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">News & Announcements</h2>
+                <h2 class="fw-extrabold text-navy mt-1 m-0" style="font-family: 'Plus Jakarta Sans', sans-serif; color: #0B3D91;">News & Announcements</h2>
             </div>
             <a href="/news" class="btn btn-outline-primary btn-sm px-3 rounded-2 text-uppercase tracking-wider fw-bold">View All News</a>
         </div>
@@ -350,8 +298,8 @@
         <div class="row g-4">
             {{#each importantNews}}
             <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
-                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden news-card transition-all hover-translate">
-                    <div class="bg-primary text-white p-3 d-flex justify-content-between align-items-center">
+                <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden news-card transition-all hover-translate bg-white p-0">
+                    <div class="bg-primary text-white p-3 d-flex justify-content-between align-items-center bg-primary-gradient">
                         <span class="badge bg-accent text-dark text-uppercase fw-bold">{{this.category}}</span>
                         <small class="text-white-50"><i class="bi bi-calendar3 me-1"></i>{{this.date}}</small>
                     </div>

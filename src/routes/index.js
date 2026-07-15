@@ -21,5 +21,11 @@ router.get('/departments/:dept', departmentController.renderDepartment);
 
 // API Endpoints
 router.post('/api/inquiry', pagesController.handleInquiry);
+router.post('/api/auth/login', pagesController.handleLogin);
+router.get('/api/auth/verify', pagesController.verifyAuthToken);
+router.get('/api/news', pagesController.getNewsJSON);
+router.post('/api/news', pagesController.addNews);
+router.delete('/api/news/:id', pagesController.deleteNews);
+router.get('/api/inquiries', pagesController.getInquiries);
 
 module.exports = router;

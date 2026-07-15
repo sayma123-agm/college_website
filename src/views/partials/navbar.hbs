@@ -1,48 +1,84 @@
-<!-- Top Info Header Bar -->
-<div class="top-bar d-none d-lg-block bg-navy py-2 text-white">
-    <div class="container d-flex justify-content-between align-items-center">
-        <div class="top-info-left small">
-            <span class="me-3"><i class="bi bi-geo-alt-fill text-accent me-1"></i> NH-4 Road, Varur, Hubballi, Karnataka - 581207</span>
-            <span><i class="bi bi-telephone-fill text-accent me-1"></i> +91 94810 87999</span>
+<!-- Top Info Utility Ticker Bar -->
+<div class="top-bar py-2 text-navy" style="background-color: var(--accent-color); font-family: var(--font-body); font-size: 12px; font-weight: 600;">
+    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
+        <div class="top-info-left d-flex align-items-center text-center text-md-start">
+            <span class="text-navy"><i class="bi bi-megaphone-fill me-2 animate-pulse"></i> Admissions Open 2026-27: B.E., MBA & MCA. <a href="/admissions" class="text-navy text-decoration-underline ms-1">Register Online Now</a></span>
         </div>
-        <div class="top-info-right d-flex align-items-center">
-            <span class="small me-3 text-white-50">Affiliated to VTU | Approved by AICTE</span>
-            <div class="social-icons-top me-3">
-                <a href="#" class="text-white me-2 small" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="text-white me-2 small" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="text-white me-2 small" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="text-white small" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+        <div class="top-info-right d-flex align-items-center flex-wrap justify-content-center justify-content-md-end gap-3">
+            <div class="d-none d-md-flex align-items-center gap-3 border-end border-navy-subtle pe-3">
+                <a href="/news" class="text-navy text-decoration-none hover-opacity-80">News & Bulletins</a>
+                <a href="/faculty" class="text-navy text-decoration-none hover-opacity-80">Careers</a>
+                <a href="/contact" class="text-navy text-decoration-none hover-opacity-80">RTI</a>
             </div>
-            <a href="/portal" class="btn btn-outline-light btn-xs py-0 px-2 fw-semibold border-white-50 text-uppercase tracking-wider rounded-1" style="font-size: 10px;">ERP Login</a>
+            <div class="social-icons-top d-flex align-items-center gap-2">
+                <a href="#" class="text-navy" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="text-navy" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="text-navy" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="text-navy" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            <a href="/portal" class="btn btn-navy btn-xs py-1 px-2 fw-bold text-uppercase tracking-wider text-white border-0" style="font-size: 9px; background-color: var(--primary-color) !important; border-radius: 4px !important;">
+                <i class="bi bi-shield-lock-fill me-1"></i>Smart ERP Logins
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-- Main Institutional Branding Banner (IIIT Sri City Style) -->
+<div class="main-header-branding bg-white py-3 border-bottom d-none d-lg-block">
+    <div class="container d-flex flex-column flex-xl-row justify-content-between align-items-center gap-3">
+        <!-- Logo and Institute Name -->
+        <a class="d-flex flex-column flex-sm-row align-items-center text-decoration-none text-center text-sm-start" href="/">
+            <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" class="mb-3 mb-sm-0 me-sm-3" style="width: 72px; height: 72px; object-fit: contain;">
+            <div class="logo-text">
+                <div class="fw-extrabold text-navy nav-logo-title" style="font-family: 'Poppins', sans-serif; font-size: 21px; line-height: 1.15; color: #0B3D91; letter-spacing: -0.5px;">
+                    AGM RURAL COLLEGE OF ENGINEERING & TECHNOLOGY
+                </div>
+                <div class="fw-semibold text-muted" style="font-size: 10.5px; text-transform: uppercase; color: var(--accent-color) !important; letter-spacing: 0.5px; margin-top: 2px;">
+                    Approved by AICTE, New Delhi | Affiliated to VTU, Belagavi | Recognized under UGC Section 2(f)
+                </div>
+                <div class="text-muted small fw-medium" style="font-size: 10px; margin-top: 1px;">
+                    A Unit of SDM Jainmatt Trust, Varur - Hubli
+                </div>
+            </div>
+        </a>
+
+        <!-- Accreditation Badges -->
+        <div class="d-flex flex-wrap align-items-center justify-content-center gap-2">
+            <span class="badge bg-light border border-light-subtle text-navy px-3 py-2 rounded-1 shadow-sm fw-bold d-flex align-items-center gap-1" style="font-size: 10px; color: #0B3D91;">
+                <i class="bi bi-award-fill text-warning fs-6"></i> VTU CODE: E238
+            </span>
+            <span class="badge bg-light border border-light-subtle text-navy px-3 py-2 rounded-1 shadow-sm fw-bold d-flex align-items-center gap-1" style="font-size: 10px; color: #0B3D91;">
+                <i class="bi bi-patch-check-fill text-success fs-6"></i> NBA Accredited CSE
+            </span>
         </div>
     </div>
 </div>
 
 <!-- Main Sticky Header Navbar -->
-<nav class="navbar navbar-expand-xl sticky-top navbar-theme py-3 transition-all">
+<nav class="navbar navbar-expand-xl sticky-top py-0 transition-all border-bottom" style="background-color: var(--primary-color) !important; z-index: 1020;">
     <div class="container">
-        <!-- Logo -->
-        <a class="navbar-brand d-flex align-items-center" href="/">
-            <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" class="me-2" style="width: 48px; height: 48px; object-fit: contain;">
+        <!-- Brand for Mobile View Only (Collapsed Title) -->
+        <a class="navbar-brand d-flex align-items-center d-lg-none py-2 text-decoration-none" href="/">
+            <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" class="me-2" style="width: 40px; height: 40px; object-fit: contain;">
             <div class="logo-text">
-                <div class="fw-bold tracking-tight text-navy nav-logo-title" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 18px; line-height: 1.1;">AGMRCET</div>
-                <div class="text-muted tracking-widest nav-logo-sub" style="font-size: 9px; text-transform: uppercase;">SDM Jainmatt Trust</div>
+                <div class="fw-bold tracking-tight text-white" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; line-height: 1.1;">AGMRCET</div>
+                <div class="text-white-50 tracking-widest" style="font-size: 8px; text-transform: uppercase;">SDM Jainmatt Trust</div>
             </div>
         </a>
 
         <!-- Mobile Buttons Container (Search, Theme, Menu) -->
-        <div class="d-flex align-items-center d-xl-none gap-2">
+        <div class="d-flex align-items-center d-xl-none gap-2 py-2">
             <!-- Dark Theme Toggle -->
-            <button class="btn btn-icon theme-toggle-btn border-0 text-navy" type="button" aria-label="Toggle theme">
+            <button class="btn btn-icon theme-toggle-btn border-0 text-white p-1" type="button" aria-label="Toggle theme">
                 <i class="bi bi-moon-stars-fill fs-5"></i>
             </button>
             <!-- Search Toggle -->
-            <button class="btn btn-icon border-0 text-navy" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
+            <button class="btn btn-icon border-0 text-white p-1" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search">
                 <i class="bi bi-search fs-5"></i>
             </button>
             <!-- Navbar Mobile Toggle -->
-            <button class="navbar-toggler border-0 shadow-none px-2" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
+            <button class="navbar-toggler border-0 shadow-none px-2 text-white bg-white bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
         </div>
 
@@ -51,56 +87,56 @@
             <ul class="navbar-nav mx-auto align-items-xl-center">
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeHome}}active{{/if}}" href="/">Home</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeHome}}active{{/if}}" style="font-size: 12.5px;" href="/">Home</a>
                 </li>
 
                 <!-- About Us -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-semibold px-3 {{#if activeAbout}}active{{/if}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeAbout}}active{{/if}}" style="font-size: 12.5px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         About Us
                     </a>
-                    <ul class="dropdown-menu border-0 shadow-lg p-2 fade-in">
-                        <li><a class="dropdown-item rounded-2 py-2" href="/about">College Profile</a></li>
-                        <li><a class="dropdown-item rounded-2 py-2" href="/about#messages">Leadership Messages</a></li>
-                        <li><a class="dropdown-item rounded-2 py-2" href="/about#timeline">History & Timeline</a></li>
+                    <ul class="dropdown-menu border-0 shadow-lg p-2 fade-in" style="background-color: var(--primary-color);">
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/about">College Profile</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/about#messages">Leadership Messages</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/about#timeline">History & Timeline</a></li>
                     </ul>
                 </li>
 
                 <!-- Departments Mega Menu -->
                 <li class="nav-item dropdown position-static">
-                    <a class="nav-link dropdown-toggle fw-semibold px-3 {{#if activeDepartments}}active{{/if}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeDepartments}}active{{/if}}" style="font-size: 12.5px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Departments
                     </a>
-                    <div class="dropdown-menu mega-menu border-0 shadow-lg p-4 fade-in w-100 start-0">
+                    <div class="dropdown-menu mega-menu border-0 shadow-lg p-4 fade-in w-100 start-0" style="background-color: var(--primary-color); color: white;">
                         <div class="container">
                             <div class="row g-3">
-                                <div class="col-lg-3 col-md-6 border-end-lg">
-                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px;">Computing & IT</h6>
+                                <div class="col-lg-3 col-md-6 border-end border-white-10">
+                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px; color: var(--accent-color) !important;">Computing & IT</h6>
                                     <ul class="list-unstyled mega-menu-list">
-                                        <li><a href="/departments/cse" class="mega-menu-link">Computer Science & Eng.</a></li>
-                                        <li><a href="/departments/cse-aiml" class="mega-menu-link">CSE (AI & ML)</a></li>
-                                        <li><a href="/departments/csd" class="mega-menu-link">Computer Science & Design</a></li>
+                                        <li><a href="/departments/cse" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Computer Science & Eng.</a></li>
+                                        <li><a href="/departments/cse-aiml" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">CSE (AI & ML)</a></li>
+                                        <li><a href="/departments/csd" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Computer Science & Design</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-lg-3 col-md-6 border-end-lg">
-                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px;">Engineering Wings</h6>
+                                <div class="col-lg-3 col-md-6 border-end border-white-10">
+                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px; color: var(--accent-color) !important;">Engineering Wings</h6>
                                     <ul class="list-unstyled mega-menu-list">
-                                        <li><a href="/departments/ece" class="mega-menu-link">Electronics & Comm. Eng.</a></li>
-                                        <li><a href="/departments/eee" class="mega-menu-link">Electrical & Electronics</a></li>
+                                        <li><a href="/departments/ece" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Electronics & Comm. Eng.</a></li>
+                                        <li><a href="/departments/eee" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Electrical & Electronics</a></li>
                                     </ul>
                                 </div>
-                                <div class="col-lg-3 col-md-6 border-end-lg">
-                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px;">Core Engineering</h6>
+                                <div class="col-lg-3 col-md-6 border-end border-white-10">
+                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px; color: var(--accent-color) !important;">Core Engineering</h6>
                                     <ul class="list-unstyled mega-menu-list">
-                                        <li><a href="/departments/me" class="mega-menu-link">Mechanical Engineering</a></li>
-                                        <li><a href="/departments/ce" class="mega-menu-link">Civil Engineering</a></li>
+                                        <li><a href="/departments/me" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Mechanical Engineering</a></li>
+                                        <li><a href="/departments/ce" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Civil Engineering</a></li>
                                     </ul>
                                 </div>
                                 <div class="col-lg-3 col-md-6">
-                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px;">Postgraduate Programs</h6>
+                                    <h6 class="text-uppercase fw-bold text-accent mb-3 tracking-wider" style="font-size: 11px; color: var(--accent-color) !important;">Postgraduate Programs</h6>
                                     <ul class="list-unstyled mega-menu-list">
-                                        <li><a href="/departments/mba" class="mega-menu-link">Master of Business Admin (MBA)</a></li>
-                                        <li><a href="/departments/mca" class="mega-menu-link">Master of Computer App (MCA)</a></li>
+                                        <li><a href="/departments/mba" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Master of Business Admin (MBA)</a></li>
+                                        <li><a href="/departments/mca" class="mega-menu-link text-white hover-text-accent py-1 d-block text-decoration-none">Master of Computer App (MCA)</a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -110,60 +146,60 @@
 
                 <!-- Admissions -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeAdmissions}}active{{/if}}" href="/admissions">Admissions</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeAdmissions}}active{{/if}}" style="font-size: 12.5px;" href="/admissions">Admissions</a>
                 </li>
 
                 <!-- Placements -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activePlacements}}active{{/if}}" href="/placements">Placements</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activePlacements}}active{{/if}}" style="font-size: 12.5px;" href="/placements">Placements</a>
                 </li>
 
                 <!-- Campus Life -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-semibold px-3 {{#if activeCampus}}active{{/if}}" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeCampus}}active{{/if}}" style="font-size: 12.5px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Campus Life
                     </a>
-                    <ul class="dropdown-menu border-0 shadow-lg p-2 fade-in">
-                        <li><a class="dropdown-item rounded-2 py-2" href="/campus-life">Campus Amenities</a></li>
-                        <li><a class="dropdown-item rounded-2 py-2" href="/campus-life#hostels">Hostels & Dining</a></li>
-                        <li><a class="dropdown-item rounded-2 py-2" href="/campus-life#library">Central Library</a></li>
-                        <li><a class="dropdown-item rounded-2 py-2" href="/campus-life#virtualtour">360° Campus Tour</a></li>
+                    <ul class="dropdown-menu border-0 shadow-lg p-2 fade-in" style="background-color: var(--primary-color);">
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/campus-life">Campus Amenities</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/campus-life#hostels">Hostels & Dining</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/campus-life#library">Central Library</a></li>
+                        <li><a class="dropdown-item rounded-2 py-2 text-white hover-bg-navy" href="/campus-life#virtualtour">360° Campus Tour</a></li>
                     </ul>
                 </li>
 
                 <!-- Research -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeResearch}}active{{/if}}" href="/research">Research</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeResearch}}active{{/if}}" style="font-size: 12.5px;" href="/research">Research</a>
                 </li>
 
-                <!-- Directory & Gallery -->
+                <!-- Faculty & Gallery -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeFaculty}}active{{/if}}" href="/faculty">Faculty</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeFaculty}}active{{/if}}" style="font-size: 12.5px;" href="/faculty">Faculty</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeGallery}}active{{/if}}" href="/gallery">Gallery</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeGallery}}active{{/if}}" style="font-size: 12.5px;" href="/gallery">Gallery</a>
                 </li>
                 
                 <!-- Contact -->
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold px-3 {{#if activeContact}}active{{/if}}" href="/contact">Contact</a>
+                    <a class="nav-link fw-semibold px-3 py-3 text-white text-uppercase tracking-wider hover-text-accent {{#if activeContact}}active{{/if}}" style="font-size: 12.5px;" href="/contact">Contact</a>
                 </li>
             </ul>
 
             <!-- Right Actions (Theme, Search, Apply CTA) -->
-            <div class="d-none d-xl-flex align-items-center gap-3">
+            <div class="d-none d-xl-flex align-items-center gap-3 py-2">
                 <!-- Dark Mode Toggle Button -->
-                <button class="btn btn-icon theme-toggle-btn border-0 text-navy" type="button" aria-label="Toggle theme">
+                <button class="btn btn-icon theme-toggle-btn border-0 text-white p-1 bg-transparent" type="button" aria-label="Toggle theme">
                     <i class="bi bi-moon-stars-fill fs-5"></i>
                 </button>
 
                 <!-- Search Modal Toggler -->
-                <button class="btn btn-icon border-0 text-navy" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search site">
+                <button class="btn btn-icon border-0 text-white p-1 bg-transparent" type="button" data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Search site">
                     <i class="bi bi-search fs-5"></i>
                 </button>
 
                 <!-- Apply Now CTA -->
-                <a href="/admissions#inquiry-form" class="btn btn-primary px-4 py-2 font-medium text-uppercase tracking-wider fs-7 rounded-2 shadow-sm admission-cta">
+                <a href="/admissions#inquiry-form" class="btn btn-accent px-3 py-2 font-bold text-uppercase tracking-wider fs-7 rounded-2 shadow-sm admission-cta text-navy" style="background-color: var(--accent-color) !important; color: #0B3D91 !important;">
                     Apply Now
                 </a>
             </div>

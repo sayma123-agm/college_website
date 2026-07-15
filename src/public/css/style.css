@@ -4,30 +4,36 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-    --primary-color: #0f2b5c;      /* Royal Navy */
-    --primary-light: rgba(15, 43, 92, 0.1);
-    --secondary-color: #0088cc;    /* Classic Academic Blue */
-    --secondary-light: rgba(0, 136, 204, 0.1);
-    --accent-color: #d4af37;       /* Prestige Gold */
-    --accent-light: rgba(212, 175, 55, 0.15);
-    --success-color: #10b981;      /* Emerald Green */
-    --success-light: rgba(16, 185, 129, 0.1);
+    --primary-color: #0B3D91;      /* Deep Navy Blue */
+    --primary-light: rgba(11, 61, 145, 0.1);
+    --secondary-color: #1565C0;    /* Secondary Blue */
+    --secondary-light: rgba(21, 101, 192, 0.1);
+    --accent-color: #F9A826;       /* Gold Accent */
+    --accent-light: rgba(249, 168, 38, 0.15);
+    --success-color: #16A34A;      /* Emerald Success */
+    --success-light: rgba(22, 163, 74, 0.1);
     
     --bg-light: #ffffff;
-    --bg-light-slate: #f8f9fa;
-    --bg-navy: #0f2b5c;
+    --bg-light-slate: #F8FAFC;
+    --bg-navy: #0B3D91;
     
-    --text-main: #2b303a;
-    --text-muted: #6c757d;
-    --border-color: #e5e7eb;
+    --text-main: #1E293B;
+    --text-muted: #64748B;
+    --border-color: #E2E8F0;
     
-    --glass-bg: rgba(255, 255, 255, 0.65);
-    --glass-border: rgba(255, 255, 255, 0.4);
-    --glass-shadow: rgba(31, 38, 135, 0.06);
+    --glass-bg: rgba(255, 255, 255, 0.75);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-shadow: rgba(11, 61, 145, 0.05);
     
-    --font-heading: 'Plus Jakarta Sans', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
     --transition-speed: 0.3s;
+
+    /* Layout Rules */
+    --card-padding: 32px;
+    --card-radius: 18px;
+    --btn-radius: 12px;
+    --img-radius: 20px;
 }
 
 /* Dark Theme Tokens Override */
@@ -254,7 +260,31 @@ html.dark-theme .text-gradient {
 }
 
 .nav-link.active, .nav-link:hover {
-    color: var(--primary-color) !important;
+    color: var(--accent-color) !important;
+}
+
+.hover-text-accent:hover {
+    color: var(--accent-color) !important;
+}
+
+.dropdown-item:hover {
+    background-color: var(--secondary-color) !important;
+    color: var(--accent-color) !important;
+}
+
+.border-white-10 {
+    border-color: rgba(255, 255, 255, 0.1) !important;
+}
+
+.bg-indigo-light {
+    background-color: rgba(99, 102, 241, 0.15) !important;
+}
+.text-indigo {
+    color: #6366f1 !important;
+}
+.btn-indigo {
+    background-color: #6366f1 !important;
+    color: white !important;
 }
 
 .nav-link::after {
@@ -408,4 +438,94 @@ html.dark-theme .text-gradient {
 /* ERP Student gauge styles */
 .progress-ring-circle {
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+/* ==========================================================================
+   Design System Standards & Layout Rules
+   ========================================================================== */
+
+/* Max Page Width Constraints */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1440px !important;
+}
+
+/* Unified Card Padding and Border Radii */
+.card, .glassmorphism, .stat-card, .feature-card, .news-card, .vision-card, .mission-card, .about-floating-glass {
+    border-radius: var(--card-radius) !important;
+    padding: var(--card-padding) !important;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--glass-bg) !important;
+    box-shadow: 0 10px 30px var(--glass-shadow) !important;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Inner card adjustments to avoid double padding */
+.card-body, .card-header, .card-footer {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Button Radius Standard */
+.btn {
+    border-radius: var(--btn-radius) !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+}
+
+/* Image Radii Standard */
+img, .img-fluid, .about-main-img-container, .leader-img-wrapper {
+    border-radius: var(--img-radius) !important;
+}
+
+/* Accessibility Font Resizer & Contrast Override */
+html {
+    font-size: calc(100% * var(--font-scale, 1.0));
+}
+
+/* High Contrast Mode (WCAG AAA Compliance) */
+html.high-contrast {
+    --primary-color: #000000 !important;
+    --secondary-color: #0000FF !important;
+    --accent-color: #FFFF00 !important;
+    --bg-light: #000000 !important;
+    --bg-light-slate: #111111 !important;
+    --bg-navy: #000000 !important;
+    --text-main: #FFFFFF !important;
+    --text-muted: #FFFF00 !important;
+    --border-color: #FFFFFF !important;
+    --glass-bg: #000000 !important;
+    --glass-border: #FFFFFF !important;
+    --glass-shadow: transparent !important;
+}
+
+html.high-contrast body {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+html.high-contrast .card, html.high-contrast .glassmorphism, html.high-contrast .list-group-item {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+html.high-contrast a {
+    color: #FFFF00 !important;
+    text-decoration: underline !important;
+}
+
+html.high-contrast a:hover {
+    color: #00FFFF !important;
+}
+
+html.high-contrast .btn, html.high-contrast .badge {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+html.high-contrast .btn:hover {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
 }

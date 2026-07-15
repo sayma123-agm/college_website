@@ -166,6 +166,30 @@ async function seed() {
         console.log('News items already seeded. Skipping.');
     }
 
+    // 7. Seed Default Users for ERP Portal
+    const [existingUsers] = await connection.query('SELECT id FROM users');
+    if (existingUsers.length === 0) {
+        const defaultUsers = [
+            { username: 'AGM-ADMIN-999', password: 'password', role: 'admin', name: 'System Admin Coordinator' },
+            { username: '2AG22CS001', password: 'password', role: 'student', name: 'Prajwal Patil (CSE-VI Sem)' },
+            { username: 'AGM-FAC-101', password: 'password', role: 'faculty', name: 'Dr. S. V. Shiragur (Professor & HOD)' },
+            { username: 'AGM-PRIN-001', password: 'password', role: 'principal', name: 'Dr. Principal (Administration Chief)' },
+            { username: '2AG22CS001-P', password: 'password', role: 'parent', name: 'Suresh Patil (Father of Prajwal)' },
+            { username: 'AGM-FEE-201', password: 'password', role: 'fee', name: 'Accounts & Fee Clearance Desk' },
+            { username: 'AGM-BROADCAST-888', password: 'password', role: 'broadcast', name: 'Broadcasting & Emergency Communications' }
+        ];
+        console.log(`Seeding ${defaultUsers.length} Default ERP User Accounts...`);
+        for (const user of defaultUsers) {
+            await connection.query(
+                'INSERT INTO users (username, password, role, name) VALUES (?, ?, ?, ?)',
+                [user.username, user.password, user.role, user.name]
+            );
+        }
+        console.log('Default users seeded.');
+    } else {
+        console.log('User accounts already seeded. Skipping.');
+    }
+
     await connection.end();
     console.log('Database Migration & Seeding completed successfully!');
 }
