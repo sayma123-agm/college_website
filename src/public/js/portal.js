@@ -338,7 +338,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `
         },
-<<<<<<< HEAD
         broadcast: {
             name: 'Broadcasting & Emergency Communications (Hubli Division)',
             badge: 'Broadcasting Control Console',
@@ -400,7 +399,19 @@ document.addEventListener('DOMContentLoaded', () => {
                         </tbody>
                     </table>
                 </div>
-=======
+            `,
+            toolsHtml: `
+                <div class="col-sm-6">
+                    <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
+                        <div class="text-indigo fs-3" style="color: #6366f1 !important;"><i class="bi bi-broadcast-pin"></i></div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Push Alert Gateway</h6>
+                            <a href="#" onclick="alert('Gateway status: Online, active channels: 3'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Gateway Health</a>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
         hod: {
             name: 'Dr. Mahesh G. (HOD CSE)',
             badge: 'HOD Portal',
@@ -432,17 +443,10 @@ document.addEventListener('DOMContentLoaded', () => {
                         </tr>
                     </tbody>
                 </table>
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
             `,
             toolsHtml: `
                 <div class="col-sm-6">
                     <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
-<<<<<<< HEAD
-                        <div class="text-indigo fs-3" style="color: #6366f1 !important;"><i class="bi bi-broadcast-pin"></i></div>
-                        <div>
-                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Push Alert Gateway</h6>
-                            <a href="#" onclick="alert('Gateway status: Online, active channels: 3'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Gateway Health</a>
-=======
                         <div class="text-primary fs-3"><i class="bi bi-file-earmark-check"></i></div>
                         <div>
                             <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Approve Electives</h6>
@@ -491,7 +495,6 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Print Hall Tickets</h6>
                             <a href="#" onclick="alert('CSE Hall Tickets printing started.'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Print Logs</a>
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
                         </div>
                     </div>
                 </div>
@@ -639,13 +642,7 @@ document.addEventListener('DOMContentLoaded', () => {
             if (infoTitle) infoTitle.innerText = preset.title;
             if (infoDesc) infoDesc.innerText = preset.desc;
 
-            // Trigger GSAP authorization card update animation
-            if (typeof gsap !== 'undefined') {
-                gsap.fromTo('#portal-auth-card', 
-                    { x: 15, opacity: 0.8, scale: 0.99 }, 
-                    { x: 0, opacity: 1, scale: 1, duration: 0.35, ease: 'back.out(1.2)' }
-                );
-            }
+            // Card update animation disabled for performance
         }
     };
 
@@ -706,25 +703,15 @@ document.addEventListener('DOMContentLoaded', () => {
                 roleBadge.className = `badge mb-2 text-uppercase ${
                     role === 'admin' ? 'bg-danger' : 
                     role === 'principal' ? 'bg-dark' : 
-<<<<<<< HEAD
-                    role === 'faculty' ? 'bg-primary' : 
-                    role === 'fee' ? 'bg-info text-dark' : 
-                    role === 'parent' ? 'bg-warning text-dark' : 
-                    role === 'broadcast' ? 'bg-indigo text-white' : 'bg-success'
-=======
                     role === 'faculty' || role === 'hod' ? 'bg-primary' : 
                     role === 'fee' || role === 'office' ? 'bg-info text-dark' : 
-                    role === 'parent' ? 'bg-warning text-dark' : 'bg-success'
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
+                    role === 'parent' ? 'bg-warning text-dark' : 
+                    role === 'broadcast' ? 'bg-indigo text-white' : 'bg-success'
                 }`;
             }
 
             // Hide all sub-widgets panels, then show active
-<<<<<<< HEAD
-            ['student', 'faculty', 'principal', 'parent', 'fee', 'admin', 'broadcast'].forEach(r => {
-=======
-            ['student', 'faculty', 'hod', 'principal', 'parent', 'fee', 'office', 'admin'].forEach(r => {
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
+            ['student', 'faculty', 'hod', 'principal', 'parent', 'fee', 'office', 'admin', 'broadcast'].forEach(r => {
                 const el = document.getElementById(`panel-${r}-widgets`);
                 if (el) el.classList.add('d-none');
             });
@@ -742,36 +729,6 @@ document.addEventListener('DOMContentLoaded', () => {
             const toolsContainer = document.getElementById('erp-tools-container');
             if (toolsContainer) toolsContainer.innerHTML = config.toolsHtml;
             
-<<<<<<< HEAD
-            // Initialize Principal Doughnut Chart
-            if (role === 'principal') {
-                setTimeout(() => {
-                    const ctx = document.getElementById('principalChart');
-                    if (ctx) {
-                        new Chart(ctx, {
-                            type: 'doughnut',
-                            data: {
-                                labels: ['CSE/AIML', 'ECE/EEE', 'Civil/Mech', 'MBA/MCA'],
-                                datasets: [{
-                                    data: [420, 310, 180, 290],
-                                    backgroundColor: ['#0B3D91', '#1565C0', '#F9A826', '#16A34A'],
-                                    borderWidth: 0
-                                }]
-                            },
-                            options: {
-                                responsive: true,
-                                maintainAspectRatio: false,
-                                plugins: {
-                                    legend: {
-                                        position: 'bottom',
-                                        labels: { boxWidth: 10, font: { size: 10 } }
-                                    }
-                                }
-                            }
-                        });
-                    }
-                }, 200);
-=======
             // Show dynamic notice broadcast banner to student
             const announcementBanner = document.getElementById('erp-announcement-banner');
             const announcementText = document.getElementById('announcement-broadcast-text');
@@ -846,19 +803,9 @@ document.addEventListener('DOMContentLoaded', () => {
                         }
                     });
                 }
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
             }
 
-            // Trigger GSAP entrance animation on dashboard cards if loaded
-            if (typeof gsap !== 'undefined') {
-                gsap.from('#erp-dashboard-section .card', {
-                    opacity: 0,
-                    y: 20,
-                    stagger: 0.1,
-                    duration: 0.5,
-                    ease: 'power2.out'
-                });
-            }
+            // Dashboard entrance animations disabled for performance
         }
     };
 
@@ -878,27 +825,24 @@ document.addEventListener('DOMContentLoaded', () => {
             const usnVal = form.querySelector('.erp-username-input').value.trim().toUpperCase();
             const passwordVal = form.querySelector('.erp-password-input').value;
 
-<<<<<<< HEAD
-=======
             // Demo logic
-            let role = 'student';
-            if (usnVal.startsWith('AGM-FAC-')) role = 'faculty';
-            else if (usnVal.startsWith('AGM-HOD-')) role = 'hod';
-            else if (usnVal.startsWith('AGM-OFF-')) role = 'office';
-            else if (usnVal.startsWith('AGM-PRIN-')) role = 'principal';
-            else if (usnVal.endsWith('-P')) role = 'parent';
-            else if (usnVal.startsWith('AGM-FEE-')) role = 'fee';
-            else if (usnVal.startsWith('AGM-ADMIN-')) role = 'admin';
+            let resolvedRole = role;
+            if (usnVal.startsWith('AGM-FAC-')) resolvedRole = 'faculty';
+            else if (usnVal.startsWith('AGM-HOD-')) resolvedRole = 'hod';
+            else if (usnVal.startsWith('AGM-OFF-')) resolvedRole = 'office';
+            else if (usnVal.startsWith('AGM-PRIN-')) resolvedRole = 'principal';
+            else if (usnVal.endsWith('-P')) resolvedRole = 'parent';
+            else if (usnVal.startsWith('AGM-FEE-')) resolvedRole = 'fee';
+            else if (usnVal.startsWith('AGM-ADMIN-')) resolvedRole = 'admin';
 
-            sessionStorage.setItem('erp_role', role);
+            sessionStorage.setItem('erp_role', resolvedRole);
             sessionStorage.setItem('erp_username', usnVal);
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
             if (errorAlert) errorAlert.classList.add('d-none');
 
             fetch('/api/auth/login', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: usnVal, password: passwordVal, expectedRole: role })
+                body: JSON.stringify({ username: usnVal, password: passwordVal, expectedRole: resolvedRole })
             })
             .then(res => res.json())
             .then(data => {
@@ -986,7 +930,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
     // 4. Super Admin CMS Dashboard Action Handlers
     window.loadCmsNews = () => {
         const tableTitle = document.getElementById('erp-table-title');
@@ -1028,16 +971,18 @@ document.addEventListener('DOMContentLoaded', () => {
                 let rowsHtml = '';
                 data.news.forEach(item => {
                     rowsHtml += `
-                        <tr>
-                            <td class="fw-bold"><span class="badge bg-secondary-light text-secondary border text-uppercase">${item.category}</span></td>
-                            <td>
-                                <div class="fw-semibold text-navy">${item.title}</div>
-                                <div class="text-muted text-xs" style="font-size: 11px;">${item.content}</div>
+                        <tr class="align-middle">
+                            <td class="small" style="font-size: 11px;">
+                                <span class="badge bg-secondary-light text-secondary border uppercase font-semibold">${item.category}</span>
                             </td>
-                            <td class="text-muted small" style="font-size: 11px;">${item.date}</td>
-                            <td class="text-end">
-                                <button class="btn btn-sm btn-outline-danger py-1 px-2 border-0" onclick="deleteCmsNews(${item.id})" style="padding: 4px 8px !important;">
-                                    <i class="bi bi-trash3-fill"></i>
+                            <td class="text-start">
+                                <h6 class="fw-bold text-navy m-0" style="font-size: 12px;">${item.title}</h6>
+                                <p class="text-muted m-0 small" style="font-size: 10px; line-height: 1.35;">${item.content.slice(0, 100)}...</p>
+                            </td>
+                            <td style="font-size: 11px;">${item.date}</td>
+                            <td>
+                                <button onclick="deleteCmsNews('${item.id}')" class="btn btn-xs btn-outline-danger px-2 py-1" style="font-size: 10px; border-radius: 4px !important;">
+                                    <i class="bi bi-trash3"></i> Delete
                                 </button>
                             </td>
                         </tr>
@@ -1050,14 +995,14 @@ document.addEventListener('DOMContentLoaded', () => {
                         <table class="table table-hover table-striped align-middle mb-0 text-start small">
                             <thead class="table-navy text-white fw-bold">
                                 <tr>
-                                    <th scope="col" style="width: 15%; font-size: 12px;">Category</th>
-                                    <th scope="col" style="width: 60%; font-size: 12px;">Announcement Details</th>
-                                    <th scope="col" style="width: 15%; font-size: 12px;">Date</th>
-                                    <th scope="col" class="text-end" style="width: 10%; font-size: 12px;">Actions</th>
+                                    <th scope="col" style="width: 15%; font-size: 11px;">Category</th>
+                                    <th scope="col" style="width: 55%; font-size: 11px;">Details</th>
+                                    <th scope="col" style="width: 15%; font-size: 11px;">Date</th>
+                                    <th scope="col" style="width: 15%; font-size: 11px;">Actions</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                ${rowsHtml || '<tr><td colspan="4" class="text-center">No bulletins active.</td></tr>'}
+                                ${rowsHtml || '<tr><td colspan="4" class="text-center">No announcements published.</td></tr>'}
                             </tbody>
                         </table>
                     </div>
@@ -1071,33 +1016,42 @@ document.addEventListener('DOMContentLoaded', () => {
         const category = document.getElementById('cms-category').value;
         const title = document.getElementById('cms-title').value;
         const content = document.getElementById('cms-content').value;
+        const token = sessionStorage.getItem('erp_token');
 
         fetch('/api/news', {
             method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
+            headers: { 
+                'Content-Type': 'application/json',
+                'Authorization': `Bearer ${token}`
+            },
             body: JSON.stringify({ category, title, content })
         })
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                loadCmsNews();
+                alert('Circular published successfully!');
+                window.loadCmsNews();
             } else {
-                alert('Failed to publish news: ' + data.message);
+                alert('Publish failed: ' + data.message);
             }
         });
     };
 
     window.deleteCmsNews = (id) => {
-        if (!confirm('Are you sure you want to delete this news bulletin?')) return;
+        if (!confirm('Are you sure you want to delete this bulletin?')) return;
+        const token = sessionStorage.getItem('erp_token');
+
         fetch(`/api/news/${id}`, {
-            method: 'DELETE'
+            method: 'DELETE',
+            headers: { 
+                'Authorization': `Bearer ${token}`
+            }
         })
         .then(res => res.json())
         .then(data => {
             if (data.success) {
-                loadCmsNews();
-            } else {
-                alert('Failed to delete news.');
+                alert('Circular deleted.');
+                window.loadCmsNews();
             }
         });
     };
@@ -1105,7 +1059,7 @@ document.addEventListener('DOMContentLoaded', () => {
     window.loadCmsInquiries = () => {
         const tableTitle = document.getElementById('erp-table-title');
         const tableContainer = document.getElementById('erp-table-container');
-        if (tableTitle) tableTitle.innerHTML = `<i class="bi bi-envelope-check text-navy me-2"></i>Admissions Inquiry Database`;
+        if (tableTitle) tableTitle.innerHTML = `<i class="bi bi-person-lines-fill text-primary me-2"></i>Online Inquiry Submissions`;
 
         fetch('/api/inquiries')
         .then(res => res.json())
@@ -1114,14 +1068,16 @@ document.addEventListener('DOMContentLoaded', () => {
                 let rowsHtml = '';
                 data.inquiries.forEach(item => {
                     rowsHtml += `
-                        <tr>
-                            <td class="fw-semibold text-navy">${item.name}</td>
-                            <td>
-                                <div style="font-size: 11px;"><i class="bi bi-envelope me-1"></i><a href="mailto:${item.email}" class="text-decoration-none">${item.email}</a></div>
-                                <div style="font-size: 11px;"><i class="bi bi-phone me-1"></i>${item.phone}</div>
+                        <tr class="align-middle">
+                            <td class="fw-semibold text-navy text-start" style="font-size: 11px;">${item.name}</td>
+                            <td class="text-start" style="font-size: 10px;">
+                                <div><i class="bi bi-envelope-fill me-1"></i>${item.email}</div>
+                                <div><i class="bi bi-telephone-fill me-1"></i>${item.phone}</div>
                             </td>
-                            <td><span class="badge bg-primary-light text-primary border" style="font-size: 11px;">${item.course}</span></td>
-                            <td><span class="text-muted text-xs" style="font-size: 11px;">${item.message}</span></td>
+                            <td class="small font-bold" style="font-size: 11px;">
+                                <span class="badge bg-secondary-light text-secondary border uppercase">${item.course.replace('ug-', '').toUpperCase()}</span>
+                            </td>
+                            <td class="text-start" style="font-size: 10px; line-height: 1.35;">${item.message || 'No remarks.'}</td>
                         </tr>
                     `;
                 });
@@ -1146,7 +1102,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     };
-=======
+
     // ==========================================
     // V2 Dashboards Interactive Controllers
     // ==========================================
@@ -1260,7 +1216,6 @@ document.addEventListener('DOMContentLoaded', () => {
             forgotPasswordForm.reset();
         });
     }
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
 
     // Execute state check on load
     checkLoginState();

@@ -4,7 +4,6 @@
 
 /* Design Tokens & Theme Variables */
 :root {
-<<<<<<< HEAD
     --primary-color: #0B3D91;      /* Deep Navy Blue */
     --primary-light: rgba(11, 61, 145, 0.1);
     --secondary-color: #1565C0;    /* Secondary Blue */
@@ -13,6 +12,11 @@
     --accent-light: rgba(249, 168, 38, 0.15);
     --success-color: #16A34A;      /* Emerald Success */
     --success-light: rgba(22, 163, 74, 0.1);
+    
+    /* Brand Maroon theme for utility header and footer */
+    --brand-maroon: #7A0016;
+    --brand-maroon-hover: #5A000F;
+    --brand-maroon-light: rgba(122, 0, 22, 0.15);
     
     --bg-light: #ffffff;
     --bg-light-slate: #F8FAFC;
@@ -25,28 +29,6 @@
     --glass-bg: rgba(255, 255, 255, 0.75);
     --glass-border: rgba(255, 255, 255, 0.5);
     --glass-shadow: rgba(11, 61, 145, 0.05);
-=======
-    --primary-color: #2C2E43;      /* Deep Blue-Gray */
-    --primary-light: rgba(44, 46, 67, 0.1);
-    --secondary-color: #215E61;    /* Deep Teal */
-    --secondary-light: rgba(33, 94, 97, 0.1);
-    --accent-color: #FF9E20;       /* Vibrant Orange/Amber */
-    --accent-light: rgba(255, 158, 32, 0.15);
-    --success-color: #B8DB80;      /* Light Sage/Lime */
-    --success-light: rgba(184, 219, 128, 0.15);
-    
-    --bg-light: #ffffff;
-    --bg-light-slate: #f5f6f8;
-    --bg-navy: #1D2128;            /* Dark Charcoal */
-    
-    --text-main: #2C2E43;
-    --text-muted: #595260;         /* Muted Dark Gray-Purple */
-    --border-color: #e2e8f0;
-    
-    --glass-bg: rgba(255, 255, 255, 0.7);
-    --glass-border: rgba(255, 255, 255, 0.5);
-    --glass-shadow: rgba(44, 46, 67, 0.05);
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
     
     --font-heading: 'Poppins', sans-serif;
     --font-body: 'Inter', sans-serif;
@@ -97,17 +79,18 @@ body {
 body::before {
     content: "";
     position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
     pointer-events: none;
     z-index: -1;
-    background-image: url("https://www.agmrcet.ac.in/images/logo.png");
-    background-repeat: repeat;
+    background-image: url("/images/logo.png");
+    background-repeat: no-repeat;
     background-position: center;
-    background-size: 180px 180px;
-    opacity: 0.025; /* Highly subtle watermark */
+    background-size: contain;
+    opacity: 0.02; /* Extremely subtle single watermark */
 }
 
 /* Dark mode adjustment for visibility */
@@ -352,7 +335,15 @@ html.dark-theme .text-gradient {
 }
 
 .video-shade {
-    background: linear-gradient(135deg, rgba(15, 43, 92, 0.85), rgba(3, 7, 18, 0.95));
+    background: linear-gradient(180deg, rgba(0, 0, 0, 0.45) 0%, rgba(3, 7, 18, 0.8) 100%);
+}
+
+@keyframes pulse-soft {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+.pulse-badge {
+    animation: pulse-soft 2.5s infinite ease-in-out;
 }
 
 .hero-title {
@@ -452,9 +443,21 @@ html.dark-theme .text-gradient {
 
 /* Footer Section */
 .footer-section {
-    background-color: var(--bg-navy);
+    background: linear-gradient(135deg, #05162e 0%, #0c254e 50%, #030e20 100%);
     color: #ffffff;
-    border-top: 4px solid var(--accent-color);
+    border-top: 5px solid var(--accent-color);
+    position: relative;
+    overflow: hidden;
+}
+.footer-section::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 80% 20%, rgba(212, 163, 89, 0.08) 0%, transparent 60%);
+    pointer-events: none;
 }
 
 .footer-links a {
@@ -463,6 +466,15 @@ html.dark-theme .text-gradient {
 .footer-links a:hover {
     color: var(--accent-color) !important;
     padding-left: 6px;
+}
+
+.social-icons-footer a {
+    transition: all 0.2s ease-in-out;
+}
+.social-icons-footer a:hover {
+    background-color: var(--accent-color) !important;
+    color: var(--primary-color) !important;
+    transform: translateY(-3px);
 }
 
 /* Animations declarations */
@@ -481,7 +493,6 @@ html.dark-theme .text-gradient {
     box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
 }
 
-<<<<<<< HEAD
 /* ==========================================================================
    Design System Standards & Layout Rules
    ========================================================================== */
@@ -571,7 +582,7 @@ html.high-contrast .btn:hover {
     background-color: #FFFFFF !important;
     color: #000000 !important;
 }
-=======
+
 /* Hide horizontal scrollbar but preserve scrolling on touch devices */
 .scrollbar-none::-webkit-scrollbar {
     display: none;
@@ -643,4 +654,249 @@ html.high-contrast .btn:hover {
     transform: rotate(10deg) scale(1.1);
 }
 
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
+/* Redesigned Multi-Bar Header & Navigation Styling */
+.hover-bg-maroon-dark:hover {
+    background-color: #8c0f16 !important;
+}
+.active-menu-item {
+    background-color: #7A0016 !important;
+}
+.navbar-nav .nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-menu {
+    border-top: 3px solid var(--accent-color) !important;
+    border-radius: 0px !important;
+}
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: var(--accent-color) !important;
+    color: #07162c !important;
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(40px, -40px) scale(1.2); }
+}
+
+@keyframes scrollDown {
+    0% { opacity: 1; transform: translate(-50%, 0); }
+    100% { opacity: 0; transform: translate(-50%, 15px); }
+}
+
+/* ERP Student gauge styles */
+.progress-ring-circle {
+    box-shadow: 0 4px 15px rgba(16, 185, 129, 0.2);
+}
+
+/* ==========================================================================
+   Design System Standards & Layout Rules
+   ========================================================================== */
+
+/* Max Page Width Constraints */
+.container, .container-fluid, .container-lg, .container-md, .container-sm, .container-xl, .container-xxl {
+    max-width: 1440px !important;
+}
+
+/* Unified Card Padding and Border Radii */
+.card, .glassmorphism, .stat-card, .feature-card, .news-card, .vision-card, .mission-card, .about-floating-glass {
+    border-radius: var(--card-radius) !important;
+    padding: var(--card-padding) !important;
+    border: 1px solid var(--border-color) !important;
+    background-color: var(--glass-bg) !important;
+    box-shadow: 0 10px 30px var(--glass-shadow) !important;
+    transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+}
+
+/* Inner card adjustments to avoid double padding */
+.card-body, .card-header, .card-footer {
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+}
+
+/* Button Radius Standard */
+.btn {
+    border-radius: var(--btn-radius) !important;
+    padding: 10px 24px !important;
+    font-weight: 600 !important;
+}
+
+/* Image Radii Standard */
+img, .img-fluid, .about-main-img-container, .leader-img-wrapper {
+    border-radius: var(--img-radius) !important;
+}
+
+/* Accessibility Font Resizer & Contrast Override */
+html {
+    font-size: calc(100% * var(--font-scale, 1.0));
+}
+
+/* High Contrast Mode (WCAG AAA Compliance) */
+html.high-contrast {
+    --primary-color: #000000 !important;
+    --secondary-color: #0000FF !important;
+    --accent-color: #FFFF00 !important;
+    --bg-light: #000000 !important;
+    --bg-light-slate: #111111 !important;
+    --bg-navy: #000000 !important;
+    --text-main: #FFFFFF !important;
+    --text-muted: #FFFF00 !important;
+    --border-color: #FFFFFF !important;
+    --glass-bg: #000000 !important;
+    --glass-border: #FFFFFF !important;
+    --glass-shadow: transparent !important;
+}
+
+html.high-contrast body {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+}
+
+html.high-contrast .card, html.high-contrast .glassmorphism, html.high-contrast .list-group-item {
+    background: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+html.high-contrast a {
+    color: #FFFF00 !important;
+    text-decoration: underline !important;
+}
+
+html.high-contrast a:hover {
+    color: #00FFFF !important;
+}
+
+html.high-contrast .btn, html.high-contrast .badge {
+    background-color: #000000 !important;
+    color: #FFFFFF !important;
+    border: 2px solid #FFFFFF !important;
+}
+
+html.high-contrast .btn:hover {
+    background-color: #FFFFFF !important;
+    color: #000000 !important;
+}
+
+/* Hide horizontal scrollbar but preserve scrolling on touch devices */
+.scrollbar-none::-webkit-scrollbar {
+    display: none;
+}
+.scrollbar-none {
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+}
+
+/* Subtle bounce animation for interactive logins */
+@keyframes bounceSubtle {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
+}
+.animate-bounce-subtle {
+    animation: bounceSubtle 3s infinite ease-in-out;
+}
+
+/* Responsive medium-screen-only right border */
+@media (min-width: 768px) {
+    .border-end-md {
+        border-right: 1px solid var(--border-color) !important;
+    }
+}
+
+/* Form input hover and focus enhancements */
+.input-group:hover .form-control {
+    border-color: var(--secondary-color);
+}
+.form-control:focus {
+    box-shadow: 0 0 0 3px var(--secondary-light) !important;
+    border-color: var(--secondary-color) !important;
+}
+
+/* Gateway button directory styling */
+.gateway-select-btn {
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    border-color: rgba(0, 0, 0, 0.08) !important;
+}
+.gateway-select-btn:hover {
+    transform: translateX(4px);
+    background-color: var(--secondary-light) !important;
+    border-color: var(--secondary-color) !important;
+}
+.gateway-select-btn.btn-primary {
+    box-shadow: 0 4px 15px var(--secondary-light) !important;
+    transform: scale(1.02);
+}
+.gateway-select-btn.btn-primary:hover {
+    background-color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+/* Why Choose Us feature card enhancements */
+.feature-card {
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+    border: 1px solid rgba(255, 255, 255, 0.4) !important;
+}
+.feature-card:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 15px 30px rgba(15, 43, 92, 0.12) !important;
+    border-color: var(--secondary-color) !important;
+}
+.feature-icon {
+    transition: transform 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+.feature-card:hover .feature-icon {
+    transform: rotate(10deg) scale(1.1);
+}
+
+/* Redesigned Multi-Bar Header & Navigation Styling */
+.hover-bg-maroon-dark:hover {
+    background-color: #8c0f16 !important;
+}
+.active-menu-item {
+    background-color: #7A0016 !important;
+}
+.navbar-nav .nav-link {
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+.dropdown-menu {
+    border-top: 3px solid var(--accent-color) !important;
+    border-radius: 0px !important;
+}
+.dropdown-item {
+    transition: all 0.2s ease;
+}
+.dropdown-item:hover {
+    background-color: var(--accent-color) !important;
+    color: #07162c !important;
+}
+.latest-news-ticker marquee {
+    font-size: 12px;
+    letter-spacing: 0.2px;
+}
+.latest-news-ticker {
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.05);
+}
+
+/* Fix Tailwind CSS conflict with Bootstrap navbar collapse */
+.navbar-collapse {
+    visibility: visible !important;
+}
+
+/* Premium Footer Link Colors and Hover States */
+.footer-section a {
+    color: rgba(255, 255, 255, 0.75) !important;
+    text-decoration: none !important;
+    transition: all 0.2s ease-in-out;
+}
+.footer-section a:hover {
+    color: var(--accent-color) !important; /* Gold/yellow */
+    padding-left: 2px;
+}
+.footer-section .social-icons-footer a {
+    color: #ffffff !important;
+}
+.footer-section .social-icons-footer a:hover {
+    background-color: var(--accent-color) !important;
+    color: #07162c !important;
+}

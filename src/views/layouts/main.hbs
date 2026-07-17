@@ -44,7 +44,8 @@
       "sameAs": [
         "https://www.facebook.com/agmrcet",
         "https://www.instagram.com/agmrcet",
-        "https://www.linkedin.com/school/agmrcet"
+        "https://www.linkedin.com/school/agmrcet",
+        "https://www.youtube.com/@agmrcetmedia"
       ]
     }
     </script>
@@ -91,9 +92,9 @@
     <!-- Page Loader Animation -->
     <div id="loader-wrapper">
         <div class="loader-content text-center">
-            <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" class="mb-3 animate-pulse" style="width: 80px; height: 80px; object-fit: contain;">
-            <h5 class="fw-bold tracking-wide text-uppercase" style="color: var(--primary-color);">AGMRCET</h5>
-            <p class="text-muted small">Loading Excellence...</p>
+            <img src="/images/logo.png" alt="AGMRCET Logo" class="mb-3 animate-pulse" style="width: 80px; height: 80px; object-fit: contain;">
+            <h5 class="fw-bold tracking-wide text-uppercase" style="color: var(--primary-color);">AGM Rural College of Engineering and Technology</h5>
+            <p class="text-muted small">Loading Excellence.......</p>
         </div>
     </div>
 
@@ -134,7 +135,7 @@
         </button>
 
         <!-- Chat Panel -->
-        <div id="chatbot-panel" class="glassmorphism rounded-4 shadow-2xl border border-white-50 overflow-hidden d-none bg-white" style="width: 340px; height: 440px; position: absolute; bottom: 70px; right: 0;">
+        <div id="chatbot-panel" class="glassmorphism rounded-4 shadow-2xl border border-white-50 overflow-hidden d-none bg-white d-flex flex-column" style="width: 340px; height: 440px; position: absolute; bottom: 70px; right: 0;">
             <!-- Header -->
             <div class="bg-primary text-white p-3 d-flex align-items-center justify-content-between">
                 <div class="d-flex align-items-center gap-2">
@@ -153,7 +154,7 @@
             </div>
 
             <!-- Messages Area -->
-            <div id="chatbot-messages" class="p-3 overflow-y-auto" style="height: 310px; background-color: var(--bg-light-slate);">
+            <div id="chatbot-messages" class="p-3 overflow-y-auto flex-grow-1" style="background-color: var(--bg-light-slate);">
                 <!-- Bot Welcome -->
                 <div class="d-flex align-items-start gap-2 mb-3">
                     <div class="bg-primary text-white rounded-circle p-1 d-flex align-items-center justify-content-center" style="width: 24px; height: 24px; font-size: 10px;">
@@ -175,12 +176,32 @@
             </div>
 
             <!-- Footer Input -->
-            <form id="chatbot-input-form" class="p-2 border-top bg-white d-flex gap-2">
+            <form id="chatbot-input-form" class="p-2 border-top bg-white d-flex gap-2" style="flex-shrink: 0;">
                 <input type="text" id="chatbot-input" class="form-control form-control-sm border shadow-none px-3 rounded-pill small" style="font-size: 11px;" placeholder="Type a message..." required>
                 <button type="submit" class="btn btn-primary btn-sm rounded-circle d-flex align-items-center justify-content-center p-0 border-0" style="width: 32px; height: 32px; cursor: pointer;"><i class="bi bi-send-fill" style="font-size: 11px;"></i></button>
             </form>
         </div>
     </div>
+
+    <!-- Failsafe Page Loader Auto-Dismiss -->
+    <script>
+        (function() {
+            function hideLoader() {
+                const loader = document.getElementById('loader-wrapper');
+                if (loader) {
+                    loader.style.opacity = '0';
+                    loader.style.visibility = 'hidden';
+                    loader.style.transition = 'opacity 0.5s ease, visibility 0.5s ease';
+                }
+            }
+            // Transition out loader 400ms after all assets are fully loaded
+            window.addEventListener('load', () => {
+                setTimeout(hideLoader, 400);
+            });
+            // Fail-safe: force hide after 2.5 seconds if load event doesn't trigger
+            setTimeout(hideLoader, 2500);
+        })();
+    </script>
 
     <!-- Custom Global JS -->
     <script src="/js/search.js"></script>

@@ -1,80 +1,176 @@
+<style>
+    /* Scoped Premium Footer Styles */
+    .footer-section {
+        background-color: #0b132b !important; /* Premium Deep Navy */
+        color: #ffffff !important;
+        font-family: 'Inter', sans-serif;
+        position: relative;
+        border-top: 4px solid #a9121a; /* Top highlight accent */
+    }
+    .footer-section a {
+        color: rgba(255, 255, 255, 0.75) !important;
+        text-decoration: none !important;
+        transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        font-size: 13px;
+        display: inline-flex;
+        align-items: center;
+    }
+    .footer-section a:hover {
+        color: #ffc107 !important; /* Gold */
+        padding-left: 6px !important;
+    }
+    .footer-section .footer-title {
+        color: #ffffff !important;
+        font-family: 'Poppins', sans-serif;
+        font-weight: 700;
+        font-size: 14px;
+        letter-spacing: 0.8px;
+        text-transform: uppercase;
+        border-bottom: 2px solid #a9121a;
+        padding-bottom: 6px;
+        margin-bottom: 20px;
+        display: inline-block;
+    }
+    .footer-section .social-btn {
+        width: 36px;
+        height: 36px;
+        background-color: rgba(255, 255, 255, 0.08) !important;
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: #ffffff !important;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
+        text-decoration: none !important;
+    }
+    .footer-section .social-btn:hover {
+        background-color: #ffc107 !important;
+        color: #0b132b !important;
+        transform: translateY(-4px) scale(1.1);
+        border-color: #ffc107 !important;
+    }
+    .footer-section .contact-item {
+        font-size: 13px;
+        color: rgba(255, 255, 255, 0.8) !important;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    .footer-section .contact-item i {
+        color: #ffc107 !important;
+        font-size: 15px;
+        margin-top: 2px;
+    }
+    .footer-section .footer-links li {
+        margin-bottom: 10px;
+    }
+    .footer-section .footer-links i {
+        font-size: 10px;
+        margin-right: 6px;
+        transition: transform 0.25s ease;
+    }
+    .footer-section .footer-links a:hover i {
+        transform: translateX(2px);
+    }
+</style>
+
 <footer class="footer-section pt-5 pb-4 mt-auto">
     <div class="container">
-        <div class="row g-4 justify-content-between">
-            <!-- Col 1: About College -->
-            <div class="col-lg-3 col-md-6">
-                <div class="footer-logo d-flex align-items-center mb-3">
-                    <img src="https://www.agmrcet.ac.in/images/logo.png" alt="AGMRCET Logo" class="me-2" style="width: 48px; height: 48px; object-fit: contain;">
+        <div class="row g-4">
+            <!-- Col 1: College Branding & Socials -->
+            <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+                <div class="footer-brand d-flex align-items-center mb-3">
+                    <img src="/images/logo.png" alt="AGMRCET Logo" class="me-3" style="width: 56px; height: 56px; object-fit: contain;">
                     <div>
-                        <h5 class="fw-bold tracking-tight text-white m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET</h5>
-                        <p class="text-white-50 m-0" style="font-size: 9px; text-transform: uppercase; letter-spacing: 1px;">SDM Jainmatt Trust</p>
+                        <h5 class="fw-bold tracking-tight text-white m-0" style="font-family: 'Poppins', sans-serif; font-size: 17px; letter-spacing: 0.5px;">AGMRCET</h5>
+                        <p class="text-warning m-0 font-semibold" style="font-size: 9px; text-transform: uppercase; letter-spacing: 1px;">SDM Jainmatt Trust Initiative</p>
                     </div>
                 </div>
-                <p class="text-white-50 small mb-3">
-                    Established in 2010, AGM Rural College of Engineering and Technology is dedicated to providing high-quality technical education, nurturing innovators, and building leaders of tomorrow.
+                <p class="text-white-50 small mb-4 leading-relaxed" style="font-size: 12.5px; opacity: 0.85; line-height: 1.6;">
+                    Established in 2010 under SDM Jainmatt Trust, AGM Rural College of Engineering & Technology provides quality engineering and management programs near Navagraha Teerth, Varur-Hubballi, molding skilled technocrats for a better society.
                 </p>
-                <div class="social-icons-footer mb-3">
-                    <a href="#" class="text-white bg-white-10 rounded-circle me-2 d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 32px; height: 32px;" aria-label="Facebook"><i class="fab fa-facebook-f text-xs"></i></a>
-                    <a href="#" class="text-white bg-white-10 rounded-circle me-2 d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 32px; height: 32px;" aria-label="Twitter"><i class="fab fa-twitter text-xs"></i></a>
-                    <a href="#" class="text-white bg-white-10 rounded-circle me-2 d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 32px; height: 32px;" aria-label="Instagram"><i class="fab fa-instagram text-xs"></i></a>
-                    <a href="#" class="text-white bg-white-10 rounded-circle d-inline-flex justify-content-center align-items-center shadow-sm" style="width: 32px; height: 32px;" aria-label="LinkedIn"><i class="fab fa-linkedin-in text-xs"></i></a>
+                <h6 class="text-uppercase fw-bold text-warning mb-3 tracking-wider" style="font-size: 11px; letter-spacing: 1px;">Connect With Media</h6>
+                <div class="social-icons-footer d-flex align-items-center gap-2">
+                    <a href="https://www.facebook.com/profile.php?id=100070235567966" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                        <i class="fab fa-facebook-f text-xs"></i>
+                    </a>
+                    <a href="https://www.youtube.com/@agmrcetmediachannel" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube">
+                        <i class="fab fa-youtube text-xs" style="color: #ff3333;"></i>
+                    </a>
+                    <a href="https://www.instagram.com/agmrcet_media/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                        <i class="fab fa-instagram text-xs"></i>
+                    </a>
+                    <a href="https://www.linkedin.com/in/agmrcet-media-9ba40826b/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                        <i class="fab fa-linkedin-in text-xs"></i>
+                    </a>
+                    <a href="https://wa.me/9481087999/?text=Send%20Your%20Enquery.%20We%20will%20get%20back%20you." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-xs" style="color: #25d366;"></i>
+                    </a>
                 </div>
             </div>
 
-            <!-- Col 2: Quick Links & UGC compliance -->
-            <div class="col-lg-2 col-md-6">
-                <h6 class="text-uppercase fw-bold text-accent mb-4 tracking-wider" style="font-size: 12px;">Quick Links</h6>
-                <ul class="list-unstyled footer-links small">
-                    <li class="mb-2"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
-                    <li class="mb-2"><a href="/about" class="text-white-50 text-decoration-none">About College</a></li>
-                    <li class="mb-2"><a href="/admissions" class="text-white-50 text-decoration-none">Admissions</a></li>
-                    <li class="mb-2"><a href="/placements" class="text-white-50 text-decoration-none">Placements</a></li>
-                    <li class="mb-2"><a href="/campus-life" class="text-white-50 text-decoration-none">Campus Life</a></li>
-                    <li class="mb-2"><a href="/research" class="text-white-50 text-decoration-none">Research</a></li>
-                    <li class="mb-2"><a href="/faculty" class="text-white-50 text-decoration-none">Faculty Directory</a></li>
+            <!-- Col 2: Academic Programs -->
+            <div class="col-lg-2 col-md-6 mb-4 mb-lg-0">
+                <h6 class="footer-title">Programs</h6>
+                <ul class="list-unstyled footer-links p-0 m-0">
+                    <li><a href="/departments/cse"><i class="bi bi-chevron-right text-warning"></i>Computer Science & Eng.</a></li>
+                    <li><a href="/departments/cse-aiml"><i class="bi bi-chevron-right text-warning"></i>CSE (AI & ML)</a></li>
+                    <li><a href="/departments/csd"><i class="bi bi-chevron-right text-warning"></i>Computer Science & Design</a></li>
+                    <li><a href="/departments/ece"><i class="bi bi-chevron-right text-warning"></i>Electronics & Comm.</a></li>
+                    <li><a href="/departments/eee"><i class="bi bi-chevron-right text-warning"></i>Electrical & Electronics</a></li>
+                    <li><a href="/departments/mba"><i class="bi bi-chevron-right text-warning"></i>PG Wing: MBA & MCA</a></li>
                 </ul>
             </div>
 
-            <!-- Col 3: Academic Departments -->
-            <div class="col-lg-3 col-md-6">
-                <h6 class="text-uppercase fw-bold text-accent mb-4 tracking-wider" style="font-size: 12px;">Departments</h6>
-                <ul class="list-unstyled footer-links small">
-                    <li class="mb-2"><a href="/departments/cse" class="text-white-50 text-decoration-none">Computer Science & Eng.</a></li>
-                    <li class="mb-2"><a href="/departments/cse-aiml" class="text-white-50 text-decoration-none">CSE (AI & ML)</a></li>
-                    <li class="mb-2"><a href="/departments/csd" class="text-white-50 text-decoration-none">Computer Science & Design</a></li>
-                    <li class="mb-2"><a href="/departments/ece" class="text-white-50 text-decoration-none">Electronics & Comm. Eng.</a></li>
-                    <li class="mb-2"><a href="/departments/eee" class="text-white-50 text-decoration-none">Electrical & Electronics</a></li>
-                    <li class="mb-2"><a href="/departments/me" class="text-white-50 text-decoration-none">Mechanical Engineering</a></li>
-                    <li class="mb-2"><a href="/departments/ce" class="text-white-50 text-decoration-none">Civil Engineering</a></li>
-                    <li class="mb-2"><a href="/departments/mba" class="text-white-50 text-decoration-none">MBA & MCA PG courses</a></li>
+            <!-- Col 3: Portal Links -->
+            <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                <h6 class="footer-title">Help & Support</h6>
+                <ul class="list-unstyled footer-links p-0 m-0">
+                    <li><a href="/portal"><i class="bi bi-chevron-right text-warning"></i>Central ERP Portal</a></li>
+                    <li><a href="http://agmrcet.ac.in:2095/" target="_blank" rel="noopener noreferrer"><i class="bi bi-chevron-right text-warning"></i>Webmail Login</a></li>
+                    <li><a href="https://accounts.google.com/" target="_blank" rel="noopener noreferrer"><i class="bi bi-chevron-right text-warning"></i>Gmail Login</a></li>
+                    <li><a href="/contact"><i class="bi bi-chevron-right text-warning"></i>Online Grievance Cell</a></li>
+                    <li><a href="/contact"><i class="bi bi-chevron-right text-warning"></i>Institutional Feedback</a></li>
+                    <li><a href="/about"><i class="bi bi-chevron-right text-warning"></i>Mandatory Disclosures</a></li>
                 </ul>
             </div>
 
-            <!-- Col 4: Newsletter & Contact -->
+            <!-- Col 4: Reach Us & Map -->
             <div class="col-lg-3 col-md-6">
-                <h6 class="text-uppercase fw-bold text-accent mb-4 tracking-wider" style="font-size: 12px;">Mandatory Disclosures</h6>
-                <ul class="list-unstyled footer-links small mb-3">
-                    <li class="mb-1"><a href="/portal" class="text-white-50 text-decoration-none"><i class="bi bi-shield-check text-accent me-1"></i> AICTE & UGC Approvals</a></li>
-                    <li class="mb-1"><a href="/about" class="text-white-50 text-decoration-none"><i class="bi bi-file-earmark-pdf text-accent me-1"></i> Mandatory Disclosures</a></li>
-                    <li class="mb-1"><a href="/contact" class="text-white-50 text-decoration-none"><i class="bi bi-exclamation-octagon text-accent me-1"></i> Anti-Ragging Cell</a></li>
-                    <li class="mb-1"><a href="/research" class="text-white-50 text-decoration-none"><i class="bi bi-graph-up-arrow text-accent me-1"></i> IQAC & NIRF Data</a></li>
-                </ul>
-                <p class="text-white-50 small mb-2">
-                    <i class="bi bi-geo-alt-fill text-accent me-2"></i>NH-4 Road, Varur, Hubballi, Karnataka - 581207
-                </p>
+                <h6 class="footer-title">Reach Us</h6>
+                <div class="contact-footer-info mb-3">
+                    <div class="contact-item">
+                        <i class="bi bi-geo-alt-fill"></i>
+                        <span>NavagrahaTeerth, NH4-Raod Varur, Hubballi, Karnataka - 581207</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-telephone-fill"></i>
+                        <span>+91 94810 87999, +91 94810 85999</span>
+                    </div>
+                    <div class="contact-item">
+                        <i class="bi bi-envelope-open-fill"></i>
+                        <span>principal@agmrcet.ac.in</span>
+                    </div>
+                </div>
+                <!-- Premium Directions Button -->
+                <a href="https://maps.app.goo.gl/w5G2XnBexF523R8S8" target="_blank" rel="noopener noreferrer" class="btn btn-outline-warning btn-sm w-100 py-2.5 font-bold text-uppercase tracking-wider d-flex align-items-center justify-content-center gap-1.5" style="border-radius: 4px; font-size: 10px; font-weight: 700; border-width: 1.5px; transition: all 0.3s ease;">
+                    <i class="bi bi-map-fill"></i> Get Driving Directions
+                </a>
             </div>
         </div>
 
-        <hr class="border-secondary-subtle my-4">
+        <hr class="border-secondary-subtle my-4" style="opacity: 0.12; border-color: rgba(255,255,255,0.15) !important;">
 
-        <div class="row g-3 justify-content-between align-items-center small">
-            <div class="col-md-6 text-center text-md-start text-white-50">
-                &copy; 2026 AGMR College of Engineering and Technology. All Rights Reserved. Managed by SDM Jainmatt Trust.
+        <div class="row g-3 justify-content-between align-items-center small" style="font-size: 11px; opacity: 0.75;">
+            <div class="col-md-7 text-center text-md-start text-white-50">
+                &copy; 2026 AGM Rural College of Engineering & Technology. All Rights Reserved. Managed by SDM Jainmatt Trust, Varur.
             </div>
-            <div class="col-md-6 text-center text-md-end footer-legal-links">
-                <a href="#" class="text-white-50 text-decoration-none me-3">Privacy Policy</a>
-                <a href="#" class="text-white-50 text-decoration-none me-3">Terms of Use</a>
-                <a href="#" class="text-white-50 text-decoration-none">Sitemap</a>
+            <div class="col-md-5 text-center text-md-end footer-legal-links">
+                <a href="/about" class="text-white-50 text-decoration-none me-3 hover-text-warning">Privacy Policy</a>
+                <a href="/about" class="text-white-50 text-decoration-none me-3 hover-text-warning">Terms of Use</a>
+                <a href="/contact" class="text-white-50 text-decoration-none hover-text-warning">Sitemap</a>
             </div>
         </div>
     </div>

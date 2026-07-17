@@ -276,7 +276,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-<<<<<<< HEAD
     // 10. Accessibility Panel Event Listeners
     const btnIncreaseFont = document.getElementById('btn-increase-font');
     const btnDecreaseFont = document.getElementById('btn-decrease-font');
@@ -415,8 +414,11 @@ document.addEventListener('DOMContentLoaded', () => {
                     inquiryAlert.classList.remove('d-none', 'alert-success');
                     inquiryAlert.classList.add('alert-danger');
                 }
-=======
-    // 10. Interactive Department Explorer Click Handler
+            });
+        });
+    }
+
+    // 12. Interactive Department Explorer Click Handler
     const explorerBtns = document.querySelectorAll('.dept-explorer-btn');
     explorerBtns.forEach(btn => {
         btn.addEventListener('click', () => {
@@ -450,7 +452,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // 11. Admissions Smart Eligibility & Fee Calculator Engine
+    // 13. Admissions Smart Eligibility & Fee Calculator Engine
     const calcForm = document.getElementById('fee-calculator-form');
     if (calcForm) {
         calcForm.addEventListener('submit', (e) => {
@@ -602,7 +604,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 12. Global AI Campus Assistant Chatbot Controller
+    // 14. Global AI Campus Assistant Chatbot Controller
     const chatbotToggleBtn = document.getElementById('chatbot-toggle-btn');
     const chatbotPanel = document.getElementById('chatbot-panel');
     const chatbotCloseBtn = document.getElementById('chatbot-close-btn');
@@ -618,7 +620,7 @@ document.addEventListener('DOMContentLoaded', () => {
             const isHidden = chatbotPanel.classList.contains('d-none');
             if (isHidden) {
                 chatbotPanel.classList.remove('d-none');
-                chatbotPanel.classList.add('d-block');
+                chatbotPanel.classList.add('d-flex');
                 chatIconOpened.classList.add('d-none');
                 chatIconClosed.classList.remove('d-none');
                 // Scroll messages to bottom
@@ -629,7 +631,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     gsap.fromTo(chatbotPanel, { opacity: 0, scale: 0.8, y: 30 }, { opacity: 1, scale: 1, y: 0, duration: 0.3, ease: 'back.out(1.2)' });
                 }
             } else {
-                chatbotPanel.classList.remove('d-block');
+                chatbotPanel.classList.remove('d-flex');
                 chatbotPanel.classList.add('d-none');
                 chatIconOpened.classList.remove('d-none');
                 chatIconClosed.classList.add('d-none');
@@ -707,7 +709,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 const query = btn.getAttribute('data-query');
                 addMessage(query, 'user');
                 handleBotResponse(query);
->>>>>>> 1488782f977dd6f07c3dfebb0046dbeb9b4579f1
             });
         });
     }
