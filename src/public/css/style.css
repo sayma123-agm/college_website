@@ -150,8 +150,24 @@ a:focus-visible, button:focus-visible, input:focus-visible, select:focus-visible
 }
 
 /* Background Gradients & Helper Classes */
-.bg-navy {
-    background-color: var(--bg-navy) !important;
+.bg-navy, .card.bg-navy {
+    background-color: #0B3D91 !important;
+    color: #ffffff !important;
+}
+
+.bg-maroon, .card.bg-maroon {
+    background-color: #610000 !important;
+    color: #ffffff !important;
+}
+
+.top-links-strip::-webkit-scrollbar {
+    display: none !important;
+    width: 0 !important;
+    height: 0 !important;
+}
+.top-links-strip {
+    scrollbar-width: none !important;
+    -ms-overflow-style: none !important;
 }
 
 .text-accent {
@@ -899,4 +915,22 @@ html.high-contrast .btn:hover {
 .footer-section .social-icons-footer a:hover {
     background-color: var(--accent-color) !important;
     color: #07162c !important;
+}
+
+/* Fix Bootstrap Accordion Contrast & Text Visibility */
+.accordion-button {
+    color: #0B3D91 !important;
+    font-weight: 700 !important;
+    background-color: #F8FAFC !important;
+}
+.accordion-button:not(.collapsed) {
+    color: #0B3D91 !important;
+    background-color: #E2E8F0 !important;
+    box-shadow: inset 0 -1px 0 rgba(0,0,0,0.12) !important;
+}
+.accordion-body {
+    color: #334155 !important;
+    background-color: #ffffff !important;
+    font-size: 14px;
+    line-height: 1.65;
 }

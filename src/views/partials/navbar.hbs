@@ -1,26 +1,50 @@
-<!-- Tier 1: Top Utility Contacts Bar (Navy) -->
-<div class="top-utility-bar py-2 text-white" style="background-color: #07162c; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 500;">
-    <div class="container d-flex flex-column flex-md-row justify-content-between align-items-center gap-2">
-        <div class="top-info-left d-flex align-items-center gap-3">
-            <span class="text-white-80"><i class="bi bi-telephone-fill text-warning me-1.5"></i> Call Us: <a href="tel:+919481087999" class="text-white text-decoration-none hover-opacity-80">+91 94810 87999</a></span>
-            <span class="text-white-30 d-none d-md-inline">|</span>
-            <span class="text-white-80"><i class="bi bi-envelope-fill text-warning me-1.5"></i> Email: <a href="mailto:admissions@agmrcet.ac.in" class="text-white text-decoration-none hover-opacity-80">admissions@agmrcet.ac.in</a></span>
+<!-- Tier 1: Top Utility Maroon Bar (Fully Clean & Sleek) -->
+<div class="top-utility-bar py-1.5 text-white" style="background-color: #610000; font-family: 'Inter', sans-serif; font-size: 11px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.15);">
+    <div class="container-fluid px-lg-4 d-flex align-items-center justify-content-between gap-3 overflow-hidden">
+        <!-- Utility Links Strip (Horizontally Scrollable without visible scrollbars) -->
+        <div class="top-links-strip d-flex align-items-center gap-2 text-nowrap overflow-x-auto py-1" style="scrollbar-width: none; -ms-overflow-style: none;">
+            <a href="/contact" class="text-white text-decoration-none hover-text-warning">Feedback</a>
+            <span class="text-white-50">|</span>
+            <a href="/about" class="text-white text-decoration-none hover-text-warning">IQAC</a>
+            <span class="text-white-50">|</span>
+            <a href="/about" class="text-white text-decoration-none hover-text-warning">NAAC</a>
+            <span class="text-white-50">|</span>
+            <a href="/research" class="text-white text-decoration-none hover-text-warning">NIRF</a>
+            <span class="text-white-50">|</span>
+            <a href="/contact" class="text-white text-decoration-none hover-text-warning">Grievances</a>
+            <span class="text-white-50">|</span>
+            <a href="/research" class="text-white text-decoration-none hover-text-warning">Research</a>
+            <span class="text-white-50">|</span>
+            <a href="/campus-life" class="text-white text-decoration-none hover-text-warning">NSS</a>
+            <span class="text-white-50">|</span>
+            <a href="https://smart-erp.agmrcet.ac.in" target="_blank" class="text-warning text-decoration-none fw-bold hover-text-white"><i class="bi bi-shield-lock-fill me-1"></i>ERP</a>
+            <span class="text-white-50">|</span>
+            <a href="/research" class="text-white text-decoration-none hover-text-warning">IEEE</a>
+            <span class="text-white-50">|</span>
+            <a href="/placements" class="text-white text-decoration-none hover-text-warning">Alumni</a>
+            <span class="text-white-50">|</span>
+            <a href="/news" class="text-white text-decoration-none hover-text-warning">Agratha</a>
+            <span class="text-white-50">|</span>
+            <a href="/campus-life" class="text-white text-decoration-none hover-text-warning">Virtual lab</a>
+            <span class="text-white-50">|</span>
+            <a href="/about" class="text-white text-decoration-none hover-text-warning">Awards</a>
+            <span class="text-white-50">|</span>
+            <a href="/news" class="text-white text-decoration-none hover-text-warning">Media</a>
+            <span class="text-white-50">|</span>
+            <a href="/news" class="text-white text-decoration-none hover-text-warning">Events</a>
+            <span class="text-white-50">|</span>
+            <a href="/contact" class="text-white text-decoration-none hover-text-warning">Social Media</a>
         </div>
-        <div class="top-info-right d-flex align-items-center flex-wrap justify-content-center justify-content-md-end gap-3">
-            <div class="d-none d-md-flex align-items-center gap-3">
-                <a href="/news" class="text-white-80 text-decoration-none hover-opacity-100">News & Bulletins</a>
-                <span class="text-white-30">|</span>
-                <a href="/faculty" class="text-white-80 text-decoration-none hover-opacity-100">Careers</a>
-                <span class="text-white-30">|</span>
-                <a href="/contact" class="text-white-80 text-decoration-none hover-opacity-100">RTI</a>
-            </div>
-            <span class="text-white-30 d-none d-md-inline">|</span>
-            <div class="social-icons-top d-flex align-items-center gap-2.5">
-                <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" class="text-white hover-text-warning transition-all" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                <a href="https://www.youtube.com/@agmrcetmedia" target="_blank" rel="noopener noreferrer" class="text-danger hover-text-warning transition-all" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
-                <a href="https://www.instagram.com/" target="_blank" rel="noopener noreferrer" class="text-white hover-text-warning transition-all" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                <a href="https://www.linkedin.com/" target="_blank" rel="noopener noreferrer" class="text-white hover-text-warning transition-all" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            </div>
+
+        <!-- Quick Actions & Contact (Fixed Right) -->
+        <div class="top-info-right d-flex align-items-center gap-2 text-nowrap flex-shrink-0">
+            <!-- Manual Trigger Button for Admission Modal Popup -->
+            <button type="button" class="btn btn-warning btn-xs fw-bold rounded-pill px-3 py-1 text-dark shadow-xs d-flex align-items-center gap-1 animate-pulse" data-bs-toggle="modal" data-bs-target="#admissionBannerModal" style="font-size: 10.5px; white-space: nowrap;">
+                <i class="bi bi-fire text-danger"></i> Admissions 2026-27
+            </button>
+
+            <span class="text-white-50 d-none d-sm-inline">|</span>
+            <span class="text-white-80 text-nowrap" style="font-size: 10.5px;"><i class="bi bi-telephone-fill text-warning me-1"></i> +91 94810 87999</span>
         </div>
     </div>
 </div>
@@ -42,9 +66,8 @@
             </div>
         </a>
 
-        <!-- Accreditation & Admission Codes (Grouped Layout) -->
+        <!-- Accreditation & Admission Codes -->
         <div class="d-flex flex-column align-items-center align-items-xl-end gap-2">
-            <!-- Accreditation Status -->
             <div class="d-flex flex-wrap align-items-center justify-content-center gap-1.5">
                 <span class="badge bg-white border border-danger-subtle text-danger px-2 py-1 rounded-1 shadow-sm fw-bold d-flex align-items-center gap-1" style="font-size: 9px; font-family: 'Plus Jakarta Sans', sans-serif;">
                     <i class="bi bi-patch-check-fill text-danger fs-7"></i> Autonomous
@@ -59,28 +82,27 @@
                     <i class="bi bi-shield-check text-warning fs-7"></i> VTU CODE: E238
                 </span>
             </div>
-            <!-- Admission Codes (Blue Capsules from Screenshot) -->
             <div class="d-flex flex-wrap align-items-center justify-content-center gap-1.5">
-                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
+                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif;">
                     CET Code: E199
                 </span>
-                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
-                    COMEDK Code:E208
+                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif;">
+                    COMEDK Code: E208
                 </span>
-                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
-                    MBA Code:B401
+                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif;">
+                    MBA Code: B401
                 </span>
-                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif; letter-spacing: 0.2px;">
-                    MCA Code:C620
+                <span class="badge rounded-pill text-white px-3 py-1.5 shadow-sm fw-bold" style="background-color: #0b5ed7; font-size: 9.5px; font-family: 'Inter', sans-serif;">
+                    MCA Code: C620
                 </span>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Tier 3: Primary Navigation Bar (Crimson/Maroon Red) -->
+<!-- Tier 3: Primary Navigation Bar (Crimson Maroon Red Template) -->
 <nav class="navbar navbar-expand-lg sticky-top py-0 transition-all border-bottom" style="background-color: #a9121a !important; border-color: rgba(255,255,255,0.1) !important; z-index: 1020; box-shadow: 0 4px 15px rgba(0,0,0,0.08);">
-    <div class="container">
+    <div class="container-fluid px-lg-4">
         <!-- Mobile View Branding -->
         <a class="navbar-brand d-flex align-items-center d-lg-none py-2 text-decoration-none" href="/">
             <img src="/images/logo.png" alt="AGMRCET Logo" class="me-2" style="width: 42px; height: 42px; object-fit: contain;">
@@ -90,128 +112,430 @@
             </div>
         </a>
 
-        <!-- Mobile Toggler Buttons -->
+        <!-- Mobile Toggler -->
         <div class="d-flex align-items-center d-lg-none gap-2 py-2">
-            <button class="navbar-toggler border-0 shadow-none px-2 text-white bg-white bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent" aria-controls="mainNavbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <button class="navbar-toggler border-0 shadow-none px-2 text-white bg-white bg-opacity-10" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbarContent">
                 <span class="navbar-toggler-icon" style="filter: invert(1);"></span>
             </button>
         </div>
 
-        <!-- Navigation Menu Links (NSRIT dropdown list) -->
+        <!-- Navigation Menu Links -->
         <div class="collapse navbar-collapse" id="mainNavbarContent">
-            <ul class="navbar-nav mx-auto align-items-lg-center">
+            <ul class="navbar-nav me-auto align-items-lg-center">
                 <!-- Home -->
                 <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeHome}}active-menu-item{{/if}}" style="font-size: 12px;" href="/">Home</a>
+                    <a class="nav-link fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeHome}}active-menu-item{{/if}}" style="font-size: 11px;" href="/">Home</a>
                 </li>
 
-                <!-- About Us Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAbout}}active-menu-item{{/if}}" style="font-size: 12px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        About Us
+                <!-- About Us Mega Dropdown (Matches agmrcet.ac.in Screenshot) -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAbout}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        About
                     </a>
-                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #7A0016;">
-                        <li><a class="dropdown-item py-2 text-white small" href="/about">College Profile</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/about#messages">Leadership Messages</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/about#timeline">History & Milestones</a></li>
-                        <li><hr class="dropdown-divider border-white-10"></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/about">IQAC Cell</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/research">NIRF Data</a></li>
-                    </ul>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <!-- The Institute Column -->
+                                <div class="col-md-3 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">The Institute</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Profile</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/vision-mission" class="text-dark fw-bold text-decoration-none hover-text-danger">Vision & Mission</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/founder-message" class="text-dark fw-bold text-decoration-none hover-text-danger">Founder President</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/president-message" class="text-dark fw-bold text-decoration-none hover-text-danger">President Message</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/governing-council" class="text-dark fw-bold text-decoration-none hover-text-danger">Governing Board</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/principal-message" class="text-dark fw-bold text-decoration-none hover-text-danger">Principal</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Approvals & Status Column -->
+                                <div class="col-md-3 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Approvals & Status</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">VTU Approval</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">AICTE Approval</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Higher Ed Permission</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Autonomous Status</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">UGC 2(f) Status</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">UGC 12(B) Status</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Accreditations Column -->
+                                <div class="col-md-3 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Accreditations</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">NBA Accreditation</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">NAAC Accreditation</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Strategic Plan</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Organogram</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Best Practices</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">IT Policy</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Maintenance Policy</a></li>
+                                    </ul>
+                                </div>
+                                <!-- Media & Others Column -->
+                                <div class="col-md-3">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Media & Others</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Awards</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about#timeline" class="text-dark fw-bold text-decoration-none hover-text-danger">Milestones</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">Rankings (NIRF/ARIIA)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements" class="text-dark fw-bold text-decoration-none hover-text-danger">MOUs</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/gallery" class="text-dark fw-bold text-decoration-none hover-text-danger">Photo Gallery</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life" class="text-dark fw-bold text-decoration-none hover-text-danger">College Video</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/about" class="text-dark fw-bold text-decoration-none hover-text-danger">Service Rules</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
 
-                <!-- Academic Dropdowns -->
+                <!-- Academics Dropdown -->
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAcademics}}active-menu-item{{/if}}" style="font-size: 12px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAcademics}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         Academics
                     </a>
-                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #7A0016;">
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/cse">Computer Science (CSE)</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/cse-aiml">CSE (AI & ML)</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/csd">Computer Science & Design</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/ece">Electronics & Communication</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/eee">Electrical & Electronics</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/departments/mba">MBA & MCA Wing</a></li>
-                        <li><hr class="dropdown-divider border-white-10"></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/news">VTU Syllabus</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/news">Examination Calendar</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/portal">Results Gateway</a></li>
+                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #7A0016; min-width: 300px;">
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/cse"><i class="bi bi-laptop me-2 text-warning"></i> Computer Science Engineering</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/cse-aiml"><i class="bi bi-cpu me-2 text-warning"></i> CSE (AI & ML)</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/csd"><i class="bi bi-palette me-2 text-warning"></i> Computer Science & Design</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/ce"><i class="bi bi-building me-2 text-warning"></i> Civil Engineering</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/ece"><i class="bi bi-broadcast me-2 text-warning"></i> Electronics & Communication</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/eee"><i class="bi bi-lightning-charge me-2 text-warning"></i> Electrical & Electronics</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/me"><i class="bi bi-gear me-2 text-warning"></i> Mechanical Engineering</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/ce"><i class="bi bi-journal-text me-2 text-warning"></i> Basic Science & Humanities</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/departments/mba"><i class="bi bi-briefcase me-2 text-warning"></i> Master of Business Administration</a></li>
                     </ul>
                 </li>
 
-                <!-- Admissions -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAdmissions}}active-menu-item{{/if}}" style="font-size: 12px;" href="/admissions">Admissions</a>
-                </li>
-
-                <!-- Placements -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activePlacements}}active-menu-item{{/if}}" style="font-size: 12px;" href="/placements">Placements</a>
-                </li>
-
-                <!-- Campus Life Dropdown -->
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeCampus}}active-menu-item{{/if}}" style="font-size: 12px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        Campus Life
+                <!-- Admissions Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeAdmissions}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Admissions
                     </a>
-                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #7A0016;">
-                        <li><a class="dropdown-item py-2 text-white small" href="/campus-life">Hostels & Mess</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/campus-life#library">Central Library</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/campus-life#sports">Sports & Amenities</a></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/campus-life#virtualtour">360° Drone Tour</a></li>
-                        <li><hr class="dropdown-divider border-white-10"></li>
-                        <li><a class="dropdown-item py-2 text-white small" href="/about">Alumni Desk</a></li>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-6 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Information</h5>
+                                    <ul class="list-unstyled space-y-2.5 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#manuals" class="text-dark fw-bold text-decoration-none hover-text-danger">Admission Manuals</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#courses" class="text-dark fw-bold text-decoration-none hover-text-danger">Courses Offered</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#fees" class="text-dark fw-bold text-decoration-none hover-text-danger">Fee Structure</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#analysis" class="text-dark fw-bold text-decoration-none hover-text-danger">Admission Analysis</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Procedures</h5>
+                                    <ul class="list-unstyled space-y-2.5 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#ug-procedure" class="text-dark fw-bold text-decoration-none hover-text-danger">UG Admission Procedure</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/admissions#pg-procedure" class="text-dark fw-bold text-decoration-none hover-text-danger">PG Admission Procedure</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Departments Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Departments
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">B.Tech — Computing</h5>
+                                    <ul class="list-unstyled space-y-2 m-0 mb-4" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/cse" class="text-dark fw-bold text-decoration-none hover-text-danger">Computer Science & Engg.</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/cse-aiml" class="text-dark fw-bold text-decoration-none hover-text-danger">CSE (AI & ML)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/csd" class="text-dark fw-bold text-decoration-none hover-text-danger">CSE (Data Science / CSD)</a></li>
+                                    </ul>
+                                    <h6 class="fw-bold text-danger mb-2 pb-1 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; color: #610000 !important;">UG Other</h6>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/cse" class="text-dark fw-bold text-decoration-none hover-text-danger">BCA</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/mba" class="text-dark fw-bold text-decoration-none hover-text-danger">BBA</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">B.Tech — Engineering</h5>
+                                    <ul class="list-unstyled space-y-2.5 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/ce" class="text-dark fw-bold text-decoration-none hover-text-danger">Civil Engineering</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/ece" class="text-dark fw-bold text-decoration-none hover-text-danger">Electronics & Comm. Engg.</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/eee" class="text-dark fw-bold text-decoration-none hover-text-danger">Electrical & Electronics Engg.</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/me" class="text-dark fw-bold text-decoration-none hover-text-danger">Mechanical Engineering</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">PG Programmes</h5>
+                                    <ul class="list-unstyled space-y-2 m-0 mb-4" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/mba" class="text-dark fw-bold text-decoration-none hover-text-danger">MBA</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/mba" class="text-dark fw-bold text-decoration-none hover-text-danger">MCA</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/me" class="text-dark fw-bold text-decoration-none hover-text-danger">M.Tech (Thermal Engg.)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/eee" class="text-dark fw-bold text-decoration-none hover-text-danger">M.Tech (Power Systems)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/cse" class="text-dark fw-bold text-decoration-none hover-text-danger">M.Tech (CSE)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/ece" class="text-dark fw-bold text-decoration-none hover-text-danger">M.Tech (VLSI & ES)</a></li>
+                                    </ul>
+                                    <h6 class="fw-bold text-danger mb-2 pb-1 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 13.5px; color: #610000 !important;">Other</h6>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/ce" class="text-dark fw-bold text-decoration-none hover-text-danger">Science & Humanities</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- R&D Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeResearch}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        R&D
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px; color: #610000 !important;">R&D CELL</h5>
+                            <div class="row g-3">
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#profile" class="text-dark fw-bold text-decoration-none hover-text-danger">R&D Profile</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#policy" class="text-dark fw-bold text-decoration-none hover-text-danger">R&D Policy</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#thrust" class="text-dark fw-bold text-decoration-none hover-text-danger">R&D Thrust Areas</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#supervisors" class="text-dark fw-bold text-decoration-none hover-text-danger">Research Supervisors</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#phd" class="text-dark fw-bold text-decoration-none hover-text-danger">Faculty Pursuing Ph.D</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#centers" class="text-dark fw-bold text-decoration-none hover-text-danger">Research Centers</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#publications" class="text-dark fw-bold text-decoration-none hover-text-danger">Publications</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#consultancy" class="text-dark fw-bold text-decoration-none hover-text-danger">Consultancy</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research#patents" class="text-dark fw-bold text-decoration-none hover-text-danger">Patents</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Placements Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activePlacements}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Placements
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-6 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Overview</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#about" class="text-dark fw-bold text-decoration-none hover-text-danger">About</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#tpo" class="text-dark fw-bold text-decoration-none hover-text-danger">Contact</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#facilities" class="text-dark fw-bold text-decoration-none hover-text-danger">Facilities</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#stats" class="text-dark fw-bold text-decoration-none hover-text-danger">Placement Statistics</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-6">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Activities</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#training" class="text-dark fw-bold text-decoration-none hover-text-danger">Training Programs</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/gallery" class="text-dark fw-bold text-decoration-none hover-text-danger">Gallery</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/placements#recruiters" class="text-dark fw-bold text-decoration-none hover-text-danger">Top Recruiters</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Library Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Library
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">General</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library" class="text-dark fw-bold text-decoration-none hover-text-danger">About Library</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library-infra" class="text-dark fw-bold text-decoration-none hover-text-danger">Infrastructure</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library-hours" class="text-dark fw-bold text-decoration-none hover-text-danger">Working Hours</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library-rules" class="text-dark fw-bold text-decoration-none hover-text-danger">Rules & Regulations</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/faculty" class="text-dark fw-bold text-decoration-none hover-text-danger">Library Staff</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#digital-library" class="text-dark fw-bold text-decoration-none hover-text-danger">Digital Library</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Resources</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#journals" class="text-dark fw-bold text-decoration-none hover-text-danger">Print Journals</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#journals" class="text-dark fw-bold text-decoration-none hover-text-danger">Bound Journals</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#e-journals" class="text-dark fw-bold text-decoration-none hover-text-danger">E-Journals</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library" class="text-dark fw-bold text-decoration-none hover-text-danger">List of CDs</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library" class="text-dark fw-bold text-decoration-none hover-text-danger">Books & New Arrivals</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#library" class="text-dark fw-bold text-decoration-none hover-text-danger">Rare Books & E-Books</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/gallery" class="text-dark fw-bold text-decoration-none hover-text-danger">Video Gallery</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Online Access</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/portal" class="text-dark fw-bold text-decoration-none hover-text-danger">Previous Question Papers</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">IEEE Xplore</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">Springer Link</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">J-Gate Plus</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">DELNET / N-List / NDL</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/research" class="text-dark fw-bold text-decoration-none hover-text-danger">Plagiarism Software</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/contact" class="text-dark fw-bold text-decoration-none hover-text-danger">Books Requisition Form</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/contact" class="text-dark fw-bold text-decoration-none hover-text-danger">Feedback Form</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </li>
+
+                <!-- Staff Dropdown -->
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Staff
+                    </a>
+                    <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #7A0016; min-width: 240px;">
+                        <li><a class="dropdown-item py-2 text-white small" href="/faculty">👨‍🏫 Teaching Faculty</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/faculty#non-teaching">🛠️ Non-Teaching Staff</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/portal/faculty">🔐 Staff Login</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/about">📋 Service Rules</a></li>
+                        <li><a class="dropdown-item py-2 text-white small" href="/campus-life">📜 Code of Conduct</a></li>
                     </ul>
                 </li>
 
-                <!-- Research -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeResearch}}active-menu-item{{/if}}" style="font-size: 12px;" href="/research">Research</a>
+                <!-- Facilities Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeCampus}}active-menu-item{{/if}}" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Facilities
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Campus</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#atm" class="text-dark fw-bold text-decoration-none hover-text-danger">ATM</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#cafeteria" class="text-dark fw-bold text-decoration-none hover-text-danger">Cafeteria</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#wifi" class="text-dark fw-bold text-decoration-none hover-text-danger">Wi-Fi Campus</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#media" class="text-dark fw-bold text-decoration-none hover-text-danger">Media Centre</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#common-rooms" class="text-dark fw-bold text-decoration-none hover-text-danger">Common Rooms</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#classrooms" class="text-dark fw-bold text-decoration-none hover-text-danger">Smart Classrooms</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#green" class="text-dark fw-bold text-decoration-none hover-text-danger">Green Initiatives</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Sports & Labs</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#sports" class="text-dark fw-bold text-decoration-none hover-text-danger">Games and Sports</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#labs" class="text-dark fw-bold text-decoration-none hover-text-danger">Language Laboratories</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Utilities & Safety</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#ro" class="text-dark fw-bold text-decoration-none hover-text-danger">RO Water Plant</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#solar" class="text-dark fw-bold text-decoration-none hover-text-danger">Solar Power Plant</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#medical" class="text-dark fw-bold text-decoration-none hover-text-danger">Medical Facility</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#hostel" class="text-dark fw-bold text-decoration-none hover-text-danger">Hostel</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#transport" class="text-dark fw-bold text-decoration-none hover-text-danger">Transport (Bus Routes)</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#safety" class="text-dark fw-bold text-decoration-none hover-text-danger">Fire Safety & Earthing</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#safety" class="text-dark fw-bold text-decoration-none hover-text-danger">Drive Safely</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
 
-                <!-- Faculty -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeFaculty}}active-menu-item{{/if}}" style="font-size: 12px;" href="/faculty">Faculty</a>
+                <!-- Student Support Mega Dropdown -->
+                <li class="nav-item dropdown position-static">
+                    <a class="nav-link dropdown-toggle fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark" style="font-size: 11px;" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Student Support
+                    </a>
+                    <div class="dropdown-menu border-0 shadow-xl p-4 rounded-3 w-100 mega-dropdown-menu mt-0" style="background: #ffffff; border-top: 3px solid #610000 !important; color: #1E293B;">
+                        <div class="container">
+                            <div class="row g-4">
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Clubs</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#iei" class="text-dark fw-bold text-decoration-none hover-text-danger">IEI Student Chapter</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#ieee" class="text-dark fw-bold text-decoration-none hover-text-danger">IEEE Student Chapter</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#ieee" class="text-dark fw-bold text-decoration-none hover-text-danger">IEEE Student Branch</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#iet" class="text-dark fw-bold text-decoration-none hover-text-danger">IET Chapter</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#iste" class="text-dark fw-bold text-decoration-none hover-text-danger">ISTE Student Chapter</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/eee" class="text-dark fw-bold text-decoration-none hover-text-danger">EEE Association</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/me" class="text-dark fw-bold text-decoration-none hover-text-danger">ASME Student Chapter</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4 border-end-md">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Associations</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/ce" class="text-dark fw-bold text-decoration-none hover-text-danger">Civil Association</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/departments/mba" class="text-dark fw-bold text-decoration-none hover-text-danger">MCA Association</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#clubs" class="text-dark fw-bold text-decoration-none hover-text-danger">Maths Club</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#clubs" class="text-dark fw-bold text-decoration-none hover-text-danger">Ensav Club</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#clubs" class="text-dark fw-bold text-decoration-none hover-text-danger">SOSSC Club</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col-md-4">
+                                    <h5 class="fw-bold text-danger mb-3 pb-2 border-bottom border-danger-subtle" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 15px; color: #610000 !important;">Extra-Curricular</h5>
+                                    <ul class="list-unstyled space-y-2 m-0" style="font-size: 13px;">
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#societies" class="text-dark fw-bold text-decoration-none hover-text-danger">Professional Societies</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#photo-club" class="text-dark fw-bold text-decoration-none hover-text-danger">Photography Club</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#sports" class="text-dark fw-bold text-decoration-none hover-text-danger">Sports and Games</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#nss" class="text-dark fw-bold text-decoration-none hover-text-danger">NSS</a></li>
+                                        <li class="d-flex align-items-center gap-2"><span class="rounded-circle bg-danger" style="width: 7px; height: 7px; min-width: 7px; background-color: #610000 !important;"></span><a href="/campus-life#ncc" class="text-dark fw-bold text-decoration-none hover-text-danger">NCC</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </li>
 
-                <!-- Gallery -->
+                <!-- Contact Us -->
                 <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeGallery}}active-menu-item{{/if}}" style="font-size: 12px;" href="/gallery">Gallery</a>
-                </li>
-
-                <!-- Contact -->
-                <li class="nav-item">
-                    <a class="nav-link fw-bold px-3 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark {{#if activeContact}}active-menu-item{{/if}}" style="font-size: 12px;" href="/contact">Contact</a>
+                    <a class="nav-link fw-bold px-2 py-3 text-white text-uppercase tracking-wider hover-bg-maroon-dark" style="font-size: 11px;" href="/contact">Contact Us</a>
                 </li>
             </ul>
 
-            <!-- Right Actions (ERP Portal) -->
-            <div class="d-none d-lg-flex align-items-center gap-3 py-2">
-                <!-- ERP Portal Link Button (NSRIT Staff Login style) -->
-                <a href="/portal" class="btn btn-light px-3 py-2 font-bold text-uppercase tracking-wider text-navy d-flex align-items-center gap-1.5" style="border-radius: 4px; font-size: 11px; background-color: #ffffff !important; border-color: #ffffff !important; color: #a9121a !important; font-weight: 700;">
-                    <i class="bi bi-shield-lock-fill"></i> Smart ERP Login
+            <!-- Staff Login Button (Right End of Navigation Bar) -->
+            <div class="d-none d-xl-flex align-items-center ms-2 my-1">
+                <a href="/portal/faculty" class="btn btn-light btn-sm fw-bold rounded-pill px-3 py-1 text-danger shadow-xs d-flex align-items-center gap-1.5" style="font-size: 10.5px; white-space: nowrap; color: #610000 !important;">
+                    <i class="bi bi-person-badge-fill fs-6"></i> STAFF LOGIN
                 </a>
             </div>
         </div>
     </div>
 </nav>
 
-<!-- Tier 4: Latest News Scrolling Ticker (NSRIT Style) -->
-<div class="latest-news-ticker py-2 bg-light border-bottom" style="font-family: 'Inter', sans-serif; font-size: 12px;">
-    <div class="container d-flex align-items-center p-0">
-        <span class="badge text-uppercase tracking-wider px-3 py-2 rounded-0 text-white fw-bold d-flex align-items-center gap-1 me-3" style="background-color: #a9121a; font-size: 10px; z-index: 10;">
-            <i class="bi bi-megaphone-fill animate-pulse"></i> Latest News
-        </span>
-        <marquee behavior="scroll" direction="left" onmouseover="this.stop();" onmouseout="this.start();" class="text-navy fw-semibold cursor-pointer py-1" style="color: #07162c !important;">
-            • Admission Codes: CET Code: E199 | COMEDK Code: E208 | MBA Code: B401 | MCA Code: C620 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            • VTU End-Semester examinations start from 20th July. Candidates must download hall tickets from the ERP desk. 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            • Admissions Open for Academic Year 2026-27: Registration forms are available online for BE (Computer Science, AI&ML, CSD, ECE, EEE, Civil, Mechanical), MCA & MBA programs. 
-            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-            • Central Placement Cell: Soft skills & corporate aptitude training classes commence next Monday for pre-final year students.
-        </marquee>
-    </div>
-</div>
-
-
+<style>
+.top-links-strip::-webkit-scrollbar {
+    display: none;
+}
+.hover-bg-maroon-dark:hover {
+    background-color: rgba(0, 0, 0, 0.25) !important;
+}
+.active-menu-item {
+    background-color: rgba(0, 0, 0, 0.35) !important;
+    border-bottom: 3px solid #ffc107 !important;
+}
+.mega-dropdown-menu a {
+    transition: all 0.2s ease;
+}
+.mega-dropdown-menu a:hover {
+    color: #610000 !important;
+    padding-left: 3px;
+}
+</style>

@@ -6,6 +6,11 @@ const departmentController = require('../controllers/departmentController');
 // Page Routes
 router.get('/', pagesController.renderHome);
 router.get('/about', pagesController.renderAbout);
+router.get('/founder-message', pagesController.renderFounderMessage);
+router.get('/president-message', pagesController.renderPresidentMessage);
+router.get('/principal-message', pagesController.renderPrincipalMessage);
+router.get('/vision-mission', pagesController.renderVisionMission);
+router.get('/governing-council', pagesController.renderGoverningCouncil);
 router.get('/admissions', pagesController.renderAdmissions);
 router.get('/placements', pagesController.renderPlacements);
 router.get('/campus-life', pagesController.renderCampusLife);

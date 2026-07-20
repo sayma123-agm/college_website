@@ -10,6 +10,12 @@ exports.renderHome = async (req, res) => {
         
         // Parse JSON lists for each department to render top recruiters in HTML
         depts.forEach(dept => {
+            if (dept.hod) {
+                dept.hodName = dept.hodName || dept.hod.name;
+                dept.hodPhoto = dept.hodPhoto || dept.hod.photo;
+                dept.hodExp = dept.hodExp || dept.hod.experience;
+                dept.hodMessage = dept.hodMessage || dept.hod.message;
+            }
             if (typeof dept.topRecruiters === 'string') {
                 try {
                     dept.topRecruitersList = JSON.parse(dept.topRecruiters);
@@ -314,4 +320,44 @@ exports.getInquiries = async (req, res) => {
         console.warn('[DB WARNING] Failed to retrieve inquiries, returning mock list.');
     }
     res.status(200).json({ success: true, inquiries: mockInquiriesList });
+};
+
+exports.renderFounderMessage = (req, res) => {
+    res.render('founder-message', {
+        title: "Founder's Message | AGMRCET",
+        description: "Read the divine visionary message from Founder His Holiness Param Poojya Shrimad Swastishri Chandrakirti Bhattarak Pattacharyavarya Swamiji.",
+        activeAbout: true
+    });
+};
+
+exports.renderPresidentMessage = (req, res) => {
+    res.render('president-message', {
+        title: "President's Message | AGMRCET",
+        description: "Read the leadership message from President His Holiness Shri Siddhatma Swamiji of SDM Jainmatt Trust.",
+        activeAbout: true
+    });
+};
+
+exports.renderPrincipalMessage = (req, res) => {
+    res.render('principal-message', {
+        title: "Principal's Message | AGMRCET",
+        description: "Read the academic leadership message from Principal Dr. Sandeep Kyatanavar at AGMRCET.",
+        activeAbout: true
+    });
+};
+
+exports.renderVisionMission = (req, res) => {
+    res.render('vision-mission', {
+        title: "Vision & Mission | AGMRCET",
+        description: "Discover the educational vision, mission statements, and quality policies of AGMRCET.",
+        activeAbout: true
+    });
+};
+
+exports.renderGoverningCouncil = (req, res) => {
+    res.render('governing-council', {
+        title: "Governing Council | AGMRCET",
+        description: "View the Governing Council members, board of management, and academic leaders at AGMRCET.",
+        activeAbout: true
+    });
 };

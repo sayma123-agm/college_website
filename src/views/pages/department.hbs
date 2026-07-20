@@ -1,6 +1,6 @@
 <!-- Page Header Banner -->
-<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
-    <div class="container position-relative z-2 pt-4">
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 200px;">
+    <div class="container position-relative z-2 pt-3">
         <div class="row">
             <div class="col-12" data-aos="fade-right">
                 <nav aria-label="breadcrumb">
@@ -11,179 +11,550 @@
                     </ol>
                 </nav>
                 <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{department.name}}</h1>
-                <p class="text-white-50 small m-0 mt-1">Established: {{department.established}} | Annual Intake: {{department.intake}} seats</p>
+                <p class="text-white-50 small m-0 mt-1">Established: {{department.established}} | Annual Intake: {{department.intake}} seats | Duration: {{department.duration}}</p>
             </div>
         </div>
     </div>
     <div class="page-header-glow"></div>
 </section>
 
+<!-- Department Sub-Navigation Bar (Matches agmrcet.ac.in tab bar structure) -->
+<div class="dept-tab-bar-container py-3 border-bottom shadow-sm bg-white sticky-top" style="top: 70px; z-index: 990;">
+    <div class="container">
+        <ul class="nav nav-pills flex-nowrap overflow-auto gap-2 py-1 dept-tabs-list" id="deptTabs" role="tablist" style="scrollbar-width: thin;">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn active fw-bold px-3 py-2 rounded-2" id="tab-overview-btn" data-bs-toggle="pill" data-bs-target="#tab-overview" type="button" role="tab" aria-controls="tab-overview" aria-selected="true">
+                    Department Of {{department.shortName}}
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-pos-btn" data-bs-toggle="pill" data-bs-target="#tab-pos" type="button" role="tab" aria-controls="tab-pos" aria-selected="false">
+                    POs
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-psos-btn" data-bs-toggle="pill" data-bs-target="#tab-psos" type="button" role="tab" aria-controls="tab-psos" aria-selected="false">
+                    PSOs
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-co-btn" data-bs-toggle="pill" data-bs-target="#tab-co" type="button" role="tab" aria-controls="tab-co" aria-selected="false">
+                    CO Statements
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-econtent-btn" data-bs-toggle="pill" data-bs-target="#tab-econtent" type="button" role="tab" aria-controls="tab-econtent" aria-selected="false">
+                    E-Content
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-faculties-btn" data-bs-toggle="pill" data-bs-target="#tab-faculties" type="button" role="tab" aria-controls="tab-faculties" aria-selected="false">
+                    Faculties
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-placement-btn" data-bs-toggle="pill" data-bs-target="#tab-placement" type="button" role="tab" aria-controls="tab-placement" aria-selected="false">
+                    Placement
+                </button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link dept-tab-btn fw-bold px-3 py-2 rounded-2" id="tab-activities-btn" data-bs-toggle="pill" data-bs-target="#tab-activities" type="button" role="tab" aria-controls="tab-activities" aria-selected="false">
+                    Activities
+                </button>
+            </li>
+        </ul>
+    </div>
+</div>
+
+<style>
+.dept-tab-bar-container {
+    background-color: #f8fafc;
+    border-bottom: 2px solid #e2e8f0;
+}
+.dept-tab-btn {
+    background-color: #610000 !important;
+    color: #ffffff !important;
+    border-radius: 6px !important;
+    font-weight: 700 !important;
+    font-size: 0.875rem !important;
+    padding: 0.5rem 1.15rem !important;
+    border: 1px solid #4a0000 !important;
+    transition: all 0.2s ease-in-out;
+    white-space: nowrap;
+}
+.dept-tab-btn:hover {
+    background-color: #800000 !important;
+    color: #ffffff !important;
+}
+.dept-tab-btn.active {
+    background-color: #ffffff !important;
+    color: #610000 !important;
+    border: 2px solid #610000 !important;
+    box-shadow: 0 4px 12px rgba(97, 0, 0, 0.15) !important;
+}
+</style>
+
 <section class="py-5">
     <div class="container">
-        <div class="row g-5">
-            <!-- Sidebar: Other Departments Links -->
+        <div class="row g-4">
+            <!-- Left Sidebar: Other Departments Links & What We Have -->
             <div class="col-lg-3 d-none d-lg-block" data-aos="fade-right">
-                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-light-subtle position-sticky" style="top: 100px;">
+                <div class="glassmorphism p-4 rounded-4 shadow-sm border border-light-subtle position-sticky" style="top: 150px;">
                     <h6 class="text-uppercase fw-bold text-navy mb-3 tracking-wider" style="font-size: 11px;">Select Department</h6>
-                    <div class="list-group list-group-flush rounded-3 overflow-hidden" id="dept-sidebar-list">
+                    <div class="list-group list-group-flush rounded-3 overflow-hidden mb-4" id="dept-sidebar-list">
                         {{#each depts}}
-                        <a href="/departments/{{this.id}}" class="list-group-item list-group-item-action py-3 px-3 border-0 small fw-semibold text-muted dept-sidebar-link d-flex justify-content-between align-items-center">
+                        <a href="/departments/{{this.id}}" class="list-group-item list-group-item-action py-2.5 px-3 border-0 small fw-semibold text-muted dept-sidebar-link d-flex justify-content-between align-items-center">
                             {{this.shortName}} <i class="bi bi-chevron-right text-xs"></i>
                         </a>
                         {{/each}}
                     </div>
+
+                    <!-- What We Have Sidebar Section (Matches agmrcet.ac.in) -->
+                    <div class="pt-3 border-top">
+                        <div class="bg-navy text-white p-2.5 rounded-3 mb-3 text-center shadow-sm">
+                            <h6 class="text-uppercase fw-bold m-0 tracking-wider" style="font-size: 11px;"><i class="bi bi-stars text-warning me-1"></i>What We Have</h6>
+                        </div>
+                        <div class="d-flex flex-column gap-2">
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-primary-light text-primary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-person-badge-fill fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Experienced & Inspiring Faculty</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-success-light text-success d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-mortarboard-fill fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Fabulous Students</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-warning-light text-warning d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-people-fill fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Dedicated & Discipline Team</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-info-light text-info d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-trophy-fill fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Outstanding Alumni</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-danger-light text-danger d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-lightbulb-fill fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Incubation Center</h6>
+                                </div>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 p-2 rounded-3 hover-bg-light transition-all">
+                                <div class="rounded-circle bg-secondary-light text-secondary d-flex align-items-center justify-content-center flex-shrink-0" style="width: 32px; height: 32px;">
+                                    <i class="bi bi-gear-wide-connected fs-6"></i>
+                                </div>
+                                <div>
+                                    <h6 class="fw-bold text-navy m-0" style="font-size: 11px;">Industry Specific Technical</h6>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <!-- Main Content Panel -->
+            <!-- Main Content Area with Tab Panes -->
             <div class="col-lg-9" data-aos="fade-left">
-                <!-- Overview & Stats -->
-                <div class="row g-4 mb-5">
-                    <div class="col-md-3 col-6">
-                        <div class="p-3 text-center border rounded-3 bg-light-slate">
-                            <h3 class="fw-bold text-primary mb-1">{{department.stats.faculty}}</h3>
-                            <span class="text-muted small">Teachers</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="p-3 text-center border rounded-3 bg-light-slate">
-                            <h3 class="fw-bold text-secondary mb-1">{{department.stats.labs}}</h3>
-                            <span class="text-muted small">Laboratories</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="p-3 text-center border rounded-3 bg-light-slate">
-                            <h3 class="fw-bold text-accent mb-1">{{department.stats.placementRate}}</h3>
-                            <span class="text-muted small">Placement Rate</span>
-                        </div>
-                    </div>
-                    <div class="col-md-3 col-6">
-                        <div class="p-3 text-center border rounded-3 bg-light-slate">
-                            <h3 class="fw-bold text-success mb-1">{{department.stats.avgPackage}}</h3>
-                            <span class="text-muted small">Avg. Package</span>
-                        </div>
-                    </div>
-                </div>
+                <div class="tab-content" id="deptTabContent">
 
-                <!-- HOD Message -->
-                <div class="card border-0 shadow-sm rounded-4 p-4 mb-5 bg-white">
-                    <div class="row align-items-center g-4">
-                        <div class="col-md-3 text-center">
-                            <div class="rounded-circle overflow-hidden shadow border mx-auto mb-2" style="width: 120px; height: 120px;">
-                                <img src="{{department.hod.photo}}" alt="HOD" class="w-100 h-100 object-fit-cover">
+                    <!-- TAB 1: Department Overview -->
+                    <div class="tab-pane fade show active" id="tab-overview" role="tabpanel" aria-labelledby="tab-overview-btn">
+                        <!-- Key Stats Grid -->
+                        <div class="row g-3 mb-4">
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 text-center border rounded-3 bg-light-slate">
+                                    <h3 class="fw-bold text-primary mb-1">{{department.stats.faculty}}</h3>
+                                    <span class="text-muted small">Faculty Members</span>
+                                </div>
                             </div>
-                            <h6 class="fw-bold text-navy m-0">{{department.hod.name}}</h6>
-                            <span class="text-muted text-xs">{{department.hod.designation}}</span><br>
-                            <span class="badge bg-light text-dark border small mt-1">{{department.hod.experience}}</span>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 text-center border rounded-3 bg-light-slate">
+                                    <h3 class="fw-bold text-secondary mb-1">{{department.stats.labs}}</h3>
+                                    <span class="text-muted small">Laboratories</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 text-center border rounded-3 bg-light-slate">
+                                    <h3 class="fw-bold text-accent mb-1">{{department.stats.placementRate}}</h3>
+                                    <span class="text-muted small">Placement Rate</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 col-6">
+                                <div class="p-3 text-center border rounded-3 bg-light-slate">
+                                    <h3 class="fw-bold text-success mb-1">{{department.stats.avgPackage}}</h3>
+                                    <span class="text-muted small">Avg. Package</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="col-md-9 border-start-md">
-                            <h5 class="fw-bold text-navy mb-2"><i class="bi bi-chat-left-quote-fill text-primary me-2"></i>HOD Message</h5>
-                            <p class="text-muted small m-0 italic">
-                                "{{department.hod.message}}"
-                            </p>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Laboratories Section -->
-                <h4 class="fw-bold text-navy mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Laboratories</h4>
-                <div class="row g-4 mb-5">
-                    {{#each department.labs}}
-                    <div class="col-md-6">
-                        <div class="glassmorphism p-4 rounded-4 shadow-sm border border-white-50 h-100">
-                            <h5 class="fw-bold text-navy mb-2"><i class="bi bi-cpu text-secondary me-2"></i>{{this.name}}</h5>
-                            <p class="text-muted small m-0">{{this.description}}</p>
+                        <!-- HOD Message -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <div class="row align-items-center g-4">
+                                <div class="col-md-3 text-center">
+                                    <div class="rounded-circle overflow-hidden shadow border mx-auto mb-2" style="width: 120px; height: 120px;">
+                                        <img src="{{department.hod.photo}}" alt="{{department.hod.name}}" class="w-100 h-100 object-fit-cover">
+                                    </div>
+                                    <h6 class="fw-bold text-navy m-0">{{department.hod.name}}</h6>
+                                    <span class="text-muted text-xs d-block">{{department.hod.designation}}</span>
+                                    <span class="badge bg-light text-dark border small mt-1">{{department.hod.qualification}} | {{department.hod.experience}}</span>
+                                </div>
+                                <div class="col-md-9 border-start-md">
+                                    <h5 class="fw-bold text-navy mb-2"><i class="bi bi-chat-left-quote-fill text-primary me-2"></i>HOD Message</h5>
+                                    <p class="text-muted small m-0 italic">
+                                        "{{department.hod.message}}"
+                                    </p>
+                                </div>
+                            </div>
                         </div>
-                    </div>
-                    {{/each}}
-                </div>
 
-                <!-- Achievements & Research Projects -->
-                <div class="row g-4 mb-5">
-                    <div class="col-md-6">
-                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Key Achievements</h4>
-                        <div class="list-group list-group-flush border rounded-3 overflow-hidden shadow-sm">
-                            {{#each department.achievements}}
-                            <div class="list-group-item p-3">
-                                <h6 class="fw-bold text-primary mb-1">{{this.title}}</h6>
-                                <p class="text-muted small m-0">{{this.details}}</p>
+                        <!-- What We Have Grid Section -->
+                        <div class="mb-4">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <div>
+                                    <span class="text-primary text-uppercase tracking-wider fw-bold small">Department Pillars</span>
+                                    <h4 class="fw-bold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">What We Have</h4>
+                                </div>
+                                <span class="badge bg-navy text-white px-3 py-1.5 rounded-pill small">AGMRCET Standards</span>
+                            </div>
+
+                            <div class="row g-3">
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-primary-light text-primary mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-person-badge-fill fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Experienced & Inspiring Faculty</h6>
+                                        <p class="text-muted text-xs m-0">Dedicated, highly qualified educators with extensive domain and research experience.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-success-light text-success mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-mortarboard-fill fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Fabulous Students</h6>
+                                        <p class="text-muted text-xs m-0">Active, ambitious student community achieving state & national hackathon accolades.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-warning-light text-warning mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-people-fill fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Dedicated & Disciplined Team</h6>
+                                        <p class="text-muted text-xs m-0">Comprehensive student mentorship, career advising, and academic rigor.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-info-light text-info mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-trophy-fill fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Outstanding Alumni</h6>
+                                        <p class="text-muted text-xs m-0">Global alumni network leading technical teams across Fortune 500 corporations.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-danger-light text-danger mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-lightbulb-fill fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Incubation Center</h6>
+                                        <p class="text-muted text-xs m-0">Dedicated startup incubator offering seed support and patent filing assistance.</p>
+                                    </div>
+                                </div>
+                                <div class="col-md-4 col-sm-6">
+                                    <div class="glassmorphism p-3 rounded-3 shadow-sm border border-light-subtle h-100">
+                                        <div class="rounded-circle bg-secondary-light text-secondary mb-2 d-flex align-items-center justify-content-center" style="width: 40px; height: 40px;">
+                                            <i class="bi bi-gear-wide-connected fs-5"></i>
+                                        </div>
+                                        <h6 class="fw-bold text-navy mb-1">Industry Specific Technical</h6>
+                                        <p class="text-muted text-xs m-0">Practical hands-on lab sessions, corporate bootcamps, and certifications.</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Academic Laboratories -->
+                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Laboratories</h4>
+                        <div class="row g-3 mb-4">
+                            {{#each department.labs}}
+                            <div class="col-md-6">
+                                <div class="glassmorphism p-3 rounded-3 shadow-sm border h-100">
+                                    <h6 class="fw-bold text-navy mb-1"><i class="bi bi-cpu text-secondary me-2"></i>{{this.name}}</h6>
+                                    <p class="text-muted small m-0">{{this.description}}</p>
+                                </div>
                             </div>
                             {{/each}}
                         </div>
                     </div>
 
-                    <div class="col-md-6">
-                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Research & Funding</h4>
-                        <div class="list-group list-group-flush border rounded-3 overflow-hidden shadow-sm">
-                            <div class="list-group-item p-3">
-                                <h6 class="fw-bold text-navy mb-2">Primary Areas of Focus</h6>
-                                <div class="d-flex flex-wrap gap-2">
-                                    {{#each department.research.areas}}
-                                    <span class="badge bg-light text-dark border">{{this}}</span>
-                                    {{/each}}
-                                </div>
+                    <!-- TAB 2: Program Outcomes (POs) -->
+                    <div class="tab-pane fade" id="tab-pos" role="tabpanel" aria-labelledby="tab-pos-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4 class="fw-bold text-navy m-0"><i class="bi bi-bullseye text-primary me-2"></i>Program Outcomes (POs)</h4>
+                                <span class="badge bg-navy text-white px-3 py-1.5 rounded-pill small">NBA & VTU Criteria</span>
                             </div>
-                            {{#each department.research.projects}}
-                            <div class="list-group-item p-3">
-                                <h6 class="fw-bold text-secondary mb-1">{{this.title}}</h6>
-                                <span class="text-muted small">Funded by: {{this.funding}} | {{this.amount}}</span>
+                            <p class="text-muted small mb-4">Program Outcomes describe what students are expected to know and be able to do by the time of graduation in {{department.name}}.</p>
+
+                            <div class="row g-3">
+                                {{#each department.pos}}
+                                <div class="col-md-6">
+                                    <div class="p-3 border rounded-3 bg-light-slate h-100">
+                                        <div class="d-flex align-items-center gap-2 mb-2">
+                                            <span class="badge bg-danger text-white fw-bold px-2.5 py-1" style="background-color: #610000 !important;">{{this.id}}</span>
+                                            <h6 class="fw-bold text-navy m-0">{{this.title}}</h6>
+                                        </div>
+                                        <p class="text-muted text-xs m-0 leading-relaxed">{{this.description}}</p>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 3: Program Specific Outcomes (PSOs) -->
+                    <div class="tab-pane fade" id="tab-psos" role="tabpanel" aria-labelledby="tab-psos-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4 class="fw-bold text-navy m-0"><i class="bi bi-award text-warning me-2"></i>Program Specific Outcomes (PSOs)</h4>
+                                <span class="badge bg-warning text-dark px-3 py-1.5 rounded-pill small fw-bold">Department Specializations</span>
+                            </div>
+                            <p class="text-muted small mb-4">Program Specific Outcomes state what the graduates of {{department.name}} program will be able to accomplish specifically.</p>
+
+                            <div class="row g-3">
+                                {{#each department.psos}}
+                                <div class="col-12">
+                                    <div class="p-4 border rounded-4 bg-light-slate">
+                                        <div class="d-flex align-items-center gap-3 mb-2">
+                                            <span class="badge bg-navy text-white fw-bold px-3 py-2 fs-6">{{this.id}}</span>
+                                            <h5 class="fw-bold text-navy m-0">{{this.title}}</h5>
+                                        </div>
+                                        <p class="text-muted small m-0 leading-relaxed">{{this.description}}</p>
+                                    </div>
+                                </div>
+                                {{/each}}
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 4: Course Outcomes (CO Statements) -->
+                    <div class="tab-pane fade" id="tab-co" role="tabpanel" aria-labelledby="tab-co-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <h4 class="fw-bold text-navy mb-3"><i class="bi bi-journal-text text-success me-2"></i>Course Outcome (CO) Statements</h4>
+                            <p class="text-muted small mb-4">Course Outcomes define the knowledge and skills expected from students at the completion of specific subjects in {{department.shortName}}.</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover table-bordered align-middle rounded-3 overflow-hidden shadow-sm">
+                                    <thead style="background-color: #610000 !important; color: #ffffff !important;">
+                                        <tr>
+                                            <th style="width: 15%; background: #610000; color: #fff;">Course Code</th>
+                                            <th style="width: 30%; background: #610000; color: #fff;">Subject Name</th>
+                                            <th style="width: 55%; background: #610000; color: #fff;">Course Outcome (CO) Statement</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each department.coStatements}}
+                                        <tr>
+                                            <td class="fw-bold text-navy">{{this.code}}</td>
+                                            <td class="fw-semibold text-dark">{{this.subject}}</td>
+                                            <td class="text-muted small">{{this.co}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 5: E-Content -->
+                    <div class="tab-pane fade" id="tab-econtent" role="tabpanel" aria-labelledby="tab-econtent-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <h4 class="fw-bold text-navy mb-3"><i class="bi bi-laptop text-info me-2"></i>E-Content & Learning Resources</h4>
+                            <p class="text-muted small mb-4">Access digital lecture notes, video series, lab manuals, and e-learning resources curated by {{department.shortName}} faculty.</p>
+
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle border rounded-3 overflow-hidden shadow-sm">
+                                    <thead class="bg-navy text-white">
+                                        <tr>
+                                            <th>Title & Module Description</th>
+                                            <th>Faculty Instructor</th>
+                                            <th>Resource Format</th>
+                                            <th>Access Link</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each department.eContent}}
+                                        <tr>
+                                            <td class="fw-bold text-navy">{{this.title}}</td>
+                                            <td class="text-dark small">{{this.instructor}}</td>
+                                            <td><span class="badge bg-light text-dark border">{{this.type}}</span></td>
+                                            <td>
+                                                <a href="{{this.link}}" class="btn btn-sm text-white px-3 fw-bold" style="background-color: #610000 !important;">
+                                                    <i class="bi bi-download me-1"></i> Download
+                                                </a>
+                                            </td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- TAB 6: Faculties & Supporting Staff -->
+                    <div class="tab-pane fade" id="tab-faculties" role="tabpanel" aria-labelledby="tab-faculties-btn">
+                        <!-- Main Faculty Table -->
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+                                <h4 class="fw-bold text-navy m-0"><i class="bi bi-people-fill text-primary me-2"></i>Department Faculty Members</h4>
+                                <span class="badge bg-primary px-3 py-1.5 rounded-pill small">{{faculty.length}} Teaching Staff</span>
+                            </div>
+
+                            <div class="table-responsive mb-4">
+                                <table class="table table-striped table-hover align-middle border rounded-3 overflow-hidden shadow-sm">
+                                    <thead style="background-color: #610000 !important; color: #ffffff !important;">
+                                        <tr>
+                                            <th style="background: #610000; color: #fff;">Name</th>
+                                            <th style="background: #610000; color: #fff;">Qualification</th>
+                                            <th style="background: #610000; color: #fff;">Designation</th>
+                                            <th style="background: #610000; color: #fff;">Experience</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each faculty}}
+                                        <tr>
+                                            <td class="fw-bold text-navy">{{this.name}}</td>
+                                            <td><span class="badge bg-light text-dark border">{{this.qualification}}</span></td>
+                                            <td class="fw-semibold text-dark">{{this.designation}}</td>
+                                            <td class="text-muted small fw-bold">{{this.experience}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+
+                            <!-- Supporting Staff Table -->
+                            <h5 class="fw-bold text-navy mt-4 mb-3"><i class="bi bi-tools text-secondary me-2"></i>Supporting Staff</h5>
+                            <div class="table-responsive">
+                                <table class="table table-hover align-middle border rounded-3 overflow-hidden shadow-sm">
+                                    <thead class="bg-light-slate text-navy">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Qualification</th>
+                                            <th>Designation</th>
+                                            <th>Experience</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        {{#each department.supportingStaff}}
+                                        <tr>
+                                            <td class="fw-bold text-navy">{{this.name}}</td>
+                                            <td><span class="badge bg-light text-dark border">{{this.qualification}}</span></td>
+                                            <td class="fw-semibold text-dark">{{this.designation}}</td>
+                                            <td class="text-muted small fw-bold">{{this.experience}}</td>
+                                        </tr>
+                                        {{/each}}
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+
+                        <!-- Faculty Cards Grid -->
+                        <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Faculty Profiles</h4>
+                        <div class="row g-3">
+                            {{#each faculty}}
+                            <div class="col-md-6">
+                                <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white hover-translate">
+                                    <div class="d-flex align-items-center gap-3">
+                                        <div class="rounded-circle overflow-hidden shadow-sm" style="width: 65px; height: 65px; flex-shrink: 0;">
+                                            <img src="{{this.image}}" alt="{{this.name}}" class="w-100 h-100 object-fit-cover">
+                                        </div>
+                                        <div class="overflow-hidden">
+                                            <h6 class="fw-bold text-navy m-0 text-truncate">{{this.name}}</h6>
+                                            <span class="text-muted small text-truncate d-block">{{this.designation}} | {{this.qualification}}</span>
+                                            <span class="text-accent text-xs fw-semibold">{{this.experience}} Experience</span>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                             {{/each}}
                         </div>
                     </div>
-                </div>
 
-                <!-- Placements & Recruiter Lists -->
-                <div class="card border-0 shadow-sm rounded-4 p-4 mb-5 bg-white">
-                    <h4 class="fw-bold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;">Department Placements</h4>
-                    <p class="text-muted small">Our placement statistics reflect high employment values with companies like {{#each department.placements.topRecruiters}}{{this}}, {{/each}} recruiting our students.</p>
-                    <div class="row g-3 text-center">
-                        <div class="col-sm-4">
-                            <div class="border rounded-2 p-2">
-                                <span class="text-muted text-xs">Highest Package</span>
-                                <h5 class="fw-bold text-navy m-0">{{department.placements.highestPackage}}</h5>
+                    <!-- TAB 7: Placement -->
+                    <div class="tab-pane fade" id="tab-placement" role="tabpanel" aria-labelledby="tab-placement-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <h4 class="fw-bold text-navy mb-3"><i class="bi bi-briefcase-fill text-warning me-2"></i>Department Placements</h4>
+                            <p class="text-muted small mb-4">Our department maintains high placement metrics with corporate leaders like {{#each department.placements.topRecruiters}}{{this}}, {{/each}} recruiting our graduates.</p>
+
+                            <div class="row g-3 text-center mb-4">
+                                <div class="col-sm-4">
+                                    <div class="border rounded-3 p-3 bg-light-slate">
+                                        <span class="text-muted text-xs d-block">Highest Package</span>
+                                        <h4 class="fw-extrabold text-navy m-0">{{department.placements.highestPackage}}</h4>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="border rounded-3 p-3 bg-light-slate">
+                                        <span class="text-muted text-xs d-block">Offers Secured</span>
+                                        <h4 class="fw-extrabold text-navy m-0">{{department.placements.recentOffers}} Offers</h4>
+                                    </div>
+                                </div>
+                                <div class="col-sm-4">
+                                    <div class="border rounded-3 p-3 bg-light-slate">
+                                        <span class="text-muted text-xs d-block">Average Package</span>
+                                        <h4 class="fw-extrabold text-navy m-0">{{department.stats.avgPackage}}</h4>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="border rounded-2 p-2">
-                                <span class="text-muted text-xs">Offers Secured (2025)</span>
-                                <h5 class="fw-bold text-navy m-0">{{department.placements.recentOffers}} Offers</h5>
-                            </div>
-                        </div>
-                        <div class="col-sm-4">
-                            <div class="border rounded-2 p-2">
-                                <span class="text-muted text-xs">Average Package</span>
-                                <h5 class="fw-bold text-navy m-0">{{department.stats.avgPackage}}</h5>
+
+                            <h5 class="fw-bold text-navy mb-3">Top Recruiting Partners</h5>
+                            <div class="d-flex flex-wrap gap-2">
+                                {{#each department.placements.topRecruiters}}
+                                <span class="badge bg-light text-navy border px-3 py-2 fs-6 fw-semibold"><i class="bi bi-building me-1"></i>{{this}}</span>
+                                {{/each}}
                             </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Faculty Profiles -->
-                <h4 class="fw-bold text-navy mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Meet the Faculty</h4>
-                <div class="row g-4">
-                    {{#each faculty}}
-                    <div class="col-md-6">
-                        <div class="card border-0 shadow-sm rounded-4 p-3 h-100 bg-white hover-translate">
-                            <div class="d-flex align-items-center gap-3">
-                                <div class="rounded-circle overflow-hidden shadow-sm" style="width: 70px; height: 70px; flex-shrink: 0;">
-                                    <img src="{{this.image}}" alt="{{this.name}}" class="w-100 h-100 object-fit-cover">
+                    <!-- TAB 8: Activities -->
+                    <div class="tab-pane fade" id="tab-activities" role="tabpanel" aria-labelledby="tab-activities-btn">
+                        <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                            <h4 class="fw-bold text-navy mb-3"><i class="bi bi-calendar-event-fill text-danger me-2"></i>Department Activities & Events</h4>
+                            <p class="text-muted small mb-4">Recent technical workshops, industrial visits, guest lectures, and student hackathons in {{department.shortName}}.</p>
+
+                            <div class="list-group list-group-flush border rounded-3 overflow-hidden shadow-sm">
+                                {{#each department.activities}}
+                                <div class="list-group-item p-3">
+                                    <div class="d-flex align-items-center justify-content-between mb-1">
+                                        <h6 class="fw-bold text-navy m-0"><i class="bi bi-award-fill text-warning me-2"></i>{{this.title}}</h6>
+                                        <span class="badge bg-light text-dark border small">{{this.date}}</span>
+                                    </div>
+                                    <p class="text-muted small m-0">{{this.details}}</p>
                                 </div>
-                                <div class="overflow-hidden">
-                                    <h6 class="fw-bold text-navy m-0 text-truncate">{{this.name}}</h6>
-                                    <span class="text-muted small text-truncate d-block">{{this.designation}} | {{this.qualification}}</span>
-                                    <span class="text-accent text-xs fw-semibold">{{this.experience}} Experience</span>
-                                </div>
-                            </div>
-                            <div class="border-top mt-3 pt-3 small text-muted">
-                                <div><strong>Research:</strong> {{this.researchArea}}</div>
-                                <div class="text-truncate"><strong>Email:</strong> <a href="mailto:{{this.email}}" class="text-decoration-none">{{this.email}}</a></div>
+                                {{/each}}
                             </div>
                         </div>
                     </div>
-                    {{/each}}
-                </div>
 
+                </div>
             </div>
         </div>
     </div>

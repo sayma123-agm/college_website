@@ -1,0 +1,80 @@
+<!-- Admission Banner Popup Modal (Matches agmrcet.ac.in Official Banner) -->
+<div class="modal fade" id="admissionBannerModal" tabindex="-1" aria-labelledby="admissionBannerModalLabel" aria-hidden="true" style="z-index: 1060;">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content border-0 shadow-2xl rounded-4 overflow-hidden">
+            <!-- Modal Header -->
+            <div class="modal-header border-0 text-white p-3 px-4 d-flex align-items-center justify-content-between" style="background: linear-gradient(135deg, #610000 0%, #0B3D91 100%) !important;">
+                <div class="d-flex align-items-center gap-2">
+                    <span class="badge bg-warning text-dark fw-bold px-2.5 py-1 rounded-pill small">SDM JAINMATT TRUST</span>
+                    <h5 class="modal-title fw-extrabold text-white m-0" id="admissionBannerModalLabel" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px;">
+                        <i class="bi bi-fire text-warning me-1"></i> ADMISSIONS OPEN 2026-2027
+                    </h5>
+                </div>
+                <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <!-- Modal Body (Official Admission Banner Image) -->
+            <div class="modal-body p-3 bg-light text-center">
+                <div class="position-relative rounded-3 overflow-hidden shadow-sm border mb-3">
+                    <img src="/images/admission-banner.png" alt="AGMRCET Official Admission Banner 2026-2027" class="img-fluid w-100 d-block" style="max-height: 480px; object-fit: contain;">
+                </div>
+
+                <!-- Contact & Key Details Bar -->
+                <div class="p-3 bg-white rounded-3 border shadow-xs text-start">
+                    <div class="row g-2 align-items-center">
+                        <div class="col-md-7">
+                            <div class="fw-bold text-navy small mb-1" style="font-size: 12px;">
+                                <i class="bi bi-telephone-fill text-warning me-1"></i> For Admissions & Counseling:
+                            </div>
+                            <a href="tel:+919481087999" class="fs-5 fw-extrabold text-danger text-decoration-none d-inline-block me-3">+91 94810 87999</a>
+                            <span class="text-muted small">| principal@agmrcet.ac.in</span>
+                        </div>
+                        <div class="col-md-5 text-md-end">
+                            <div class="d-flex flex-wrap gap-1 justify-content-md-end">
+                                <span class="badge bg-primary px-2 py-1 small fw-bold">CET: E199</span>
+                                <span class="badge bg-primary px-2 py-1 small fw-bold">COMEDK: E208</span>
+                                <span class="badge bg-primary px-2 py-1 small fw-bold">MBA: B401</span>
+                                <span class="badge bg-primary px-2 py-1 small fw-bold">MCA: C620</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal Footer CTAs -->
+            <div class="modal-footer border-0 p-3 bg-white d-flex align-items-center justify-content-between">
+                <span class="text-muted text-xs d-none d-sm-inline">
+                    <i class="bi bi-geo-alt-fill text-danger me-1"></i> Varur - Hubballi, Karnataka
+                </span>
+                <div class="d-flex align-items-center gap-2 ms-auto">
+                    <button type="button" class="btn btn-light btn-sm fw-bold px-3 text-secondary" data-bs-dismiss="modal">Close</button>
+                    <a href="tel:+919481087999" class="btn btn-warning btn-sm fw-bold px-3 text-dark shadow-sm">
+                        <i class="bi bi-telephone-fill me-1"></i> Call Helpline
+                    </a>
+                    <a href="/admissions" class="btn btn-danger btn-sm fw-bold px-4 text-white shadow-sm" style="background-color: #610000 !important; border-color: #610000 !important;">
+                        <i class="bi bi-card-checklist me-1"></i> Apply Online
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Auto-Show Modal Script (ONLY on Home Page '/', ONLY ONCE per session) -->
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index';
+        const alreadyShown = sessionStorage.getItem('admissionModalShown');
+        
+        if (isHomePage && !alreadyShown) {
+            setTimeout(function () {
+                var admissionModalEl = document.getElementById('admissionBannerModal');
+                if (admissionModalEl && typeof bootstrap !== 'undefined') {
+                    var modalObj = new bootstrap.Modal(admissionModalEl);
+                    modalObj.show();
+                    sessionStorage.setItem('admissionModalShown', 'true');
+                }
+            }, 900);
+        }
+    });
+</script>
