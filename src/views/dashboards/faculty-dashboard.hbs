@@ -1,0 +1,34 @@
+<!-- Faculty ERP Dashboard Partial -->
+<div id="faculty-dashboard-partial">
+    <div class="row g-4">
+        <div class="col-md-6">
+            <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                <h6 class="fw-bold text-navy mb-3"><i class="bi bi-pencil-square text-primary me-2"></i>Quick Attendance Entry</h6>
+                <form onsubmit="event.preventDefault(); alert('Attendance record logged successfully for selected batch!');">
+                    <div class="mb-2">
+                        <label class="form-label small text-muted">Select Subject:</label>
+                        <select class="form-select form-select-sm"><option>21CS61 - Software Engineering</option><option>21CS62 - Full Stack Web Dev</option></select>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label small text-muted">Select Date & Hour:</label>
+                        <input type="date" class="form-control form-control-sm" value="2026-07-28">
+                    </div>
+                    <button class="btn btn-primary btn-sm fw-bold mt-2">Open Attendance Sheet</button>
+                </form>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                <h6 class="fw-bold text-navy mb-3"><i class="bi bi-broadcast text-danger me-2"></i>Faculty Notice Broadcaster</h6>
+                <form id="faculty-broadcast-form">
+                    <div class="mb-2">
+                        <label class="form-label small text-muted">Class Announcement:</label>
+                        <textarea class="form-control form-control-sm" id="broadcast-message-input" rows="3" placeholder="Enter urgent update for students..."></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-danger btn-sm fw-bold">Broadcast to Student Portal</button>
+                </form>
+                <div id="broadcast-success-alert" class="alert alert-success d-none mt-2 py-1 small">Broadcast sent successfully!</div>
+            </div>
+        </div>
+    </div>
+</div>

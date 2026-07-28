@@ -1,108 +1,113 @@
 <!-- Portal Branding Header -->
-<header class="py-3 px-4 bg-white border-bottom shadow-xs d-flex align-items-center justify-content-between">
+<header id="portal-top-branding-bar" class="py-3 px-4 bg-white border-bottom shadow-xs d-flex align-items-center justify-content-between">
     <div class="d-flex align-items-center gap-3">
-        <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 50px; height: 50px; object-fit: contain;">
+        <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 48px; height: 48px; object-fit: contain;">
         <div>
-            <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET Digital Campus</h5>
-            <p class="text-muted small m-0" style="font-size: 10px;">Managed by SDM Jainmatt Trust, Varur</p>
+            <div class="d-flex align-items-center gap-2">
+                <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET Digital Campus ERP</h5>
+                <span class="badge bg-navy text-white font-mono" style="font-size: 10px;">VTU CODE: E238</span>
+            </div>
+            <p class="text-muted small m-0" style="font-size: 10px;">Managed by SDM Jainmatt Trust, Varur | Hubballi</p>
         </div>
     </div>
-    <a href="/" class="btn btn-outline-secondary btn-sm rounded-2 d-flex align-items-center gap-1.5 fw-semibold" style="font-size: 11px;">
-        <i class="bi bi-house-door"></i> Back to Website
-    </a>
+    <div class="d-flex align-items-center gap-2">
+        <span class="badge bg-success-light text-success border border-success-subtle d-none d-md-inline-block" style="font-size: 11px;">
+            <i class="bi bi-shield-check me-1"></i>256-Bit Encrypted ERP
+        </span>
+        <a href="/" class="btn btn-outline-secondary btn-sm rounded-2 d-flex align-items-center gap-1.5 fw-semibold" style="font-size: 11px;">
+            <i class="bi bi-house-door"></i> Back to Website
+        </a>
+    </div>
 </header>
 
-<!-- ERP Main Section with Premium Glow Accents -->
-<section class="py-5 bg-light-slate position-relative overflow-hidden" style="min-height: calc(100vh - 80px);">
-    <!-- Background Blur Glows -->
-    <div class="position-absolute bg-primary-light opacity-30 rounded-circle" style="width: 350px; height: 350px; top: 5%; left: -100px; filter: blur(90px); pointer-events: none;"></div>
-    <div class="position-absolute bg-accent-light opacity-20 rounded-circle" style="width: 300px; height: 300px; bottom: 10%; right: -50px; filter: blur(90px); pointer-events: none;"></div>
-    
-    <!-- Dynamic Constellation Nodes Background -->
-    <canvas id="portal-particles" class="position-absolute top-0 start-0 w-100 h-100" style="pointer-events: none; z-index: 1;"></canvas>
-
-    <div class="container-fluid px-md-5 position-relative z-2">
+<!-- ERP Main Section with Full Screen Workspace -->
+<section class="py-2 px-1 px-md-2 bg-light-slate position-relative overflow-hidden" style="min-height: 100vh;">
+    <div class="container-fluid px-1 px-md-2 position-relative z-2">
         <!-- Login Stage -->
         <div class="row g-4 justify-content-center" id="erp-login-section">
             <!-- Left Panel: 3 Card Gateway Directory (8 Cols) -->
-            <div class="col-lg-8" data-aos="fade-right">
+            <div class="col-lg-8">
                 <div class="mb-4">
-                    <span class="text-primary text-uppercase tracking-wider fw-bold small">ERP Ecosystem</span>
-                    <h3 class="fw-extrabold text-navy mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Portal Directory Information</h3>
-                    <p class="text-muted small">Select your designated gateway from the categories below to initiate secure system authorization on the login console.</p>
+                    <span class="badge bg-primary-light text-primary fw-bold text-uppercase px-2.5 py-1 mb-2" style="font-size: 10px; letter-spacing: 0.5px;">ERP Ecosystem Gateways</span>
+                    <h3 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Portal Directory & Role Selector</h3>
+                    <p class="text-muted small m-0 mt-1">Select your designated portal gateway below to populate credentials into the authorization console.</p>
                 </div>
 
                 <div class="row g-4">
                     <!-- Card 1: Academic Wings -->
                     <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--primary-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;">
-                                <i class="bi bi-book-half fs-4"></i>
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--primary-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;">
+                                <i class="bi bi-mortarboard-fill fs-4"></i>
                             </div>
-                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Wings</h5>
-                            <p class="text-muted small mb-4">Gateways for student grade tracking, faculty curriculum boards, and HOD message boards.</p>
+                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Wings</h5>
+                            <p class="text-muted small mb-3" style="font-size: 11px;">Grade records, IA marks, lesson plans, and department HOD portals.</p>
                             
-                             <div class="d-flex flex-column gap-2 mt-auto">
-                                <a href="/portal/student" data-role="student" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-mortarboard-fill text-primary me-2"></i>Student Portal</span>
+                            <div class="d-flex flex-column gap-2 mt-auto">
+                                <button type="button" onclick="quickFillRoleCredentials('student')" data-role="student" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-person-fill text-primary me-2"></i>Student Portal</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
-                                <a href="/portal/faculty" data-role="faculty" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-person-badge-fill text-primary me-2"></i>Faculty Portal</span>
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('faculty')" data-role="faculty" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-person-badge-fill text-primary me-2"></i>Faculty Board</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
-                                <a href="/portal/hod" data-role="hod" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('hod')" data-role="hod" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
                                     <span class="fw-bold small text-navy"><i class="bi bi-award-fill text-primary me-2"></i>HOD Login</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 2: Office & Finance -->
                     <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--success-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--success-color), #047857) !important;">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--success-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--success-color), #047857) !important;">
                                 <i class="bi bi-wallet2 fs-4"></i>
                             </div>
-                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Office & Finance</h5>
-                            <p class="text-muted small mb-4">Gateways for physical registrar records, challans, scholarships, and term fee clearance.</p>
+                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Office & Finance</h5>
+                            <p class="text-muted small mb-3" style="font-size: 11px;">Registrar physical archives, fee remittance challans, and hall tickets.</p>
                             
                             <div class="d-flex flex-column gap-2 mt-auto">
-                                <a href="/portal/office" data-role="office" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                <button type="button" onclick="quickFillRoleCredentials('office')" data-role="office" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
                                     <span class="fw-bold small text-navy"><i class="bi bi-building-fill text-success me-2"></i>Office Section</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
-                                <a href="/portal/fee" data-role="fee" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-credit-card-fill text-success me-2"></i>Fee Section Login</span>
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('fee')" data-role="fee" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-credit-card-fill text-success me-2"></i>Fee Section Desk</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('tpo')" data-role="tpo" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-briefcase-fill text-primary me-2"></i>TPO Placement Desk</span>
+                                    <i class="bi bi-chevron-right small text-muted"></i>
+                                </button>
                             </div>
                         </div>
                     </div>
 
                     <!-- Card 3: Executive & Alerts -->
                     <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white hover-translate transition-all" style="border-top: 5px solid var(--accent-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 50px; height: 50px; background: linear-gradient(135deg, var(--accent-color), #b45309) !important;">
+                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--accent-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
+                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--accent-color), #b45309) !important;">
                                 <i class="bi bi-shield-lock fs-4"></i>
                             </div>
-                            <h5 class="fw-extrabold text-navy mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif;">Executive & Alerts</h5>
-                            <p class="text-muted small mb-4">Access for Principal supervision metrics, Admin console, and Broadcast configurations.</p>
+                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Executive & Alerts</h5>
+                            <p class="text-muted small mb-3" style="font-size: 11px;">Principal executive supervision metrics, Admin console, and Broadcaster.</p>
                             
                             <div class="d-flex flex-column gap-2 mt-auto">
-                                <a href="/portal/principal" data-role="principal" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-person-workspace text-dark me-2"></i>Principal Portal</span>
+                                <button type="button" onclick="quickFillRoleCredentials('principal')" data-role="principal" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                    <span class="fw-bold small text-navy"><i class="bi bi-person-workspace text-dark me-2"></i>Principal Console</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
-                                <a href="/portal/admin" data-role="admin" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('admin')" data-role="admin" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
                                     <span class="fw-bold small text-navy"><i class="bi bi-gear-fill text-dark me-2"></i>Admin Section</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
-                                <a href="/portal/broadcast" data-role="broadcast" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
+                                </button>
+                                <button type="button" onclick="quickFillRoleCredentials('broadcast')" data-role="broadcast" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
                                     <span class="fw-bold small text-navy"><i class="bi bi-broadcast text-indigo me-2"></i>Broadcast Desk</span>
                                     <i class="bi bi-chevron-right small text-muted"></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -110,64 +115,98 @@
             </div>
 
             <!-- Right Panel: Authorization Console Form (4 Cols) -->
-            <div class="col-lg-4" data-aos="fade-left">
-                <div class="glassmorphism p-4 p-md-5 rounded-4 shadow-lg border border-white-50 bg-white h-100 d-flex flex-column justify-content-between position-relative overflow-hidden" id="portal-auth-card" style="box-shadow: 0 15px 35px rgba(15, 43, 92, 0.06) !important;">
-                    <!-- Ribbon Accent Header -->
-                    <div class="position-absolute top-0 start-0 w-100" style="height: 5px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));"></div>
+            <div class="col-lg-4">
+                <div class="card rounded-4 shadow-lg border-0 bg-white h-100 p-4 p-md-4 d-flex flex-column justify-content-between position-relative overflow-hidden" id="portal-auth-card" style="box-shadow: 0 15px 35px rgba(15, 43, 92, 0.08) !important;">
+                    <!-- Top Gradient Accent Bar -->
+                    <div class="position-absolute top-0 start-0 w-100" style="height: 6px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));"></div>
                     
                     <div>
-                        <div class="d-flex align-items-center gap-2 mb-3">
-                            <span class="badge bg-primary text-uppercase px-2.5 py-1" id="portal-selected-badge" style="font-size: 10px;">Student</span>
-                            <span class="text-success small d-flex align-items-center gap-1" style="font-size: 10px;">
+                        <div class="d-flex align-items-center justify-content-between mb-3">
+                            <span class="badge bg-primary text-uppercase px-2.5 py-1" id="portal-selected-badge" style="font-size: 11px;">Student</span>
+                            <span class="text-success small d-flex align-items-center gap-1.5 fw-bold" style="font-size: 10px;">
                                 <span class="spinner-grow spinner-grow-sm text-success" role="status" style="width: 6px; height: 6px;"></span>
-                                SSL Secure
+                                SSL 256-Bit Encrypted
                             </span>
                         </div>
-                        <h4 class="fw-extrabold text-navy mb-2" id="portal-info-title" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Portal ERP</h4>
-                        <p class="text-muted small mb-4 leading-relaxed" id="portal-info-desc">Access your semester grade records, track attendance in real-time, view current CGPA progression, download syllabus guidelines, and access academic calendars.</p>
+
+                        <h4 class="fw-extrabold text-navy mb-1" id="portal-info-title" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Portal ERP</h4>
+                        <p class="text-muted small mb-3 leading-relaxed" id="portal-info-desc" style="font-size: 12px;">Access your semester grade records, track attendance in real-time, view current CGPA progression, download syllabus guidelines, and access academic calendars.</p>
                         
                         <div id="login-error-alert" class="alert alert-danger d-none mb-3 small" role="alert"></div>
 
-                        <form id="erp-login-form">
+                        <form id="erp-login-form" action="javascript:void(0);" onsubmit="window.handlePortalLogin(event);">
                             <div class="mb-3">
                                 <label for="erp-usn" id="username-label" class="form-label small fw-bold text-navy mb-1">University Seat Number (USN)</label>
                                 <div class="input-group">
-                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-muted"></i></span>
-                                    <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light" id="erp-usn" placeholder="2AG22CS001" required>
+                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-navy"></i></span>
+                                    <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light fw-bold text-navy" id="erp-usn" placeholder="2AG22CS001" required style="font-size: 13px;">
                                 </div>
-                                <div class="form-text mt-2 text-navy-50" style="font-size: 10px; background-color: var(--primary-light); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(15, 43, 92, 0.08);">
-                                    <span id="hint-text">For demo, use USN: <strong>2AG22CS001</strong></span>
+                                <div class="form-text mt-2 text-navy" style="font-size: 11px; background-color: rgba(15, 43, 92, 0.05); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(15, 43, 92, 0.1);">
+                                    <span id="hint-text">Demo credentials loaded: <strong>2AG22CS001</strong> | Password: <strong>password</strong></span>
                                 </div>
                             </div>
-                            <div class="mb-4">
+
+                            <div class="mb-3">
                                 <div class="d-flex justify-content-between align-items-center mb-1">
                                     <label for="erp-password" class="form-label small fw-bold text-navy m-0">Password</label>
                                     <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-primary fw-bold text-decoration-none" style="font-size: 11px;">Forgot Password?</a>
                                 </div>
                                 <div class="input-group">
-                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
-                                    <input type="password" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="erp-password" placeholder="••••••••" required>
+                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-navy"></i></span>
+                                    <input type="password" class="form-control shadow-none border-start-0 border-end-0 bg-light fw-bold text-navy" id="erp-password" placeholder="••••••••" required style="font-size: 13px;">
+                                    <button class="btn btn-light border border-start-0 text-muted" type="button" onclick="togglePasswordVisibility()"><i class="bi bi-eye text-muted" id="pwd-eye-icon"></i></button>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-2 shadow-sm hover-scale" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;">
-                                Authenticate <i class="bi bi-box-arrow-in-right ms-1"></i>
+
+                            <div class="d-flex align-items-center justify-content-between mb-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember-me-check" checked>
+                                    <label class="form-check-label text-muted small" for="remember-me-check" style="font-size: 11px;">Remember USN</label>
+                                </div>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-3 shadow-sm" style="background: linear-gradient(135deg, var(--primary-color), #004b93) !important;">
+                                Authenticate & Log In <i class="bi bi-box-arrow-in-right ms-1"></i>
                             </button>
                         </form>
                     </div>
                 </div>
             </div>
         </div>
-        <!-- Dashboard Stage (Hidden by default, shown via JS) -->
+        <!-- Dashboard Stage (Hidden by default, shown via JS after authentication) -->
         <div class="d-none" id="erp-dashboard-section">
-            <div class="row g-4 mb-4">
-                <div class="col-12">
-                    <div class="glassmorphism p-4 rounded-4 border border-white-50 shadow-sm d-flex justify-content-between align-items-center flex-wrap gap-3 bg-white">
-                        <div>
-                            <span class="badge bg-success mb-2 text-uppercase" id="erp-role-badge">Academic Year 2026-27</span>
-                            <h4 class="fw-bold text-navy m-0" id="erp-welcome-name">Welcome Back</h4>
-                            <p class="text-muted small m-0">System ID: <span id="erp-display-usn" class="fw-semibold"></span> | Status: Authorized Access</p>
+            <!-- Top ERP Header Bar -->
+            <div class="bg-white border-bottom shadow-xs p-3 mb-3 rounded-3 d-flex align-items-center justify-content-between flex-wrap gap-2 no-print">
+                <div class="d-flex align-items-center gap-2">
+                    <button type="button" id="toggle-erp-sidebar" class="btn btn-outline-secondary btn-sm d-lg-none py-1 px-2" onclick="document.getElementById('erp-sidebar').classList.toggle('show');">
+                        <i class="bi bi-list fs-5"></i>
+                    </button>
+                    <img src="/images/logo.png" alt="College Logo" style="width: 40px; height: 40px; object-fit: contain;">
+                    <div>
+                        <h6 class="fw-bold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET Digital Campus ERP</h6>
+                        <span class="badge bg-primary text-white" id="erp-role-badge" style="font-size: 10px;">Student Portal</span>
+                        <span class="badge bg-light text-navy border ms-1" style="font-size: 10px;">AY 2026-27</span>
+                    </div>
+                </div>
+
+                <!-- Top Right Actions & User Profile -->
+                <div class="d-flex align-items-center gap-3">
+                    <div class="d-flex align-items-center gap-2 border-end pe-3">
+                        <img src="/images/csHod.png" id="erp-top-avatar" alt="User Avatar" class="rounded-circle border" style="width: 38px; height: 38px; object-fit: cover;">
+                        <div class="d-none d-sm-block text-start">
+                            <h6 class="fw-bold text-navy m-0 small" id="erp-welcome-name">HI... LIKITHA PATNAIK</h6>
+                            <span class="text-muted" style="font-size: 10.5px;">USN: <strong id="erp-display-usn" class="text-primary">2AG22CS001</strong></span>
                         </div>
-                        <button id="erp-logout-btn" class="btn btn-outline-danger btn-sm rounded-2 text-uppercase tracking-wider fw-bold">
+                    </div>
+
+                    <div class="d-flex align-items-center gap-1.5">
+                        <button type="button" class="btn btn-outline-secondary btn-sm rounded-2 fw-bold text-uppercase px-2.5 py-1.5" style="font-size: 11px;" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" title="Change Password">
+                            <i class="bi bi-key me-1"></i><span class="d-none d-md-inline">Change Password</span>
+                        </button>
+                        <button type="button" class="btn btn-outline-primary btn-sm rounded-2 fw-bold text-uppercase px-2.5 py-1.5" style="font-size: 11px;" onclick="window.print();" title="Print / Export Report">
+                            <i class="bi bi-printer me-1"></i><span class="d-none d-md-inline">Print / Export</span>
+                        </button>
+                        <button id="erp-logout-btn" class="btn btn-danger btn-sm rounded-2 text-uppercase tracking-wider fw-bold px-2.5 py-1.5" style="font-size: 11px;">
                             Logout <i class="bi bi-box-arrow-right ms-1"></i>
                         </button>
                     </div>
@@ -175,314 +214,232 @@
             </div>
 
             <!-- HOD Announcement Broadcast Banner -->
-            <div class="row g-4 mb-4 d-none" id="erp-announcement-banner">
-                <div class="col-12">
-                    <div class="alert alert-warning border border-warning-subtle rounded-4 p-3 m-0 shadow-sm d-flex align-items-center justify-content-between">
-                        <div class="d-flex align-items-center gap-3">
-                            <div class="fs-4 text-warning"><i class="bi bi-megaphone-fill"></i></div>
-                            <div>
-                                <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">New HOD Broadcast Notice:</h6>
-                                <p class="text-muted small m-0" id="announcement-broadcast-text">Please submit your VTU elective registration sheets by Friday.</p>
-                            </div>
+            <div class="alert alert-warning border border-warning-subtle rounded-3 p-3 mb-3 shadow-sm d-none no-print" id="erp-announcement-banner">
+                <div class="d-flex align-items-center justify-content-between">
+                    <div class="d-flex align-items-center gap-3">
+                        <div class="fs-4 text-warning"><i class="bi bi-megaphone-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">HOD Announcement Broadcast Notice:</h6>
+                            <p class="text-muted small m-0" id="announcement-broadcast-text">Please submit your VTU elective registration sheets by Friday.</p>
                         </div>
-                        <button type="button" class="btn-close shadow-none btn-sm" onclick="document.getElementById('erp-announcement-banner').classList.add('d-none');"></button>
                     </div>
+                    <button type="button" class="btn-close shadow-none btn-sm" onclick="document.getElementById('erp-announcement-banner').classList.add('d-none');"></button>
                 </div>
             </div>
 
-            <!-- Dynamic Dashboard Panels -->
-            <div class="row g-4">
-                <!-- Col 1: Gauges & Metrics -->
-                <div class="col-lg-4">
-                    <!-- Student Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-student-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calendar-check-fill text-primary me-2"></i>Attendance Tracker</h5>
-                            <div class="text-center py-3">
-                                <div class="progress-ring-circle d-inline-flex align-items-center justify-content-center rounded-circle border border-5 border-success mx-auto" style="width: 120px; height: 120px;">
-                                    <h2 class="fw-extrabold text-navy m-0">84%</h2>
-                                </div>
-                                <h6 class="fw-bold mt-3 text-success">Good Standing</h6>
-                                <p class="text-muted small m-0 mt-1">Classes: 168 / 200 | Min Req: 75%</p>
-                            </div>
-                        </div>
-                        
-                        <!-- Target CGPA Grade Predictor Card (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calculator-fill text-secondary me-2"></i>V2 Grade Predictor</h5>
-                            <div class="mb-3">
-                                <label for="pred-slider-ia" class="form-label small text-muted d-flex justify-content-between m-0 mb-1">
-                                    <span>Internal Marks (IA):</span>
-                                    <span class="fw-bold text-navy"><span id="pred-val-ia">35</span> / 40</span>
-                                </label>
-                                <input type="range" class="form-range shadow-none" min="15" max="40" value="35" id="pred-slider-ia">
-                            </div>
-                            <div class="mb-3">
-                                <label for="pred-slider-cgpa" class="form-label small text-muted d-flex justify-content-between m-0 mb-1">
-                                    <span>Target Semester GPA:</span>
-                                    <span class="fw-bold text-navy"><span id="pred-val-cgpa">8.5</span> / 10</span>
-                                </label>
-                                <input type="range" class="form-range shadow-none" min="6.0" max="10.0" step="0.1" value="8.5" id="pred-slider-cgpa">
-                            </div>
-                            <div class="p-2.5 bg-primary-light rounded border border-primary-subtle text-center">
-                                <span class="d-block text-muted small" style="font-size: 10px;">Required VTU Exam Score:</span>
-                                <h5 class="m-0 fw-extrabold text-primary"><span id="pred-val-required">78</span> / 100</h5>
-                            </div>
-                        </div>
-
-                        <!-- Academic Planner Calendar Widget (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calendar3-event text-warning me-2"></i>Upcoming Events</h5>
-                            <div class="list-group list-group-flush small" style="font-size: 11px;">
-                                <div class="list-group-item px-0 py-2">
-                                    <span class="badge bg-danger mb-1">July 20</span><br>
-                                    <strong class="text-navy">VTU Practical Exams</strong>
-                                </div>
-                                <div class="list-group-item px-0 py-2 border-0">
-                                    <span class="badge bg-primary mb-1">Aug 12</span><br>
-                                    <strong class="text-navy">Agratha Tech Fest 2026</strong>
-                                </div>
-                            </div>
+            <!-- ERP Main Responsive Layout Container -->
+            <div class="erp-dashboard-container rounded-3 overflow-hidden border shadow-sm bg-white">
+                <!-- Left Responsive Sidebar -->
+                <aside class="erp-sidebar no-print" id="erp-sidebar">
+                    <!-- User Mini Profile Box -->
+                    <div class="erp-sidebar-user-box d-flex align-items-center gap-2.5">
+                        <img src="/images/csHod.png" id="sidebar-user-photo" alt="Student Profile" class="rounded-circle border border-white" style="width: 44px; height: 44px; object-fit: cover;">
+                        <div>
+                            <h6 class="fw-bold m-0 text-white" id="sidebar-user-name" style="font-size: 13px;">Likitha Patnaik</h6>
+                            <span class="d-block opacity-75" id="sidebar-user-sub" style="font-size: 10.5px;">B.Tech CSE — VI Sem</span>
                         </div>
                     </div>
 
-                    <!-- Faculty Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-faculty-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-clock-history text-primary me-2"></i>Today's Sessions</h5>
-                            <div class="list-group list-group-flush small">
-                                <div class="list-group-item px-0 py-2">
-                                    <strong class="text-navy">09:30 AM - 10:30 AM</strong><br>CS-301 Automata (VI Sem)
-                                </div>
-                                <div class="list-group-item px-0 py-2">
-                                    <strong class="text-navy">11:30 AM - 12:30 PM</strong><br>CS-303 Networks (IV Sem)
-                                </div>
-                                <div class="list-group-item px-0 py-2 border-0">
-                                    <strong class="text-navy">02:30 PM - 04:30 PM</strong><br>DBMS Lab Batch A (VI Sem)
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Notice Broadcaster Form (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-megaphone-fill text-warning me-2"></i>Broadcaster Console</h5>
-                            <form id="faculty-broadcast-form">
-                                <div class="mb-3">
-                                    <label class="form-label small text-muted mb-1">Broadcast message to students:</label>
-                                    <textarea class="form-control form-control-sm shadow-none" id="broadcast-message-input" rows="3" placeholder="Type announcement here..." required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Publish Notice <i class="bi bi-send ms-1"></i></button>
-                            </form>
-                            <div id="broadcast-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Notice Published!</div>
+                    <!-- Sidebar Filter Search -->
+                    <div class="p-2 border-bottom bg-light">
+                        <div class="input-group input-group-sm">
+                            <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                            <input type="text" id="sidebar-search-input" class="form-control border-start-0 shadow-none" placeholder="Filter Menu Items..." onkeyup="filterSidebarMenu(this.value)">
                         </div>
                     </div>
 
-                    <!-- Principal Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-principal-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-graph-up-arrow text-primary me-2"></i>Enrollment Summary</h5>
-                            <div class="row g-2 text-center text-navy font-bold">
-                                <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block" style="font-size: 10px;">UG Students</span>
-                                    <h4 class="m-0 fw-bold">1,240</h4>
-                                </div>
-                                <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block" style="font-size: 10px;">PG Students</span>
-                                    <h4 class="m-0 fw-bold">280</h4>
-                                </div>
-                            </div>
-                        <!-- Principal Chart Card (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-pie-chart text-success me-2"></i>Enrollment Split</h5>
-                            <div style="height: 180px; position: relative;">
-                                <canvas id="principalChart"></canvas>
+                    <!-- Sidebar Navigation Items (Matching Reference Image 3 + Web Standards) -->
+                    <nav class="erp-sidebar-menu" id="sidebar-nav-list">
+                        <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                            <i class="bi bi-person-vcard text-primary fs-6 me-1"></i> Bio-Data / Profile
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="academic-register" onclick="switchSidebarTab('academic-register', this)">
+                            <i class="bi bi-journal-check text-success fs-6 me-1"></i> Academic Register
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="academic-calendar" onclick="switchSidebarTab('academic-calendar', this)">
+                            <i class="bi bi-calendar3 text-warning fs-6 me-1"></i> Academic Calendar
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="attendance" onclick="switchSidebarTab('attendance', this)">
+                            <i class="bi bi-pie-chart-fill text-info fs-6 me-1"></i> Attendance Tracker
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="marks" onclick="switchSidebarTab('marks', this)">
+                            <i class="bi bi-award-fill text-danger fs-6 me-1"></i> Marks & SGPA/CGPA
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="backlogs" onclick="switchSidebarTab('backlogs', this)">
+                            <i class="bi bi-exclamation-triangle-fill text-danger fs-6 me-1"></i> Backlogs Tracker
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="class-assignments" onclick="switchSidebarTab('class-assignments', this)">
+                            <i class="bi bi-file-earmark-text text-primary fs-6 me-1"></i> Class Assignments
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="lesson-plan" onclick="switchSidebarTab('lesson-plan', this)">
+                            <i class="bi bi-card-checklist text-secondary fs-6 me-1"></i> Lesson Plan
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="library" onclick="switchSidebarTab('library', this)">
+                            <i class="bi bi-book-half text-success fs-6 me-1"></i> Library & Book Search
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="project-resources" onclick="switchSidebarTab('project-resources', this)">
+                            <i class="bi bi-folder-symlink text-indigo fs-6 me-1"></i> Project & E-Resources
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="outings" onclick="switchSidebarTab('outings', this)">
+                            <i class="bi bi-door-open-fill text-warning fs-6 me-1"></i> Outings / Gatepass
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="counseling" onclick="switchSidebarTab('counseling', this)">
+                            <i class="bi bi-people-fill text-primary fs-6 me-1"></i> Counseling Details
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="disciplinary" onclick="switchSidebarTab('disciplinary', this)">
+                            <i class="bi bi-shield-check text-dark fs-6 me-1"></i> Disciplinary Record
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="complaints" onclick="switchSidebarTab('complaints', this)">
+                            <i class="bi bi-chat-square-dots text-danger fs-6 me-1"></i> Complaint / Suggestion
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="timetable" onclick="switchSidebarTab('timetable', this)">
+                            <i class="bi bi-clock-history text-primary fs-6 me-1"></i> Time Table
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="topics-covered" onclick="switchSidebarTab('topics-covered', this)">
+                            <i class="bi bi-list-task text-secondary fs-6 me-1"></i> Topics Covered
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="resources" onclick="switchSidebarTab('resources', this)">
+                            <i class="bi bi-journal-bookmark text-indigo fs-6 me-1"></i> Resources / E-Books
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="exam-schedule" onclick="switchSidebarTab('exam-schedule', this)">
+                            <i class="bi bi-calendar2-week text-info fs-6 me-1"></i> Exam Schedule
+                        </a>
+                        <a class="erp-sidebar-nav-item" data-tab="feedback" onclick="switchSidebarTab('feedback', this)">
+                            <i class="bi bi-star-fill text-warning fs-6 me-1"></i> Faculty Feedback
+                        </a>
+                    </nav>
+                </aside>
+
+                <!-- Right Main Stage -->
+                <main class="erp-main-stage bg-white" id="printable-area">
+                    <!-- Tab Panel 1: BIO-DATA / STUDENT PROFILE -->
+                    <div id="tab-content-biodata" class="tab-panel-item">
+                        <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                            <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">
+                                <i class="bi bi-person-circle text-primary me-2"></i>STUDENT PROFILE & BIO-DATA
+                            </h5>
+                            <div class="d-flex gap-2 no-print">
+                                <button type="button" class="btn btn-outline-primary btn-sm rounded-2 py-1 px-2.5 fw-bold" onclick="window.print();">
+                                    <i class="bi bi-printer me-1"></i>Print Profile
+                                </button>
+                                <button type="button" class="btn btn-primary btn-sm rounded-2 py-1 px-2.5 fw-bold" onclick="window.print();">
+                                    <i class="bi bi-download me-1"></i>Export PDF
+                                </button>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Parent Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-parent-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-person-heart text-primary me-2"></i>Ward Overview</h5>
-                            <div class="text-center py-2">
-                                <div class="progress-ring-circle d-inline-flex align-items-center justify-content-center rounded-circle border border-5 border-warning mx-auto" style="width: 100px; height: 100px;">
-                                    <h3 class="fw-extrabold text-navy m-0">78%</h3>
+                        <!-- Profile Summary Top Card -->
+                        <div class="card border border-primary-subtle rounded-3 p-4 mb-4 bg-light-slate">
+                            <div class="row align-items-center g-3">
+                                <div class="col-md-2 text-center">
+                                    <img src="/images/csHod.png" id="profile-card-photo" alt="Student Photo" class="rounded-3 border border-3 border-primary shadow-sm" style="width: 100px; height: 110px; object-fit: cover;">
                                 </div>
-                                <h6 class="fw-bold mt-2 text-warning">Average Attendance</h6>
-                                <p class="text-muted small m-0">Fee Dues Clear: <span class="text-success fw-bold">Yes</span></p>
-                            </div>
-                        </div>
-
-                        <!-- Mentor Call Scheduler Form (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-calendar-check text-info me-2"></i>Consultation Request</h5>
-                            <form id="parent-schedule-form">
-                                <div class="mb-2">
-                                    <label class="form-label small text-muted mb-0">Select Date:</label>
-                                    <input type="date" class="form-control form-control-sm shadow-none" id="sched-date" required>
-                                </div>
-                                <div class="mb-3">
-                                    <label class="form-label small text-muted mb-0">Select Slot:</label>
-                                    <select class="form-select form-select-sm shadow-none" id="sched-slot" required>
-                                        <option value="1">02:30 PM - 03:00 PM</option>
-                                        <option value="2">04:30 PM - 05:00 PM</option>
-                                    </select>
-                                </div>
-                                <button type="submit" class="btn btn-primary btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Book Slot <i class="bi bi-check2-circle ms-1"></i></button>
-                            </form>
-                            <div id="scheduler-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Slot Requested!</div>
-                        </div>
-                    </div>
-
-                    <!-- Fee Section Widgets -->
-                    <div class="space-y-4 d-none" id="panel-fee-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-wallet2 text-primary me-2"></i>Collection Metrics</h5>
-                            <div class="mb-3">
-                                <span class="text-muted small">Term Fee Realization</span>
-                                <div class="d-flex justify-content-between align-items-center">
-                                    <h4 class="fw-extrabold text-navy">91%</h4>
-                                    <span class="text-muted small">8.4M / 9.2M INR</span>
-                                </div>
-                                <div class="progress" style="height: 6px;">
-                                    <div class="progress-bar bg-success" style="width: 91%;"></div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- Fee Collection Chart (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-bar-chart-line text-info me-2"></i>Fee Collection Split</h5>
-                            <div style="height: 180px; position: relative;">
-                                <canvas id="feeChart"></canvas>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Admin Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-admin-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-cpu-fill text-primary me-2"></i>System Health</h5>
-                            <div class="space-y-3 small">
-                                <div>
-                                    <div class="d-flex justify-content-between mb-1">
-                                        <span>Server Threads Usage</span>
-                                        <strong>12 / 150 Connections</strong>
-                                    </div>
-                                    <div class="progress" style="height: 4px;">
-                                        <div class="progress-bar bg-success" style="width: 8%;"></div>
-                                    </div>
-                                </div>
-                                <div class="mt-2">
-                                    <div class="d-flex justify-content-between mb-1">
-                                        <span>Gzip Comp Ratio</span>
-                                        <strong>2.4x Saved</strong>
+                                <div class="col-md-10">
+                                    <div class="d-flex justify-content-between align-items-start flex-wrap gap-2">
+                                        <div>
+                                            <h4 class="fw-bold text-navy mb-1" id="profile-card-name">LIKITHA PATNAIK</h4>
+                                            <p class="text-muted mb-2 small"><strong class="text-primary">USN:</strong> <span id="profile-card-usn">2AG22CS001</span> | <strong>Branch:</strong> <span id="profile-card-dept">Computer Science & Engineering</span></p>
+                                            <div class="d-flex flex-wrap gap-1.5">
+                                                <span class="badge bg-primary">Semester VI</span>
+                                                <span class="badge bg-success">Section A</span>
+                                                <span class="badge bg-info text-dark">KCET Quota (E199)</span>
+                                                <span class="badge bg-warning text-dark">Good Conduct</span>
+                                            </div>
+                                        </div>
+                                        <div class="text-md-end">
+                                            <span class="d-block text-muted small">Academic CGPA</span>
+                                            <h3 class="fw-extrabold text-success m-0">8.88 <small class="fs-6 text-muted">/ 10.0</small></h3>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
 
-                    <!-- Broadcast Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-broadcast-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-broadcast text-primary me-2"></i>Gateway Status</h5>
-                            <div class="text-center py-3">
-                                <div class="progress-ring-circle d-inline-flex align-items-center justify-content-center rounded-circle border border-5 border-indigo mx-auto" style="width: 100px; height: 100px; border-color: #6366f1 !important;">
-                                    <h2 class="fw-extrabold text-navy m-0">1.8K</h2>
-                                </div>
-                                <h6 class="fw-bold mt-3 text-indigo" style="color: #6366f1 !important;">Gateway Online</h6>
-                                <p class="text-muted small m-0 mt-1">SMS limit: 98,542 / 100,000</p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- HOD Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-hod-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-bookmark-star-fill text-primary me-2"></i>Department Intake</h5>
-                            <div class="row g-2 text-center text-navy font-bold">
-                                <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block" style="font-size: 10px;">Sanctioned Seats</span>
-                                    <h4 class="m-0 fw-bold">120</h4>
-                                </div>
-                                <div class="col-6 bg-light p-3 rounded">
-                                    <span class="text-muted small d-block" style="font-size: 10px;">Admitted Slots</span>
-                                    <h4 class="m-0 fw-bold">114</h4>
+                        <!-- Profile Sub-sections Accordion / Grid -->
+                        <div class="row g-4">
+                            <!-- Personal & Academic Bio-Data -->
+                            <div class="col-lg-6">
+                                <div class="card border rounded-3 p-3 h-100 bg-white">
+                                    <h6 class="fw-bold text-navy mb-3 pb-2 border-bottom"><i class="bi bi-card-text text-primary me-2"></i>Personal & Parent Details</h6>
+                                    <table class="table table-sm table-borderless small mb-0">
+                                        <tbody>
+                                            <tr><td class="text-muted" style="width: 40%;">Full Name:</td><td class="fw-bold text-navy" id="bio-fullname">Likitha Patnaik</td></tr>
+                                            <tr><td class="text-muted">Father's Name:</td><td class="fw-bold text-navy" id="bio-father">Suresh Patnaik</td></tr>
+                                            <tr><td class="text-muted">Mother's Name:</td><td class="fw-bold text-navy" id="bio-mother">Sunita Patnaik</td></tr>
+                                            <tr><td class="text-muted">Date of Birth:</td><td class="fw-bold text-navy">14-Aug-2004</td></tr>
+                                            <tr><td class="text-muted">Gender / Blood Group:</td><td class="fw-bold text-navy">Female | O+ Positive</td></tr>
+                                            <tr><td class="text-muted">Contact Phone:</td><td class="fw-bold text-navy">+91 98450 12345</td></tr>
+                                            <tr><td class="text-muted">Email Address:</td><td class="fw-bold text-navy">likitha.patnaik@agmrcet.ac.in</td></tr>
+                                            <tr><td class="text-muted">Permanent Address:</td><td class="fw-bold text-navy">#142, Keshwapur, Hubballi, Karnataka - 580023</td></tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
 
-                        <!-- HOD Broadcast Notice Form (V2) -->
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white mt-4">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-megaphone-fill text-warning me-2"></i>HOD Broadcast Console</h5>
-                            <form id="hod-broadcast-form">
-                                <div class="mb-3">
-                                    <label class="form-label small text-muted mb-1">Broadcast notice to department students:</label>
-                                    <textarea class="form-control form-control-sm shadow-none" id="hod-broadcast-message-input" rows="3" placeholder="Type HOD alert notice..." required></textarea>
-                                </div>
-                                <button type="submit" class="btn btn-warning btn-sm w-100 fw-bold text-uppercase py-2 tracking-wider">Publish Notice <i class="bi bi-send ms-1"></i></button>
-                            </form>
-                            <div id="hod-broadcast-success-alert" class="alert alert-success d-none mt-2 small py-1.5 px-3 text-center" role="alert">Notice Published!</div>
-                        </div>
-                    </div>
-
-                    <!-- Office Panel Widgets -->
-                    <div class="space-y-4 d-none" id="panel-office-widgets">
-                        <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                            <h5 class="fw-bold text-navy mb-3"><i class="bi bi-folder-fill text-primary me-2"></i>VTU Dispatch Logs</h5>
-                            <div class="list-group list-group-flush small" style="font-size: 11px;">
-                                <div class="list-group-item px-0 py-2">
-                                    <strong class="text-navy">July 10</strong> - Dispatched 120 CSE Hall Tickets to VTU
-                                </div>
-                                <div class="list-group-item px-0 py-2 border-0">
-                                    <strong class="text-navy">July 08</strong> - Registered 28 MCA PG applications
+                            <!-- Academic Registration Details -->
+                            <div class="col-lg-6">
+                                <div class="card border rounded-3 p-3 h-100 bg-white">
+                                    <h6 class="fw-bold text-navy mb-3 pb-2 border-bottom"><i class="bi bi-mortarboard text-success me-2"></i>Academic Registration Status</h6>
+                                    <table class="table table-sm table-borderless small mb-0">
+                                        <tbody>
+                                            <tr><td class="text-muted" style="width: 40%;">Admission Date:</td><td class="fw-bold text-navy">01-Oct-2022</td></tr>
+                                            <tr><td class="text-muted">Quota & Rank:</td><td class="fw-bold text-navy">KCET Govt Quota | Rank: 24,150</td></tr>
+                                            <tr><td class="text-muted">Category:</td><td class="fw-bold text-navy">OBC (Category 2A)</td></tr>
+                                            <tr><td class="text-muted">Current Status:</td><td class="fw-bold text-success">Regular / Active Student</td></tr>
+                                            <tr><td class="text-muted">Hostel Facility:</td><td class="fw-bold text-navy">Room 204, Ganga Girls Hostel</td></tr>
+                                            <tr><td class="text-muted">Assigned Counselor:</td><td class="fw-bold text-navy">Dr. S. V. Shiragur (HOD CSE)</td></tr>
+                                            <tr><td class="text-muted">Fee Clearance:</td><td class="fw-bold text-success"><i class="bi bi-check-circle-fill me-1"></i>100% Term Fee Paid</td></tr>
+                                            <tr><td class="text-muted">VTU Eligibility:</td><td class="fw-bold text-success"><i class="bi bi-patch-check-fill me-1"></i>Cleared for VTU Exams</td></tr>
+                                        </tbody>
+                                    </table>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                </div>
 
-                <!-- Col 2: Tables & Administrative Actions -->
-                <div class="col-lg-8">
-                    <!-- Dynamic Table Content -->
-                    <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
-                        <h5 class="fw-bold text-navy mb-3" id="erp-table-title"><i class="bi bi-file-earmark-spreadsheet-fill text-success me-2"></i>Detailed Records</h5>
-                        <div class="table-responsive rounded-3 border" id="erp-table-container">
-                            <!-- Dynamic Table Rows Will Be Loaded Here by portal.js -->
-                            <table class="table table-hover table-striped align-middle mb-0 text-start small">
-                                <thead class="table-navy text-white fw-bold">
-                                    <tr>
-                                        <th scope="col" class="py-2">Metric</th>
-                                        <th scope="col" class="py-2">Value</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Select role to view data tables</td>
-                                        <td>N/A</td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-
-                    <!-- Quick Tools Panel -->
-                    <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
-                        <h5 class="fw-bold text-navy mb-3"><i class="bi bi-grid-fill text-warning me-2"></i>Statutory Controls & Downloads</h5>
-                        <div class="row g-3" id="erp-tools-container">
-                            <div class="col-sm-6">
-                                <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
-                                    <div class="text-danger fs-3"><i class="bi bi-file-earmark-pdf-fill"></i></div>
-                                    <div>
-                                        <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Academic Regulations</h6>
-                                        <a href="#" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Download PDF</a>
+                            <!-- Present & Past Performance Summary -->
+                            <div class="col-12">
+                                <div class="card border rounded-3 p-3 bg-white">
+                                    <h6 class="fw-bold text-navy mb-3 pb-2 border-bottom"><i class="bi bi-graph-up text-primary me-2"></i>Semester Academic Progression (SGPA & CGPA)</h6>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered table-striped table-hover text-center small mb-0">
+                                            <thead class="table-navy text-white">
+                                                <tr>
+                                                    <th>Semester</th>
+                                                    <th>Credits Registered</th>
+                                                    <th>SGPA Secured</th>
+                                                    <th>Class Obtained</th>
+                                                    <th>Backlogs</th>
+                                                    <th>Status</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr><td>I Semester</td><td>20</td><td class="fw-bold">8.80</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-success">Passed</span></td></tr>
+                                                <tr><td>II Semester</td><td>20</td><td class="fw-bold">9.10</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-success">Passed</span></td></tr>
+                                                <tr><td>III Semester</td><td>24</td><td class="fw-bold">8.60</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-success">Passed</span></td></tr>
+                                                <tr><td>IV Semester</td><td>24</td><td class="fw-bold">8.90</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-success">Passed</span></td></tr>
+                                                <tr><td>V Semester</td><td>22</td><td class="fw-bold">9.00</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-success">Passed</span></td></tr>
+                                                <tr class="table-primary text-navy fw-bold">
+                                                    <td>VI Semester (Current)</td><td>22</td><td>8.88 (Target)</td><td>First Class Distinction</td><td>0</td><td><span class="badge bg-primary">In Progress</span></td>
+                                                </tr>
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                </div>
+
+                    <!-- Dynamic Container for Other Sub-Tabs -->
+                    <div id="tab-content-dynamic" class="tab-panel-item d-none">
+                        <div class="d-flex align-items-center justify-content-between mb-3 border-bottom pb-2">
+                            <h5 class="fw-extrabold text-navy m-0" id="dynamic-tab-header">
+                                <i class="bi bi-grid-fill text-primary me-2"></i>Tab Detail
+                            </h5>
+                        </div>
+                        <div id="dynamic-tab-body">
+                            <!-- Dynamic Content Rendered via portal.js -->
+                        </div>
+                    </div>
+                </main>
             </div>
         </div>
         </div>

@@ -126,6 +126,7 @@
     <script src="https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     
+    {{#unless noHeaderFooter}}
     <!-- Global V2 AI Campus Assistant Chatbot -->
     <div id="campus-chatbot-widget" class="position-fixed bottom-4 end-4 z-1000">
         <!-- Chat Float Trigger Button -->
@@ -182,6 +183,7 @@
             </form>
         </div>
     </div>
+    {{/unless}}
 
     <!-- Failsafe Page Loader Auto-Dismiss -->
     <script>

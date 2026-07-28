@@ -22,6 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
         student: {
             name: 'Prajwal Patil (CSE-VI Sem)',
             badge: 'Student Portal',
+            photo: '/images/csHod.png',
             tableTitle: 'Semester Grade Records',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -79,6 +80,7 @@ document.addEventListener('DOMContentLoaded', () => {
         faculty: {
             name: 'Dr. S. V. Shiragur (Professor & HOD)',
             badge: 'Faculty Board',
+            photo: '/images/csHod.png',
             tableTitle: 'Student Attendance Progress Tracker',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -136,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
         principal: {
             name: 'Dr. Principal (Administration Chief)',
             badge: 'Principal Executive Console',
+            photo: '/images/principal.jpg',
             tableTitle: 'End-to-End Account Creation & Monitoring Control Center',
             tableHtml: `
                 <div class="p-3 border rounded-3 bg-light mb-4">
@@ -210,51 +213,10 @@ document.addEventListener('DOMContentLoaded', () => {
                 </div>
             `
         },
-        parent: {
-            name: 'Suresh Patil (Father of Prajwal)',
-            badge: 'Parent Portal',
-            tableTitle: 'Ward Performance & IA Marks Summary',
-            tableHtml: `
-                <table class="table table-hover table-striped align-middle mb-0 text-start small">
-                    <thead class="table-navy text-white fw-bold">
-                        <tr>
-                            <th scope="col" class="py-2">Subject Name</th>
-                            <th scope="col" class="py-2 text-center">IA-1 Score</th>
-                            <th scope="col" class="py-2 text-center">IA-2 Score</th>
-                            <th scope="col" class="py-2 text-center">Classes Attended</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr>
-                            <td class="fw-semibold text-navy">Automata Theory</td>
-                            <td class="text-center">36 / 40</td>
-                            <td class="text-center">38 / 40</td>
-                            <td class="text-center fw-bold text-success">88%</td>
-                        </tr>
-                        <tr>
-                            <td class="fw-semibold text-navy">Computer Networks</td>
-                            <td class="text-center">34 / 40</td>
-                            <td class="text-center">35 / 40</td>
-                            <td class="text-center fw-bold text-success">85%</td>
-                        </tr>
-                    </tbody>
-                </table>
-            `,
-            toolsHtml: `
-                <div class="col-sm-6">
-                    <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
-                        <div class="text-warning fs-3"><i class="bi bi-chat-dots-fill"></i></div>
-                        <div>
-                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Mentor Chat Link</h6>
-                            <a href="#" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Open Chat</a>
-                        </div>
-                    </div>
-                </div>
-            `
-        },
         fee: {
             name: 'Accounts & Fee Clearance Desk',
             badge: 'Fee Section Console',
+            photo: '/images/tpo1.png',
             tableTitle: 'Latest Term Fee Remittances',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -297,6 +259,7 @@ document.addEventListener('DOMContentLoaded', () => {
         admin: {
             name: 'System Admin Coordinator',
             badge: 'Super Administrator Console',
+            photo: '/images/logo.png',
             tableTitle: 'Active Concurrency & Load Metrics',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -341,6 +304,7 @@ document.addEventListener('DOMContentLoaded', () => {
         broadcast: {
             name: 'Broadcasting & Emergency Communications (Hubli Division)',
             badge: 'Broadcasting Control Console',
+            photo: '/images/tpo1.png',
             tableTitle: 'Active Dispatches & Public Announcements Log',
             tableHtml: `
                 <div class="p-3 border rounded-3 bg-light mb-4">
@@ -415,6 +379,7 @@ document.addEventListener('DOMContentLoaded', () => {
         hod: {
             name: 'Dr. Mahesh G. (HOD CSE)',
             badge: 'HOD Portal',
+            photo: '/images/csHod.png',
             tableTitle: 'Department Faculty Allocation',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -459,6 +424,7 @@ document.addEventListener('DOMContentLoaded', () => {
         office: {
             name: 'Shree Shivanand (Office Registrar)',
             badge: 'Office Section',
+            photo: '/images/tpo1.png',
             tableTitle: 'Pending Admissions Verification',
             tableHtml: `
                 <table class="table table-hover table-striped align-middle mb-0 text-start small">
@@ -495,6 +461,68 @@ document.addEventListener('DOMContentLoaded', () => {
                         <div>
                             <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Print Hall Tickets</h6>
                             <a href="#" onclick="alert('CSE Hall Tickets printing started.'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Print Logs</a>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        tpo: {
+            name: 'Prof. Placement Head (Training & Placement Cell)',
+            badge: 'TPO Placement Desk',
+            photo: '/images/tpo1.png',
+            tableTitle: 'Active Recruitment Drives & Campus Placements 2026-27',
+            tableHtml: `
+                <table class="table table-hover table-striped align-middle mb-0 text-start small">
+                    <thead class="table-navy text-white fw-bold">
+                        <tr>
+                            <th scope="col" class="py-2">Company Name</th>
+                            <th scope="col" class="py-2">Job Role</th>
+                            <th scope="col" class="py-2 text-center">Package (CTC)</th>
+                            <th scope="col" class="py-2 text-center">Drive Date</th>
+                            <th scope="col" class="py-2 text-center">Status</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold text-navy">TCS Digital / Ninja</td>
+                            <td>System Engineer</td>
+                            <td class="text-center fw-bold text-success">7.5 - 9.0 LPA</td>
+                            <td class="text-center">05-Aug-2026</td>
+                            <td class="text-center"><span class="badge bg-success">Registration Open</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold text-navy">Infosys Power Programmer</td>
+                            <td>Specialist Programmer</td>
+                            <td class="text-center fw-bold text-success">9.5 LPA</td>
+                            <td class="text-center">12-Aug-2026</td>
+                            <td class="text-center"><span class="badge bg-primary">Shortlisting</span></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold text-navy">Wipro Turbo</td>
+                            <td>Software Developer</td>
+                            <td class="text-center fw-bold text-success">6.5 LPA</td>
+                            <td class="text-center">18-Aug-2026</td>
+                            <td class="text-center"><span class="badge bg-warning text-dark">Upcoming</span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            `,
+            toolsHtml: `
+                <div class="col-sm-6">
+                    <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
+                        <div class="text-primary fs-3"><i class="bi bi-file-earmark-spreadsheet-fill"></i></div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Eligible Students Roster</h6>
+                            <a href="#" onclick="alert('Exporting 2026 Batch Eligible CSE/AIML Roster Excel...'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Export Roster</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-sm-6">
+                    <div class="border rounded-3 p-3 d-flex align-items-center gap-3">
+                        <div class="text-success fs-3"><i class="bi bi-building-add"></i></div>
+                        <div>
+                            <h6 class="fw-bold text-navy m-0" style="font-size: 13px;">Post New Placement Drive</h6>
+                            <a href="#" onclick="alert('Drive creation form initialized.'); return false;" class="btn btn-link text-primary p-0 small fw-bold text-decoration-none">Create Drive Notice</a>
                         </div>
                     </div>
                 </div>
@@ -559,22 +587,44 @@ document.addEventListener('DOMContentLoaded', () => {
             badge: 'Admin Section',
             badgeClass: 'bg-dark',
             desc: 'Monitor server threads, clear static cache storage, adjust connection limits, and manage global website configurations.'
+        },
+        broadcast: {
+            usn: 'AGM-BROADCAST-701',
+            pass: 'password',
+            title: 'Broadcast & Emergency Alerts Desk',
+            badge: 'Broadcast Desk',
+            badgeClass: 'bg-indigo',
+            desc: 'Dispatch emergency SMS bulletins, send campus-wide email dispatches, update public portal alert banners, and track reach metrics.'
+        },
+        tpo: {
+            usn: 'AGM-TPO-501',
+            pass: 'password',
+            title: 'Training & Placement Officer Console',
+            badge: 'TPO Desk',
+            badgeClass: 'bg-primary',
+            desc: 'Coordinate campus recruitment drives, upload company eligibility criteria, track student interview selections, and generate annual placement reports.'
         }
     };
 
-    const switchPortalGateway = (role) => {
+    window.switchPortalGateway = (role) => {
+        const usnInput = document.getElementById('erp-usn');
+        const passwordInput = document.getElementById('erp-password');
+
+        // Dynamically update address bar URL extension without full page reload
+        if (window.history && window.history.pushState) {
+            window.history.pushState({}, '', '/portal/' + role);
+        }
+
         // Toggle active classes on gateway buttons
         document.querySelectorAll('#erp-login-section .gateway-select-btn').forEach(btn => {
             btn.classList.remove('btn-primary', 'text-white', 'shadow-sm', 'border-primary');
             btn.classList.add('btn-light', 'border');
             
-            // Revert inner spans to text-navy
             const textSpan = btn.querySelector('span');
             if (textSpan) {
                 textSpan.classList.remove('text-white');
                 textSpan.classList.add('text-navy');
             }
-            // Revert chevron color
             const chevron = btn.querySelector('.bi-chevron-right');
             if (chevron) {
                 chevron.classList.remove('text-white-50');
@@ -587,13 +637,11 @@ document.addEventListener('DOMContentLoaded', () => {
             activeBtn.classList.remove('btn-light', 'border');
             activeBtn.classList.add('btn-primary', 'text-white', 'shadow-sm', 'border-primary');
             
-            // Highlight text span inside button
             const textSpan = activeBtn.querySelector('span');
             if (textSpan) {
                 textSpan.classList.remove('text-navy');
                 textSpan.classList.add('text-white');
             }
-            // Highlight chevron
             const chevron = activeBtn.querySelector('.bi-chevron-right');
             if (chevron) {
                 chevron.classList.remove('text-muted');
@@ -604,14 +652,9 @@ document.addEventListener('DOMContentLoaded', () => {
         // Pre-fill credentials
         const preset = rolePresets[role];
         if (preset) {
-            if (usnInput) {
-                usnInput.value = preset.usn;
-            }
-            if (passwordInput) {
-                passwordInput.value = preset.pass;
-            }
+            if (usnInput) usnInput.value = preset.usn;
+            if (passwordInput) passwordInput.value = preset.pass;
             
-            // Update labels based on role type
             const userLabel = document.getElementById('username-label');
             if (userLabel) {
                 if (role === 'student') userLabel.innerText = 'University Seat Number (USN)';
@@ -621,42 +664,34 @@ document.addEventListener('DOMContentLoaded', () => {
                 else if (role === 'fee') userLabel.innerText = 'Account Office ID';
                 else if (role === 'principal') userLabel.innerText = 'Principal Auth Code';
                 else if (role === 'admin') userLabel.innerText = 'Super Admin Username';
+                else if (role === 'broadcast') userLabel.innerText = 'Broadcaster Auth Key';
+                else if (role === 'tpo') userLabel.innerText = 'TPO Officer Code';
             }
 
-            // Update badge
             const badge = document.getElementById('portal-selected-badge');
             if (badge) {
                 badge.innerText = preset.badge;
                 badge.className = `badge text-uppercase px-2.5 py-1 ${preset.badgeClass}`;
             }
 
-            // Update hint text
             const hintText = document.getElementById('hint-text');
             if (hintText) {
                 hintText.innerHTML = `Demo credentials loaded: <strong>${preset.usn}</strong> | Password: <strong>${preset.pass}</strong>`;
             }
 
-            // Update info display
             const infoTitle = document.getElementById('portal-info-title');
             const infoDesc = document.getElementById('portal-info-desc');
             if (infoTitle) infoTitle.innerText = preset.title;
             if (infoDesc) infoDesc.innerText = preset.desc;
-
-            // Card update animation disabled for performance
         }
     };
-
-    // Attach click listeners to gateway buttons
-    document.querySelectorAll('#erp-login-section .gateway-select-btn').forEach(btn => {
-        // Standard href navigation will trigger page reload, loading new route
-    });
 
     // Run initial gateway selection if login form exists
     if (loginForm) {
         const pathParts = window.location.pathname.split('/');
         const urlRole = pathParts[pathParts.length - 1];
-        const defaultRole = ['faculty', 'hod', 'office', 'fee', 'principal', 'admin'].includes(urlRole) ? urlRole : 'faculty';
-        switchPortalGateway(defaultRole);
+        const defaultRole = ['student', 'faculty', 'hod', 'office', 'fee', 'principal', 'admin', 'broadcast', 'tpo'].includes(urlRole) ? urlRole : 'student';
+        window.switchPortalGateway(defaultRole);
     }
 
     // 1. Check if user is already logged in (session persistence)
@@ -666,210 +701,289 @@ document.addEventListener('DOMContentLoaded', () => {
         const username = sessionStorage.getItem('erp_username');
 
         if (token && role && username) {
-            fetch('/api/auth/verify', {
-                method: 'GET',
-                headers: { 'Authorization': `Bearer ${token}` }
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    showDashboard(username, role);
-                } else {
-                    sessionStorage.clear();
-                    showLogin();
-                }
-            })
-            .catch(() => {
-                // Offline fallback
-                showDashboard(username, role);
-            });
+            window.showDashboard(username, role);
         } else {
-            showLogin();
+            window.showLogin();
         }
     };
 
-    const showDashboard = (usn, role) => {
-        if (loginSection && dashboardSection) {
-            loginSection.classList.add('d-none');
-            dashboardSection.classList.remove('d-none');
-            
-            // Look up specific configuration values
-            const config = roleDetailsConfig[role] || roleDetailsConfig.student;
+    window.showDashboard = (usn, role) => {
+        const loginSec = document.getElementById('erp-login-section');
+        const dashSec = document.getElementById('erp-dashboard-section');
+        const welcomeNameEl = document.getElementById('erp-welcome-name');
+        const displayUsnEl = document.getElementById('erp-display-usn');
+        const roleBadgeEl = document.getElementById('erp-role-badge');
 
-            if (welcomeName) welcomeName.innerText = `Welcome Back, ${config.name}`;
-            if (displayUsn) displayUsn.innerText = usn.toUpperCase();
-            if (roleBadge) {
-                roleBadge.innerText = config.badge;
-                roleBadge.className = `badge mb-2 text-uppercase ${
-                    role === 'admin' ? 'bg-danger' : 
-                    role === 'principal' ? 'bg-dark' : 
-                    role === 'faculty' || role === 'hod' ? 'bg-primary' : 
-                    role === 'fee' || role === 'office' ? 'bg-info text-dark' : 
-                    role === 'parent' ? 'bg-warning text-dark' : 
-                    role === 'broadcast' ? 'bg-indigo text-white' : 'bg-success'
-                }`;
-            }
+        const brandingHeader = document.getElementById('portal-top-branding-bar');
+        if (brandingHeader) brandingHeader.classList.add('d-none');
 
-            // Hide all sub-widgets panels, then show active
-            ['student', 'faculty', 'hod', 'principal', 'parent', 'fee', 'office', 'admin', 'broadcast'].forEach(r => {
-                const el = document.getElementById(`panel-${r}-widgets`);
-                if (el) el.classList.add('d-none');
-            });
+        if (loginSec) loginSec.classList.add('d-none');
+        if (dashSec) dashSec.classList.remove('d-none');
+        
+        const config = roleDetailsConfig[role] || roleDetailsConfig.student;
 
-            const activeWidgets = document.getElementById(`panel-${role}-widgets`);
-            if (activeWidgets) activeWidgets.classList.remove('d-none');
+        if (welcomeNameEl) welcomeNameEl.innerText = `HI... ${config.name.toUpperCase()}`;
+        if (displayUsnEl) displayUsnEl.innerText = usn.toUpperCase();
+        if (roleBadgeEl) roleBadgeEl.innerText = config.badge;
 
-            // Set table content
-            const tableTitle = document.getElementById('erp-table-title');
-            const tableContainer = document.getElementById('erp-table-container');
-            if (tableTitle) tableTitle.innerHTML = `<i class="bi bi-file-earmark-spreadsheet-fill text-success me-2"></i>${config.tableTitle}`;
-            if (tableContainer) tableContainer.innerHTML = config.tableHtml;
+        const sidebarName = document.getElementById('sidebar-user-name');
+        const sidebarSub = document.getElementById('sidebar-user-sub');
+        const profileCardName = document.getElementById('profile-card-name');
+        const profileCardUsn = document.getElementById('profile-card-usn');
+        const bioFullname = document.getElementById('bio-fullname');
+        
+        const topAvatar = document.getElementById('erp-top-avatar');
+        const sidebarPhoto = document.getElementById('sidebar-user-photo');
+        const profilePhoto = document.getElementById('profile-card-photo');
 
-            // Set tool downloads content
-            const toolsContainer = document.getElementById('erp-tools-container');
-            if (toolsContainer) toolsContainer.innerHTML = config.toolsHtml;
-            
-            // Show dynamic notice broadcast banner to student
-            const announcementBanner = document.getElementById('erp-announcement-banner');
-            const announcementText = document.getElementById('announcement-broadcast-text');
-            if (role === 'student') {
-                const storedAnnouncement = sessionStorage.getItem('active_announcement');
-                if (storedAnnouncement && announcementBanner && announcementText) {
-                    announcementText.innerText = storedAnnouncement;
-                    announcementBanner.classList.remove('d-none');
-                } else if (announcementBanner) {
-                    // Fallback default message
-                    announcementText.innerText = "Please submit your VTU elective registration sheets by Friday.";
-                    announcementBanner.classList.remove('d-none');
-                }
+        const rolePhoto = config.photo || (role === 'principal' ? '/images/principal.jpg' : '/images/csHod.png');
+        if (topAvatar) topAvatar.src = rolePhoto;
+        if (sidebarPhoto) sidebarPhoto.src = rolePhoto;
+        if (profilePhoto) profilePhoto.src = rolePhoto;
+
+        if (sidebarName) sidebarName.innerText = config.name;
+        if (sidebarSub) sidebarSub.innerText = config.badge;
+        if (profileCardName) profileCardName.innerText = config.name.toUpperCase();
+        if (profileCardUsn) profileCardUsn.innerText = usn.toUpperCase();
+        if (bioFullname) bioFullname.innerText = config.name;
+
+        // Populate Role-Tailored Sidebar Navigation List
+        const sidebarNav = document.getElementById('sidebar-nav-list');
+        if (sidebarNav) {
+            if (role === 'faculty') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-person-badge-fill text-primary fs-6 me-1"></i> Faculty Profile & Workload
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="faculty-attendance" onclick="switchSidebarTab('faculty-attendance', this)">
+                        <i class="bi bi-calendar-check-fill text-success fs-6 me-1"></i> Daily Attendance Sheet
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="faculty-marks" onclick="switchSidebarTab('faculty-marks', this)">
+                        <i class="bi bi-journal-bookmark-fill text-warning fs-6 me-1"></i> Internal Assessment (IA) Marks
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="lesson-plan" onclick="switchSidebarTab('lesson-plan', this)">
+                        <i class="bi bi-card-checklist text-info fs-6 me-1"></i> Lesson Plan Tracker
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="faculty-broadcast" onclick="switchSidebarTab('faculty-broadcast', this)">
+                        <i class="bi bi-megaphone-fill text-danger fs-6 me-1"></i> Class Announcements
+                    </a>
+                `;
+            } else if (role === 'hod') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-award-fill text-primary fs-6 me-1"></i> HOD Department Overview
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="hod-electives" onclick="switchSidebarTab('hod-electives', this)">
+                        <i class="bi bi-check2-square text-success fs-6 me-1"></i> Elective Approvals
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="hod-faculty" onclick="switchSidebarTab('hod-faculty', this)">
+                        <i class="bi bi-people-fill text-warning fs-6 me-1"></i> Faculty Allocations
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="broadcast" onclick="switchSidebarTab('broadcast', this)">
+                        <i class="bi bi-broadcast text-danger fs-6 me-1"></i> HOD Circular Dispatch
+                    </a>
+                `;
+            } else if (role === 'principal') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-person-workspace text-primary fs-6 me-1"></i> Executive Dashboard
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="principal-accounts" onclick="switchSidebarTab('principal-accounts', this)">
+                        <i class="bi bi-person-plus-fill text-success fs-6 me-1"></i> Provision ERP Accounts
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="principal-metrics" onclick="switchSidebarTab('principal-metrics', this)">
+                        <i class="bi bi-bar-chart-line-fill text-warning fs-6 me-1"></i> Enrollment Statistics
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="principal-accreditation" onclick="switchSidebarTab('principal-accreditation', this)">
+                        <i class="bi bi-shield-check text-info fs-6 me-1"></i> NAAC / NBA Audit Progress
+                    </a>
+                `;
+            } else if (role === 'admin') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-gear-fill text-primary fs-6 me-1"></i> Admin Metrics & Server Health
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="admin-news" onclick="switchSidebarTab('admin-news', this)">
+                        <i class="bi bi-newspaper text-success fs-6 me-1"></i> Website News CMS
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="admin-inquiries" onclick="switchSidebarTab('admin-inquiries', this)">
+                        <i class="bi bi-envelope-paper-fill text-warning fs-6 me-1"></i> Admission Inquiries Directory
+                    </a>
+                `;
+            } else if (role === 'broadcast') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-broadcast text-indigo fs-6 me-1"></i> Broadcast Desk Console
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="broadcast-logs" onclick="switchSidebarTab('broadcast-logs', this)">
+                        <i class="bi bi-list-check text-success fs-6 me-1"></i> Dispatch Logs & Analytics
+                    </a>
+                `;
+            } else if (role === 'office' || role === 'fee') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-building-fill text-success fs-6 me-1"></i> Office & Finance Registry
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="office-admissions" onclick="switchSidebarTab('office-admissions', this)">
+                        <i class="bi bi-file-earmark-check-fill text-primary fs-6 me-1"></i> Admission Verification
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="office-fees" onclick="switchSidebarTab('office-fees', this)">
+                        <i class="bi bi-wallet2 text-warning fs-6 me-1"></i> Fee Remittance & Challans
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="office-tickets" onclick="switchSidebarTab('office-tickets', this)">
+                        <i class="bi bi-ticket-perforated-fill text-info fs-6 me-1"></i> Hall Ticket Dispatch
+                    </a>
+                `;
+            } else if (role === 'tpo') {
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-briefcase-fill text-primary fs-6 me-1"></i> TPO Placements Overview
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="tpo-drives" onclick="switchSidebarTab('tpo-drives', this)">
+                        <i class="bi bi-building-add text-success fs-6 me-1"></i> Active Recruitment Drives
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="tpo-roster" onclick="switchSidebarTab('tpo-roster', this)">
+                        <i class="bi bi-file-earmark-spreadsheet-fill text-warning fs-6 me-1"></i> Student Eligibility Roster
+                    </a>
+                `;
             } else {
-                if (announcementBanner) announcementBanner.classList.add('d-none');
+                // Default Student Sidebar
+                sidebarNav.innerHTML = `
+                    <a class="erp-sidebar-nav-item active" data-tab="biodata" onclick="switchSidebarTab('biodata', this)">
+                        <i class="bi bi-person-vcard text-primary fs-6 me-1"></i> Bio-Data / Profile
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="academic-register" onclick="switchSidebarTab('academic-register', this)">
+                        <i class="bi bi-journal-check text-success fs-6 me-1"></i> Academic Register
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="academic-calendar" onclick="switchSidebarTab('academic-calendar', this)">
+                        <i class="bi bi-calendar3 text-warning fs-6 me-1"></i> Academic Calendar
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="attendance" onclick="switchSidebarTab('attendance', this)">
+                        <i class="bi bi-pie-chart-fill text-info fs-6 me-1"></i> Attendance Tracker
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="marks" onclick="switchSidebarTab('marks', this)">
+                        <i class="bi bi-award-fill text-danger fs-6 me-1"></i> Marks & SGPA/CGPA
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="backlogs" onclick="switchSidebarTab('backlogs', this)">
+                        <i class="bi bi-exclamation-triangle-fill text-danger fs-6 me-1"></i> Backlogs Tracker
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="class-assignments" onclick="switchSidebarTab('class-assignments', this)">
+                        <i class="bi bi-file-earmark-text text-primary fs-6 me-1"></i> Class Assignments
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="lesson-plan" onclick="switchSidebarTab('lesson-plan', this)">
+                        <i class="bi bi-card-checklist text-secondary fs-6 me-1"></i> Lesson Plan
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="library" onclick="switchSidebarTab('library', this)">
+                        <i class="bi bi-book-half text-success fs-6 me-1"></i> Library & Book Search
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="project-resources" onclick="switchSidebarTab('project-resources', this)">
+                        <i class="bi bi-folder-symlink text-indigo fs-6 me-1"></i> Project & E-Resources
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="outings" onclick="switchSidebarTab('outings', this)">
+                        <i class="bi bi-door-open-fill text-warning fs-6 me-1"></i> Outings / Gatepass
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="counseling" onclick="switchSidebarTab('counseling', this)">
+                        <i class="bi bi-people-fill text-primary fs-6 me-1"></i> Counseling Details
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="disciplinary" onclick="switchSidebarTab('disciplinary', this)">
+                        <i class="bi bi-shield-check text-dark fs-6 me-1"></i> Disciplinary Record
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="complaints" onclick="switchSidebarTab('complaints', this)">
+                        <i class="bi bi-chat-square-dots text-danger fs-6 me-1"></i> Complaint / Suggestion
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="timetable" onclick="switchSidebarTab('timetable', this)">
+                        <i class="bi bi-clock-history text-primary fs-6 me-1"></i> Time Table
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="topics-covered" onclick="switchSidebarTab('topics-covered', this)">
+                        <i class="bi bi-list-task text-secondary fs-6 me-1"></i> Topics Covered
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="resources" onclick="switchSidebarTab('resources', this)">
+                        <i class="bi bi-journal-bookmark text-indigo fs-6 me-1"></i> Resources / E-Books
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="exam-schedule" onclick="switchSidebarTab('exam-schedule', this)">
+                        <i class="bi bi-calendar2-week text-info fs-6 me-1"></i> Exam Schedule
+                    </a>
+                    <a class="erp-sidebar-nav-item" data-tab="feedback" onclick="switchSidebarTab('feedback', this)">
+                        <i class="bi bi-star-fill text-warning fs-6 me-1"></i> Faculty Feedback
+                    </a>
+                `;
             }
+        }
 
-            // Initialize dynamic charts for Principal and Fee Section panels
-            if (role === 'principal' && typeof Chart !== 'undefined') {
-                const ctx = document.getElementById('principalChart');
-                if (ctx) {
-                    if (principalChartInstance) principalChartInstance.destroy();
-                    principalChartInstance = new Chart(ctx, {
-                        type: 'doughnut',
-                        data: {
-                            labels: ['CSE & IT', 'ECE & EEE', 'Mechanical', 'Civil', 'PG (MBA/MCA)'],
-                            datasets: [{
-                                data: [650, 320, 150, 120, 280],
-                                backgroundColor: ['#0f2b5c', '#0088cc', '#d4af37', '#6c757d', '#10b981'],
-                                borderWidth: 1
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: {
-                                    position: 'bottom',
-                                    labels: { font: { size: 10 }, boxWidth: 10 }
-                                }
-                            }
-                        }
-                    });
-                }
-            }
-
-            if (role === 'fee' && typeof Chart !== 'undefined') {
-                const ctx = document.getElementById('feeChart');
-                if (ctx) {
-                    if (feeChartInstance) feeChartInstance.destroy();
-                    feeChartInstance = new Chart(ctx, {
-                        type: 'bar',
-                        data: {
-                            labels: ['April', 'May', 'June', 'July (Est)'],
-                            datasets: [{
-                                label: 'Collected (INR Millions)',
-                                data: [2.1, 3.4, 1.8, 1.1],
-                                backgroundColor: '#10b981',
-                                borderRadius: 4
-                            }]
-                        },
-                        options: {
-                            responsive: true,
-                            maintainAspectRatio: false,
-                            plugins: {
-                                legend: { display: false }
-                            },
-                            scales: {
-                                y: { beginAtZero: true, grid: { display: false } },
-                                x: { grid: { display: false } }
-                            }
-                        }
-                    });
-                }
-            }
-
-            // Dashboard entrance animations disabled for performance
+        if (typeof window.switchSidebarTab === 'function') {
+            window.switchSidebarTab('biodata');
         }
     };
 
-    const showLogin = () => {
-        if (loginSection && dashboardSection) {
-            dashboardSection.classList.add('d-none');
-            loginSection.classList.remove('d-none');
-        }
+    window.showLogin = () => {
+        const loginSec = document.getElementById('erp-login-section');
+        const dashSec = document.getElementById('erp-dashboard-section');
+        const brandingHeader = document.getElementById('portal-top-branding-bar');
+        if (brandingHeader) brandingHeader.classList.remove('d-none');
+        if (dashSec) dashSec.classList.add('d-none');
+        if (loginSec) loginSec.classList.remove('d-none');
     };
 
-    // 2. Login Form Submission Handlers for all roles
-    const roleForms = document.querySelectorAll('.erp-role-form');
-    roleForms.forEach(form => {
-        form.addEventListener('submit', (e) => {
+    // 2. Global Login Submission Handler (#erp-login-form)
+    window.handlePortalLogin = (e) => {
+        if (e) {
             e.preventDefault();
-            const role = form.getAttribute('data-role');
-            const usnVal = form.querySelector('.erp-username-input').value.trim().toUpperCase();
-            const passwordVal = form.querySelector('.erp-password-input').value;
+            e.stopPropagation();
+        }
+        const usnEl = document.getElementById('erp-usn');
+        const pwdEl = document.getElementById('erp-password');
+        const errEl = document.getElementById('login-error-alert');
 
-            // Demo logic
-            let resolvedRole = role;
-            if (usnVal.startsWith('AGM-FAC-')) resolvedRole = 'faculty';
-            else if (usnVal.startsWith('AGM-HOD-')) resolvedRole = 'hod';
-            else if (usnVal.startsWith('AGM-OFF-')) resolvedRole = 'office';
-            else if (usnVal.startsWith('AGM-PRIN-')) resolvedRole = 'principal';
-            else if (usnVal.endsWith('-P')) resolvedRole = 'parent';
-            else if (usnVal.startsWith('AGM-FEE-')) resolvedRole = 'fee';
-            else if (usnVal.startsWith('AGM-ADMIN-')) resolvedRole = 'admin';
+        const usnVal = usnEl && usnEl.value.trim() ? usnEl.value.trim().toUpperCase() : '2AG22CS001';
+        const passwordVal = pwdEl && pwdEl.value ? pwdEl.value : 'password';
 
-            sessionStorage.setItem('erp_role', resolvedRole);
-            sessionStorage.setItem('erp_username', usnVal);
-            if (errorAlert) errorAlert.classList.add('d-none');
+        const pathParts = window.location.pathname.split('/');
+        const urlRole = pathParts[pathParts.length - 1];
 
-            fetch('/api/auth/login', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ username: usnVal, password: passwordVal, expectedRole: resolvedRole })
-            })
-            .then(res => res.json())
-            .then(data => {
-                if (data.success) {
-                    sessionStorage.setItem('erp_token', data.token);
-                    sessionStorage.setItem('erp_role', data.role);
-                    sessionStorage.setItem('erp_username', data.username);
-                    showDashboard(data.username, data.role);
-                    form.reset();
-                } else {
-                    if (errorAlert) {
-                        errorAlert.innerText = data.message || 'Authentication failed.';
-                        errorAlert.classList.remove('d-none');
-                        errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                    }
-                }
-            })
-            .catch(err => {
-                console.error(err);
-                if (errorAlert) {
-                    errorAlert.innerText = 'Authentication error. Please check server status.';
-                    errorAlert.classList.remove('d-none');
-                    errorAlert.scrollIntoView({ behavior: 'smooth', block: 'center' });
-                }
-            });
-        });
-    });
+        let resolvedRole = ['student', 'faculty', 'hod', 'office', 'fee', 'principal', 'admin', 'broadcast', 'tpo'].includes(urlRole) ? urlRole : 'student';
+
+        if (usnVal.startsWith('AGM-FAC-')) resolvedRole = 'faculty';
+        else if (usnVal.startsWith('AGM-HOD-')) resolvedRole = 'hod';
+        else if (usnVal.startsWith('AGM-OFF-')) resolvedRole = 'office';
+        else if (usnVal.startsWith('AGM-PRIN-')) resolvedRole = 'principal';
+        else if (usnVal.startsWith('AGM-FEE-')) resolvedRole = 'fee';
+        else if (usnVal.startsWith('AGM-ADMIN-')) resolvedRole = 'admin';
+        else if (usnVal.startsWith('AGM-BROADCAST-')) resolvedRole = 'broadcast';
+        else if (usnVal.startsWith('AGM-TPO-')) resolvedRole = 'tpo';
+
+        if (errEl) errEl.classList.add('d-none');
+
+        // Dynamically update address bar URL extension to match logged in role
+        if (window.history && window.history.pushState) {
+            window.history.pushState({}, '', '/portal/' + resolvedRole);
+        }
+
+        // Instant UI Transition to Dashboard
+        sessionStorage.setItem('erp_token', 'demo_token_' + Date.now());
+        sessionStorage.setItem('erp_role', resolvedRole);
+        sessionStorage.setItem('erp_username', usnVal);
+
+        window.showDashboard(usnVal, resolvedRole);
+
+        // Async API post for authentication verification
+        fetch('/api/auth/login', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ username: usnVal, password: passwordVal, expectedRole: resolvedRole })
+        })
+        .then(res => res.json())
+        .then(data => {
+            if (data.success) {
+                sessionStorage.setItem('erp_token', data.token);
+                sessionStorage.setItem('erp_role', data.role);
+                sessionStorage.setItem('erp_username', data.username);
+                window.showDashboard(data.username, data.role);
+            }
+        })
+        .catch(() => {});
+
+        return false;
+    };
 
     // Register Principal Account Creation Handler
     window.principalCreateAccount = (e) => {
@@ -1220,94 +1334,877 @@ document.addEventListener('DOMContentLoaded', () => {
     // Execute state check on load
     checkLoginState();
 
-    // ==========================================
-    // V2 Advanced Interactive Animation Frameworks
-    // ==========================================
+    // Animations disabled per user request
+});
 
-    // 1. Interactive Constellation Nodes Particle Canvas
-    const canvas = document.getElementById('portal-particles');
-    if (canvas) {
-        const ctx = canvas.getContext('2d');
-        let width = canvas.width = canvas.offsetWidth;
-        let height = canvas.height = canvas.offsetHeight;
-        
-        window.addEventListener('resize', () => {
-            if (canvas) {
-                width = canvas.width = canvas.offsetWidth;
-                height = canvas.height = canvas.offsetHeight;
-            }
-        });
-
-        const particles = [];
-        const particleCount = 45;
-
-        for (let i = 0; i < particleCount; i++) {
-            particles.push({
-                x: Math.random() * width,
-                y: Math.random() * height,
-                vx: (Math.random() - 0.5) * 0.7,
-                vy: (Math.random() - 0.5) * 0.7,
-                radius: Math.random() * 2 + 1
-            });
-        }
-
-        const animateParticles = () => {
-            if (!document.getElementById('portal-particles')) return; // exit loop if navigated away
-            ctx.clearRect(0, 0, width, height);
-            ctx.fillStyle = 'rgba(15, 43, 92, 0.08)';
-            ctx.strokeStyle = 'rgba(15, 43, 92, 0.04)';
-            
-            for (let i = 0; i < particleCount; i++) {
-                const p = particles[i];
-                p.x += p.vx;
-                p.y += p.vy;
-
-                if (p.x < 0 || p.x > width) p.vx *= -1;
-                if (p.y < 0 || p.y > height) p.vy *= -1;
-
-                ctx.beginPath();
-                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
-                ctx.fill();
-
-                for (let j = i + 1; j < particleCount; j++) {
-                    const p2 = particles[j];
-                    const dist = Math.hypot(p.x - p2.x, p.y - p2.y);
-                    if (dist < 110) {
-                        ctx.beginPath();
-                        ctx.moveTo(p.x, p.y);
-                        ctx.lineTo(p2.x, p2.y);
-                        ctx.stroke();
-                    }
-                }
-            }
-            requestAnimationFrame(animateParticles);
-        };
-        animateParticles();
+// Dynamic ERP Sidebar Navigation & Multi-Tab Content Handler
+window.switchSidebarTab = function(tabKey, element) {
+    const items = document.querySelectorAll('.erp-sidebar-nav-item');
+    items.forEach(el => el.classList.remove('active'));
+    if (element) {
+        element.classList.add('active');
+    } else {
+        const defaultItem = document.querySelector(`.erp-sidebar-nav-item[data-tab="${tabKey}"]`);
+        if (defaultItem) defaultItem.classList.add('active');
     }
 
-    // 2. 3D Perspective Card Tilt Physics
-    const tiltCards = document.querySelectorAll('#erp-login-section .card, #portal-auth-card');
-    tiltCards.forEach(card => {
-        card.addEventListener('mousemove', (e) => {
-            const rect = card.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-            
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-            
-            const rotateX = -(y - centerY) / 20; // 3D tilt sensitivity
-            const rotateY = (x - centerX) / 20;
-            
-            card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-6px)`;
-            card.style.transition = 'none';
-            card.style.boxShadow = '0 20px 40px rgba(15, 43, 92, 0.12)';
-        });
-        
-        card.addEventListener('mouseleave', () => {
-            card.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0)';
-            card.style.transition = 'transform 0.4s ease, box-shadow 0.4s ease';
-            card.style.boxShadow = '';
-        });
+    const biodataTab = document.getElementById('tab-content-biodata');
+    const dynamicTab = document.getElementById('tab-content-dynamic');
+    const dynamicHeader = document.getElementById('dynamic-tab-header');
+    const dynamicBody = document.getElementById('dynamic-tab-body');
+
+    // On mobile screens, auto collapse sidebar on tab selection
+    const sidebar = document.getElementById('erp-sidebar');
+    if (sidebar) sidebar.classList.remove('show');
+
+    const currentRole = sessionStorage.getItem('erp_role') || 'student';
+    if (tabKey === 'biodata' && currentRole === 'student') {
+        if (biodataTab) biodataTab.classList.remove('d-none');
+        if (dynamicTab) dynamicTab.classList.add('d-none');
+        return;
+    }
+
+    if (biodataTab) biodataTab.classList.add('d-none');
+    if (dynamicTab) dynamicTab.classList.remove('d-none');
+
+    // If biodata tab is clicked for a non-student role, populate roleDetailsConfig summary
+    if (tabKey === 'biodata' && currentRole !== 'student') {
+        const config = roleDetailsConfig[currentRole] || roleDetailsConfig.student;
+        if (dynamicHeader) dynamicHeader.innerHTML = `<i class="bi bi-person-workspace text-primary me-2"></i>${config.badge.toUpperCase()} DASHBOARD`;
+        if (dynamicBody) {
+            dynamicBody.innerHTML = `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs mb-4">
+                    <h6 class="fw-bold text-navy mb-3"><i class="bi bi-table me-2 text-primary"></i>${config.tableTitle}</h6>
+                    ${config.tableHtml}
+                </div>
+                ${config.toolsHtml ? `
+                <div class="row g-3">
+                    ${config.toolsHtml}
+                </div>` : ''}
+            `;
+        }
+        return;
+    }
+
+    const tabContents = {
+        'academic-register': {
+            title: '<i class="bi bi-journal-check text-success me-2"></i>ACADEMIC REGISTER & DAILY ATTENDANCE GRID',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <!-- Official College Header Banner -->
+                    <div class="text-center mb-3 p-3 bg-light border rounded-3 shadow-xs">
+                        <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                        <h5 class="fw-extrabold text-navy m-0 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">SMM MATOSHRI RASHMI DEVI CHOUDHARY RESEARCH CENTRE & AGMRCET (Code: E238)</h5>
+                        <p class="small text-muted m-0" style="font-size: 11px;">(Approved by AICTE, New Delhi || Affiliated to VTU Belagavi || Accredited by NAAC)</p>
+                        <h6 class="fw-bold text-navy mt-2 mb-0 tracking-wider text-uppercase border-top border-bottom py-1" style="font-size: 13px;">ACADEMIC REGISTER</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-2 small text-navy fw-semibold">
+                            <span><strong>Roll No / USN:</strong> 2AG22CS001</span>
+                            <span><strong>Student Name:</strong> PRAJWAL PATIL</span>
+                            <span><strong>Semester:</strong> VI Semester CSE</span>
+                        </div>
+                    </div>
+
+                    <!-- Daily Date Grid Table -->
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered table-hover align-middle text-center small mb-0" style="font-size: 11px;">
+                            <thead class="table-navy text-white fw-bold">
+                                <tr>
+                                    <th>Sl.No</th>
+                                    <th>Subject</th>
+                                    <th>13/07</th><th>14/07</th><th>15/07</th><th>16/07</th><th>17/07</th><th>18/07</th>
+                                    <th>20/07</th><th>21/07</th><th>22/07</th><th>23/07</th><th>24/07</th><th>25/07</th><th>27/07</th><th>28/07</th>
+                                    <th>Atted/Held</th>
+                                    <th>%</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td class="fw-bold text-navy text-start">21CS61 (Software Engg)</td><td>P</td><td>-</td><td>P</td><td>P</td><td>P</td><td>-</td><td>P</td><td>P</td><td>A</td><td>A</td><td>P</td><td>-</td><td>P</td><td>P</td><td class="fw-bold">10/12</td><td class="fw-bold text-success">83.33%</td></tr>
+                                <tr><td>2</td><td class="fw-bold text-navy text-start">21CS62 (Web Dev)</td><td>P</td><td>P</td><td>-</td><td>P</td><td>P</td><td>A</td><td>P</td><td>P</td><td>A</td><td>P</td><td>-</td><td>P</td><td>P</td><td>-</td><td class="fw-bold">9/11</td><td class="fw-bold text-success">81.81%</td></tr>
+                                <tr><td>3</td><td class="fw-bold text-navy text-start">21CS63 (Machine Learning)</td><td>-</td><td>P</td><td>P</td><td>-</td><td>P</td><td>A</td><td>-</td><td>P</td><td>A</td><td>A</td><td>P</td><td>-</td><td>P</td><td>P</td><td class="fw-bold">8/11</td><td class="fw-bold text-warning">72.72%</td></tr>
+                                <tr><td>4</td><td class="fw-bold text-navy text-start">21CSL66 (Web Lab)</td><td>P P P</td><td>-</td><td>-</td><td>-</td><td>-</td><td>P P P</td><td>-</td><td>-</td><td>-</td><td>-</td><td>P P P</td><td>-</td><td>-</td><td>-</td><td class="fw-bold">9/9</td><td class="fw-bold text-success">100.00%</td></tr>
+                                <tr><td>5</td><td class="fw-bold text-navy text-start">21CS67 (Mini Project)</td><td>-</td><td>-</td><td>P P</td><td>P P</td><td>-</td><td>-</td><td>-</td><td>P P</td><td>-</td><td>-</td><td>-</td><td>P P</td><td>-</td><td>-</td><td class="fw-bold">8/8</td><td class="fw-bold text-success">100.00%</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm fw-bold px-3" onclick="window.print();">Print</button>
+                        <button class="btn btn-success btn-sm fw-bold px-3" onclick="alert('Exporting Academic Register Excel...');">Export</button>
+                    </div>
+                </div>
+            `
+        },
+        'academic-calendar': {
+            title: '<i class="bi bi-calendar3 text-warning me-2"></i>ACADEMIC CALENDAR',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">VTU Belagavi Academic Term Calendar Schedule</h6>
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered align-middle text-start small mb-0">
+                            <thead class="table-navy text-white fw-bold">
+                                <tr><th>Sl.No</th><th>Start Date</th><th>End Date</th><th>Description</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td class="fw-bold">23/06/2025</td><td class="fw-bold">05/11/2025</td><td>VTU Odd Semester Academic Term 2025-26</td></tr>
+                                <tr><td>2</td><td class="fw-bold">13/07/2026</td><td class="fw-bold">14/11/2026</td><td>VTU Even Semester Academic Term 2026-27 (Scheme 2021)</td></tr>
+                                <tr><td>3</td><td class="fw-bold">01/09/2026</td><td class="fw-bold">05/09/2026</td><td>CIE Internal Assessment Test 1 (IA-1)</td></tr>
+                                <tr><td>4</td><td class="fw-bold">15/10/2026</td><td class="fw-bold">20/10/2026</td><td>CIE Internal Assessment Test 2 (IA-2)</td></tr>
+                                <tr><td>5</td><td class="fw-bold">10/11/2026</td><td class="fw-bold">14/11/2026</td><td>VTU Semester Practical & Lab Examinations</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'attendance': {
+            title: '<i class="bi bi-pie-chart-fill text-info me-2"></i>STUDENT ATTENDANCE REPORT',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <!-- Filters Bar -->
+                    <div class="d-flex align-items-center flex-wrap gap-3 mb-3 p-2.5 bg-light border rounded-3 small">
+                        <div class="form-check form-check-inline mb-0"><input class="form-check-input" type="radio" name="attFilter" id="f1"><label class="form-check-label">Monthly</label></div>
+                        <div class="form-check form-check-inline mb-0"><input class="form-check-input" type="radio" name="attFilter" id="f2"><label class="form-check-label">Period</label></div>
+                        <div class="form-check form-check-inline mb-0"><input class="form-check-input" type="radio" name="attFilter" id="f3" checked><label class="form-check-label fw-bold text-navy">Till now</label></div>
+                        <div class="form-check form-check-inline mb-0"><input class="form-check-input" type="checkbox" id="f4"><label class="form-check-label">Exclude other subjects</label></div>
+                        <button class="btn btn-sm btn-primary py-1 px-3 fw-bold" onclick="alert('Attendance report recalculated!');">Show..</button>
+                    </div>
+
+                    <!-- College Header Banner -->
+                    <div class="text-center mb-3 p-3 bg-light border rounded-3 shadow-xs">
+                        <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                        <h5 class="fw-extrabold text-navy m-0 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">SMM MATOSHRI RASHMI DEVI CHOUDHARY RESEARCH CENTRE & AGMRCET (Code: E238)</h5>
+                        <p class="small text-muted m-0" style="font-size: 11px;">(Approved by AICTE, New Delhi || Affiliated to VTU Belagavi || Accredited by NAAC)</p>
+                        <h6 class="fw-bold text-navy mt-2 mb-0 tracking-wider text-uppercase border-top border-bottom py-1" style="font-size: 13px;">ATTENDANCE REPORT</h6>
+                        <div class="d-flex justify-content-between align-items-center mt-2 small text-navy fw-semibold">
+                            <span><strong>Roll No / USN:</strong> 2AG22CS001</span>
+                            <span><strong>Student Name:</strong> PRAJWAL PATIL</span>
+                            <span><strong>Course:</strong> B.Tech | <strong>Branch:</strong> CSE</span>
+                        </div>
+                    </div>
+
+                    <!-- Attendance Summary Table -->
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered align-middle text-center small mb-0">
+                            <thead class="table-navy text-white fw-bold">
+                                <tr><th>Sl.No</th><th>Subject Name</th><th>Held</th><th>Attend</th><th>%</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>1</td><td class="text-start">21CS61 - Software Engineering & Project Management</td><td>40</td><td>36</td><td class="fw-bold text-success">90.00%</td></tr>
+                                <tr><td>2</td><td class="text-start">21CS62 - Full Stack Web Development</td><td>42</td><td>38</td><td class="fw-bold text-success">90.47%</td></tr>
+                                <tr><td>3</td><td class="text-start">21CS63 - Machine Learning Techniques</td><td>40</td><td>32</td><td class="fw-bold text-warning">80.00%</td></tr>
+                                <tr><td>4</td><td class="text-start">21CSL66 - Web Technology Laboratory</td><td>18</td><td>16</td><td class="fw-bold text-success">88.88%</td></tr>
+                                <tr><td>5</td><td class="text-start">21CS67 - Mini Project Work</td><td>12</td><td>12</td><td class="fw-bold text-success">100.00%</td></tr>
+                                <tr class="table-secondary fw-bold">
+                                    <td colspan="2" class="text-end">TOTAL:</td>
+                                    <td>152</td>
+                                    <td>134</td>
+                                    <td class="text-success">88.15%</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Action Bar -->
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm fw-bold px-3" onclick="window.print();">Print</button>
+                        <button class="btn btn-success btn-sm fw-bold px-3" onclick="alert('Exporting Attendance Report Excel...');">Export</button>
+                    </div>
+                </div>
+            `
+        },
+        'marks': {
+            title: '<i class="bi bi-award-fill text-danger me-2"></i>INTERNAL MARKS & GRADE TRACKER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Continuous Internal Evaluation (CIE - IA Marks)</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered align-middle text-center small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>Subject Code</th><th>Subject Name</th><th>IA-1 (40)</th><th>IA-2 (40)</th><th>IA-3 (40)</th><th>Assignments (10)</th><th>Final CIE (50)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>21CS61</td><td>Software Engineering</td><td>38</td><td>36</td><td>39</td><td>10</td><td class="fw-bold text-success">48 / 50</td></tr>
+                                <tr><td>21CS62</td><td>Web Development</td><td>40</td><td>38</td><td>39</td><td>10</td><td class="fw-bold text-success">49 / 50</td></tr>
+                                <tr><td>21CS63</td><td>Machine Learning</td><td>35</td><td>37</td><td>38</td><td>9</td><td class="fw-bold text-success">46 / 50</td></tr>
+                                <tr><td>21CSL66</td><td>Web Tech Lab</td><td>--</td><td>--</td><td>--</td><td>--</td><td class="fw-bold text-success">48 / 50</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'backlogs': {
+            title: '<i class="bi bi-exclamation-triangle-fill text-danger me-2"></i>BACKLOG TRACKER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <div class="alert alert-success d-flex align-items-center gap-3 m-0">
+                        <i class="bi bi-check-circle-fill fs-2 text-success"></i>
+                        <div>
+                            <h6 class="fw-bold m-0">Zero Active Backlogs!</h6>
+                            <p class="small m-0 text-muted">You have cleared all subjects across previous semesters. Clean academic standing maintained.</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'class-assignments': {
+            title: '<i class="bi bi-file-earmark-text text-primary me-2"></i>CLASS ASSIGNMENTS & HOMEWORK SUBMISSION',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Active Assignments</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-start small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>Title</th><th>Subject</th><th>Due Date</th><th>Submission Status</th><th>Action</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>Assignment 1: Software Design Models</td><td>Software Engg</td><td>30-July-2026</td><td><span class="badge bg-success">Submitted</span></td><td><button class="btn btn-xs btn-outline-secondary">View File</button></td></tr>
+                                <tr><td>Assignment 2: Express JS REST APIs</td><td>Web Development</td><td>05-Aug-2026</td><td><span class="badge bg-warning text-dark">Pending</span></td><td><button class="btn btn-xs btn-primary">Upload PDF</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'lesson-plan': {
+            title: '<i class="bi bi-card-checklist text-secondary me-2"></i>LESSON PLAN & SYLLABUS TRACKER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Syllabus Completion Logs</h6>
+                    <div class="space-y-3">
+                        <div>
+                            <div class="d-flex justify-content-between small fw-bold mb-1">
+                                <span>Software Engineering (21CS61)</span>
+                                <span class="text-success">85% Complete</span>
+                            </div>
+                            <div class="progress" style="height: 8px;"><div class="progress-bar bg-success" style="width: 85%;"></div></div>
+                        </div>
+                        <div class="mt-3">
+                            <div class="d-flex justify-content-between small fw-bold mb-1">
+                                <span>Web Development (21CS62)</span>
+                                <span class="text-primary">90% Complete</span>
+                            </div>
+                            <div class="progress" style="height: 8px;"><div class="progress-bar bg-primary" style="width: 90%;"></div></div>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'library': {
+            title: '<i class="bi bi-book-half text-success me-2"></i>LIBRARY BOOKS SEARCH & ISSUED CARDS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs mb-4">
+                    <h6 class="fw-bold text-navy mb-3">Issued Books & Return Deadlines</h6>
+                    <table class="table table-sm align-middle small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Accession No</th><th>Book Title</th><th>Author</th><th>Issue Date</th><th>Due Date</th><th>Fine</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>CS-9042</td><td>Software Engineering 10th Ed</td><td>Ian Sommerville</td><td>10-July-2026</td><td>25-July-2026</td><td class="text-success">0 INR</td></tr>
+                            <tr><td>CS-8812</td><td>Node.js & Express in Action</td><td>Evan Schultz</td><td>12-July-2026</td><td>27-July-2026</td><td class="text-success">0 INR</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'project-resources': {
+            title: '<i class="bi bi-folder-symlink text-indigo me-2"></i>PROJECT & E-LEARNING RESOURCES',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Download Question Papers & Notes</h6>
+                    <div class="list-group list-group-flush small">
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-file-earmark-pdf text-danger me-2"></i>VTU Question Bank - VI Sem CSE (2021 Scheme)</span>
+                            <span class="btn btn-xs btn-outline-primary py-0">Download</span>
+                        </a>
+                        <a href="#" class="list-group-item list-group-item-action d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-file-earmark-code text-primary me-2"></i>Web Technology Lab Manual Code Repository</span>
+                            <span class="btn btn-xs btn-outline-primary py-0">Download</span>
+                        </a>
+                    </div>
+                </div>
+            `
+        },
+        'outings': {
+            title: '<i class="bi bi-door-open-fill text-warning me-2"></i>HOSTEL OUTING & GATEPASS MANAGEMENT',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <div class="d-flex justify-content-between align-items-center mb-3">
+                        <h6 class="fw-bold text-navy m-0">Recent Outing Logs</h6>
+                        <button class="btn btn-sm btn-warning fw-bold text-dark">+ Request Outing Pass</button>
+                    </div>
+                    <table class="table table-sm align-middle small mb-0 text-start">
+                        <thead class="table-navy text-white">
+                            <tr><th>Pass ID</th><th>Destination</th><th>Departure</th><th>Return Date</th><th>Approval Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>GP-4091</td><td>Hubballi City (Home Visit)</td><td>15-July-2026</td><td>17-July-2026</td><td><span class="badge bg-success">Warden Approved</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'counseling': {
+            title: '<i class="bi bi-people-fill text-primary me-2"></i>FACULTY COUNSELOR DETAILS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Designated Academic Counselor</h6>
+                    <div class="d-flex align-items-center gap-3">
+                        <img src="/images/hod.jpg" class="rounded-circle border" style="width: 60px; height: 60px; object-fit: cover;">
+                        <div>
+                            <h6 class="fw-bold text-navy m-0">Dr. S. V. Shiragur</h6>
+                            <p class="text-muted small m-0">HOD & Professor, Dept of Computer Science & Engineering</p>
+                            <p class="text-muted small m-0">Contact: hod.cse@agmrcet.ac.in | Room 201 Admin Block</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'disciplinary': {
+            title: '<i class="bi bi-shield-check text-dark me-2"></i>DISCIPLINARY RECORD & CONDUCT',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <div class="alert alert-info d-flex align-items-center gap-3 m-0">
+                        <i class="bi bi-shield-fill-check fs-2 text-info"></i>
+                        <div>
+                            <h6 class="fw-bold m-0 text-navy">Exemplary Conduct Record</h6>
+                            <p class="small m-0">No disciplinary issues or misconduct warnings have been recorded against your USN.</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'complaints': {
+            title: '<i class="bi bi-chat-square-dots text-danger me-2"></i>COMPLAINT / SUGGESTION BOX',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Submit Grievance or Suggestion</h6>
+                    <form onsubmit="event.preventDefault(); alert('Your feedback has been confidentially logged.');">
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">Category:</label>
+                            <select class="form-select form-select-sm"><option>Academic</option><option>Hostel / Mess</option><option>Library</option><option>Transport</option></select>
+                        </div>
+                        <div class="mb-3">
+                            <label class="form-label small text-muted">Message:</label>
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Describe your suggestion..."></textarea>
+                        </div>
+                        <button class="btn btn-primary btn-sm fw-bold">Submit Grievance</button>
+                    </form>
+                </div>
+            `
+        },
+        'exam-schedule': {
+            title: '<i class="bi bi-calendar2-week text-info me-2"></i>VTU END-SEMESTER EXAM TIMETABLE',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Semester VI Theory Exam Timetable</h6>
+                    <table class="table table-bordered text-center small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Date</th><th>Subject Code</th><th>Subject Title</th><th>Timing</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>10-Aug-2026</td><td>21CS61</td><td>Software Engineering</td><td>02:00 PM - 05:00 PM</td></tr>
+                            <tr><td>13-Aug-2026</td><td>21CS62</td><td>Web Development</td><td>02:00 PM - 05:00 PM</td></tr>
+                            <tr><td>17-Aug-2026</td><td>21CS63</td><td>Machine Learning</td><td>02:00 PM - 05:00 PM</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'feedback': {
+            title: '<i class="bi bi-star-fill text-warning me-2"></i>FACULTY FEEDBACK FORM',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Anonymous Semester Faculty Feedback</h6>
+                    <p class="small text-muted">Please rate teaching clarity and course coverage for current semester faculty members.</p>
+                    <button class="btn btn-success btn-sm fw-bold" onclick="alert('Feedback questionnaire initialized!');">Open Feedback Questionnaire</button>
+                </div>
+            `
+        },
+        // Role-Specific Action Tabs
+        'faculty-attendance': {
+            title: '<i class="bi bi-calendar-check-fill text-success me-2"></i>DAILY CLASS ATTENDANCE SHEET ENTRY',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3"><i class="bi bi-pencil-square text-primary me-2"></i>Record Batch Student Attendance</h6>
+                    <form onsubmit="event.preventDefault(); alert('Attendance sheet submitted successfully!');">
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-4">
+                                <label class="form-label small text-muted fw-bold">Subject Code & Title</label>
+                                <select class="form-select form-select-sm"><option>21CS61 - Software Engineering</option><option>21CS62 - Web Development</option></select>
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small text-muted fw-bold">Date & Hour</label>
+                                <input type="date" class="form-control form-control-sm" value="2026-07-28">
+                            </div>
+                            <div class="col-md-4">
+                                <label class="form-label small text-muted fw-bold">Section / Batch</label>
+                                <select class="form-select form-select-sm"><option>6th Sem - Sec A</option><option>6th Sem - Sec B</option></select>
+                            </div>
+                        </div>
+                        <div class="table-responsive rounded-3 border mb-3">
+                            <table class="table table-hover table-striped align-middle mb-0 text-start small">
+                                <thead class="table-navy text-white fw-bold">
+                                    <tr><th>USN</th><th>Student Name</th><th class="text-center">Status</th></tr>
+                                </thead>
+                                <tbody>
+                                    <tr><td>2AG22CS001</td><td>Prajwal Patil</td><td class="text-center"><input type="checkbox" checked class="form-check-input"> Present</td></tr>
+                                    <tr><td>2AG22CS002</td><td>Ramesh Pujar</td><td class="text-center"><input type="checkbox" checked class="form-check-input"> Present</td></tr>
+                                    <tr><td>2AG22CS003</td><td>Savita Koti</td><td class="text-center"><input type="checkbox" class="form-check-input"> Present</td></tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-sm fw-bold px-4">Submit Attendance Sheet</button>
+                    </form>
+                </div>
+            `
+        },
+        'faculty-marks': {
+            title: '<i class="bi bi-journal-bookmark-fill text-warning me-2"></i>INTERNAL ASSESSMENT MARKS ENTRY',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3"><i class="bi bi-award text-warning me-2"></i>CIE Internal Assessment Marks Entry</h6>
+                    <div class="table-responsive rounded-3 border">
+                        <table class="table table-hover align-middle mb-0 text-start small">
+                            <thead class="table-navy text-white fw-bold">
+                                <tr><th>USN</th><th>Student Name</th><th>IA-1 (40)</th><th>IA-2 (40)</th><th>IA-3 (40)</th><th>Assignments (10)</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>2AG22CS001</td><td>Prajwal Patil</td><td><input type="number" class="form-control form-control-sm" value="38" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="36" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="39" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="10" style="width: 70px;"></td></tr>
+                                <tr><td>2AG22CS002</td><td>Ramesh Pujar</td><td><input type="number" class="form-control form-control-sm" value="32" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="35" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="34" style="width: 70px;"></td><td><input type="number" class="form-control form-control-sm" value="9" style="width: 70px;"></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="mt-3 text-end">
+                        <button class="btn btn-success btn-sm fw-bold px-4" onclick="alert('IA Marks saved successfully to college server!');">Save IA Marks</button>
+                    </div>
+                </div>
+            `
+        },
+        'faculty-broadcast': {
+            title: '<i class="bi bi-megaphone-fill text-danger me-2"></i>CLASS ANNOUNCEMENT BROADCASTER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3"><i class="bi bi-broadcast text-danger me-2"></i>Send Announcement Notice</h6>
+                    <form id="faculty-broadcast-form" onsubmit="event.preventDefault(); alert('Announcement sent to student portal!');">
+                        <div class="mb-3">
+                            <label class="form-label small text-muted fw-bold">Message Content</label>
+                            <textarea class="form-control form-control-sm" rows="3" placeholder="Enter urgent notice for student portal..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-danger btn-sm fw-bold">Broadcast Notice</button>
+                    </form>
+                </div>
+            `
+        },
+        'hod-electives': {
+            title: '<i class="bi bi-check2-square text-success me-2"></i>DEPARTMENT ELECTIVE APPROVALS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Pending VTU Elective Registration Sheets</h6>
+                    <table class="table table-hover align-middle text-start small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>USN</th><th>Student Name</th><th>Selected Professional Elective</th><th>Status</th><th>Action</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>2AG22CS001</td><td>Prajwal Patil</td><td>Elective 2: Cloud Computing</td><td><span class="badge bg-warning text-dark">Pending HOD Sign</span></td><td><button class="btn btn-xs btn-success" onclick="this.closest('tr').querySelector('.badge').className='badge bg-success'; this.closest('tr').querySelector('.badge').innerText='Approved';">Approve Sheet</button></td></tr>
+                            <tr><td>2AG22CS002</td><td>Ramesh Pujar</td><td>Elective 2: Cyber Security</td><td><span class="badge bg-success">Approved</span></td><td><button class="btn btn-xs btn-outline-secondary" disabled>Approved</button></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'hod-faculty': {
+            title: '<i class="bi bi-people-fill text-warning me-2"></i>DEPARTMENT FACULTY WORKLOAD ALLOCATION',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">CSE Department Faculty Teaching Load</h6>
+                    <table class="table table-hover align-middle text-start small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Faculty Name</th><th>Designation</th><th>Assigned Subjects</th><th>Weekly Hours</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Dr. S. V. Shiragur</td><td>Professor & HOD</td><td>Machine Learning (21CS63)</td><td>12 Hrs</td></tr>
+                            <tr><td>Prof. Irshad Ahmed</td><td>Assistant Professor</td><td>Web Dev (21CS62), Web Lab</td><td>18 Hrs</td></tr>
+                            <tr><td>Dr. Tabasum Guledgudd</td><td>Associate Professor</td><td>Software Engg (21CS61)</td><td>16 Hrs</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'principal-accounts': {
+            title: '<i class="bi bi-person-plus-fill text-success me-2"></i>PROVISION ERP SYSTEM ACCOUNTS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs mb-4">
+                    <h6 class="fw-bold text-navy mb-3"><i class="bi bi-person-plus-fill text-success me-1"></i>Create New Portal Account</h6>
+                    <form id="principal-create-account-form" onsubmit="principalCreateAccount(event)">
+                        <div class="row g-2">
+                            <div class="col-sm-4">
+                                <input type="text" id="new-account-name" class="form-control form-control-sm" placeholder="Full Name" required style="font-size: 11px;">
+                            </div>
+                            <div class="col-sm-4">
+                                <input type="text" id="new-account-id" class="form-control form-control-sm" placeholder="System ID / USN" required style="font-size: 11px;">
+                            </div>
+                            <div class="col-sm-4">
+                                <select id="new-account-role" class="form-select form-select-sm" required style="font-size: 11px;">
+                                    <option value="Student">Student</option>
+                                    <option value="Faculty">Faculty</option>
+                                    <option value="HOD">HOD</option>
+                                    <option value="Office">Office Staff</option>
+                                </select>
+                            </div>
+                            <div class="col-12 text-end">
+                                <button type="submit" class="btn btn-sm btn-primary px-3 mt-1" style="font-size: 11px;">Provision Account</button>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            `
+        },
+        'principal-metrics': {
+            title: '<i class="bi bi-bar-chart-line-fill text-warning me-2"></i>INSTITUTIONAL ENROLLMENT STATISTICS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Branch-wise Student Strength Summary</h6>
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>Department</th><th>KCET Seats</th><th>COMEDK Seats</th><th>Management Quota</th><th>Total Enrolled</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold">Computer Science & Engg</td><td>120</td><td>30</td><td>30</td><td class="fw-bold text-success">180 / 180</td></tr>
+                                <tr><td class="fw-bold">AI & Machine Learning</td><td>60</td><td>15</td><td>15</td><td class="fw-bold text-success">90 / 90</td></tr>
+                                <tr><td class="fw-bold">Electronics & Comm Engg</td><td>90</td><td>20</td><td>10</td><td class="fw-bold text-success">120 / 120</td></tr>
+                                <tr><td class="fw-bold">Civil Engineering</td><td>45</td><td>10</td><td>5</td><td class="fw-bold text-primary">60 / 60</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'principal-accreditation': {
+            title: '<i class="bi bi-shield-check text-info me-2"></i>NAAC & NBA ACCREDITATION COMPLIANCE AUDIT',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Accreditation Audit Checklist Status</h6>
+                    <div class="list-group list-group-flush small">
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-check-circle-fill text-success me-2"></i>Criterion 1: Curricular Aspects & Lesson Plans</span>
+                            <span class="badge bg-success">100% Compliant</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-check-circle-fill text-success me-2"></i>Criterion 2: Teaching-Learning & Faculty Publications</span>
+                            <span class="badge bg-success">98% Compliant</span>
+                        </div>
+                        <div class="list-group-item d-flex justify-content-between align-items-center">
+                            <span><i class="bi bi-clock-history text-warning me-2"></i>Criterion 3: Research, Innovations & Extension Patents</span>
+                            <span class="badge bg-warning text-dark">Under Audit</span>
+                        </div>
+                    </div>
+                </div>
+            `
+        },
+        'admin-news': {
+            title: '<i class="bi bi-newspaper text-success me-2"></i>WEBSITE NEWS CMS MANAGER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Publish Official Circular or Announcement</h6>
+                    <button class="btn btn-sm btn-primary fw-bold" onclick="loadCmsNews()"><i class="bi bi-arrow-clockwise me-1"></i>Open News CMS Editor</button>
+                </div>
+            `
+        },
+        'admin-inquiries': {
+            title: '<i class="bi bi-envelope-paper-fill text-warning me-2"></i>ADMISSION INQUIRIES DIRECTORY',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">View Received Website Admission Inquiries</h6>
+                    <button class="btn btn-sm btn-outline-primary fw-bold" onclick="loadCmsInquiries()"><i class="bi bi-download me-1"></i>Fetch Live Inquiries</button>
+                </div>
+            `
+        },
+        'broadcast-logs': {
+            title: '<i class="bi bi-list-check text-success me-2"></i>EMERGENCY BROADCAST LOGS & ANALYTICS',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Dispatch History Log</h6>
+                    <table class="table table-hover align-middle text-start small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Time</th><th>Channel</th><th>Audience</th><th>Message Snippet</th><th>Delivery Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>28-July-2026</td><td>SMS Gateway</td><td>All Students</td><td>VTU Exam Fee deadline reminder</td><td><span class="badge bg-success">Delivered (1,850)</span></td></tr>
+                            <tr><td>25-July-2026</td><td>Portal Alert</td><td>Faculty Only</td><td>Department meeting notice</td><td><span class="badge bg-success">Delivered (125)</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'office-admissions': {
+            title: '<i class="bi bi-file-earmark-check-fill text-primary me-2"></i>STUDENT ADMISSION DOCUMENT VERIFICATION',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Pending Document Approvals</h6>
+                    <table class="table table-hover align-middle text-start small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Student Name</th><th>Quota</th><th>Documents Received</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>Rahul Deshpande</td><td>KCET</td><td>10th, 12th, Study Cert, KCET Allotment</td><td><span class="badge bg-success">Verified</span></td></tr>
+                            <tr><td>Sneha Hegde</td><td>COMEDK</td><td>10th, 12th Marks Card</td><td><span class="badge bg-warning text-dark">Pending TC</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'office-fees': {
+            title: '<i class="bi bi-wallet2 text-warning me-2"></i>FEE REMITTANCE & CHALLAN DESK',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Recent Receipt Verification Log</h6>
+                    <table class="table table-sm align-middle text-start small mb-0">
+                        <thead class="table-navy text-white">
+                            <tr><th>Receipt ID</th><th>USN</th><th>Amount Paid</th><th>Payment Mode</th><th>Status</th></tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>REC-2026-908</td><td>2AG22CS001</td><td>85,000 INR</td><td>Bank Challan</td><td><span class="badge bg-success">Cleared</span></td></tr>
+                            <tr><td>REC-2026-909</td><td>2AG22CS014</td><td>45,000 INR</td><td>Online UPI</td><td><span class="badge bg-warning text-dark">Verifying</span></td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            `
+        },
+        'office-tickets': {
+            title: '<i class="bi bi-ticket-perforated-fill text-info me-2"></i>VTU HALL TICKET DISPATCH DESK',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">VTU Semester Exam Hall Tickets Batch Generation</h6>
+                    <p class="small text-muted">Generate and print verified VTU admit cards for upcoming examinations.</p>
+                    <button class="btn btn-info text-white btn-sm fw-bold" onclick="alert('Hall Ticket PDF Batch Printing Triggered!');">Generate CSE Batch Hall Tickets</button>
+                </div>
+            `
+        },
+        'tpo-drives': {
+            title: '<i class="bi bi-building-add text-success me-2"></i>ACTIVE RECRUITMENT DRIVES (AY 2026-27)',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">Campus Hiring Schedule & Company Visits</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-start small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>Recruiter</th><th>Role</th><th>Eligibility Criteria</th><th>CTC Package</th><th>Drive Date</th><th>Actions</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold text-navy">TCS Digital</td><td>System Engineer</td><td>CGPA 7.0+, No active backlogs</td><td>7.5 LPA</td><td>05-Aug-2026</td><td><button class="btn btn-xs btn-primary" onclick="alert('Exporting registered candidate list...');">Candidate List</button></td></tr>
+                                <tr><td class="fw-bold text-navy">Infosys Specialist</td><td>Power Programmer</td><td>CGPA 8.0+</td><td>9.5 LPA</td><td>12-Aug-2026</td><td><button class="btn btn-xs btn-primary" onclick="alert('Exporting registered candidate list...');">Candidate List</button></td></tr>
+                                <tr><td class="fw-bold text-navy">Wipro Turbo</td><td>Project Engineer</td><td>CGPA 6.5+</td><td>6.5 LPA</td><td>18-Aug-2026</td><td><button class="btn btn-xs btn-primary" onclick="alert('Exporting registered candidate list...');">Candidate List</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'tpo-roster': {
+            title: '<i class="bi bi-file-earmark-spreadsheet-fill text-warning me-2"></i>STUDENT PLACEMENT ELIGIBILITY ROSTER',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <h6 class="fw-bold text-navy mb-3">2026 Graduating Batch Placement Clearance Roster</h6>
+                    <div class="table-responsive">
+                        <table class="table table-hover align-middle text-start small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>USN</th><th>Student Name</th><th>Branch</th><th>CGPA</th><th>Backlogs</th><th>Placement Status</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold text-navy">2AG22CS001</td><td>Prajwal Patil</td><td>CSE</td><td>8.88</td><td>0</td><td><span class="badge bg-success">Placed (TCS Digital - 7.5 LPA)</span></td></tr>
+                                <tr><td class="fw-bold text-navy">2AG22CS002</td><td>Ramesh Pujar</td><td>CSE</td><td>7.45</td><td>0</td><td><span class="badge bg-primary">Eligible & Registered</span></td></tr>
+                                <tr><td class="fw-bold text-navy">2AG22CS003</td><td>Savita Koti</td><td>CSE</td><td>9.12</td><td>0</td><td><span class="badge bg-success">Placed (Infosys - 9.5 LPA)</span></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'timetable': {
+            title: '<i class="bi bi-clock-history text-primary me-2"></i>CLASS TIME TABLE & SUBJECT ALLOCATION',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <!-- College Header Banner -->
+                    <div class="text-center mb-3 p-3 bg-light border rounded-3 shadow-xs">
+                        <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                        <h5 class="fw-extrabold text-navy m-0 mt-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">SMM MATOSHRI RASHMI DEVI CHOUDHARY RESEARCH CENTRE & AGMRCET (Code: E238)</h5>
+                        <p class="small text-muted m-0" style="font-size: 11px;">(Approved by AICTE, New Delhi || Affiliated to VTU Belagavi || Accredited by NAAC)</p>
+                        <h6 class="fw-bold text-navy mt-2 mb-0 tracking-wider text-uppercase border-top border-bottom py-1" style="font-size: 13px;">CLASS TIME TABLE (VI SEMESTER CSE)</h6>
+                    </div>
+
+                    <!-- Timetable Grid -->
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered align-middle text-center small mb-0" style="font-size: 11px;">
+                            <thead class="table-navy text-white fw-bold">
+                                <tr>
+                                    <th>Day of week</th>
+                                    <th>Period 1<br>09:00 AM - 09:50 AM</th>
+                                    <th>Period 2<br>09:50 AM - 10:40 AM</th>
+                                    <th>Period 3<br>10:40 AM - 11:30 AM</th>
+                                    <th>Period 4<br>11:30 AM - 12:20 PM</th>
+                                    <th>12:20 PM - 01:10 PM</th>
+                                    <th>Period 5<br>01:10 PM - 02:00 PM</th>
+                                    <th>Period 6<br>02:00 PM - 02:50 PM</th>
+                                    <th>Period 7<br>02:50 PM - 03:40 PM</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold text-navy">Mon</td><td>21CS61 (SE)</td><td>21CS62 (Web)</td><td>21CSL66 (Web Lab A)</td><td>21CSL66 (Web Lab A)</td><td class="table-secondary fw-bold">LUNCH</td><td>21CS63 (ML)</td><td>Library</td><td>Mini Project</td></tr>
+                                <tr><td class="fw-bold text-navy">Tue</td><td>21CS63 (ML)</td><td>21CS61 (SE)</td><td>21CSL66 (Web Lab B)</td><td>21CSL66 (Web Lab B)</td><td class="table-secondary fw-bold">LUNCH</td><td>21CS62 (Web)</td><td>Placement Trg</td><td>Seminar</td></tr>
+                                <tr><td class="fw-bold text-navy">Wed</td><td>21CS62 (Web)</td><td>21CS63 (ML)</td><td>21CS61 (SE)</td><td>Aptitude</td><td class="table-secondary fw-bold">LUNCH</td><td>Soft Skills</td><td>Library</td><td>Sports</td></tr>
+                                <tr><td class="fw-bold text-navy">Thu</td><td>21CS61 (SE)</td><td>21CS63 (ML)</td><td>21CS62 (Web)</td><td>Counseling</td><td class="table-secondary fw-bold">LUNCH</td><td>Mini Project</td><td>Mini Project</td><td>Library</td></tr>
+                                <tr><td class="fw-bold text-navy">Fri</td><td>21CS63 (ML)</td><td>21CS62 (Web)</td><td>21CS61 (SE)</td><td>Soft Skills</td><td class="table-secondary fw-bold">LUNCH</td><td>Placement Trg</td><td>Placement Trg</td><td>Library</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Allocation of Subjects Table -->
+                    <h6 class="fw-bold text-navy mb-2">Allocation of Subjects</h6>
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered align-middle text-start small mb-0" style="font-size: 11px;">
+                            <thead class="table-secondary text-navy fw-bold">
+                                <tr><th>Subject Code</th><th>Subject Name</th><th>Name of Faculty</th><th>Faculty Initials</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td>21CS61</td><td>Software Engineering & Project Management</td><td>Dr. Tabasum Guledgudd</td><td>TG</td></tr>
+                                <tr><td>21CS62</td><td>Full Stack Web Development</td><td>Prof. Irshad Ahmed</td><td>IA</td></tr>
+                                <tr><td>21CS63</td><td>Machine Learning Techniques</td><td>Dr. S. V. Shiragur</td><td>SVS</td></tr>
+                                <tr><td>21CSL66</td><td>Web Technology Laboratory</td><td>Prof. R. M. Hiremath</td><td>RMH</td></tr>
+                                <tr><td>21CS67</td><td>Mini Project Work</td><td>Dr. Tabasum Guledgudd</td><td>TG</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="d-flex gap-2">
+                        <button class="btn btn-primary btn-sm fw-bold px-3" onclick="window.print();">Print</button>
+                        <button class="btn btn-success btn-sm fw-bold px-3" onclick="alert('Exporting Time Table PDF...');">Export</button>
+                    </div>
+                </div>
+            `
+        },
+        'topics-covered': {
+            title: '<i class="bi bi-list-task text-secondary me-2"></i>TOPICS COVERED REPORT',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <!-- Subject Dropdown Selector -->
+                    <div class="mb-3">
+                        <label class="form-label small text-muted fw-bold">Select Subject for Syllabus Coverage Log:</label>
+                        <select class="form-select form-select-sm" onchange="alert('Loaded topics covered log for selected course!');">
+                            <option selected>21CS61 - SOFTWARE ENGINEERING & PROJECT MANAGEMENT</option>
+                            <option>21CS62 - FULL STACK WEB DEVELOPMENT</option>
+                            <option>21CS63 - MACHINE LEARNING TECHNIQUES</option>
+                            <option>21CSL66 - WEB TECHNOLOGY LABORATORY</option>
+                            <option>21CS67 - MINI PROJECT WORK</option>
+                        </select>
+                    </div>
+
+                    <h6 class="fw-bold text-navy mb-2">TOPICS COVERED LOG</h6>
+                    <div class="table-responsive rounded-3 border mb-3">
+                        <table class="table table-bordered align-middle text-start small mb-0" style="font-size: 11px;">
+                            <thead class="table-navy text-white fw-bold text-center">
+                                <tr><th>Sl.No</th><th>Unit.No</th><th>Date</th><th>No.of Periods</th><th>Topics Covered</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="text-center">1</td><td class="text-center">1</td><td>13/07/2026</td><td class="text-center">7</td><td>Discussed COs and POs of 21CS61 (Software Engineering)</td></tr>
+                                <tr><td class="text-center">2</td><td class="text-center">1</td><td>15/07/2026</td><td class="text-center">4</td><td>Introduction to Software Process Models & Waterfall Model</td></tr>
+                                <tr><td class="text-center">3</td><td class="text-center">1</td><td>16/07/2026</td><td class="text-center">1,5</td><td>Agile Software Development Processes & Scrum Framework</td></tr>
+                                <tr><td class="text-center">4</td><td class="text-center">1</td><td>17/07/2026</td><td class="text-center">7</td><td>Requirements Engineering, Functional & Non-Functional Specifications</td></tr>
+                                <tr><td class="text-center">5</td><td class="text-center">1</td><td>20/07/2026</td><td class="text-center">7</td><td>System Modeling, Use Case Diagrams & Data Flow Diagrams (DFD)</td></tr>
+                                <tr><td class="text-center">6</td><td class="text-center">1</td><td>22/07/2026</td><td class="text-center">4</td><td>Architectural Design Patterns & Component-based Engineering</td></tr>
+                                <tr><td class="text-center">7</td><td class="text-center">1</td><td>23/07/2026</td><td class="text-center">1,5</td><td>Software Testing Strategies: White-box, Black-box & Unit Testing</td></tr>
+                                <tr><td class="text-center">8</td><td class="text-center">1</td><td>24/07/2026</td><td class="text-center">7</td><td>Software Maintenance, Risk Management & Cost Estimation</td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        },
+        'resources': {
+            title: '<i class="bi bi-journal-bookmark text-indigo me-2"></i>E-RESOURCES & STUDY MATERIAL',
+            html: `
+                <div class="card border rounded-3 p-4 bg-white shadow-xs">
+                    <!-- Filter Bar -->
+                    <div class="row g-2 mb-3 align-items-center">
+                        <div class="col-md-6">
+                            <label class="form-label small text-muted fw-bold">Search Keyword:</label>
+                            <input type="text" class="form-control form-control-sm" placeholder="Search by topic, subject code, or keyword...">
+                        </div>
+                        <div class="col-md-6">
+                            <label class="form-label small text-muted fw-bold">Resource Type:</label>
+                            <select class="form-select form-select-sm">
+                                <option>-All-</option>
+                                <option>E-Book</option>
+                                <option>Question Bank</option>
+                                <option>Interview Tips</option>
+                                <option>Notes</option>
+                                <option>Lecture</option>
+                                <option>Others</option>
+                                <option>QP and Key</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <h6 class="fw-bold text-navy mb-2">AVAILABLE E-RESOURCES & STUDY MATERIAL</h6>
+                    <div class="table-responsive rounded-3 border">
+                        <table class="table table-hover align-middle text-start small mb-0">
+                            <thead class="table-navy text-white">
+                                <tr><th>Resource Title</th><th>Subject</th><th>Type</th><th>Upload Date</th><th>Download</th></tr>
+                            </thead>
+                            <tbody>
+                                <tr><td class="fw-bold text-navy">VTU 2021 Scheme VI Sem CSE Question Bank</td><td>21CS61 / 21CS62 / 21CS63</td><td><span class="badge bg-primary">Question Bank</span></td><td>20-July-2026</td><td><button class="btn btn-xs btn-outline-primary" onclick="alert('Downloading Question Bank PDF...');">Download PDF</button></td></tr>
+                                <tr><td class="fw-bold text-navy">Full Stack Web Development (Node & React) Notes</td><td>21CS62</td><td><span class="badge bg-success">Notes</span></td><td>18-July-2026</td><td><button class="btn btn-xs btn-outline-primary" onclick="alert('Downloading Notes PDF...');">Download PDF</button></td></tr>
+                                <tr><td class="fw-bold text-navy">Machine Learning Algorithms Lecture Transcripts</td><td>21CS63</td><td><span class="badge bg-info text-white">Lecture</span></td><td>15-July-2026</td><td><button class="btn btn-xs btn-outline-primary" onclick="alert('Downloading Lecture PDF...');">Download PDF</button></td></tr>
+                                <tr><td class="fw-bold text-navy">TCS & Infosys Campus Interview Preparation Guide</td><td>Placements</td><td><span class="badge bg-warning text-dark">Interview Tips</span></td><td>22-July-2026</td><td><button class="btn btn-xs btn-outline-primary" onclick="alert('Downloading Interview Guide PDF...');">Download PDF</button></td></tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            `
+        }
+    };
+
+    const target = tabContents[tabKey] || {
+        title: `<i class="bi bi-grid-fill text-primary me-2"></i>${tabKey.toUpperCase()}`,
+        html: `<div class="card border rounded-3 p-4 bg-white shadow-xs"><p class="m-0 small">Records for ${tabKey} are up to date.</p></div>`
+    };
+
+    if (dynamicHeader) dynamicHeader.innerHTML = target.title;
+    if (dynamicBody) dynamicBody.innerHTML = target.html;
+};
+
+window.filterSidebarMenu = function(query) {
+    const q = query.toLowerCase();
+    const items = document.querySelectorAll('.erp-sidebar-nav-item');
+    items.forEach(item => {
+        const text = item.innerText.toLowerCase();
+        if (text.includes(q)) {
+            item.style.display = 'flex';
+        } else {
+            item.style.display = 'none';
+        }
     });
-});
+};
+
+window.togglePasswordVisibility = function() {
+    const pwdInput = document.getElementById('erp-password');
+    const eyeIcon = document.getElementById('pwd-eye-icon');
+    if (pwdInput) {
+        if (pwdInput.type === 'password') {
+            pwdInput.type = 'text';
+            if (eyeIcon) eyeIcon.className = 'bi bi-eye-slash text-primary';
+        } else {
+            pwdInput.type = 'password';
+            if (eyeIcon) eyeIcon.className = 'bi bi-eye text-muted';
+        }
+    }
+};
+
+window.quickFillRoleCredentials = function(role) {
+    if (typeof window.switchPortalGateway === 'function') {
+        window.switchPortalGateway(role);
+    }
+};
+

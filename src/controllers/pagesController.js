@@ -115,14 +115,14 @@ exports.renderFaculty = async (req, res) => {
 };
 
 exports.renderPortal = (req, res) => {
-    res.redirect('/portal/faculty');
+    res.redirect('/portal/student');
 };
 
 exports.renderPortalRole = (req, res) => {
     const role = req.params.role;
-    const allowedRoles = ['faculty', 'hod', 'office', 'fee', 'principal', 'admin'];
+    const allowedRoles = ['student', 'faculty', 'hod', 'office', 'fee', 'principal', 'admin', 'broadcast', 'tpo'];
     if (!allowedRoles.includes(role)) {
-        return res.redirect('/portal/faculty');
+        return res.redirect('/portal/student');
     }
     res.render('portal', {
         title: `${role.charAt(0).toUpperCase() + role.slice(1)} Portal ERP | AGMRCET`,
@@ -227,11 +227,14 @@ exports.handleLogin = (req, res) => {
     let role = 'student';
 
     if (usnUpper.startsWith('AGM-FAC-')) role = 'faculty';
+    else if (usnUpper.startsWith('AGM-HOD-')) role = 'hod';
+    else if (usnUpper.startsWith('AGM-OFF-')) role = 'office';
     else if (usnUpper.startsWith('AGM-PRIN-')) role = 'principal';
-    else if (usnUpper.endsWith('-P')) role = 'parent';
     else if (usnUpper.startsWith('AGM-FEE-')) role = 'fee';
     else if (usnUpper.startsWith('AGM-ADMIN-')) role = 'admin';
     else if (usnUpper.startsWith('AGM-BROADCAST-')) role = 'broadcast';
+    else if (usnUpper.startsWith('AGM-TPO-')) role = 'tpo';
+    else role = 'student';
 
     if (expectedRole && role !== expectedRole) {
         return res.status(401).json({ success: false, message: `The entered ID is registered for the ${role.toUpperCase()} console. Please submit using the correct login card.` });

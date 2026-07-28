@@ -11,7 +11,10 @@ app.engine('hbs', engine({
     extname: '.hbs',
     defaultLayout: 'main',
     layoutsDir: path.join(__dirname, 'src/views/layouts'),
-    partialsDir: path.join(__dirname, 'src/views/partials'),
+    partialsDir: [
+        path.join(__dirname, 'src/views/partials'),
+        path.join(__dirname, 'src/views/dashboards')
+    ],
     helpers: {
         eq: (a, b) => a === b,
         json: (context) => JSON.stringify(context)

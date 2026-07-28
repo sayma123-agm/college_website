@@ -1,0 +1,28 @@
+<!-- Principal Executive Dashboard Partial -->
+<div id="principal-dashboard-partial">
+    <div class="row g-4 mb-4">
+        <div class="col-md-6">
+            <div class="card border rounded-3 p-4 bg-white shadow-xs h-100">
+                <h6 class="fw-bold text-navy mb-3"><i class="bi bi-pie-chart-fill text-primary me-2"></i>Department-wise Student Enrollment Ratio</h6>
+                <div style="height: 200px;"><canvas id="principalChart"></canvas></div>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="card border rounded-3 p-4 bg-white shadow-xs h-100">
+                <h6 class="fw-bold text-navy mb-3"><i class="bi bi-person-plus-fill text-success me-2"></i>Provision New System Credentials</h6>
+                <form id="principal-create-account-form" onsubmit="principalCreateAccount(event)">
+                    <div class="mb-2"><input type="text" id="new-account-name" class="form-control form-control-sm" placeholder="Full Name" required></div>
+                    <div class="mb-2"><input type="text" id="new-account-id" class="form-control form-control-sm" placeholder="USN / Employee ID" required></div>
+                    <div class="mb-2">
+                        <select id="new-account-role" class="form-select form-select-sm">
+                            <option value="Student">Student</option>
+                            <option value="Faculty">Faculty</option>
+                            <option value="Parent">Parent</option>
+                        </select>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-sm fw-bold w-100">Create Account</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

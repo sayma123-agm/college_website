@@ -111,13 +111,10 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // 6. AOS (Animate on Scroll) initialization
+    // 6. AOS (Animate on Scroll) initialization - Disabled per user request
     if (typeof AOS !== 'undefined') {
         AOS.init({
-            duration: 800,
-            easing: 'ease-in-out',
-            once: true,
-            mirror: false
+            disable: true
         });
     }
 
