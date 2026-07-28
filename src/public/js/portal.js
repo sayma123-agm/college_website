@@ -2181,7 +2181,7 @@ window.filterSidebarMenu = function(query) {
     items.forEach(item => {
         const text = item.innerText.toLowerCase();
         if (text.includes(q)) {
-            item.style.display = 'flex';
+            item.style.display = '';
         } else {
             item.style.display = 'none';
         }
