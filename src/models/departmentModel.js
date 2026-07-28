@@ -443,15 +443,28 @@ module.exports = {
         }));
     },
     getDepartmentById: async (id) => {
-        const deptId = id.toLowerCase();
+        if (!id) return null;
+        const deptId = id.toLowerCase().trim();
+        const deptAliases = {
+            'cs': 'cse',
+            'computer-science': 'cse',
+            'aiml': 'cse-aiml',
+            'ai-ml': 'cse-aiml',
+            'civil': 'ce',
+            'mechanical': 'me',
+            'mech': 'me',
+            'electrical': 'eee',
+            'electronics': 'ece'
+        };
+        const targetId = deptAliases[deptId] || deptId;
         let result = null;
         try {
-            const [depts] = await db.query('SELECT * FROM departments WHERE id = ?', [deptId]);
+            const [depts] = await db.query('SELECT * FROM departments WHERE LOWER(id) = ?', [targetId]);
             if (depts.length > 0) {
                 const dept = depts[0];
-                const [labs] = await db.query('SELECT name, description FROM department_labs WHERE department_id = ?', [deptId]);
-                const [achievements] = await db.query('SELECT title, details FROM department_achievements WHERE department_id = ?', [deptId]);
-                const [projects] = await db.query('SELECT title, funding, amount FROM department_projects WHERE department_id = ?', [deptId]);
+                const [labs] = await db.query('SELECT name, description FROM department_labs WHERE LOWER(department_id) = ?', [targetId]);
+                const [achievements] = await db.query('SELECT title, details FROM department_achievements WHERE LOWER(department_id) = ?', [targetId]);
+                const [projects] = await db.query('SELECT title, funding, amount FROM department_projects WHERE LOWER(department_id) = ?', [targetId]);
                 
                 result = {
                     id: dept.id,
@@ -477,18 +490,22 @@ module.exports = {
                     labs: labs,
                     achievements: achievements,
                     research: {
-                        areas: JSON.parse(dept.researchAreas),
+                        areas: typeof dept.researchAreas === 'string' ? JSON.parse(dept.researchAreas) : dept.researchAreas,
                         projects: projects
                     },
                     placements: {
-                        topRecruiters: JSON.parse(dept.topRecruiters),
+                        topRecruiters: typeof dept.topRecruiters === 'string' ? JSON.parse(dept.topRecruiters) : dept.topRecruiters,
                         highestPackage: dept.placementHighestPackage,
                         recentOffers: dept.placementRecentOffers
                     }
                 };
             }
         } catch (err) {
-            console.warn(`[DB WARNING] Failed to fetch department "${deptId}", using mock fallback.`);
+            console.warn(`[DB WARNING] Failed to fetch department "${targetId}", using mock fallback.`);
+        }
+
+        if (!result && departmentsData[targetId]) {
+            result = JSON.parse(JSON.stringify(departmentsData[targetId]));
         }
 
 const defaultDeptTabsData = {
@@ -542,9 +559,9 @@ const defaultDeptTabsData = {
             result.activities = result.activities || defaultDeptTabsData.activities;
             result.supportingStaff = result.supportingStaff || defaultDeptTabsData.supportingStaff;
 
-            if (hodImageMap[deptId]) {
-                result.hodPhoto = hodImageMap[deptId];
-                if (result.hod) result.hod.photo = hodImageMap[deptId];
+            if (hodImageMap[targetId]) {
+                result.hodPhoto = hodImageMap[targetId];
+                if (result.hod) result.hod.photo = hodImageMap[targetId];
             }
         }
 
