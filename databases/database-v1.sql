@@ -1,5 +1,5 @@
 -- ============================================================================
--- AGMRCET University Digital Campus ERP Database Schema
+-- AGMRCET University Digital Campus ERP Database Schema v1.0
 -- Complete Relational Schema with Foreign Keys & Inter-Connection Mapping Tables
 -- ============================================================================
 
@@ -330,3 +330,79 @@ CREATE TABLE IF NOT EXISTS inquiries (
     status VARCHAR(30) DEFAULT 'New Inquiry',
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
 );
+
+-- ============================================================================
+-- Seed Default Initial Records across All Inter-Connected Tables
+-- ============================================================================
+
+-- Seed Users
+INSERT INTO users (username, password, role, name, email, status) VALUES
+('2AG22CS001', 'password', 'student', 'Prajwal Patil', 'prajwal.patil@agmrcet.ac.in', 'Active'),
+('AGM-FAC-101', 'password', 'faculty', 'Dr. S. V. Shiragur', 'svshiragur@agmrcet.ac.in', 'Active'),
+('AGM-HOD-101', 'password', 'hod', 'Dr. S. V. Shiragur (HOD CSE)', 'hod.cse@agmrcet.ac.in', 'Active'),
+('AGM-OFF-101', 'password', 'office', 'Academic Office Registrar', 'office@agmrcet.ac.in', 'Active'),
+('AGM-FEE-201', 'password', 'fee', 'Accounts & Fee Clearance Desk', 'finance@agmrcet.ac.in', 'Active'),
+('AGM-PRIN-001', 'password', 'principal', 'Dr. Sandeep Kyatanavar (Principal)', 'principal@agmrcet.ac.in', 'Active'),
+('AGM-ADMIN-999', 'password', 'admin', 'System Admin Coordinator', 'admin@agmrcet.ac.in', 'Active'),
+('AGM-BROADCAST-888', 'password', 'broadcast', 'Emergency Broadcast Officer', 'broadcast@agmrcet.ac.in', 'Active'),
+('AGM-TPO-777', 'password', 'tpo', 'Training & Placement Officer', 'tpo@agmrcet.ac.in', 'Active')
+ON DUPLICATE KEY UPDATE name=VALUES(name);
+
+-- Seed Student
+INSERT INTO students (usn, user_id, name, father_name, mother_name, dob, gender, blood_group, phone, email, address, department_id, semester, section, quota, rank_no, category, hostel_room, counselor_name, cgpa, fee_cleared, vtu_eligible) VALUES
+('2AG22CS001', 1, 'Prajwal Patil', 'Suresh Patil', 'Sunita Patil', '14-Aug-2004', 'Male', 'O+ Positive', '+91 98450 12345', 'prajwal.patil@agmrcet.ac.in', '#142, Keshwapur, Hubballi, Karnataka - 580023', 'cse', 'VI Semester', 'A', 'KCET Quota (E199)', '24,150', 'OBC (Category 2A)', 'Room 204, Ganga Hostel', 'Dr. S. V. Shiragur', 8.88, TRUE, TRUE)
+ON DUPLICATE KEY UPDATE name=VALUES(name);
+
+-- Seed Courses
+INSERT INTO courses (code, name, department_id, semester, credits, type) VALUES
+('21CS61', 'Software Engineering & Testing', 'cse', 'VI Semester', 4, 'Theory'),
+('21CS62', 'Full Stack Web Development', 'cse', 'VI Semester', 4, 'Theory'),
+('21CS63', 'Machine Learning & AI', 'cse', 'VI Semester', 4, 'Elective'),
+('21CS64', 'Cloud Computing & DevOps', 'cse', 'VI Semester', 3, 'Theory')
+ON DUPLICATE KEY UPDATE name=VALUES(name);
+
+-- Seed Student Attendance
+INSERT INTO student_attendance (student_usn, course_code, subject_name, total_classes, attended_classes) VALUES
+('2AG22CS001', '21CS61', 'Software Engineering & Testing', 48, 44),
+('2AG22CS001', '21CS62', 'Full Stack Web Development', 48, 46),
+('2AG22CS001', '21CS63', 'Machine Learning & AI', 48, 42),
+('2AG22CS001', '21CS64', 'Cloud Computing & DevOps', 48, 40)
+ON DUPLICATE KEY UPDATE attended_classes=VALUES(attended_classes);
+
+-- Seed Student Marks
+INSERT INTO student_marks (student_usn, course_code, subject_name, cie1, cie2, cie3, assignment, grade, result) VALUES
+('2AG22CS001', '21CS61', 'Software Engineering & Testing', 48, 47, 49, 10, 'S', 'Pass'),
+('2AG22CS001', '21CS62', 'Full Stack Web Development', 50, 48, 50, 10, 'S', 'Pass'),
+('2AG22CS001', '21CS63', 'Machine Learning & AI', 44, 45, 46, 9, 'A', 'Pass'),
+('2AG22CS001', '21CS64', 'Cloud Computing & DevOps', 42, 43, 45, 9, 'A', 'Pass')
+ON DUPLICATE KEY UPDATE grade=VALUES(grade);
+
+-- Seed Announcements
+INSERT INTO announcements (sender_role, sender_name, title, message, target_role) VALUES
+('hod', 'Dr. S. V. Shiragur (HOD CSE)', 'VTU Elective Registration Notice', 'Please submit your VTU elective registration sheets by Friday before 4:00 PM.', 'all'),
+('principal', 'Dr. Sandeep Kyatanavar', 'Mid-Term CIE Examination Timetable Released', 'The Mid-Term CIE Examinations for VI Semester will commence from Monday.', 'all')
+ON DUPLICATE KEY UPDATE message=VALUES(message);
+
+-- Seed Elective Request
+INSERT INTO elective_requests (student_usn, student_name, course_code, elective_name, cie_status, status, approved_by) VALUES
+('2AG22CS001', 'Prajwal Patil', '21CS63', 'Machine Learning (21CS63)', 'Eligible', 'Approved', 'Dr. S. V. Shiragur (HOD CSE)')
+ON DUPLICATE KEY UPDATE status=VALUES(status);
+
+-- Seed Fee Record
+INSERT INTO fee_records (student_usn, student_name, total_fee, paid_fee, status, last_receipt_no) VALUES
+('2AG22CS001', 'Prajwal Patil', 95000.00, 95000.00, 'Paid In Full', 'REC-2026-8841')
+ON DUPLICATE KEY UPDATE status=VALUES(status);
+
+-- Seed Placement Drives
+INSERT INTO placement_drives (company_name, job_role, package_offered, drive_date, eligibility_cgpa, status) VALUES
+('TCS Tata Consultancy Services', 'Software Engineer', '7.5 LPA', '15-Aug-2026', 6.50, 'Upcoming'),
+('Infosys Technologies', 'Systems Engineer', '6.8 LPA', '22-Aug-2026', 6.50, 'Upcoming'),
+('Capgemini India', 'Analyst Software Engineer', '7.0 LPA', '01-Sep-2026', 6.00, 'Upcoming')
+ON DUPLICATE KEY UPDATE package_offered=VALUES(package_offered);
+
+-- Seed Library Books
+INSERT INTO library_books (book_title, author, isbn, category, total_copies, available_copies) VALUES
+('Software Engineering: A Practitioner Approach', 'Roger S. Pressman', '978-0078017223', 'Computer Science', 15, 12),
+('Full Stack Development with Node & React', 'Ethan Brown', '978-1491953020', 'Computer Science', 10, 8),
+('Pattern Recognition and Machine Learning', 'Christopher M. Bishop', '978-0387310732', 'Artificial Intelligence', 8, 5)
+ON DUPLICATE KEY UPDATE total_copies=VALUES(total_copies);

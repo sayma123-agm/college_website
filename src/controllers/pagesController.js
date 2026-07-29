@@ -217,7 +217,9 @@ function verifyJWT(token) {
     return null;
 }
 
-exports.handleLogin = (req, res) => {
+const portalModel = require('../models/portalModel');
+
+exports.handleLogin = async (req, res) => {
     const { username, password, expectedRole } = req.body || {};
     if (!username || !password || password.length < 4) {
         return res.status(401).json({ success: false, message: 'Invalid credentials. Password must be 4+ chars.' });
@@ -225,16 +227,32 @@ exports.handleLogin = (req, res) => {
 
     const usnUpper = username.trim().toUpperCase();
     let role = 'student';
+    let name = usnUpper;
 
-    if (usnUpper.startsWith('AGM-FAC-')) role = 'faculty';
-    else if (usnUpper.startsWith('AGM-HOD-')) role = 'hod';
-    else if (usnUpper.startsWith('AGM-OFF-')) role = 'office';
-    else if (usnUpper.startsWith('AGM-PRIN-')) role = 'principal';
-    else if (usnUpper.startsWith('AGM-FEE-')) role = 'fee';
-    else if (usnUpper.startsWith('AGM-ADMIN-')) role = 'admin';
-    else if (usnUpper.startsWith('AGM-BROADCAST-')) role = 'broadcast';
-    else if (usnUpper.startsWith('AGM-TPO-')) role = 'tpo';
-    else role = 'student';
+    // Check database for real registered user account
+    try {
+        const dbUser = await portalModel.getUserByUsername(usnUpper);
+        if (dbUser) {
+            if (dbUser.password !== password) {
+                return res.status(401).json({ success: false, message: 'Invalid password. Please check your credentials.' });
+            }
+            role = dbUser.role;
+            name = dbUser.name;
+        } else {
+            // Fallback prefix role assignment for initial default logins
+            if (usnUpper.startsWith('AGM-FAC-')) role = 'faculty';
+            else if (usnUpper.startsWith('AGM-HOD-')) role = 'hod';
+            else if (usnUpper.startsWith('AGM-OFF-')) role = 'office';
+            else if (usnUpper.startsWith('AGM-PRIN-')) role = 'principal';
+            else if (usnUpper.startsWith('AGM-FEE-')) role = 'fee';
+            else if (usnUpper.startsWith('AGM-ADMIN-')) role = 'admin';
+            else if (usnUpper.startsWith('AGM-BROADCAST-')) role = 'broadcast';
+            else if (usnUpper.startsWith('AGM-TPO-')) role = 'tpo';
+            else role = 'student';
+        }
+    } catch (err) {
+        console.warn('[LOGIN DB WARNING] Falling back to role parsing:', err.message);
+    }
 
     if (expectedRole && role !== expectedRole) {
         return res.status(401).json({ success: false, message: `The entered ID is registered for the ${role.toUpperCase()} console. Please submit using the correct login card.` });
@@ -244,6 +262,7 @@ exports.handleLogin = (req, res) => {
     const token = generateJWT({
         username: usnUpper,
         role,
+        name,
         exp: Date.now() + 2 * 60 * 60 * 1000
     });
 
@@ -251,7 +270,8 @@ exports.handleLogin = (req, res) => {
         success: true,
         token,
         role,
-        username: usnUpper
+        username: usnUpper,
+        name
     });
 };
 
@@ -364,3 +384,346 @@ exports.renderGoverningCouncil = (req, res) => {
         activeAbout: true
     });
 };
+
+// Real-Time Inter-Connected ERP API Endpoints
+
+exports.getStudentProfileAPI = async (req, res) => {
+    const usn = req.query.usn || '2AG22CS001';
+    try {
+        const student = await portalModel.getStudentProfile(usn);
+        if (student) {
+            return res.status(200).json({ success: true, student });
+        }
+    } catch (err) {
+        console.warn('[API WARNING] Error fetching student profile:', err.message);
+    }
+    // Fallback profile object
+    res.status(200).json({
+        success: true,
+        student: {
+            usn,
+            name: 'Prajwal Patil',
+            father_name: 'Suresh Patil',
+            mother_name: 'Sunita Patil',
+            dob: '14-Aug-2004',
+            gender: 'Male',
+            blood_group: 'O+ Positive',
+            phone: '+91 98450 12345',
+            email: 'prajwal.patil@agmrcet.ac.in',
+            address: '#142, Keshwapur, Hubballi, Karnataka - 580023',
+            department_id: 'cse',
+            semester: 'VI Semester',
+            section: 'A',
+            quota: 'KCET Quota (E199)',
+            rank_no: '24,150',
+            category: 'OBC (Category 2A)',
+            hostel_room: 'Room 204, Ganga Hostel',
+            counselor_name: 'Dr. S. V. Shiragur',
+            cgpa: 8.88,
+            fee_cleared: true,
+            vtu_eligible: true,
+            photo: '/images/csHod.png'
+        }
+    });
+};
+
+exports.getAnnouncementsAPI = async (req, res) => {
+    const targetRole = req.query.role || 'all';
+    try {
+        const list = await portalModel.getAnnouncements(targetRole);
+        return res.status(200).json({ success: true, announcements: list });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.createAnnouncementAPI = async (req, res) => {
+    const { senderRole, senderName, title, message, targetRole } = req.body || {};
+    if (!title || !message) {
+        return res.status(400).json({ success: false, message: 'Title and Message are required' });
+    }
+    try {
+        const announcement = await portalModel.createAnnouncement(
+            senderRole || 'hod',
+            senderName || 'HOD Computer Science',
+            title,
+            message,
+            targetRole || 'all'
+        );
+        res.status(201).json({ success: true, announcement });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getAttendanceAPI = async (req, res) => {
+    const usn = req.query.usn || '2AG22CS001';
+    try {
+        const attendance = await portalModel.getStudentAttendance(usn);
+        res.status(200).json({ success: true, attendance });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateAttendanceAPI = async (req, res) => {
+    const { usn, subjectCode, subjectName, attendedClasses, totalClasses } = req.body || {};
+    if (!usn || !subjectCode) {
+        return res.status(400).json({ success: false, message: 'USN and Subject Code required' });
+    }
+    try {
+        await portalModel.updateAttendance(usn, subjectCode, subjectName || subjectCode, attendedClasses || 40, totalClasses || 48);
+        res.status(200).json({ success: true, message: 'Attendance updated in MySQL DB' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getMarksAPI = async (req, res) => {
+    const usn = req.query.usn || '2AG22CS001';
+    try {
+        const marks = await portalModel.getStudentMarks(usn);
+        res.status(200).json({ success: true, marks });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateMarksAPI = async (req, res) => {
+    const { usn, subjectCode, subjectName, cie1, cie2, cie3, assignment, grade, result } = req.body || {};
+    if (!usn || !subjectCode) {
+        return res.status(400).json({ success: false, message: 'USN and Subject Code required' });
+    }
+    try {
+        await portalModel.updateMarks(usn, subjectCode, subjectName || subjectCode, cie1 || 45, cie2 || 45, cie3 || 45, assignment || 10, grade || 'A+', result || 'Pass');
+        res.status(200).json({ success: true, message: 'Marks updated in MySQL DB' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getGatepassesAPI = async (req, res) => {
+    const usn = req.query.usn;
+    try {
+        const gatepasses = await portalModel.getGatepasses(usn);
+        res.status(200).json({ success: true, gatepasses });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.createGatepassAPI = async (req, res) => {
+    const { studentUsn, studentName, reason, outDate, inDate } = req.body || {};
+    if (!studentUsn || !reason) {
+        return res.status(400).json({ success: false, message: 'USN and Reason required' });
+    }
+    try {
+        const gatepass = await portalModel.createGatepass(
+            studentUsn,
+            studentName || 'Prajwal Patil',
+            reason,
+            outDate || 'Today',
+            inDate || 'Tomorrow'
+        );
+        res.status(201).json({ success: true, gatepass });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateGatepassStatusAPI = async (req, res) => {
+    const { id, status, approvedBy } = req.body || {};
+    if (!id || !status) {
+        return res.status(400).json({ success: false, message: 'Gatepass ID and Status required' });
+    }
+    try {
+        await portalModel.updateGatepassStatus(id, status, approvedBy || 'HOD / Office');
+        res.status(200).json({ success: true, message: `Gatepass #${id} updated to ${status}` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getElectivesAPI = async (req, res) => {
+    const usn = req.query.usn;
+    try {
+        const electives = await portalModel.getElectives(usn);
+        res.status(200).json({ success: true, electives });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.createElectiveAPI = async (req, res) => {
+    const { studentUsn, studentName, electiveName } = req.body || {};
+    if (!studentUsn || !electiveName) {
+        return res.status(400).json({ success: false, message: 'USN and Elective Name required' });
+    }
+    try {
+        const elective = await portalModel.createElectiveRequest(
+            studentUsn,
+            studentName || 'Prajwal Patil',
+            electiveName
+        );
+        res.status(201).json({ success: true, elective });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.approveElectiveAPI = async (req, res) => {
+    const { id, status, approvedBy } = req.body || {};
+    if (!id) {
+        return res.status(400).json({ success: false, message: 'Elective Request ID required' });
+    }
+    try {
+        await portalModel.updateElectiveStatus(id, status || 'Approved', approvedBy || 'Dr. S. V. Shiragur (HOD CSE)');
+        res.status(200).json({ success: true, message: `Elective request #${id} approved` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getComplaintsAPI = async (req, res) => {
+    const usn = req.query.usn;
+    try {
+        const complaints = await portalModel.getComplaints(usn);
+        res.status(200).json({ success: true, complaints });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.createComplaintAPI = async (req, res) => {
+    const { studentUsn, studentName, category, subject, message } = req.body || {};
+    if (!studentUsn || !subject || !message) {
+        return res.status(400).json({ success: false, message: 'USN, Subject and Message required' });
+    }
+    try {
+        const complaint = await portalModel.createComplaint(
+            studentUsn,
+            studentName || 'Prajwal Patil',
+            category || 'Academic',
+            subject,
+            message
+        );
+        res.status(201).json({ success: true, complaint });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getFeeRecordAPI = async (req, res) => {
+    const usn = req.query.usn || '2AG22CS001';
+    try {
+        const feeRecord = await portalModel.getFeeRecord(usn);
+        res.status(200).json({ success: true, feeRecord });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateFeeRecordAPI = async (req, res) => {
+    const { studentUsn, studentName, totalFee, paidFee, status, receiptNo } = req.body || {};
+    if (!studentUsn) {
+        return res.status(400).json({ success: false, message: 'Student USN required' });
+    }
+    try {
+        await portalModel.updateFeeRecord(
+            studentUsn,
+            studentName || 'Prajwal Patil',
+            totalFee || 95000.00,
+            paidFee || 95000.00,
+            status || 'Paid In Full',
+            receiptNo || 'REC-2026-8841'
+        );
+        res.status(200).json({ success: true, message: `Fee record for ${studentUsn} updated in MySQL DB` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.createPortalUserAPI = async (req, res) => {
+    const { username, password, role, name, email, department_id } = req.body || {};
+    if (!username || !password || !role || !name) {
+        return res.status(400).json({ success: false, message: 'Username, Password, Role, and Name are required' });
+    }
+    try {
+        const user = await portalModel.createUser({ username, password, role, name, email, department_id });
+        res.status(201).json({ success: true, user, message: `Account created for ${name} (${username}). New user can now log in!` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.getUsersAPI = async (req, res) => {
+    try {
+        const users = await portalModel.getAllUsers();
+        res.status(200).json({ success: true, users });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateUserAPI = async (req, res) => {
+    const { id } = req.params;
+    const { name, role, email, status, password } = req.body || {};
+    try {
+        await portalModel.updateUser(id, { name, role, email, status, password });
+        res.status(200).json({ success: true, message: `User #${id} updated successfully` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteUserAPI = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await portalModel.deleteUser(id);
+        res.status(200).json({ success: true, message: `User #${id} deleted successfully from DB` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteGatepassAPI = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await portalModel.deleteGatepass(id);
+        res.status(200).json({ success: true, message: `Gatepass #${id} deleted` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteElectiveAPI = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await portalModel.deleteElective(id);
+        res.status(200).json({ success: true, message: `Elective request #${id} deleted` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteComplaintAPI = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await portalModel.deleteComplaint(id);
+        res.status(200).json({ success: true, message: `Complaint #${id} deleted` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.deleteAnnouncementAPI = async (req, res) => {
+    const { id } = req.params;
+    try {
+        await portalModel.deleteAnnouncement(id);
+        res.status(200).json({ success: true, message: `Announcement #${id} deleted` });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+

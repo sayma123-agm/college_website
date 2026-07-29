@@ -184,27 +184,18 @@
                     <img src="/images/logo.png" alt="College Logo" style="width: 40px; height: 40px; object-fit: contain;">
                     <div>
                         <h6 class="fw-bold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">AGMRCET Digital Campus ERP</h6>
-                        <span class="badge bg-primary text-white" id="erp-role-badge" style="font-size: 10px;">Student Portal</span>
-                        <span class="badge bg-light text-navy border ms-1" style="font-size: 10px;">AY 2026-27</span>
                     </div>
                 </div>
 
                 <!-- Top Right Actions & User Profile -->
                 <div class="d-flex align-items-center gap-3">
-                    <div class="d-flex align-items-center gap-2 border-end pe-3">
-                        <img src="/images/csHod.png" id="erp-top-avatar" alt="User Avatar" class="rounded-circle border" style="width: 38px; height: 38px; object-fit: cover;">
-                        <div class="d-none d-sm-block text-start">
-                            <h6 class="fw-bold text-navy m-0 small" id="erp-welcome-name">HI... LIKITHA PATNAIK</h6>
-                            <span class="text-muted" style="font-size: 10.5px;">USN: <strong id="erp-display-usn" class="text-primary">2AG22CS001</strong></span>
-                        </div>
+                    <div class="text-start pe-3 border-end">
+                        <h6 class="fw-bold text-navy m-0 small" id="erp-welcome-name">HI... LIKITHA PATNAIK</h6>
                     </div>
 
-                    <div class="d-flex align-items-center gap-1.5">
+                    <div class="d-flex align-items-center gap-2">
                         <button type="button" class="btn btn-outline-secondary btn-sm rounded-2 fw-bold text-uppercase px-2.5 py-1.5" style="font-size: 11px;" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" title="Change Password">
                             <i class="bi bi-key me-1"></i><span class="d-none d-md-inline">Change Password</span>
-                        </button>
-                        <button type="button" class="btn btn-outline-primary btn-sm rounded-2 fw-bold text-uppercase px-2.5 py-1.5" style="font-size: 11px;" onclick="window.print();" title="Print / Export Report">
-                            <i class="bi bi-printer me-1"></i><span class="d-none d-md-inline">Print / Export</span>
                         </button>
                         <button id="erp-logout-btn" class="btn btn-danger btn-sm rounded-2 text-uppercase tracking-wider fw-bold px-2.5 py-1.5" style="font-size: 11px;">
                             Logout <i class="bi bi-box-arrow-right ms-1"></i>
@@ -446,36 +437,43 @@
     </div>
 </section>
 
-<!-- Forgot Password Modal -->
+<!-- Change Password Modal -->
 <div class="modal fade" id="forgotPasswordModal" tabindex="-1" aria-labelledby="forgotPasswordModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered">
         <div class="modal-content border-0 glassmorphism shadow-2xl">
             <div class="modal-header border-0 pb-0">
-                <h5 class="modal-title fw-bold text-navy text-uppercase tracking-wider" id="forgotPasswordModalLabel">Reset Passcode</h5>
+                <h5 class="modal-title fw-bold text-navy text-uppercase tracking-wider" id="forgotPasswordModalLabel"><i class="bi bi-key-fill text-primary me-2"></i>Change ERP Password</h5>
                 <button type="button" class="btn-close shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body py-4">
-                <form id="forgot-password-form">
+                <form id="forgot-password-form" onsubmit="event.preventDefault(); if(typeof window.handleChangePassword === 'function') window.handleChangePassword(event);">
                     <div class="mb-3">
-                        <label for="reset-username" class="form-label small fw-bold text-navy mb-1">Enter USN / ID Code</label>
+                        <label for="current-password" class="form-label small fw-bold text-navy mb-1">Current Password</label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-muted"></i></span>
-                            <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light" id="reset-username" placeholder="e.g. AGM-FAC-101" required>
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-muted"></i></span>
+                            <input type="password" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="current-password" placeholder="Enter current password" required>
                         </div>
                     </div>
                     <div class="mb-3">
-                        <label for="reset-email" class="form-label small fw-bold text-navy mb-1">Registered Recovery Email</label>
+                        <label for="new-password" class="form-label small fw-bold text-navy mb-1">New Password</label>
                         <div class="input-group">
-                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-envelope text-muted"></i></span>
-                            <input type="email" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="reset-email" placeholder="name@college.ac.in" required>
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-shield-lock text-muted"></i></span>
+                            <input type="password" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="new-password" placeholder="Enter new password" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="confirm-new-password" class="form-label small fw-bold text-navy mb-1">Confirm New Password</label>
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-end-0"><i class="bi bi-check2-circle text-muted"></i></span>
+                            <input type="password" class="form-control shadow-none rounded-end-2 border-start-0 bg-light" id="confirm-new-password" placeholder="Confirm new password" required>
                         </div>
                     </div>
                     <button type="submit" class="btn btn-primary w-100 py-2.5 text-uppercase tracking-wider fw-bold small rounded-2 mt-2" style="background: linear-gradient(135deg, var(--secondary-color), var(--primary-color)) !important;">
-                        Send Recovery Link <i class="bi bi-send ms-1"></i>
+                        Update Password <i class="bi bi-check-circle ms-1"></i>
                     </button>
                 </form>
                 <div id="reset-success-alert" class="alert alert-success d-none mt-3 small py-2 px-3 text-center" role="alert">
-                    Reset link has been dispatched to your registered email!
+                    Password updated successfully!
                 </div>
             </div>
         </div>

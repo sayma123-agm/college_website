@@ -42,13 +42,15 @@ async function seed() {
         multipleStatements: true
     });
 
-    // 3. Read and execute database.sql table creators
-    const sqlPath = path.join(__dirname, 'database.sql');
+    // 3. Read and execute database-v1.sql table creators (22 Relational Tables & FKs)
+    const sqlV1Path = path.join(__dirname, 'database-v1.sql');
+    const sqlLegacyPath = path.join(__dirname, 'database.sql');
+    const sqlPath = fs.existsSync(sqlV1Path) ? sqlV1Path : sqlLegacyPath;
     const sqlContent = fs.readFileSync(sqlPath, 'utf8');
     
-    console.log('Initializing database tables...');
+    console.log('Initializing 22 database tables and foreign key mappings...');
     await connection.query(sqlContent);
-    console.log('Tables initialized successfully.');
+    console.log('22 Database tables initialized successfully.');
 
     // 4. Seed Departments & associated child records (labs, achievements, projects)
     const departmentsData = departmentModel.departmentsData;

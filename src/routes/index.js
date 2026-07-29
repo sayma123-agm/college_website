@@ -34,4 +34,32 @@ router.post('/api/news', pagesController.addNews);
 router.delete('/api/news/:id', pagesController.deleteNews);
 router.get('/api/inquiries', pagesController.getInquiries);
 
+// Real-Time Inter-Connected ERP Endpoints
+router.get('/api/portal/profile', pagesController.getStudentProfileAPI);
+router.get('/api/portal/announcements', pagesController.getAnnouncementsAPI);
+router.post('/api/portal/announcements', pagesController.createAnnouncementAPI);
+router.get('/api/portal/attendance', pagesController.getAttendanceAPI);
+router.post('/api/portal/attendance', pagesController.updateAttendanceAPI);
+router.get('/api/portal/marks', pagesController.getMarksAPI);
+router.post('/api/portal/marks', pagesController.updateMarksAPI);
+router.get('/api/portal/gatepasses', pagesController.getGatepassesAPI);
+router.post('/api/portal/gatepasses', pagesController.createGatepassAPI);
+router.patch('/api/portal/gatepasses', pagesController.updateGatepassStatusAPI);
+router.get('/api/portal/electives', pagesController.getElectivesAPI);
+router.post('/api/portal/electives', pagesController.createElectiveAPI);
+router.patch('/api/portal/electives', pagesController.approveElectiveAPI);
+router.get('/api/portal/complaints', pagesController.getComplaintsAPI);
+router.post('/api/portal/complaints', pagesController.createComplaintAPI);
+router.get('/api/portal/fees', pagesController.getFeeRecordAPI);
+router.post('/api/portal/fees', pagesController.updateFeeRecordAPI);
+router.get('/api/portal/users', pagesController.getUsersAPI);
+router.post('/api/portal/users', pagesController.createPortalUserAPI);
+router.put('/api/portal/users/:id', pagesController.updateUserAPI);
+router.delete('/api/portal/users/:id', pagesController.deleteUserAPI);
+
+router.delete('/api/portal/gatepasses/:id', pagesController.deleteGatepassAPI);
+router.delete('/api/portal/electives/:id', pagesController.deleteElectiveAPI);
+router.delete('/api/portal/complaints/:id', pagesController.deleteComplaintAPI);
+router.delete('/api/portal/announcements/:id', pagesController.deleteAnnouncementAPI);
+
 module.exports = router;

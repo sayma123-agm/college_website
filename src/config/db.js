@@ -47,16 +47,18 @@ async function initializeDatabase() {
     });
 
     try {
-        // Check if departments table exists
-        const [tables] = await connection.query(`SHOW TABLES LIKE 'departments'`);
-        if (tables.length === 0) {
-            console.log(`[DB INFO] Database "${DB_NAME}" is empty or uninitialized. Initializing schema...`);
+        // Check if users table or new ERP tables exist
+        const [userTables] = await connection.query(`SHOW TABLES LIKE 'users'`);
+        if (userTables.length === 0) {
+            console.log(`[DB INFO] Database "${DB_NAME}" requires ERP schema initialization. Executing database-v1.sql...`);
             
-            // Read and execute database.sql table creators
-            const sqlPath = path.join(__dirname, '../../databases/database.sql');
+            // Read and execute database-v1.sql table creators
+            const sqlV1Path = path.join(__dirname, '../../databases/database-v1.sql');
+            const sqlLegacyPath = path.join(__dirname, '../../databases/database.sql');
+            const sqlPath = fs.existsSync(sqlV1Path) ? sqlV1Path : sqlLegacyPath;
             const sqlContent = fs.readFileSync(sqlPath, 'utf8');
             await connection.query(sqlContent);
-            console.log('[DB INFO] Tables initialized successfully.');
+            console.log('[DB INFO] All 22 ERP tables initialized successfully.');
 
             // Dynamically import models to seed default data
             const departmentModel = require('../models/departmentModel');
