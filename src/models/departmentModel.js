@@ -785,6 +785,21 @@ const hodImageMap = {
     'mba': '/images/mbahod.png'
 };
 
+const deptVideoMap = {
+    'cse': '/videos/demo.mp4',
+    'cse-aiml': '/videos/aiml.mp4',
+    'aiml': '/videos/aiml.mp4',
+    'csd': '/videos/demo1.mp4',
+    'ece': '/videos/demo.mp4',
+    'eee': '/videos/demo1.mp4',
+    'me': '/videos/college.mp4',
+    'ce': '/videos/college.mp4',
+    'civil': '/videos/college.mp4',
+    'bsh': '/videos/college.mp4',
+    'mba': '/videos/college.mp4',
+    'mca': '/videos/demo.mp4'
+};
+
 module.exports = {
     getDepartmentsList: async () => {
         try {
@@ -915,6 +930,7 @@ const defaultDeptTabsData = {
             result.eContent = result.eContent || defaultDeptTabsData.eContent;
             result.activities = result.activities || defaultDeptTabsData.activities;
             result.supportingStaff = result.supportingStaff || defaultDeptTabsData.supportingStaff;
+            result.video = deptVideoMap[targetId] || '/videos/college.mp4';
 
             if (hodImageMap[targetId]) {
                 result.hodPhoto = hodImageMap[targetId];
@@ -939,6 +955,7 @@ const defaultDeptTabsData = {
 
         list.forEach(d => {
             const key = d.id ? d.id.toLowerCase() : '';
+            d.video = deptVideoMap[key] || '/videos/college.mp4';
             if (hodImageMap[key]) {
                 d.hodPhoto = hodImageMap[key];
                 if (d.hod) d.hod.photo = hodImageMap[key];

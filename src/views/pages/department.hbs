@@ -1,26 +1,82 @@
-<!-- Page Header Banner -->
-<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 200px;">
-    <div class="container position-relative z-2 pt-3">
-        <div class="row">
-            <div class="col-12" data-aos="fade-right">
+<!-- Page Header Banner with Active Background Video -->
+<section class="page-header position-relative overflow-hidden py-5 py-lg-6 text-white d-flex align-items-center" style="min-height: 380px; background-color: #0b132b !important;">
+    
+    <!-- Full-Width Background Video Overlay -->
+    <div class="position-absolute top-0 start-0 w-100 h-100 z-0 overflow-hidden">
+        <!-- Clear Left-to-Right Fade Gradient for text legibility while keeping right video 100% visible -->
+        <div class="position-absolute w-100 h-100 top-0 start-0 z-1" style="background: linear-gradient(90deg, rgba(11, 19, 43, 0.92) 0%, rgba(11, 19, 43, 0.75) 50%, rgba(11, 19, 43, 0.3) 100%);"></div>
+        <video autoplay muted loop playsinline class="w-100 h-100 object-fit-cover opacity-85">
+            <source src="{{#if department.video}}{{department.video}}{{else}}/videos/college.mp4{{/if}}" type="video/mp4">
+        </video>
+    </div>
+
+    <div class="container-fluid px-lg-5 position-relative z-2 py-3">
+        <div class="row align-items-center g-4">
+            <div class="col-lg-7 col-xl-8" data-aos="fade-right">
                 <nav aria-label="breadcrumb">
-                    <ol class="breadcrumb mb-2 text-white-50">
+                    <ol class="breadcrumb mb-3 text-white-50">
                         <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
-                        <li class="breadcrumb-item"><a href="#" class="text-white-50 text-decoration-none">Departments</a></li>
+                        <li class="breadcrumb-item"><a href="/departments/cse" class="text-white-50 text-decoration-none">Departments</a></li>
                         <li class="breadcrumb-item active text-white" aria-current="page">{{department.shortName}}</li>
                     </ol>
                 </nav>
-                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{department.name}}</h1>
-                <p class="text-white-50 small m-0 mt-1">Established: {{department.established}} | Annual Intake: {{department.intake}} seats | Duration: {{department.duration}}</p>
+                <div class="d-flex flex-wrap gap-2 mb-3">
+                    <span class="badge bg-danger text-white text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill shadow-sm" style="font-size: 10px; background-color: #610000 !important;">
+                        Established: {{department.established}}
+                    </span>
+                    <span class="badge bg-primary text-white text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill shadow-sm" style="font-size: 10px;">
+                        Intake: {{department.intake}} Seats
+                    </span>
+                    <span class="badge bg-success text-white text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill shadow-sm" style="font-size: 10px;">
+                        Duration: {{department.duration}}
+                    </span>
+                    <span class="badge bg-warning text-dark text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill shadow-sm" style="font-size: 10px;">
+                        <i class="bi bi-patch-check-fill me-1"></i> VTU Affiliated & AICTE Approved
+                    </span>
+                </div>
+                <h1 class="display-3 fw-extrabold text-white mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif; text-shadow: 0 4px 16px rgba(0,0,0,0.8);">{{department.name}}</h1>
+                <p class="text-white-80 lead fs-5 leading-relaxed m-0" style="opacity: 0.95; text-shadow: 0 2px 8px rgba(0,0,0,0.8); max-width: 720px;">
+                    Experience high-tech engineering education, cutting-edge laboratories, and industry-oriented technical research at AGMRCET Varur Hubballi.
+                </p>
+            </div>
+
+            <!-- Right Column: Sharp High-Contrast Quick Stats Cards -->
+            <div class="col-lg-5 col-xl-4 d-none d-lg-block" data-aos="fade-left">
+                <div class="row g-3">
+                    <div class="col-6">
+                        <div class="p-3.5 rounded-4 text-white text-center shadow-lg" style="background: rgba(11, 19, 43, 0.82); border: 1px solid rgba(255,255,255,0.2) !important;">
+                            <h3 class="fw-extrabold text-warning mb-1 fs-3">{{department.stats.faculty}}</h3>
+                            <span class="text-white-50 text-xs font-semibold uppercase tracking-wider">Expert Faculty</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3.5 rounded-4 text-white text-center shadow-lg" style="background: rgba(11, 19, 43, 0.82); border: 1px solid rgba(255,255,255,0.2) !important;">
+                            <h3 class="fw-extrabold text-info mb-1 fs-3">{{department.stats.labs}}</h3>
+                            <span class="text-white-50 text-xs font-semibold uppercase tracking-wider">Hi-Tech Labs</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3.5 rounded-4 text-white text-center shadow-lg" style="background: rgba(11, 19, 43, 0.82); border: 1px solid rgba(255,255,255,0.2) !important;">
+                            <h3 class="fw-extrabold text-success mb-1 fs-3">{{department.stats.placementRate}}</h3>
+                            <span class="text-white-50 text-xs font-semibold uppercase tracking-wider">Placement Rate</span>
+                        </div>
+                    </div>
+                    <div class="col-6">
+                        <div class="p-3.5 rounded-4 text-white text-center shadow-lg" style="background: rgba(11, 19, 43, 0.82); border: 1px solid rgba(255,255,255,0.2) !important;">
+                            <h3 class="fw-extrabold text-warning mb-1 fs-3">{{department.stats.avgPackage}}</h3>
+                            <span class="text-white-50 text-xs font-semibold uppercase tracking-wider">Avg. Package</span>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-    <div class="page-header-glow"></div>
+    <div class="page-header-glow z-1"></div>
 </section>
 
 <!-- Department Sub-Navigation Bar (Matches agmrcet.ac.in tab bar structure) -->
 <div class="dept-tab-bar-container py-3 border-bottom shadow-sm bg-white sticky-top" style="top: 70px; z-index: 990;">
-    <div class="container">
+    <div class="container-fluid px-lg-5">
         <ul class="nav nav-pills flex-nowrap overflow-auto gap-2 py-1 dept-tabs-list" id="deptTabs" role="tablist" style="scrollbar-width: thin;">
             <li class="nav-item" role="presentation">
                 <button class="nav-link dept-tab-btn active fw-bold px-3 py-2 rounded-2" id="tab-overview-btn" data-bs-toggle="pill" data-bs-target="#tab-overview" type="button" role="tab" aria-controls="tab-overview" aria-selected="true">
@@ -95,7 +151,7 @@
 </style>
 
 <section class="py-5">
-    <div class="container">
+    <div class="container-fluid px-lg-5">
         <div class="row g-4">
             <!-- Left Sidebar: Other Departments Links & What We Have -->
             <div class="col-lg-3 d-none d-lg-block" data-aos="fade-right">
@@ -174,35 +230,7 @@
 
                     <!-- TAB 1: Department Overview -->
                     <div class="tab-pane fade show active" id="tab-overview" role="tabpanel" aria-labelledby="tab-overview-btn">
-                        <!-- Key Stats Grid -->
-                        <div class="row g-3 mb-4">
-                            <div class="col-md-3 col-6">
-                                <div class="p-3 text-center border rounded-3 bg-light-slate">
-                                    <h3 class="fw-bold text-primary mb-1">{{department.stats.faculty}}</h3>
-                                    <span class="text-muted small">Faculty Members</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6">
-                                <div class="p-3 text-center border rounded-3 bg-light-slate">
-                                    <h3 class="fw-bold text-secondary mb-1">{{department.stats.labs}}</h3>
-                                    <span class="text-muted small">Laboratories</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6">
-                                <div class="p-3 text-center border rounded-3 bg-light-slate">
-                                    <h3 class="fw-bold text-accent mb-1">{{department.stats.placementRate}}</h3>
-                                    <span class="text-muted small">Placement Rate</span>
-                                </div>
-                            </div>
-                            <div class="col-md-3 col-6">
-                                <div class="p-3 text-center border rounded-3 bg-light-slate">
-                                    <h3 class="fw-bold text-success mb-1">{{department.stats.avgPackage}}</h3>
-                                    <span class="text-muted small">Avg. Package</span>
-                                </div>
-                            </div>
-                        </div>
-
-                        <!-- HOD Message -->
+                        <!-- HOD Message Card -->
                         <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
                             <div class="row align-items-center g-4">
                                 <div class="col-md-3 text-center">
@@ -214,8 +242,8 @@
                                     <span class="badge bg-light text-dark border small mt-1">{{department.hod.qualification}} | {{department.hod.experience}}</span>
                                 </div>
                                 <div class="col-md-9 border-start-md">
-                                    <h5 class="fw-bold text-navy mb-2"><i class="bi bi-chat-left-quote-fill text-primary me-2"></i>HOD Message</h5>
-                                    <p class="text-muted small m-0 italic">
+                                    <h5 class="fw-bold text-navy mb-2"><i class="bi bi-quote text-primary me-2 fs-4"></i>HOD Message</h5>
+                                    <p class="text-muted leading-relaxed m-0 italic font-medium" style="font-size: 14.5px;">
                                         "{{department.hod.message}}"
                                     </p>
                                 </div>
