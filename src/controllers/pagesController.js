@@ -10,11 +10,16 @@ exports.renderHome = async (req, res) => {
         
         // Parse JSON lists for each department to render top recruiters in HTML
         depts.forEach(dept => {
-            if (dept.hod) {
-                dept.hodName = dept.hodName || dept.hod.name;
-                dept.hodPhoto = dept.hodPhoto || dept.hod.photo;
-                dept.hodExp = dept.hodExp || dept.hod.experience;
-                dept.hodMessage = dept.hodMessage || dept.hod.message;
+            const hodObj = dept.hod || {};
+            dept.hodName = dept.hodName || hodObj.name || 'HOD';
+            dept.hodPhoto = dept.hodPhoto || hodObj.photo || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80';
+            dept.hodExp = dept.hodExp || dept.hodExperience || hodObj.experience || '12 Years';
+            dept.hodDesignation = dept.hodDesignation || dept.hodDesignation || hodObj.designation || 'HOD & Professor';
+            dept.hodMessage = dept.hodMessage || hodObj.message || 'Welcome to our department.';
+            
+            // Format HOD message to prevent breaking quotes
+            if (dept.hodMessage) {
+                dept.hodMessage = dept.hodMessage.replace(/"/g, "'");
             }
             if (typeof dept.topRecruiters === 'string') {
                 try {
@@ -75,6 +80,14 @@ exports.renderPlacements = (req, res) => {
         title: 'Placements Dashboard | AGMRCET',
         description: 'Look at the career achievements, salary package trends, placement rates, and our top recruiters at AGMRCET.',
         activePlacements: true
+    });
+};
+
+exports.renderAlumni = (req, res) => {
+    res.render('alumni', {
+        title: 'Alumni Cell | AGMRCET',
+        description: 'AGMRCET Alumni Association builds a life-long connection between the institute and its global graduates.',
+        activeAlumni: true
     });
 };
 
@@ -724,6 +737,55 @@ exports.deleteAnnouncementAPI = async (req, res) => {
     } catch (err) {
         res.status(500).json({ success: false, message: err.message });
     }
+};
+
+exports.renderFeedback = (req, res) => {
+    res.render('feedback', {
+        title: 'Feedback | AGMRCET',
+        description: 'Provide your valuable suggestions and academic/institutional feedback to AGMRCET.'
+    });
+};
+
+exports.renderIQAC = (req, res) => {
+    res.render('iqac', {
+        title: 'IQAC | Internal Quality Assurance Cell',
+        description: 'Internal Quality Assurance Cell (IQAC) of AGMRCET coordinates institutional quality metrics.'
+    });
+};
+
+exports.renderNAAC = (req, res) => {
+    res.render('naac', {
+        title: 'NAAC | Accreditation Documents',
+        description: 'NAAC accreditation reports, certificates, and compliance declarations of AGMRCET.'
+    });
+};
+
+exports.renderNIRF = (req, res) => {
+    res.render('nirf', {
+        title: 'NIRF | Publications & Disclosures',
+        description: 'National Institutional Ranking Framework (NIRF) data and public transparency publications.'
+    });
+};
+
+exports.renderGrievance = (req, res) => {
+    res.render('grievance', {
+        title: 'Grievance Redressal Cell | AGMRCET',
+        description: 'Submit grievances, concerns, or academic queries to the Grievance Redressal Committee.'
+    });
+};
+
+exports.renderNSS = (req, res) => {
+    res.render('nss', {
+        title: 'National Service Scheme (NSS) | AGMRCET',
+        description: 'NSS Unit of AGMRCET organizes rural camps, blood donation drives, and community services.'
+    });
+};
+
+exports.renderIEEE = (req, res) => {
+    res.render('ieee', {
+        title: 'IEEE Student Branch | AGMRCET',
+        description: 'IEEE Student Branch organizes technical workshops, symposia, and global IEEE events.'
+    });
 };
 
 

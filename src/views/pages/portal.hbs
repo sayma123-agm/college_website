@@ -1,3 +1,143 @@
+<style>
+    /* Scoped Premium Light ERP Login Styles */
+    #portal-login-viewport {
+        background-color: #F8FAFC !important;
+        min-height: 100vh;
+        position: relative;
+    }
+    
+    #portal-top-branding-bar {
+        background: #ffffff !important;
+        border-bottom: 1px solid #e2e8f0 !important;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04) !important;
+        z-index: 10;
+    }
+    
+    #portal-top-branding-bar h5 {
+        color: #1E293B !important;
+    }
+    
+    #portal-top-branding-bar p {
+        color: #64748B !important;
+    }
+
+    /* Premium Light login cards */
+    .premium-login-card {
+        background: #ffffff !important;
+        border: 1px solid rgba(15, 43, 92, 0.08) !important;
+        border-radius: 20px !important;
+        box-shadow: 0 15px 35px rgba(15, 43, 92, 0.06) !important;
+        transition: all 0.35s cubic-bezier(0.165, 0.84, 0.44, 1);
+        z-index: 5;
+    }
+    
+    .premium-login-card:hover {
+        transform: translateY(-6px);
+        box-shadow: 0 25px 50px rgba(15, 43, 92, 0.12) !important;
+        border-color: rgba(11, 61, 145, 0.15) !important;
+    }
+    
+    .card-header-gradient-1, .card-header-gradient-2 {
+        background: linear-gradient(135deg, #3fa0ff, #1a8cff) !important;
+        border-bottom: 2px solid #ffffff;
+        border-top-left-radius: 19px !important;
+        border-top-right-radius: 19px !important;
+        padding: 1.8rem 1rem !important;
+        position: relative;
+    }
+
+    /* Premium light inputs */
+    .light-premium-input {
+        background: #ffffff !important;
+        border: 1px solid #a6a6a6 !important;
+        color: #333333 !important;
+        border-radius: 4px !important;
+        padding: 8px 12px !important;
+        font-size: 13px !important;
+        font-weight: 500 !important;
+        transition: all 0.2s ease !important;
+    }
+    
+    .light-premium-input:focus {
+        background: #ffffff !important;
+        border-color: #3fa0ff !important;
+        box-shadow: 0 0 6px rgba(63, 160, 255, 0.25) !important;
+    }
+
+    /* Labels & text elements */
+    .label-premium-red {
+        color: #e03a3a !important;
+        font-weight: 800 !important;
+        font-size: 14px !important;
+        font-family: 'Poppins', sans-serif !important;
+        text-align: right;
+    }
+
+    /* Premium buttons */
+    .btn-login-ref {
+        background: linear-gradient(180deg, #ffffff 0%, #e2e8f0 40%, #cbd5e1 100%) !important;
+        border: 1px solid #94a3b8 !important;
+        color: #0f172a !important;
+        font-size: 11px !important;
+        font-weight: 800 !important;
+        letter-spacing: 0.5px;
+        padding: 6px 20px !important;
+        border-radius: 8px !important;
+        box-shadow: 0 2px 4px rgba(0,0,0,0.08) !important;
+        text-transform: uppercase;
+        transition: all 0.2s ease;
+    }
+    .btn-login-ref:hover {
+        background: linear-gradient(180deg, #ffffff 0%, #f1f5f9 40%, #e2e8f0 100%) !important;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.12) !important;
+        transform: translateY(-0.5px);
+    }
+
+    /* Avatar floating animation & transparency blending */
+    @keyframes float-avatar {
+        0% { transform: translateY(0px); }
+        50% { transform: translateY(-6px); }
+        100% { transform: translateY(0px); }
+    }
+    
+    .floating-avatar-img {
+        mix-blend-mode: multiply !important;
+        animation: float-avatar 3.5s ease-in-out infinite;
+        transition: all 0.3s ease;
+    }
+    
+    /* Watermark background logo icons */
+    .bg-watermark-logo-left {
+        position: absolute;
+        left: -40px;
+        top: 50%;
+        transform: translateY(-50%) rotate(-12deg);
+        width: 280px;
+        height: 280px;
+        opacity: 0.12;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+    
+    .bg-watermark-logo-right {
+        position: absolute;
+        right: -40px;
+        top: 50%;
+        transform: translateY(-50%) rotate(12deg);
+        width: 280px;
+        height: 280px;
+        opacity: 0.12;
+        pointer-events: none;
+        user-select: none;
+        z-index: 1;
+        image-rendering: -webkit-optimize-contrast !important;
+        image-rendering: crisp-edges !important;
+    }
+</style>
+
 <!-- Portal Branding Header -->
 <header id="portal-top-branding-bar" class="py-3 px-4 bg-white border-bottom shadow-xs d-flex align-items-center justify-content-between">
     <div class="d-flex align-items-center gap-3">
@@ -11,6 +151,9 @@
         </div>
     </div>
     <div class="d-flex align-items-center gap-2">
+        <a href="https://agmrgroup.dhi-edu.com/" target="_blank" class="btn btn-warning btn-sm rounded-2 fw-bold d-flex align-items-center gap-1.5 text-navy shadow-xs" style="font-size: 11px;">
+            <i class="bi bi-box-arrow-up-right"></i> Old ERP Login
+        </a>
         <span class="badge bg-success-light text-success border border-success-subtle d-none d-md-inline-block" style="font-size: 11px;">
             <i class="bi bi-shield-check me-1"></i>256-Bit Encrypted ERP
         </span>
@@ -21,156 +164,99 @@
 </header>
 
 <!-- ERP Main Section with Full Screen Workspace -->
-<section class="py-2 px-1 px-md-2 bg-light-slate position-relative overflow-hidden" style="min-height: 100vh;">
+<section id="portal-login-viewport" class="py-5 px-1 px-md-2 position-relative overflow-hidden">
+    <!-- Floating watermarked logos at left and right ends -->
+    <div class="bg-watermark-logo-left d-none d-lg-block">
+        <img src="/images/logo.png" alt="Left Watermark Logo" class="w-100 h-100">
+    </div>
+    <div class="bg-watermark-logo-right d-none d-lg-block">
+        <img src="/images/logo.png" alt="Right Watermark Logo" class="w-100 h-100">
+    </div>
+
     <div class="container-fluid px-1 px-md-2 position-relative z-2">
         <!-- Login Stage -->
         <div class="row g-4 justify-content-center" id="erp-login-section">
-            <!-- Left Panel: 3 Card Gateway Directory (8 Cols) -->
-            <div class="col-lg-8">
-                <div class="mb-4">
-                    <span class="badge bg-primary-light text-primary fw-bold text-uppercase px-2.5 py-1 mb-2" style="font-size: 10px; letter-spacing: 0.5px;">ERP Ecosystem Gateways</span>
-                    <h3 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Portal Directory & Role Selector</h3>
-                    <p class="text-muted small m-0 mt-1">Select your designated portal gateway below to populate credentials into the authorization console.</p>
-                </div>
+            <!-- Global error alerts -->
+            <div class="col-12">
+                <div id="login-error-alert" class="alert alert-danger d-none mb-3 small text-center mx-auto" style="max-width: 600px;" role="alert"></div>
+            </div>
 
-                <div class="row g-4">
-                    <!-- Card 1: Academic Wings -->
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--primary-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--primary-color), var(--secondary-color)) !important;">
-                                <i class="bi bi-mortarboard-fill fs-4"></i>
-                            </div>
-                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Academic Wings</h5>
-                            <p class="text-muted small mb-3" style="font-size: 11px;">Grade records, IA marks, lesson plans, and department HOD portals.</p>
-                            
-                            <div class="d-flex flex-column gap-2 mt-auto">
-                                <button type="button" onclick="quickFillRoleCredentials('student')" data-role="student" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-person-fill text-primary me-2"></i>Student Portal</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('faculty')" data-role="faculty" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-person-badge-fill text-primary me-2"></i>Faculty Board</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('hod')" data-role="hod" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-award-fill text-primary me-2"></i>HOD Login</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                            </div>
-                        </div>
+            <!-- Employee Login Card -->
+            <div class="col-md-5 col-lg-4">
+                <div class="card premium-login-card h-100" style="overflow: visible !important;">
+                    <div class="p-4 text-white text-center card-header-gradient-1">
+                        <h4 class="fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px;">Employee Login</h4>
                     </div>
-
-                    <!-- Card 2: Office & Finance -->
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--success-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--success-color), #047857) !important;">
-                                <i class="bi bi-wallet2 fs-4"></i>
+                    <div class="card-body p-4 d-flex flex-column" style="background: transparent; overflow: visible !important;">
+                        <form id="employee-login-form" action="javascript:void(0);" class="h-100 d-flex flex-column">
+                            <div class="row mb-3 align-items-center">
+                                <label for="employee-usn" class="col-4 label-premium-red">User Name :</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control light-premium-input shadow-none text-uppercase fw-bold" id="employee-usn" placeholder="AGM-FAC-101" required>
+                                </div>
                             </div>
-                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Office & Finance</h5>
-                            <p class="text-muted small mb-3" style="font-size: 11px;">Registrar physical archives, fee remittance challans, and hall tickets.</p>
-                            
-                            <div class="d-flex flex-column gap-2 mt-auto">
-                                <button type="button" onclick="quickFillRoleCredentials('office')" data-role="office" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-building-fill text-success me-2"></i>Office Section</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('fee')" data-role="fee" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-credit-card-fill text-success me-2"></i>Fee Section Desk</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('tpo')" data-role="tpo" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-briefcase-fill text-primary me-2"></i>TPO Placement Desk</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
+                            <div class="row mb-3 align-items-center">
+                                <label for="employee-password" class="col-4 label-premium-red">Password :</label>
+                                <div class="col-8">
+                                    <input type="password" class="form-control light-premium-input shadow-none" id="employee-password" placeholder="••••••••" required>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-
-                    <!-- Card 3: Executive & Alerts -->
-                    <div class="col-md-4">
-                        <div class="card h-100 border-0 shadow-sm rounded-4 p-4 bg-white transition-all" style="border-top: 5px solid var(--accent-color) !important; box-shadow: 0 10px 25px rgba(15, 43, 92, 0.04) !important;">
-                            <div class="d-inline-flex align-items-center justify-content-center text-white rounded-4 mb-3" style="width: 46px; height: 46px; background: linear-gradient(135deg, var(--accent-color), #b45309) !important;">
-                                <i class="bi bi-shield-lock fs-4"></i>
-                            </div>
-                            <h5 class="fw-extrabold text-navy mb-1" style="font-family: 'Plus Jakarta Sans', sans-serif;">Executive & Alerts</h5>
-                            <p class="text-muted small mb-3" style="font-size: 11px;">Principal executive supervision metrics, Admin console, and Broadcaster.</p>
-                            
-                            <div class="d-flex flex-column gap-2 mt-auto">
-                                <button type="button" onclick="quickFillRoleCredentials('principal')" data-role="principal" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-person-workspace text-dark me-2"></i>Principal Console</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('admin')" data-role="admin" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-gear-fill text-dark me-2"></i>Admin Section</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
-                                </button>
-                                <button type="button" onclick="quickFillRoleCredentials('broadcast')" data-role="broadcast" class="gateway-select-btn btn btn-light border text-start py-2.5 px-3 rounded-3 d-flex align-items-center justify-content-between transition-all">
-                                    <span class="fw-bold small text-navy"><i class="bi bi-broadcast text-indigo me-2"></i>Broadcast Desk</span>
-                                    <i class="bi bi-chevron-right small text-muted"></i>
+                            <div class="d-flex align-items-end justify-content-between mt-auto pt-4" style="overflow: visible;">
+                                <div class="d-flex align-items-end" style="margin-bottom: -25px; margin-left: -20px; z-index: 10;">
+                                    <img src="/images/employee-avatar.jpg" alt="Male Employee" class="floating-avatar-img" style="width: 85px; height: 85px; object-fit: contain;">
+                                    <img src="/images/female-employee-avatar.jpg" alt="Female Employee" class="floating-avatar-img" style="width: 85px; height: 85px; object-fit: contain; margin-left: -25px;">
+                                </div>
+                                <button type="submit" class="btn btn-login-ref ms-auto">
+                                    LOGIN
                                 </button>
                             </div>
-                        </div>
+                        </form>
                     </div>
                 </div>
             </div>
 
-            <!-- Right Panel: Authorization Console Form (4 Cols) -->
-            <div class="col-lg-4">
-                <div class="card rounded-4 shadow-lg border-0 bg-white h-100 p-4 p-md-4 d-flex flex-column justify-content-between position-relative overflow-hidden" id="portal-auth-card" style="box-shadow: 0 15px 35px rgba(15, 43, 92, 0.08) !important;">
-                    <!-- Top Gradient Accent Bar -->
-                    <div class="position-absolute top-0 start-0 w-100" style="height: 6px; background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));"></div>
-                    
-                    <div>
-                        <div class="d-flex align-items-center justify-content-between mb-3">
-                            <span class="badge bg-primary text-uppercase px-2.5 py-1" id="portal-selected-badge" style="font-size: 11px;">Student</span>
-                            <span class="text-success small d-flex align-items-center gap-1.5 fw-bold" style="font-size: 10px;">
-                                <span class="spinner-grow spinner-grow-sm text-success" role="status" style="width: 6px; height: 6px;"></span>
-                                SSL 256-Bit Encrypted
-                            </span>
-                        </div>
-
-                        <h4 class="fw-extrabold text-navy mb-1" id="portal-info-title" style="font-family: 'Plus Jakarta Sans', sans-serif;">Student Portal ERP</h4>
-                        <p class="text-muted small mb-3 leading-relaxed" id="portal-info-desc" style="font-size: 12px;">Access your semester grade records, track attendance in real-time, view current CGPA progression, download syllabus guidelines, and access academic calendars.</p>
-                        
-                        <div id="login-error-alert" class="alert alert-danger d-none mb-3 small" role="alert"></div>
-
-                        <form id="erp-login-form" action="javascript:void(0);" onsubmit="window.handlePortalLogin(event);">
-                            <div class="mb-3">
-                                <label for="erp-usn" id="username-label" class="form-label small fw-bold text-navy mb-1">University Seat Number (USN)</label>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-person-vcard text-navy"></i></span>
-                                    <input type="text" class="form-control shadow-none rounded-end-2 text-uppercase border-start-0 bg-light fw-bold text-navy" id="erp-usn" placeholder="2AG22CS001" required style="font-size: 13px;">
-                                </div>
-                                <div class="form-text mt-2 text-navy" style="font-size: 11px; background-color: rgba(15, 43, 92, 0.05); padding: 8px 12px; border-radius: 6px; border: 1px solid rgba(15, 43, 92, 0.1);">
-                                    <span id="hint-text">Demo credentials loaded: <strong>2AG22CS001</strong> | Password: <strong>password</strong></span>
+            <!-- Student Login Card -->
+            <div class="col-md-5 col-lg-4">
+                <div class="card premium-login-card h-100" style="overflow: visible !important;">
+                    <div class="p-4 text-white text-center card-header-gradient-2">
+                        <h4 class="fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px;">Student Login</h4>
+                    </div>
+                    <div class="card-body p-4 d-flex flex-column" style="background: transparent; overflow: visible !important;">
+                        <form id="student-login-form" action="javascript:void(0);" class="h-100 d-flex flex-column">
+                            <div class="row mb-3 align-items-center">
+                                <label for="student-usn" class="col-4 label-premium-red">User Name :</label>
+                                <div class="col-8">
+                                    <input type="text" class="form-control light-premium-input shadow-none text-uppercase fw-bold" id="student-usn" placeholder="2AG22CS001" required>
                                 </div>
                             </div>
-
-                            <div class="mb-3">
-                                <div class="d-flex justify-content-between align-items-center mb-1">
-                                    <label for="erp-password" class="form-label small fw-bold text-navy m-0">Password</label>
-                                    <a href="#" data-bs-toggle="modal" data-bs-target="#forgotPasswordModal" class="small text-primary fw-bold text-decoration-none" style="font-size: 11px;">Forgot Password?</a>
-                                </div>
-                                <div class="input-group">
-                                    <span class="input-group-text bg-light border-end-0"><i class="bi bi-lock text-navy"></i></span>
-                                    <input type="password" class="form-control shadow-none border-start-0 border-end-0 bg-light fw-bold text-navy" id="erp-password" placeholder="••••••••" required style="font-size: 13px;">
-                                    <button class="btn btn-light border border-start-0 text-muted" type="button" onclick="togglePasswordVisibility()"><i class="bi bi-eye text-muted" id="pwd-eye-icon"></i></button>
+                            <div class="row mb-3 align-items-center">
+                                <label for="student-password" class="col-4 label-premium-red">Password :</label>
+                                <div class="col-8">
+                                    <input type="password" class="form-control light-premium-input shadow-none" id="student-password" placeholder="••••••••" required>
                                 </div>
                             </div>
-
-                            <div class="d-flex align-items-center justify-content-between mb-4">
-                                <div class="form-check">
-                                    <input class="form-check-input" type="checkbox" id="remember-me-check" checked>
-                                    <label class="form-check-label text-muted small" for="remember-me-check" style="font-size: 11px;">Remember USN</label>
+                            
+                            <div class="d-flex align-items-end justify-content-between mt-auto pt-4" style="overflow: visible;">
+                                <div class="d-flex align-items-end" style="margin-bottom: -25px; margin-left: -20px; z-index: 10;">
+                                    <img src="/images/student-avatar.jpg" alt="Female Student" class="floating-avatar-img" style="width: 85px; height: 85px; object-fit: contain;">
+                                    <img src="/images/male-student-avatar.jpg" alt="Male Student" class="floating-avatar-img" style="width: 85px; height: 85px; object-fit: contain; margin-left: -25px;">
                                 </div>
+                                <button type="submit" class="btn btn-login-ref ms-auto">
+                                    LOGIN
+                                </button>
                             </div>
-
-                            <button type="submit" class="btn btn-primary w-100 py-3 text-uppercase tracking-wider fw-bold small rounded-3 shadow-sm" style="background: linear-gradient(135deg, var(--primary-color), #004b93) !important;">
-                                Authenticate & Log In <i class="bi bi-box-arrow-in-right ms-1"></i>
-                            </button>
                         </form>
                     </div>
                 </div>
+            </div>
+
+            <!-- Hidden inputs container for portal.js integration -->
+            <div class="d-none">
+                <form id="erp-login-form" action="javascript:void(0);" onsubmit="window.handlePortalLogin(event);">
+                    <input type="text" id="erp-usn">
+                    <input type="password" id="erp-password">
+                    <button type="submit" id="erp-submit-btn"></button>
+                </form>
             </div>
         </div>
         <!-- Dashboard Stage (Hidden by default, shown via JS after authentication) -->
@@ -479,6 +565,75 @@
         </div>
     </div>
 </div>
-
 <!-- Register Portal Script -->
 <script src="/js/portal.js?v=2" defer></script>
+
+<!-- Bridge Script to Synchronize and Authenticate Side-by-Side Forms -->
+<script>
+document.addEventListener("DOMContentLoaded", () => {
+    const studentForm = document.getElementById("student-login-form");
+    const employeeForm = document.getElementById("employee-login-form");
+    const mainUsn = document.getElementById("erp-usn");
+    const mainPwd = document.getElementById("erp-password");
+    const mainSubmit = document.getElementById("erp-submit-btn");
+
+    if (studentForm) {
+        studentForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const usnVal = document.getElementById("student-usn").value.trim();
+            const pwdVal = document.getElementById("student-password").value;
+            if (mainUsn) mainUsn.value = usnVal;
+            if (mainPwd) mainPwd.value = pwdVal;
+            
+            // Execute login trigger via main submit button
+            if (mainSubmit) mainSubmit.click();
+        });
+    }
+
+    if (employeeForm) {
+        employeeForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+            const usnVal = document.getElementById("employee-usn").value.trim();
+            const pwdVal = document.getElementById("employee-password").value;
+            if (mainUsn) mainUsn.value = usnVal;
+            if (mainPwd) mainPwd.value = pwdVal;
+            
+            // Execute login trigger via main submit button
+            if (mainSubmit) mainSubmit.click();
+        });
+    }
+
+    // Intercept switchPortalGateway presets to populate our visible inputs
+    const originalSwitch = window.switchPortalGateway;
+    window.switchPortalGateway = (role) => {
+        if (typeof originalSwitch === 'function') {
+            originalSwitch(role);
+        }
+        
+        // Sync presets to the visible inputs
+        const currentUsn = mainUsn ? mainUsn.value : '';
+        const currentPwd = mainPwd ? mainPwd.value : '';
+        
+        const studentUsn = document.getElementById("student-usn");
+        const studentPwd = document.getElementById("student-password");
+        const employeeUsn = document.getElementById("employee-usn");
+        const employeePwd = document.getElementById("employee-password");
+
+        if (role === 'student') {
+            if (studentUsn) studentUsn.value = currentUsn;
+            if (studentPwd) studentPwd.value = currentPwd;
+        } else {
+            if (employeeUsn) employeeUsn.value = currentUsn;
+            if (employeePwd) employeePwd.value = currentPwd;
+        }
+    };
+    
+    // Auto-run initial prefill once portal.js is loaded
+    setTimeout(() => {
+        const pathParts = window.location.pathname.split('/');
+        const urlRole = pathParts[pathParts.length - 1];
+        const defaultRole = ['student', 'faculty', 'hod', 'office', 'fee', 'principal', 'admin', 'broadcast', 'tpo'].includes(urlRole) ? urlRole : 'student';
+        window.switchPortalGateway(defaultRole);
+    }, 200);
+});
+</script>

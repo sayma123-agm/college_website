@@ -135,6 +135,82 @@ async function initializeDatabase() {
             }
             console.log('[DB INFO] Seeding completed successfully!');
         }
+
+        // Sync faculty and departments data with model files on startup
+        try {
+            const [depTableExists] = await connection.query("SHOW TABLES LIKE 'departments'");
+            if (depTableExists.length > 0) {
+                console.log('[DB INFO] Synchronizing Departments & Faculty tables with latest models...');
+                await connection.query('DELETE FROM department_projects');
+                await connection.query('DELETE FROM department_achievements');
+                await connection.query('DELETE FROM department_labs');
+                await connection.query('DELETE FROM faculty');
+                await connection.query('DELETE FROM departments');
+
+                const departmentModel = require('../models/departmentModel');
+                const facultyModel = require('../models/facultyModel');
+                
+                // Re-seed departments
+                const departmentsData = departmentModel.departmentsData;
+                const deptKeys = Object.keys(departmentsData);
+                for (const key of deptKeys) {
+                    const dept = departmentsData[key];
+                    await connection.query(
+                        `INSERT INTO departments (
+                            id, name, shortName, established, intake, duration, 
+                            hodName, hodDesignation, hodQualification, hodExperience, hodMessage, hodPhoto,
+                            statsFaculty, statsLabs, statsPlacementRate, statsAvgPackage,
+                            placementHighestPackage, placementRecentOffers,
+                            researchAreas, topRecruiters
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+                        [
+                            dept.id, dept.name, dept.shortName, dept.established, dept.intake, dept.duration,
+                            dept.hod.name, dept.hod.designation, dept.hod.qualification, dept.hod.experience, dept.hod.message, dept.hod.photo,
+                            dept.stats.faculty, dept.stats.labs, dept.stats.placementRate, dept.stats.avgPackage,
+                            dept.placements.highestPackage, dept.placements.recentOffers,
+                            JSON.stringify(dept.research.areas), JSON.stringify(dept.placements.topRecruiters)
+                        ]
+                    );
+
+                    for (const lab of dept.labs) {
+                        await connection.query(
+                            'INSERT INTO department_labs (department_id, name, description) VALUES (?, ?, ?)',
+                            [dept.id, lab.name, lab.description]
+                        );
+                    }
+
+                    for (const ach of dept.achievements) {
+                        await connection.query(
+                            'INSERT INTO department_achievements (department_id, title, details) VALUES (?, ?, ?)',
+                            [dept.id, ach.title, ach.details]
+                        );
+                    }
+
+                    for (const proj of dept.research.projects) {
+                        await connection.query(
+                            'INSERT INTO department_projects (department_id, title, funding, amount) VALUES (?, ?, ?, ?)',
+                            [dept.id, proj.title, proj.funding, proj.amount]
+                        );
+                    }
+                }
+
+                // Re-seed faculty
+                const facultyData = facultyModel.facultyData;
+                for (const fac of facultyData) {
+                    await connection.query(
+                        `INSERT INTO faculty (
+                            name, designation, qualification, experience, researchArea, email, image, department_id
+                        ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)`,
+                        [
+                            fac.name, fac.designation, fac.qualification, fac.experience, fac.researchArea, fac.email, fac.image, fac.department
+                        ]
+                    );
+                }
+                console.log('[DB INFO] Synchronization completed successfully.');
+            }
+        } catch (syncErr) {
+            console.error('[DB ERROR] Synchronization failed:', syncErr);
+        }
     } finally {
         await connection.end();
     }

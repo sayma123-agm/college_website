@@ -13,6 +13,7 @@ router.get('/vision-mission', pagesController.renderVisionMission);
 router.get('/governing-council', pagesController.renderGoverningCouncil);
 router.get('/admissions', pagesController.renderAdmissions);
 router.get('/placements', pagesController.renderPlacements);
+router.get('/alumni', pagesController.renderAlumni);
 router.get('/campus-life', pagesController.renderCampusLife);
 router.get('/research', pagesController.renderResearch);
 router.get('/faculty', pagesController.renderFaculty);
@@ -21,6 +22,13 @@ router.get('/portal/:role', pagesController.renderPortalRole);
 router.get('/gallery', pagesController.renderGallery);
 router.get('/contact', pagesController.renderContact);
 router.get('/news', pagesController.renderNews);
+router.get('/feedback', pagesController.renderFeedback);
+router.get('/iqac', pagesController.renderIQAC);
+router.get('/naac', pagesController.renderNAAC);
+router.get('/nirf', pagesController.renderNIRF);
+router.get('/grievance', pagesController.renderGrievance);
+router.get('/nss', pagesController.renderNSS);
+router.get('/ieee', pagesController.renderIEEE);
 
 // Dynamic Department Routes
 router.get('/departments/:dept', departmentController.renderDepartment);

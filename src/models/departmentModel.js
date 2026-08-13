@@ -181,11 +181,11 @@ const departmentsData = {
         intake: 60,
         duration: '4 Years',
         hod: {
-            name: 'Dr. Shantabhushana B M',
+            name: 'Dr. Ramesh Koppar',
             designation: 'HOD & Associate Professor',
             qualification: 'B.E M.Tech Ph.D',
             experience: '12 Years',
-            message: 'Welcome to the Department of Computer Science and Design. This course is designed to provide students with deep insight into Computing techniques, digital analytics, mobile application development, Animations, Virtual Reality and Augmentation.',
+            message: 'Welcome to the Department of Computer Science & Design. This course is designed to provide students with deep insight into Computing techniques, digital analytics, mobile application development, Animations, Virtual Reality and Augmentation.',
             photo: '/images/csdHod.png'
         },
         stats: {
@@ -304,7 +304,10 @@ const departmentsData = {
             { name: 'Mr. Sudhasagar', qualification: 'Diploma', designation: 'Foreman', experience: '16 Years' },
             { name: 'Mr. Shankrappa Badiger', qualification: 'Diploma', designation: 'Instructor', experience: '14 Years' },
             { name: 'Mrs. Chaitra Kulkarni', qualification: 'Diploma', designation: 'Instructor', experience: '09 Years' },
-            { name: 'Mrs. Savita', qualification: 'Diploma', designation: 'Instructor', experience: '04 Years' }
+            { name: 'Mrs. Savita', qualification: 'Diploma', designation: 'Instructor', experience: '04 Years' },
+            { name: 'Mr. Praveen Madnur', qualification: 'Diploma', designation: 'Instructor', experience: '04 Years' },
+            { name: 'Mr. Prjawal Ramesh Hooli', qualification: 'ITI', designation: 'Asst. Instructor', experience: '03 Years' },
+            { name: 'Mr. Ramesh Honnikeri', qualification: 'PUC', designation: 'Helper', experience: '6 Years' }
         ],
         labs: [
             { name: 'Analog Electronics & DSP Lab', description: 'Contains digital storage oscilloscopes (DSOs), signal generators, and software simulators to analyze circuits and signal processing.' },
@@ -533,10 +536,10 @@ const departmentsData = {
             { title: 'Smart Village Topographical Survey Camp', date: 'January 15, 2026', details: 'A 10-day field survey camp conducting contour mapping and road alignment for rural development.' }
         ],
         supportingStaff: [
-            { name: 'Mr. R S Hadli', qualification: 'Diploma', designation: 'Instructor', experience: '12 Years' },
-            { name: 'Mr. Fakiresh B Asundi', qualification: 'Diploma', designation: 'Instructor', experience: '02 Years' },
-            { name: 'Mr. Prasanna Jadhav', qualification: 'Diploma', designation: 'Instructor', experience: '01 Year' },
-            { name: 'Mrs. Basavva Madiwalar', qualification: '-', designation: 'Helper', experience: '-' }
+            { name: 'Mr. R S Hadli', qualification: 'Diploma', designation: 'Instructor', experience: '30 Years' },
+            { name: 'Ms. Chaitra T', qualification: 'Diploma', designation: 'Instructor', experience: '03 Years' },
+            { name: 'Mr. Arun m', qualification: 'PUC', designation: 'Plumber', experience: '08 Years' },
+            { name: 'Mrs. Lakshmavva', qualification: '-', designation: 'Helper', experience: '05 Years' }
         ],
         labs: [
             { name: 'Concrete & Highway Engineering Lab', description: 'Houses compression testing machines, aggregate impact testers, and concrete slump test apparatuses.' },
@@ -571,7 +574,7 @@ const departmentsData = {
             qualification: 'M.Sc Ph.D',
             experience: '20 Years',
             message: 'The Department of Basic Science and Humanities started from the inception of the college. Knowledge in basic science forms the base of engineering. Our objective is to provide value-based education to budding scientists and engineers.',
-            photo: '/images/bshhod.jpg'
+            photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80'
         },
         stats: {
             faculty: 14,
@@ -645,12 +648,12 @@ const departmentsData = {
         intake: 60,
         duration: '2 Years (PG)',
         hod: {
-            name: 'Dr. Maheshgouda Patil',
-            designation: 'Head, Department of MBA',
-            qualification: 'Ph.D in Management',
-            experience: '16 Years',
+            name: 'Mr. Irshad Ahmed Gorikhan',
+            designation: 'HOD & Assistant Professor',
+            qualification: 'B.E M.Tech',
+            experience: '12 Years',
             message: 'Welcome to the MBA Department at AGMRCET Varur Hubli. In today’s fast-changing business environment, leaders must be agile, innovative, and socially responsible. Our MBA program is designed to prepare students to meet these challenges head-on.',
-            photo: '/images/mbahod.png'
+            photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
         },
         stats: {
             faculty: 8,
@@ -781,8 +784,8 @@ const hodImageMap = {
     'ece': '/images/ecHod.png',
     'eee': '/images/eeHod.png',
     'ce': '/images/Civilhod.png',
-    'bsh': '/images/bshhod.jpg',
-    'mba': '/images/mbahod.png'
+    'bsh': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
+    'mba': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
 };
 
 const deptVideoMap = {
@@ -801,6 +804,7 @@ const deptVideoMap = {
 };
 
 module.exports = {
+    departmentsData,
     getDepartmentsList: async () => {
         try {
             const [rows] = await db.query('SELECT id, name, shortName FROM departments');
