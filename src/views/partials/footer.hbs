@@ -1,112 +1,239 @@
 <style>
-    /* Scoped Premium Footer Styles */
+    /* Scoped Premium Footer Styles for White Theme */
     .footer-section {
-        background-color: #0b132b !important; /* Premium Deep Navy */
-        color: #ffffff !important;
+        background: #ffffff !important; /* Pure White Background */
+        color: #334155 !important; /* Slate-700 Body Text */
         font-family: 'Inter', sans-serif;
         position: relative;
-        border-top: 4px solid #ffc107; /* Top highlight accent (Gold) */
+        border-top: 4px solid #0B3D91; /* Brand Navy Top border */
     }
     .footer-section a {
-        color: rgba(255, 255, 255, 0.8) !important;
+        color: #475569 !important; /* Slate-600 Links */
         text-decoration: none !important;
         transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
         font-size: 13px;
         display: inline-flex;
         align-items: center;
+        font-weight: 500;
     }
     .footer-section a:hover {
-        color: #ffc107 !important; /* Gold */
+        color: #0B3D91 !important; /* Brand Royal Navy on hover */
         padding-left: 6px !important;
     }
     .footer-section .footer-title {
-        color: #ffffff !important;
+        color: #0B3D91 !important; /* Brand Royal Navy for Titles */
         font-family: 'Poppins', sans-serif;
         font-weight: 700;
         font-size: 14px;
         letter-spacing: 0.8px;
         text-transform: uppercase;
-        border-bottom: 2px solid #ffc107; /* Heading Accent (Gold) */
+        border-bottom: 2px solid #0B3D91; /* Brand Royal Navy Underline */
         padding-bottom: 6px;
         margin-bottom: 20px;
         display: inline-block;
     }
     .footer-section .social-btn {
-        width: 36px;
-        height: 36px;
-        background-color: rgba(255, 255, 255, 0.08) !important;
-        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        width: 38px;
+        height: 38px;
         border-radius: 50%;
-        display: flex;
+        display: inline-flex;
         align-items: center;
         justify-content: center;
-        color: #ffffff !important;
         transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1) !important;
         text-decoration: none !important;
     }
     .footer-section .social-btn:hover {
-        background-color: #ffc107 !important;
-        color: #0b132b !important;
         transform: translateY(-4px) scale(1.1);
-        border-color: #ffc107 !important;
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1) !important;
     }
+    .footer-section .social-btn i {
+        font-size: 14px;
+        transition: color 0.3s ease !important;
+    }
+    /* Facebook Interactive styling */
+    .social-btn-facebook {
+        background-color: rgba(24, 119, 242, 0.08) !important;
+        border: 1px solid rgba(24, 119, 242, 0.15) !important;
+    }
+    .social-btn-facebook i {
+        color: #1877F2 !important;
+    }
+    .social-btn-facebook:hover {
+        background-color: #1877F2 !important;
+        border-color: #1877F2 !important;
+    }
+    .social-btn-facebook:hover i {
+        color: #ffffff !important;
+    }
+    /* YouTube Interactive styling */
+    .social-btn-youtube {
+        background-color: rgba(255, 0, 0, 0.08) !important;
+        border: 1px solid rgba(255, 0, 0, 0.15) !important;
+    }
+    .social-btn-youtube i {
+        color: #FF0000 !important;
+    }
+    .social-btn-youtube:hover {
+        background-color: #FF0000 !important;
+        border-color: #FF0000 !important;
+    }
+    .social-btn-youtube:hover i {
+        color: #ffffff !important;
+    }
+    /* Instagram Interactive styling */
+    .social-btn-instagram {
+        background-color: rgba(228, 64, 95, 0.08) !important;
+        border: 1px solid rgba(228, 64, 95, 0.15) !important;
+    }
+    .social-btn-instagram i {
+        color: #E4405F !important;
+    }
+    .social-btn-instagram:hover {
+        background-color: #E4405F !important;
+        border-color: #E4405F !important;
+    }
+    .social-btn-instagram:hover i {
+        color: #ffffff !important;
+    }
+    /* LinkedIn Interactive styling */
+    .social-btn-linkedin {
+        background-color: rgba(10, 102, 194, 0.08) !important;
+        border: 1px solid rgba(10, 102, 194, 0.15) !important;
+    }
+    .social-btn-linkedin i {
+        color: #0A66C2 !important;
+    }
+    .social-btn-linkedin:hover {
+        background-color: #0A66C2 !important;
+        border-color: #0A66C2 !important;
+    }
+    .social-btn-linkedin:hover i {
+        color: #ffffff !important;
+    }
+    /* WhatsApp Interactive styling */
+    .social-btn-whatsapp {
+        background-color: rgba(37, 211, 102, 0.08) !important;
+        border: 1px solid rgba(37, 211, 102, 0.15) !important;
+    }
+    .social-btn-whatsapp i {
+        color: #25D366 !important;
+    }
+    .social-btn-whatsapp:hover {
+        background-color: #25D366 !important;
+        border-color: #25D366 !important;
+    }
+    .social-btn-whatsapp:hover i {
+        color: #ffffff !important;
+    }
+
     .footer-section .contact-item {
         font-size: 13px;
-        color: rgba(255, 255, 255, 0.85) !important;
+        color: #334155 !important;
         margin-bottom: 12px;
         display: flex;
         align-items: flex-start;
         gap: 10px;
     }
     .footer-section .contact-item i {
-        color: #ffc107 !important;
+        color: #0B3D91 !important; /* Brand Royal Navy for Icons */
         font-size: 15px;
         margin-top: 2px;
     }
     .footer-section .footer-links li {
         margin-bottom: 10px;
     }
-    .footer-section .footer-links i {
+    .footer-section .footer-links a i {
         font-size: 10px;
         margin-right: 6px;
-        transition: transform 0.25s ease;
+        color: #ffc107 !important; /* Default Gold Chevrons */
+        transition: all 0.25s ease !important;
     }
     .footer-section .footer-links a:hover i {
-        transform: translateX(2px);
+        color: #0B3D91 !important; /* Turn brand navy on hover */
+        transform: translateX(3px) !important;
+    }
+    .youtube-banner-card {
+        background: linear-gradient(135deg, #0D2852 0%, #0A1931 50%, #9E1F1F 100%) !important; 
+        border: 1px solid rgba(255, 255, 255, 0.1) !important;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    }
+    .footer-legal-links a {
+        color: #475569 !important;
+        font-weight: 500;
+        transition: all 0.25s ease !important;
+    }
+    .footer-legal-links a:hover {
+        color: #0B3D91 !important;
+    }
+    .footer-directions-btn {
+        color: #0B3D91 !important;
+        border: 1.5px solid #0B3D91 !important;
+        font-size: 10px;
+        font-weight: 700;
+        border-radius: 4px;
+        transition: all 0.3s ease;
+    }
+    .footer-directions-btn:hover {
+        background-color: #0B3D91 !important;
+        color: #ffffff !important;
     }
 </style>
 
-<footer class="footer-section pt-5 pb-4 mt-auto">
+<footer class="footer-section pt-5 pb-0 mt-auto">
     <div class="container">
-        <div class="row g-4">
+        <!-- Official AGMRCET Media Video Banner (Global across all pages) -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card border-0 youtube-banner-card rounded-4 overflow-hidden text-white" data-aos="fade-up">
+                    <div class="card-body p-4 p-md-5">
+                        <div class="row align-items-center g-4">
+                            <div class="col-lg-7">
+                                <span class="badge bg-warning text-dark text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill mb-2" style="font-size: 10px;">
+                                    <i class="bi bi-youtube me-1"></i> OFFICIAL AGMRCET MEDIA (@agmrcetmedia)
+                                </span>
+                                <h3 class="fw-extrabold text-white mb-2" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 24px;">Explore College Events, Campus Tours & Student Highlights</h3>
+                                <p class="text-white-80 lead fs-6 m-0" style="opacity: 0.9; font-size: 14px !important;">Subscribe and watch official graduation ceremonies, technical symposiums, and sports achievements directly on the AGMRCET Media YouTube Channel.</p>
+                            </div>
+                            <div class="col-lg-5 text-lg-end">
+                                <a href="https://www.youtube.com/@agmrcetmedia/videos" target="_blank" rel="noopener noreferrer" class="btn btn-danger btn-lg px-4 py-3 rounded-pill fw-bold text-uppercase shadow-lg hover-scale" style="background-color: #FF0000 !important; color: #ffffff !important; border: none; font-size: 13px;">
+                                    <i class="bi bi-youtube me-2 fs-5"></i> Watch on YouTube (@agmrcetmedia)
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row g-4 pb-5">
             <!-- Col 1: College Branding & Socials -->
             <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
                 <div class="footer-brand d-flex align-items-center mb-3">
                     <img src="/images/logo.png" alt="AGMRCET Logo" class="me-3" style="width: 56px; height: 56px; object-fit: contain;">
                     <div>
-                        <h5 class="fw-bold tracking-tight text-white m-0" style="font-family: 'Poppins', sans-serif; font-size: 17px; letter-spacing: 0.5px;">AGMRCET</h5>
-                        <p class="text-warning m-0 font-semibold" style="font-size: 9px; text-transform: uppercase; letter-spacing: 1px;">SDM Jainmatt Trust Initiative</p>
+                        <h5 class="fw-bold tracking-tight text-dark m-0" style="color: #0B3D91 !important; font-family: 'Poppins', sans-serif; font-size: 17px; letter-spacing: 0.5px;">AGMRCET</h5>
+                        <p class="text-primary m-0 font-semibold" style="color: #ffc107 !important; font-size: 9px; text-transform: uppercase; letter-spacing: 1px;">SDM Jainmatt Trust Initiative</p>
                     </div>
                 </div>
-                <p class="text-white-50 small mb-4 leading-relaxed" style="font-size: 12.5px; opacity: 0.85; line-height: 1.6;">
+                <p class="text-muted small mb-4 leading-relaxed" style="font-size: 12.5px; opacity: 0.85; line-height: 1.6; color: #475569 !important;">
                     Established in 2010 under SDM Jainmatt Trust, AGM Rural College of Engineering & Technology provides quality engineering and management programs near Navagraha Teerth, Varur-Hubballi, molding skilled technocrats for a better society.
                 </p>
-                <h6 class="text-uppercase fw-bold text-warning mb-3 tracking-wider" style="font-size: 11px; letter-spacing: 1px;">Connect With Media</h6>
+                <h6 class="text-uppercase fw-bold text-primary mb-3 tracking-wider" style="color: #0B3D91 !important; font-size: 11px; letter-spacing: 1px;">Connect With Media</h6>
                 <div class="social-icons-footer d-flex align-items-center gap-2">
-                    <a href="https://www.facebook.com/profile.php?id=100070235567966" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Facebook">
+                    <a href="https://www.facebook.com/profile.php?id=100070235567966" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-facebook" aria-label="Facebook">
                         <i class="fab fa-facebook-f text-xs"></i>
                     </a>
-                    <a href="https://www.youtube.com/@agmrcetmediachannel" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="YouTube">
-                        <i class="fab fa-youtube text-xs" style="color: #ff3333;"></i>
+                    <a href="https://www.youtube.com/@agmrcetmediachannel" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-youtube" aria-label="YouTube">
+                        <i class="fab fa-youtube text-xs"></i>
                     </a>
-                    <a href="https://www.instagram.com/agmrcet_media/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="Instagram">
+                    <a href="https://www.instagram.com/agmrcet_media/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-instagram" aria-label="Instagram">
                         <i class="fab fa-instagram text-xs"></i>
                     </a>
-                    <a href="https://www.linkedin.com/in/agmrcet-media-9ba40826b/" target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="LinkedIn">
+                    <a href="https://www.linkedin.com/in/agmrcet-media-9ba40826b/" target="_blank" rel="noopener noreferrer" class="social-btn social-btn-linkedin" aria-label="LinkedIn">
                         <i class="fab fa-linkedin-in text-xs"></i>
                     </a>
-                    <a href="https://wa.me/9481087999/?text=Send%20Your%20Enquery.%20We%20will%20get%20back%20you." target="_blank" rel="noopener noreferrer" class="social-btn" aria-label="WhatsApp">
-                        <i class="fab fa-whatsapp text-xs" style="color: #25d366;"></i>
+                    <a href="https://wa.me/9481087999/?text=Send%20Your%20Enquery.%20We%20will%20get%20back%20you." target="_blank" rel="noopener noreferrer" class="social-btn social-btn-whatsapp" aria-label="WhatsApp">
+                        <i class="fab fa-whatsapp text-xs"></i>
                     </a>
                 </div>
             </div>
@@ -144,9 +271,9 @@
                     </div>
                     <div class="col-6">
                         <ul class="list-unstyled footer-links p-0 m-0">
-                            <li><a href="/founder-message"><i class="bi bi-chevron-right text-warning"></i>Founder Msg</a></li>
-                            <li><a href="/president-message"><i class="bi bi-chevron-right text-warning"></i>President Msg</a></li>
-                            <li><a href="/principal-message"><i class="bi bi-chevron-right text-warning"></i>Principal Msg</a></li>
+                            <li><a href="/founder-message"><i class="bi bi-chevron-right text-warning"></i>Founder Message</a></li>
+                            <li><a href="/president-message"><i class="bi bi-chevron-right text-warning"></i>President Message</a></li>
+                            <li><a href="/principal-message"><i class="bi bi-chevron-right text-warning"></i>Principal Message</a></li>
                             <li><a href="/faculty"><i class="bi bi-chevron-right text-warning"></i>Faculty</a></li>
                             <li><a href="/campus-life"><i class="bi bi-chevron-right text-warning"></i>Campus Life</a></li>
                             <li><a href="/contact"><i class="bi bi-chevron-right text-warning"></i>Contact Us</a></li>
@@ -174,22 +301,26 @@
                     </div>
                 </div>
                 <!-- Premium Directions Button -->
-                <a href="https://maps.google.com/?q=AGM+Rural+College+of+Engineering+and+Technology+Varur" target="_blank" rel="noopener noreferrer" class="btn btn-outline-warning btn-sm w-100 py-2.5 font-bold text-uppercase tracking-wider d-flex align-items-center justify-content-center gap-1.5" style="border-radius: 4px; font-size: 10px; font-weight: 700; border-width: 1.5px; transition: all 0.3s ease;">
+                <a href="https://maps.google.com/?q=AGM+Rural+College+of+Engineering+and+Technology+Varur" target="_blank" rel="noopener noreferrer" class="btn footer-directions-btn btn-sm w-100 py-2.5 font-bold text-uppercase tracking-wider d-flex align-items-center justify-content-center gap-1.5">
                     <i class="bi bi-map-fill"></i> GET DRIVING DIRECTIONS
                 </a>
             </div>
         </div>
 
-        <hr class="border-secondary-subtle my-4" style="opacity: 0.12; border-color: rgba(255,255,255,0.15) !important;">
-
-        <div class="row g-3 justify-content-between align-items-center small" style="font-size: 11px; opacity: 0.75;">
-            <div class="col-md-7 text-center text-md-start text-white-50">
-                &copy; 2026 AGM Rural College of Engineering & Technology. All Rights Reserved. Managed by SDM Jainmatt Trust, Varur.
-            </div>
-            <div class="col-md-5 text-center text-md-end footer-legal-links">
-                <a href="/about" class="text-white-50 text-decoration-none me-3 hover-text-warning">Privacy Policy</a>
-                <a href="/about" class="text-white-50 text-decoration-none me-3 hover-text-warning">Terms of Use</a>
-                <a href="/contact" class="text-white-50 text-decoration-none hover-text-warning">Sitemap</a>
+    </div> <!-- Close main container -->
+    
+    <!-- Full-width Bottom Copyright & Legal Bar with Light Gray Color -->
+    <div class="py-3 mt-4" style="background-color: #f8fafc !important; border-top: 1px solid #e2e8f0; position: relative; z-index: 10;">
+        <div class="container">
+            <div class="row g-3 justify-content-between align-items-center small" style="font-size: 11px; opacity: 0.85;">
+                <div class="col-md-7 text-center text-md-start" style="color: #475569 !important;">
+                    &copy; 2026 AGM Rural College of Engineering & Technology. All Rights Reserved.
+                </div>
+                <div class="col-md-5 text-center text-md-end footer-legal-links">
+                    <a href="/about" class="text-decoration-none me-3" style="color: #475569 !important; font-weight: 500;">Privacy Policy</a>
+                    <a href="/about" class="text-decoration-none me-3" style="color: #475569 !important; font-weight: 500;">Terms of Use</a>
+                    <a href="/contact" class="text-decoration-none" style="color: #475569 !important; font-weight: 500;">Sitemap</a>
+                </div>
             </div>
         </div>
     </div>

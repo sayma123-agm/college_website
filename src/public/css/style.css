@@ -898,21 +898,20 @@ html.high-contrast .btn:hover {
 
 /* Premium Footer Link Colors and Hover States */
 .footer-section a {
-    color: rgba(255, 255, 255, 0.75) !important;
+    color: #475569 !important; /* Slate-600 Links */
     text-decoration: none !important;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1) !important;
 }
 .footer-section a:hover {
-    color: var(--accent-color) !important; /* Gold/yellow */
-    padding-left: 2px;
+    color: #0B3D91 !important; /* Brand Royal Navy on Hover */
 }
 .footer-section .social-icons-footer a {
-    color: #ffffff !important;
+    /* Set by custom class overrides */
 }
 .footer-section .social-icons-footer a:hover {
-    background-color: var(--accent-color) !important;
-    color: #07162c !important;
+    /* Set by custom class overrides */
 }
+
 
 /* Fix Bootstrap Accordion Contrast & Text Visibility */
 .accordion-button {

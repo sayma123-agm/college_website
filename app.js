@@ -112,9 +112,9 @@ app.get('/images/founder.png', (req, res, next) => {
 // Copy avatars on startup
 try {
     const employeeSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\employee_avatar_web_1786615069443.jpg';
-    const studentSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\student_avatar_web_1786615128660.jpg';
-    const femaleEmployeeSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\female_employee_avatar_1786617375358.jpg';
-    const maleStudentSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\male_student_avatar_1786617406022.jpg';
+    const studentSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\female_student_avatar_flat_1786691558446.jpg';
+    const femaleEmployeeSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\female_employee_avatar_flat_1786691496619.jpg';
+    const maleStudentSrc = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\6cd67781-a958-442b-8e00-06dc88e73bcd\\male_student_avatar_flat_1786691534027.jpg';
     const publicImagesDir = path.join(__dirname, 'src', 'public', 'images');
     
     if (fs.existsSync(employeeSrc)) {

@@ -15,6 +15,8 @@ router.get('/admissions', pagesController.renderAdmissions);
 router.get('/placements', pagesController.renderPlacements);
 router.get('/alumni', pagesController.renderAlumni);
 router.get('/campus-life', pagesController.renderCampusLife);
+router.get('/library', pagesController.renderLibrary);
+router.get('/facilities', pagesController.renderFacilities);
 router.get('/research', pagesController.renderResearch);
 router.get('/faculty', pagesController.renderFaculty);
 router.get('/portal', pagesController.renderPortal);

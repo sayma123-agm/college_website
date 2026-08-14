@@ -1,0 +1,115 @@
+<!-- Page Header Banner -->
+<section class="page-header position-relative overflow-hidden py-5 bg-navy text-white d-flex align-items-center" style="min-height: 220px;">
+    <div class="container position-relative z-2 pt-4">
+        <div class="row">
+            <div class="col-12" data-aos="fade-right">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb mb-2 text-white-50">
+                        <li class="breadcrumb-item"><a href="/" class="text-white-50 text-decoration-none">Home</a></li>
+                        <li class="breadcrumb-item active text-white" aria-current="page">Grievance</li>
+                    </ol>
+                </nav>
+                <h1 class="display-5 fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;">Grievance Redressal</h1>
+                <p class="text-white-50 small m-0 mt-1">Providing a transparent, secure, and democratic portal for student and staff grievances.</p>
+            </div>
+        </div>
+    </div>
+    <div class="page-header-glow"></div>
+</section>
+
+<!-- Grievance Section -->
+<section class="py-5 bg-white">
+    <div class="container">
+        <div class="row g-4">
+            <!-- Left: Grievance submission form -->
+            <div class="col-lg-7" data-aos="fade-right">
+                <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white border border-light-subtle">
+                    <span class="text-primary text-uppercase tracking-wider fw-bold small">Online Grievance Cell</span>
+                    <h3 class="fw-bold text-navy mt-1 mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">Submit a Grievance</h3>
+                    
+                    <form action="javascript:void(0);" onsubmit="alert('Your concern has been securely logged with the Grievance Redressal Committee. You will receive an update shortly.'); this.reset();" class="d-flex flex-column gap-3">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="grievance-name" class="form-label fw-bold text-navy">Full Name</label>
+                                <input type="text" class="form-control rounded-3 py-2.5" id="grievance-name" placeholder="Enter your name" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="grievance-email" class="form-label fw-bold text-navy">Email Address</label>
+                                <input type="email" class="form-control rounded-3 py-2.5" id="grievance-email" placeholder="Enter your email" required>
+                            </div>
+                        </div>
+
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label for="grievance-phone" class="form-label fw-bold text-navy">Phone Number</label>
+                                <input type="tel" class="form-control rounded-3 py-2.5" id="grievance-phone" placeholder="Enter phone number" required>
+                            </div>
+                            <div class="col-md-6">
+                                <label for="grievance-category" class="form-label fw-bold text-navy">Grievance Category</label>
+                                <select class="form-select rounded-3 py-2.5" id="grievance-category" required>
+                                    <option value="" disabled selected>Select category</option>
+                                    <option value="academic">Academic / Syllabus Concerns</option>
+                                    <option value="examination">Examination & Marks</option>
+                                    <option value="facilities">Infrastructure & Lab Facilities</option>
+                                    <option value="harassment">Anti-Ragging / Harassment</option>
+                                    <option value="other">General Administration</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mb-2">
+                            <label for="grievance-message" class="form-label fw-bold text-navy">Description of Grievance</label>
+                            <textarea class="form-control rounded-3" id="grievance-message" rows="5" placeholder="Provide details regarding your grievance..." required></textarea>
+                        </div>
+
+                        <button type="submit" class="btn btn-danger py-2.5 rounded-3 fw-bold text-uppercase tracking-wider shadow-sm mt-2" style="background-color: #e03a3a !important; border-color: #e03a3a !important;">
+                            Submit Grievance <i class="bi bi-shield-exclamation ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+
+            <!-- Right: Committee Info & External Links -->
+            <div class="col-lg-5" data-aos="fade-left">
+                <!-- Grievance Committee Card -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 mb-4 bg-white">
+                    <h5 class="fw-bold text-navy mb-3"><i class="bi bi-people-fill text-primary me-2"></i>Grievance Committee</h5>
+                    <p class="text-muted small leading-relaxed">
+                        The Grievance Redressal Committee of AGMRCET ensures a fair, responsive, and supportive environment for student welfare.
+                    </p>
+                    <ul class="list-unstyled small text-navy p-0 m-0">
+                        <li class="mb-2.5 border-bottom pb-2">
+                            <strong class="d-block">Dr. Sandeep Kyatanavar</strong>
+                            <span class="text-muted text-xs">Chairman | Principal, AGMRCET</span>
+                        </li>
+                        <li class="mb-2.5 border-bottom pb-2">
+                            <strong class="d-block">Dr. Ramesh Koppar</strong>
+                            <span class="text-muted text-xs">Member | HOD & Associate Professor</span>
+                        </li>
+                        <li class="mb-2.5 border-bottom pb-2">
+                            <strong class="d-block">Mrs. Ashwini Puttannavar</strong>
+                            <span class="text-muted text-xs">Member | Training & Placement Officer</span>
+                        </li>
+                        <li>
+                            <strong class="d-block">Mrs. Deepti Deshpande</strong>
+                            <span class="text-muted text-xs">Member Secretary | Assistant Professor</span>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- External Statutory Grievance Links -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 bg-white">
+                    <h5 class="fw-bold text-navy mb-3">Statutory Grievance Portals</h5>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="https://www.aicte-india.org/feedback/" target="_blank" class="btn btn-outline-secondary btn-sm text-start rounded-3 py-2 px-3 fw-bold d-flex align-items-center justify-content-between">
+                            AICTE Public Feedback Portal <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                        <a href="https://vtu.ac.in/en/student-grievance/" target="_blank" class="btn btn-outline-secondary btn-sm text-start rounded-3 py-2 px-3 fw-bold d-flex align-items-center justify-content-between">
+                            VTU Student Grievance Portal <i class="bi bi-box-arrow-up-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

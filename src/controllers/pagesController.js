@@ -99,6 +99,22 @@ exports.renderCampusLife = (req, res) => {
     });
 };
 
+exports.renderLibrary = (req, res) => {
+    res.render('library', {
+        title: 'Central Library & Information Centre | AGMRCET',
+        description: 'Learn about our central library resources, journals, working hours, library staff, and online access options at AGMRCET.',
+        activeLibrary: true
+    });
+};
+
+exports.renderFacilities = (req, res) => {
+    res.render('facilities', {
+        title: 'Campus Facilities & Services | AGMRCET',
+        description: 'Discover campus amenities including hostels, RO water plant, safety measures, solar power plant, and sports setups at AGMRCET.',
+        activeFacilities: true
+    });
+};
+
 exports.renderResearch = (req, res) => {
     res.render('research', {
         title: 'Research & Innovation | AGMRCET',
