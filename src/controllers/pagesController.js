@@ -12,7 +12,7 @@ exports.renderHome = async (req, res) => {
         depts.forEach(dept => {
             const hodObj = dept.hod || {};
             dept.hodName = dept.hodName || hodObj.name || 'HOD';
-            dept.hodPhoto = dept.hodPhoto || hodObj.photo || 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80';
+            dept.hodPhoto = dept.hodPhoto || hodObj.photo || '/images/employee-avatar.jpg';
             dept.hodExp = dept.hodExp || dept.hodExperience || hodObj.experience || '12 Years';
             dept.hodDesignation = dept.hodDesignation || dept.hodDesignation || hodObj.designation || 'HOD & Professor';
             dept.hodMessage = dept.hodMessage || hodObj.message || 'Welcome to our department.';

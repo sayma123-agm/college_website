@@ -116,9 +116,45 @@ const hodImageMap = {
     'ece': '/images/ecHod.png',
     'eee': '/images/eeHod.png',
     'ce': '/images/Civilhod.png',
-    'bsh': '/images/bshhod.jpg',
-    'mba': '/images/mbahod.png'
+    'bsh': '/images/college_data/basic science dept/basic science hod.jpg',
+    'mba': '/images/aimlhod.png'
 };
+
+function formatFacultyImages(list) {
+    const femaleKeywords = [
+        'mrs.', 'ms.', 'miss', 'deepa', 'ananya', 'kavya', 'surekha', 'preeti', 
+        'tabasum', 'sumna', 'shailaja', 'shobha', 'soumya', 'rupali', 'deepti', 
+        'vidya', 'nahida', 'amruta', 'harsha', 'sushma', 'shweta', 'ashwini', 
+        'vinaya', 'renuka', 'vijayalakshmi', 'reshma', 'manjula', 'rafiyabanu', 
+        'shrayanka', 'tejeshree', 'rashmi', 'muskaan', 'pooja', 'pragati', 
+        'sandya', 'vidyarani', 'annapurna'
+    ];
+    
+    list.forEach(f => {
+        const deptKey = f.department ? f.department.toLowerCase() : '';
+        
+        // Match HOD images
+        if (f.email && f.email.startsWith('hod.') && hodImageMap[deptKey]) {
+            f.image = hodImageMap[deptKey];
+        }
+        
+        // Fallback for bsh and mba HODs in facultyData
+        if (f.name === 'Dr. Mahesh Bannur' && deptKey === 'bsh') {
+            f.image = '/images/college_data/basic science dept/basic science hod.jpg';
+        }
+        if (f.name === 'Mr. Irshad Ahmed Gorikhan' && deptKey === 'mba') {
+            f.image = '/images/aimlhod.png';
+        }
+        
+        // Replace Unsplash links with local gender-based avatars
+        if (f.image && f.image.startsWith('https://images.unsplash.com')) {
+            const nameLower = f.name.toLowerCase();
+            const isFemale = femaleKeywords.some(keyword => nameLower.includes(keyword));
+            f.image = isFemale ? '/images/female-employee-avatar.jpg' : '/images/employee-avatar.jpg';
+        }
+    });
+    return list;
+}
 
 module.exports = {
     facultyData, // Export raw array too!
@@ -132,14 +168,7 @@ module.exports = {
         }
         if (list.length === 0) list = facultyData;
 
-        list.forEach(f => {
-            const deptKey = f.department ? f.department.toLowerCase() : '';
-            if (f.email && f.email.startsWith('hod.') && hodImageMap[deptKey]) {
-                f.image = hodImageMap[deptKey];
-            }
-        });
-
-        return list;
+        return formatFacultyImages(list);
     },
     getFacultyByDepartment: async (dept) => {
         const deptId = dept.toLowerCase();
@@ -154,12 +183,6 @@ module.exports = {
             list = facultyData.filter(f => f.department.toLowerCase() === deptId);
         }
 
-        list.forEach(f => {
-            if (f.email && f.email.startsWith('hod.') && hodImageMap[deptId]) {
-                f.image = hodImageMap[deptId];
-            }
-        });
-
-        return list;
+        return formatFacultyImages(list);
     }
 };

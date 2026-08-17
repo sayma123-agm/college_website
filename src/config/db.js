@@ -22,7 +22,7 @@ module.exports = pool;
 async function initializeDatabase() {
     const DB_NAME = dbConfig.database;
     
-    // 1. Initial connection without database select to verify server status and create DB
+    // 1. Initial connection without database select to verify server status and attempt DB creation
     let adminConnection;
     try {
         adminConnection = await mysql.createConnection({
@@ -30,12 +30,11 @@ async function initializeDatabase() {
             user: dbConfig.user,
             password: dbConfig.password
         });
+        await adminConnection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;`);
+        await adminConnection.end();
     } catch (err) {
-        throw new Error(`MySQL server connection failed: ${err.message}`);
+        console.warn(`[DB WARNING] Database creation attempt bypassed or failed: ${err.message}. Proceeding to connect to "${DB_NAME}"...`);
     }
-
-    await adminConnection.query(`CREATE DATABASE IF NOT EXISTS \`${DB_NAME}\`;`);
-    await adminConnection.end();
 
     // 2. Connect to the database to check if tables exist
     const connection = await mysql.createConnection({

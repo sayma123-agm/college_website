@@ -1,14 +1,5 @@
 const db = require('../config/db');
-const fs = require('fs');
-const path = require('path');
 
-try {
-    const srcBanner = 'C:\\Users\\LENOVO\\.gemini\\antigravity\\brain\\d3a51f2c-b048-49cd-a94a-0be80f4b1f6e\\media__1784523715907.png';
-    const destDir = path.join(__dirname, '..', 'public', 'images');
-    const destBanner = path.join(destDir, 'admission-banner.png');
-    if (!fs.existsSync(destDir)) fs.mkdirSync(destDir, { recursive: true });
-    if (fs.existsSync(srcBanner)) fs.copyFileSync(srcBanner, destBanner);
-} catch (e) {}
 
 const departmentsData = {
     'cse': {
@@ -418,7 +409,7 @@ const departmentsData = {
             qualification: 'B.E M.Tech Ph.D',
             experience: '16 Years',
             message: 'The Department of Mechanical Engineering was established in 2010. The Department has skilled faculty in Machine Design, Thermal Engineering, Manufacturing and Maintenance to provide qualitative, industry-tuned education.',
-            photo: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=300&q=80'
+            photo: '/images/employee-avatar.jpg'
         },
         stats: {
             faculty: 9,
@@ -574,7 +565,7 @@ const departmentsData = {
             qualification: 'M.Sc Ph.D',
             experience: '20 Years',
             message: 'The Department of Basic Science and Humanities started from the inception of the college. Knowledge in basic science forms the base of engineering. Our objective is to provide value-based education to budding scientists and engineers.',
-            photo: 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80'
+            photo: '/images/college_data/basic science dept/basic science hod.jpg'
         },
         stats: {
             faculty: 14,
@@ -653,7 +644,7 @@ const departmentsData = {
             qualification: 'B.E M.Tech',
             experience: '12 Years',
             message: 'Welcome to the MBA Department at AGMRCET Varur Hubli. In today’s fast-changing business environment, leaders must be agile, innovative, and socially responsible. Our MBA program is designed to prepare students to meet these challenges head-on.',
-            photo: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
+            photo: '/images/employee-avatar.jpg'
         },
         stats: {
             faculty: 8,
@@ -725,7 +716,7 @@ const departmentsData = {
             qualification: 'Ph.D in Computer Applications',
             experience: '13+ Years',
             message: 'Our MCA course is tailored for students aiming to master software application design. With rapid progress in web services, mobile app development, and cloud databases, we provide high-intensity coding curricula and mandatory industry projects.',
-            photo: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?auto=format&fit=crop&w=300&q=80'
+            photo: '/images/female-employee-avatar.jpg'
         },
         stats: {
             faculty: 7,
@@ -784,8 +775,10 @@ const hodImageMap = {
     'ece': '/images/ecHod.png',
     'eee': '/images/eeHod.png',
     'ce': '/images/Civilhod.png',
-    'bsh': 'https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=300&q=80',
-    'mba': 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?auto=format&fit=crop&w=300&q=80'
+    'bsh': '/images/college_data/basic science dept/basic science hod.jpg',
+    'mba': '/images/employee-avatar.jpg',
+    'me': '/images/employee-avatar.jpg',
+    'mca': '/images/female-employee-avatar.jpg'
 };
 
 const deptVideoMap = {
