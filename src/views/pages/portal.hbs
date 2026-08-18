@@ -107,7 +107,7 @@
         transition: all 0.3s ease;
     }
     
-    /* Watermark background logo icons */
+    /* Watermark background logo icons (Full Vibrant Color) */
     .bg-watermark-logo-left {
         position: absolute;
         left: -40px;
@@ -115,7 +115,7 @@
         transform: translateY(-50%) rotate(-12deg);
         width: 280px;
         height: 280px;
-        opacity: 0.12;
+        opacity: 0.22;
         pointer-events: none;
         user-select: none;
         z-index: 1;
@@ -130,7 +130,7 @@
         transform: translateY(-50%) rotate(12deg);
         width: 280px;
         height: 280px;
-        opacity: 0.12;
+        opacity: 0.22;
         pointer-events: none;
         user-select: none;
         z-index: 1;
@@ -203,7 +203,7 @@
             </div>
 
             <!-- Employee Login Card -->
-            <div class="col-md-5 col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="card premium-login-card h-100" style="overflow: visible !important;">
                     <div class="p-4 text-white text-center card-header-gradient-1">
                         <h4 class="fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px;">Employee Login</h4>
@@ -237,7 +237,7 @@
             </div>
 
             <!-- Student Login Card -->
-            <div class="col-md-5 col-lg-4">
+            <div class="col-lg-4 col-md-6">
                 <div class="card premium-login-card h-100" style="overflow: visible !important;">
                     <div class="p-4 text-white text-center card-header-gradient-2">
                         <h4 class="fw-extrabold m-0" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 20px;">Student Login</h4>
@@ -860,6 +860,38 @@ document.addEventListener("DOMContentLoaded", () => {
             
             // Execute login trigger via main submit button
             if (mainSubmit) mainSubmit.click();
+        });
+    }
+
+    const mediaForm = document.getElementById("media-login-form");
+    if (mediaForm) {
+        mediaForm.addEventListener("submit", async (e) => {
+            e.preventDefault();
+            const usnVal = document.getElementById("media-usn").value.trim();
+            const pwdVal = document.getElementById("media-password").value;
+            
+            try {
+                const res = await fetch('/api/auth/login', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ username: usnVal, password: pwdVal, expectedRole: 'admin' })
+                });
+
+                const data = await res.json();
+                if (data.success && data.token) {
+                    localStorage.setItem('adminToken', data.token);
+                    localStorage.setItem('adminName', data.name || 'System Admin');
+                    window.location.href = '/admin/dashboard';
+                } else {
+                    const errBox = document.getElementById('login-error-alert');
+                    if (errBox) {
+                        errBox.innerText = data.message || 'Media admin authentication failed.';
+                        errBox.classList.remove('d-none');
+                    }
+                }
+            } catch (err) {
+                alert('Network connection error.');
+            }
         });
     }
 

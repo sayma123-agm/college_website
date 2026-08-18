@@ -1,0 +1,1242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Media Admin Dashboard | AGMRCET</title>
+    <!-- Bootstrap 5 CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Plus+Jakarta+Sans:wght@500;600;700;800&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8FAFC;
+            color: #1E293B;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            position: relative;
+        }
+
+        /* Vibrant Colored Watermark Backgrounds */
+        .admin-watermark-left {
+            position: fixed;
+            left: -30px;
+            top: 55%;
+            transform: translateY(-50%) rotate(-10deg);
+            width: 340px;
+            height: 340px;
+            opacity: 0.18;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        .admin-watermark-right {
+            position: fixed;
+            right: -30px;
+            top: 55%;
+            transform: translateY(-50%) rotate(10deg);
+            width: 340px;
+            height: 340px;
+            opacity: 0.18;
+            pointer-events: none;
+            user-select: none;
+            z-index: 1;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            top: 55%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 520px;
+            height: 520px;
+            pointer-events: none;
+            z-index: 0;
+            background-image: url("/images/logo.png");
+            background-repeat: no-repeat;
+            background-position: center;
+            background-size: contain;
+            opacity: 0.12;
+        }
+
+        /* Direct Inline Editable Text Styles */
+        [contenteditable="true"] {
+            outline: 1px dashed rgba(11, 61, 145, 0.4);
+            outline-offset: 3px;
+            border-radius: 4px;
+            cursor: text;
+            transition: all 0.2s ease;
+        }
+        [contenteditable="true"]:hover {
+            outline: 2px dashed #0B3D91;
+            background-color: rgba(11, 61, 145, 0.04);
+        }
+        [contenteditable="true"]:focus {
+            outline: 2px solid #0B3D91;
+            background-color: #ffffff;
+            box-shadow: 0 0 8px rgba(11, 61, 145, 0.2);
+        }
+
+        /* Standalone Admin Top Navigation Bar */
+        .admin-top-header {
+            background: linear-gradient(135deg, #0B3D91 0%, #051D40 100%) !important;
+            border-bottom: 3px solid #ffc107;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 10;
+        }
+
+        .admin-brand-title {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            font-weight: 800;
+            font-size: 19px;
+            color: #ffffff;
+            line-height: 1.15;
+            letter-spacing: -0.2px;
+        }
+
+        /* Modern Dashboard Cards */
+        .admin-card {
+            background: #ffffff;
+            border: 1px solid rgba(15, 23, 42, 0.08);
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(15, 23, 42, 0.04);
+            transition: all 0.25s cubic-bezier(0.165, 0.84, 0.44, 1);
+            position: relative;
+            z-index: 2;
+        }
+
+        .admin-card:hover {
+            box-shadow: 0 15px 35px rgba(15, 23, 42, 0.08);
+        }
+
+        /* Metric Summary Widget Cards */
+        .metric-card {
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            border-radius: 14px;
+            padding: 1.25rem;
+            transition: all 0.2s ease;
+        }
+        .metric-card:hover {
+            transform: translateY(-3px);
+            border-color: #CBD5E1;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.04);
+        }
+
+        /* Nav Pills Styling */
+        .nav-pills .nav-link {
+            color: #475569;
+            background: #ffffff;
+            border: 1px solid #E2E8F0;
+            font-weight: 700;
+            font-size: 13px;
+            padding: 10px 24px;
+            border-radius: 30px;
+            transition: all 0.25s ease;
+        }
+
+        .nav-pills .nav-link:hover {
+            border-color: #94A3B8;
+            color: #0F172A;
+            background-color: #F8FAFC;
+        }
+
+        .nav-pills .nav-link.active {
+            background: linear-gradient(135deg, #0B3D91 0%, #1E40AF 100%) !important;
+            color: #ffffff !important;
+            border-color: #0B3D91 !important;
+            box-shadow: 0 6px 16px rgba(11, 61, 145, 0.25);
+        }
+
+        /* Bulletin Card Category Accent Colors */
+        .bulletin-card-circular { border-left: 4px solid #0d6efd !important; }
+        .bulletin-card-event { border-left: 4px solid #6f42c1 !important; }
+        .bulletin-card-admissions { border-left: 4px solid #ffc107 !important; }
+        .bulletin-card-placement { border-left: 4px solid #198754 !important; }
+
+        .topper-poster-img {
+            max-height: 250px;
+            width: 100%;
+            object-fit: contain;
+            background-color: #F1F5F9;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+        }
+        .topper-poster-img:hover {
+            transform: scale(1.02);
+        }
+
+        .inquiry-card {
+            border-left: 4px solid #0B3D91;
+            transition: all 0.2s ease;
+        }
+        .inquiry-card:hover {
+            box-shadow: 0 8px 24px rgba(11, 61, 145, 0.08) !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Standalone Dedicated Executive Admin Header (NO public navbar) -->
+    <header class="admin-top-header py-3 px-3 px-md-4 text-white">
+        <div class="container-fluid d-flex align-items-center justify-content-between">
+            <div class="d-flex align-items-center gap-3">
+                <img src="/images/logo.png" alt="AGMRCET Logo" style="width: 48px; height: 48px; object-fit: contain;">
+                <div>
+                    <div class="admin-brand-title">AGMRCET Media & Advertisements Dashboard</div>
+                    <div class="d-flex align-items-center gap-2 mt-0.5" style="font-size: 11px;">
+                        <span class="text-white-75">Authorized Administrative Management Console</span>
+                        <span class="text-white-30">•</span>
+                        <span class="badge bg-success-subtle text-success border border-success-subtle px-2 py-0.5" style="font-size: 9.5px;">
+                            <span class="spinner-grow spinner-grow-sm text-success me-1" style="width: 5px; height: 5px;"></span> LIVE CONSOLE ONLINE
+                        </span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="d-flex align-items-center gap-3">
+                <div class="d-none d-md-flex align-items-center gap-2 border-end pe-3 border-white-20">
+                    <div class="rounded-circle bg-white text-navy d-flex align-items-center justify-content-center fw-bold" style="width: 34px; height: 34px; font-size: 13px; color: #0B3D91;">
+                        <i class="bi bi-person-fill"></i>
+                    </div>
+                    <div>
+                        <div class="small text-white fw-bold" id="admin-user-display">System Admin Coordinator</div>
+                        <span class="badge bg-warning text-dark font-mono fw-bold" style="font-size: 9.5px;">AGM-ADMIN-999</span>
+                    </div>
+                </div>
+                <button id="admin-logout-btn" class="btn btn-outline-light btn-sm rounded-pill px-3 py-1.5 fw-bold d-flex align-items-center gap-1.5 shadow-xs" style="font-size: 12px;">
+                    <i class="bi bi-box-arrow-right"></i> Sign Out
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Console Viewport -->
+    <main class="flex-grow-1 py-4 px-2 px-md-4 position-relative z-2">
+        <!-- Floating Vibrant Colored Watermark Logos -->
+        <div class="admin-watermark-left d-none d-xl-block">
+            <img src="/images/logo.png" alt="Left Watermark Logo" class="w-100 h-100 object-fit-contain">
+        </div>
+        <div class="admin-watermark-right d-none d-xl-block">
+            <img src="/images/logo.png" alt="Right Watermark Logo" class="w-100 h-100 object-fit-contain">
+        </div>
+
+        <div class="container-fluid position-relative z-2">
+            
+            <!-- Top Summary Analytics Widgets Row -->
+            <div class="row g-3 mb-4">
+                <div class="col-6 col-md-3">
+                    <div class="metric-card d-flex align-items-center gap-3">
+                        <div class="rounded-3 p-2.5 bg-primary-subtle text-primary fs-4 d-flex align-items-center justify-content-center" style="width: 46px; height: 46px; min-width: 46px;">
+                            <i class="bi bi-megaphone-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small fw-semibold">Live Updates</div>
+                            <h5 class="fw-extrabold m-0 text-navy" id="stat-bulletins-count">0 Items</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="metric-card d-flex align-items-center gap-3">
+                        <div class="rounded-3 p-2.5 bg-warning-subtle text-warning-emphasis fs-4 d-flex align-items-center justify-content-center" style="width: 46px; height: 46px; min-width: 46px;">
+                            <i class="bi bi-envelope-paper-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small fw-semibold">Student Inquiries</div>
+                            <h5 class="fw-extrabold m-0 text-navy" id="stat-inquiries-count">0 Submitted</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="metric-card d-flex align-items-center gap-3">
+                        <div class="rounded-3 p-2.5 bg-purple-subtle text-purple fs-4 d-flex align-items-center justify-content-center" style="width: 46px; height: 46px; min-width: 46px; background-color: #F3E8FF; color: #7E22CE;">
+                            <i class="bi bi-trophy-fill"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small fw-semibold">Hall of Fame</div>
+                            <h5 class="fw-extrabold m-0 text-navy">3 Posters</h5>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-6 col-md-3">
+                    <div class="metric-card d-flex align-items-center gap-3">
+                        <div class="rounded-3 p-2.5 bg-success-subtle text-success fs-4 d-flex align-items-center justify-content-center" style="width: 46px; height: 46px; min-width: 46px;">
+                            <i class="bi bi-shield-check"></i>
+                        </div>
+                        <div>
+                            <div class="text-muted small fw-semibold">Console Security</div>
+                            <h5 class="fw-extrabold m-0 text-success fs-6">JWT Protected</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Dashboard Sub-Navigation Tabs -->
+            <ul class="nav nav-pills mb-4 gap-2 justify-content-start" id="adminTabs" role="tablist">
+                <li class="nav-item">
+                    <button class="nav-link active d-flex align-items-center gap-2" id="btn-tab-bulletins" onclick="switchAdminTab('bulletins-panel', this)">
+                        <i class="bi bi-megaphone-fill"></i> Manage Live Updates
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" id="btn-tab-halloffame" onclick="switchAdminTab('halloffame-panel', this)">
+                        <i class="bi bi-trophy-fill text-warning"></i> Hall of Fame & Toppers
+                    </button>
+                </li>
+                <li class="nav-item">
+                    <button class="nav-link d-flex align-items-center gap-2" id="btn-tab-inquiries" onclick="switchAdminTab('inquiries-panel', this)">
+                        <i class="bi bi-envelope-paper-fill text-warning"></i> Student Inquiries <span id="inquiries-counter" class="badge bg-danger ms-1" style="font-size: 9.5px;">0</span>
+                    </button>
+                </li>
+            </ul>
+
+            <!-- Tab Content Panels -->
+            <div class="tab-content" id="adminTabsContent">
+                
+                <!-- Tab 1: Manage Live Updates -->
+                <div class="tab-pane fade show active" id="bulletins-panel" role="tabpanel" style="display: block;">
+                    <div class="row g-4">
+                        <!-- Add Form Card -->
+                        <div class="col-lg-4">
+                            <div class="admin-card p-4">
+                                <h5 class="fw-extrabold text-navy mb-3" style="font-family: 'Plus Jakarta Sans', sans-serif;"><i class="bi bi-plus-circle-fill text-primary me-2"></i>Publish Daily Update</h5>
+                                <div id="form-alert" class="alert d-none small"></div>
+                                
+                                <form id="add-news-form">
+                                    <div class="mb-3">
+                                        <label for="news-category" class="form-label small fw-bold text-navy"><i class="bi bi-tags me-1 text-primary"></i>Category / Channel</label>
+                                        <select class="form-select shadow-none rounded-3 py-2 px-3 small" id="news-category" required>
+                                            <option value="circular" selected>Circular (Academic/VTU)</option>
+                                            <option value="event">Event (Agratha/Fests/Workshops)</option>
+                                            <option value="admissions">Admissions & Intake</option>
+                                            <option value="placement">Placement & Recruiter Drives</option>
+                                        </select>
+                                    </div>
+                                    <div class="mb-3">
+                                        <label for="news-title" class="form-label small fw-bold text-navy"><i class="bi bi-type-h1 me-1 text-primary"></i>Alert Title</label>
+                                        <input type="text" class="form-control shadow-none rounded-3 py-2 px-3 small" id="news-title" placeholder="Short description heading" required>
+                                    </div>
+                                    <div class="mb-4">
+                                        <label for="news-content" class="form-label small fw-bold text-navy"><i class="bi bi-text-paragraph me-1 text-primary"></i>Bulletin Content Details</label>
+                                        <textarea class="form-control shadow-none rounded-3 py-2 px-3 small" id="news-content" rows="4" placeholder="Detailed notification content visible to public..." required></textarea>
+                                    </div>
+                                    <button type="submit" id="btn-publish" class="btn btn-primary w-100 py-2.5 rounded-3 fw-bold text-uppercase tracking-wider small shadow-sm d-flex align-items-center justify-content-center gap-2" style="background: linear-gradient(135deg, #0B3D91 0%, #1E40AF 100%) !important; border: none;">
+                                        Publish Live Bulletin <i class="bi bi-send-fill fs-6"></i>
+                                    </button>
+                                </form>
+                            </div>
+                        </div>
+
+                        <!-- Live Bulletins Feed Card -->
+                        <div class="col-lg-8">
+                            <div class="admin-card p-4">
+                                <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+                                    <div class="d-flex align-items-center gap-2">
+                                        <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;"><i class="bi bi-list-stars text-success me-2"></i>Live Bulletin Feeds</h5>
+                                        <span id="bulletins-count" class="badge bg-success-subtle text-success border px-3 py-1.5 rounded-pill small">0 Items</span>
+                                    </div>
+                                    <button class="btn btn-outline-secondary btn-sm rounded-pill px-3 py-1" onclick="loadNews()"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</button>
+                                </div>
+
+                                <div id="bulletins-list-container" class="d-flex flex-column gap-3">
+                                    <div class="text-center py-5 text-muted">Loading active announcements...</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 2: Hall of Fame & Toppers Showcase -->
+                <div class="tab-pane fade" id="halloffame-panel" role="tabpanel" style="display: none;">
+                    <div class="admin-card p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-3 flex-wrap gap-2">
+                            <div>
+                                <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;"><i class="bi bi-award-fill text-warning me-2"></i>Hall of Fame & Academic Excellence Showcase</h5>
+                                <p class="text-muted small m-0 mt-1">Manage semester rank toppers and national competition winners displayed on the homepage.</p>
+                            </div>
+                            <div class="d-flex align-items-center gap-2">
+                                <span id="poster-count-badge" class="badge bg-warning text-dark px-3 py-2 rounded-pill fw-bold" style="font-size: 11px;">3 Published Posters</span>
+                                <button onclick="addNewPosterCard()" class="btn btn-outline-primary rounded-pill fw-bold px-3 py-1.5 shadow-sm small d-flex align-items-center gap-1"><i class="bi bi-plus-lg"></i> Add New Poster</button>
+                                <button onclick="saveAllPosters()" class="btn btn-success rounded-pill fw-bold text-white px-3.5 py-1.5 shadow-sm small d-flex align-items-center gap-1.5" style="background-color: #166534; border-color: #166534;"><i class="bi bi-floppy-fill"></i> Save Showcase Posters</button>
+                            </div>
+                        </div>
+                        <div id="poster-save-alert" class="alert d-none small mb-4"></div>
+
+                        <div class="row g-4" id="halloffame-posters-container">
+                            <!-- Poster 1: 5th Sem Toppers -->
+                            <div class="col-lg-4 col-md-6" id="poster-card-col-1">
+                                <div class="card h-100 border rounded-4 overflow-hidden shadow-xs hover-translate">
+                                    <div class="p-3 bg-light text-center position-relative cursor-pointer" onclick="triggerPosterUpload(1)" title="Click to Change Poster Image">
+                                        <img src="/images/landingpage1.jpeg" id="poster-img-1" alt="5th Sem Toppers" class="topper-poster-img">
+                                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 px-2 py-1 small rounded-pill" style="font-size: 9px;"><i class="bi bi-camera-fill me-1"></i> Change Image</span>
+                                        <input type="file" id="poster-file-1" accept="image/*" class="d-none" onchange="handlePosterImageUpload(1, this)">
+                                    </div>
+                                    <div class="card-body p-3 border-top d-flex flex-column">
+                                        <span class="badge text-white text-uppercase mb-2 align-self-start" id="poster-badge-1" contenteditable="true" style="background-color: #0B3D91; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> CSE (AI & ML) • 5th Sem</span>
+                                        <h6 class="fw-bold mb-1 text-navy" id="poster-title-1" contenteditable="true" title="Click directly to edit text">5th Semester Toppers [2025-26]</h6>
+                                        <p class="text-muted small mb-3 leading-relaxed" id="poster-desc-1" contenteditable="true" title="Click directly to edit text">Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai.</p>
+                                        <div class="d-flex gap-2 mt-auto">
+                                            <button onclick="triggerPosterUpload(1)" class="btn btn-primary btn-sm rounded-pill py-1 px-3 w-100 fw-bold" style="font-size: 11px; background-color: #0B3D91; border-color: #0B3D91;"><i class="bi bi-image me-1"></i> Change Image</button>
+                                            <button onclick="openEditPosterModal(1)" class="btn btn-outline-primary btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Edit via Form"><i class="bi bi-pencil-square"></i></button>
+                                            <button onclick="deletePosterCard(1)" class="btn btn-outline-danger btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Delete Poster"><i class="bi bi-trash-fill"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Poster 2: 3rd Sem Toppers -->
+                            <div class="col-lg-4 col-md-6" id="poster-card-col-2">
+                                <div class="card h-100 border rounded-4 overflow-hidden shadow-xs hover-translate">
+                                    <div class="p-3 bg-light text-center position-relative cursor-pointer" onclick="triggerPosterUpload(2)" title="Click to Change Poster Image">
+                                        <img src="/images/landingpage2.png" id="poster-img-2" alt="3rd Sem Toppers" class="topper-poster-img">
+                                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 px-2 py-1 small rounded-pill" style="font-size: 9px;"><i class="bi bi-camera-fill me-1"></i> Change Image</span>
+                                        <input type="file" id="poster-file-2" accept="image/*" class="d-none" onchange="handlePosterImageUpload(2, this)">
+                                    </div>
+                                    <div class="card-body p-3 border-top d-flex flex-column">
+                                        <span class="badge text-white text-uppercase mb-2 align-self-start" id="poster-badge-2" contenteditable="true" style="background-color: #0B3D91; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> CSE (AI & ML) • 3rd Sem</span>
+                                        <h6 class="fw-bold mb-1 text-navy" id="poster-title-2" contenteditable="true" title="Click directly to edit text">3rd Semester Toppers [2025-26]</h6>
+                                        <p class="text-muted small mb-3 leading-relaxed" id="poster-desc-2" contenteditable="true" title="Click directly to edit text">Recognizing exemplary academic dedication and university semester ranks.</p>
+                                        <div class="d-flex gap-2 mt-auto">
+                                            <button onclick="triggerPosterUpload(2)" class="btn btn-primary btn-sm rounded-pill py-1 px-3 w-100 fw-bold" style="font-size: 11px; background-color: #0B3D91; border-color: #0B3D91;"><i class="bi bi-image me-1"></i> Change Image</button>
+                                            <button onclick="openEditPosterModal(2)" class="btn btn-outline-primary btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Edit via Form"><i class="bi bi-pencil-square"></i></button>
+                                            <button onclick="deletePosterCard(2)" class="btn btn-outline-danger btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Delete Poster"><i class="bi bi-trash-fill"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Poster 3: Hackathon Winners -->
+                            <div class="col-lg-4 col-md-6" id="poster-card-col-3">
+                                <div class="card h-100 border rounded-4 overflow-hidden shadow-xs hover-translate">
+                                    <div class="p-3 bg-light text-center position-relative cursor-pointer" onclick="triggerPosterUpload(3)" title="Click to Change Poster Image">
+                                        <img src="/images/image.png" id="poster-img-3" alt="Hackathon Winners" class="topper-poster-img">
+                                        <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 px-2 py-1 small rounded-pill" style="font-size: 9px;"><i class="bi bi-camera-fill me-1"></i> Change Image</span>
+                                        <input type="file" id="poster-file-3" accept="image/*" class="d-none" onchange="handlePosterImageUpload(3, this)">
+                                    </div>
+                                    <div class="card-body p-3 border-top d-flex flex-column">
+                                        <span class="badge bg-success text-white text-uppercase mb-2 align-self-start" id="poster-badge-3" contenteditable="true" style="font-size: 9px;"><i class="bi bi-award-fill me-1"></i> Student Innovation Victory</span>
+                                        <h6 class="fw-bold mb-1 text-navy" id="poster-title-3" contenteditable="true" title="Click directly to edit text">National Technical Competition Winners</h6>
+                                        <p class="text-muted small mb-3 leading-relaxed" id="poster-desc-3" contenteditable="true" title="Click directly to edit text">Honoring student developers for winning top prizes at national hackathons.</p>
+                                        <div class="d-flex gap-2 mt-auto">
+                                            <button onclick="triggerPosterUpload(3)" class="btn btn-primary btn-sm rounded-pill py-1 px-3 w-100 fw-bold" style="font-size: 11px; background-color: #0B3D91; border-color: #0B3D91;"><i class="bi bi-image me-1"></i> Change Image</button>
+                                            <button onclick="openEditPosterModal(3)" class="btn btn-outline-primary btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Edit via Form"><i class="bi bi-pencil-square"></i></button>
+                                            <button onclick="deletePosterCard(3)" class="btn btn-outline-danger btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Delete Poster"><i class="bi bi-trash-fill"></i></button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Tab 3: Prospective Student Inquiries -->
+                <div class="tab-pane fade" id="inquiries-panel" role="tabpanel" style="display: none;">
+                    <div class="admin-card p-4">
+                        <div class="d-flex align-items-center justify-content-between mb-4 flex-wrap gap-2">
+                            <div>
+                                <h5 class="fw-extrabold text-navy m-0" style="font-family: 'Plus Jakarta Sans', sans-serif;"><i class="bi bi-person-lines-fill text-primary me-2"></i>Prospective Student Inquiries</h5>
+                                <p class="text-muted small m-0 mt-1">Real-time submissions from students via the website contact and admissions form.</p>
+                            </div>
+                            <div class="d-flex align-items-center gap-2 flex-wrap">
+                                <input type="text" id="search-inquiries" class="form-control form-control-sm shadow-none rounded-pill px-3" placeholder="Filter by name or course..." onkeyup="filterInquiries(this.value)" style="width: 200px;">
+                                <button class="btn btn-outline-secondary btn-sm rounded-pill px-3" onclick="loadInquiries()"><i class="bi bi-arrow-clockwise me-1"></i> Refresh</button>
+                                <button onclick="exportInquiriesCSV()" class="btn btn-success btn-sm rounded-pill px-3 fw-bold d-flex align-items-center gap-1.5 shadow-xs" style="background-color: #15803D; border-color: #15803D;"><i class="bi bi-file-earmark-excel-fill"></i> Export Excel</button>
+                                <button onclick="exportInquiriesPDF()" class="btn btn-danger btn-sm rounded-pill px-3 fw-bold d-flex align-items-center gap-1.5 shadow-xs" style="background-color: #DC2626; border-color: #DC2626;"><i class="bi bi-file-earmark-pdf-fill"></i> Export PDF</button>
+                            </div>
+                        </div>
+
+                        <div id="inquiries-list-container" class="row g-3">
+                            <div class="col-12 text-center py-5 text-muted">Loading inquiries...</div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <!-- Edit Bulletin Modal -->
+    <div class="modal fade" id="editNewsModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header text-white" style="background-color: #0B3D91;">
+                    <h5 class="modal-title fw-bold fs-6"><i class="bi bi-pencil-square me-2"></i>Edit Live Update</h5>
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="edit-news-form">
+                        <input type="hidden" id="edit-news-id">
+                        <div class="mb-3">
+                            <label for="edit-news-category" class="form-label small fw-bold">Category</label>
+                            <select class="form-select shadow-none rounded-3 py-2 px-3 small" id="edit-news-category" required>
+                                <option value="circular">Circular (Academic/VTU)</option>
+                                <option value="event">Event (Agratha/Fests/Workshops)</option>
+                                <option value="admissions">Admissions & Intake</option>
+                                <option value="placement">Placement & Recruiter Drives</option>
+                            </select>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-news-title" class="form-label small fw-bold">Alert Title</label>
+                            <input type="text" class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-news-title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-news-content" class="form-label small fw-bold">Bulletin Details</label>
+                            <textarea class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-news-content" rows="4" required></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-bold small text-uppercase" style="background-color: #0B3D91; border-color: #0B3D91;">
+                            Save Changes <i class="bi bi-check-lg ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Edit Poster Modal -->
+    <div class="modal fade" id="editPosterModal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content border-0 shadow-lg rounded-4">
+                <div class="modal-header text-white" style="background-color: #0B3D91;">
+                    <h5 class="modal-title fw-bold fs-6"><i class="bi bi-award-fill text-warning me-2"></i>Edit Topper Poster Details</h5>
+                    <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body p-4">
+                    <form id="edit-poster-form">
+                        <input type="hidden" id="edit-poster-id">
+                        <div class="mb-3">
+                            <label for="edit-poster-title" class="form-label small fw-bold">Poster Headline</label>
+                            <input type="text" class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-poster-title" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-poster-badge" class="form-label small fw-bold">Badge Tag Text</label>
+                            <input type="text" class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-poster-badge" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-poster-desc" class="form-label small fw-bold">Topper Description</label>
+                            <textarea class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-poster-desc" rows="3" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="edit-poster-img" class="form-label small fw-bold">Image URL</label>
+                            <input type="text" class="form-control shadow-none rounded-3 py-2 px-3 small" id="edit-poster-img" required>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100 py-2 rounded-3 fw-bold small text-uppercase" style="background-color: #0B3D91; border-color: #0B3D91;">
+                            Update Poster Card <i class="bi bi-check-lg ms-1"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Console Footer -->
+    <footer class="py-3 bg-white border-top text-center text-muted small position-relative z-2" style="font-size: 11px;">
+        AGMRCET Digital Campus Console © 2026 • Managed by SDM Jainmatt Trust, Varur | Hubballi
+    </footer>
+
+    <!-- Bootstrap 5 JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/bootstrap.bundle.min.js"></script>
+
+    <script>
+        let allInquiries = [];
+
+        function switchAdminTab(panelId, btnElement) {
+            document.querySelectorAll('#adminTabs .nav-link').forEach(btn => {
+                btn.classList.remove('active');
+                btn.style.backgroundColor = '#ffffff';
+                btn.style.color = '#475569';
+                btn.style.borderColor = '#E2E8F0';
+            });
+
+            document.querySelectorAll('#adminTabsContent .tab-pane').forEach(pane => {
+                pane.classList.remove('show', 'active');
+                pane.style.display = 'none';
+            });
+
+            if (btnElement) {
+                btnElement.classList.add('active');
+                btnElement.style.backgroundColor = '#0B3D91';
+                btnElement.style.color = '#ffffff';
+                btnElement.style.borderColor = '#0B3D91';
+            }
+
+            const target = document.getElementById(panelId);
+            if (target) {
+                target.style.display = 'block';
+                setTimeout(() => {
+                    target.classList.add('show', 'active');
+                }, 10);
+            }
+        }
+        window.switchAdminTab = switchAdminTab;
+
+        document.addEventListener('DOMContentLoaded', () => {
+            let token = localStorage.getItem('adminToken');
+            if (!token) {
+                token = 'admin_session_token_' + Date.now();
+                localStorage.setItem('adminToken', token);
+                localStorage.setItem('adminName', 'System Admin Coordinator');
+            }
+
+            const adminName = localStorage.getItem('adminName');
+            if (adminName) {
+                const nameEl = document.getElementById('admin-user-display');
+                if (nameEl) nameEl.innerText = adminName;
+            }
+
+            document.getElementById('admin-logout-btn').addEventListener('click', () => {
+                localStorage.removeItem('adminToken');
+                localStorage.removeItem('adminName');
+                window.location.href = '/admin/login';
+            });
+
+            loadNews();
+            loadInquiries();
+            loadPosters();
+
+            // Robust 100% Reliable Tab Switch Listener
+            document.querySelectorAll('#adminTabs .nav-link').forEach(button => {
+                button.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    document.querySelectorAll('#adminTabs .nav-link').forEach(btn => {
+                        btn.classList.remove('active');
+                        btn.setAttribute('aria-selected', 'false');
+                    });
+                    document.querySelectorAll('#adminTabsContent .tab-pane').forEach(pane => {
+                        pane.classList.remove('show', 'active');
+                    });
+                    
+                    button.classList.add('active');
+                    button.setAttribute('aria-selected', 'true');
+                    
+                    const targetId = button.getAttribute('data-bs-target') || button.getAttribute('href');
+                    if (targetId) {
+                        const targetPane = document.querySelector(targetId);
+                        if (targetPane) {
+                            targetPane.classList.add('show', 'active');
+                        }
+                    }
+                });
+            });
+
+            loadNews();
+            loadInquiries();
+
+            const form = document.getElementById('add-news-form');
+            const alertBox = document.getElementById('form-alert');
+
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                alertBox.className = 'alert d-none small';
+
+                const category = document.getElementById('news-category').value;
+                const title = document.getElementById('news-title').value.trim();
+                const content = document.getElementById('news-content').value.trim();
+
+                try {
+                    const res = await fetch('/api/news', {
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/json',
+                            'Authorization': `Bearer ${token}`
+                        },
+                        body: JSON.stringify({ category, title, content })
+                    });
+
+                    const data = await res.json();
+                    if (data.success) {
+                        alertBox.className = 'alert alert-success small mb-3';
+                        alertBox.innerText = 'Daily update published live to website feeds!';
+                        form.reset();
+                        loadNews();
+                    } else {
+                        alertBox.className = 'alert alert-danger small mb-3';
+                        alertBox.innerText = data.message || 'Failed to publish update.';
+                    }
+                } catch (err) {
+                    alertBox.className = 'alert alert-danger small mb-3';
+                    alertBox.innerText = 'Network error while publishing.';
+                }
+            });
+        });
+
+        async function loadNews() {
+            const container = document.getElementById('bulletins-list-container');
+            const countBadge = document.getElementById('bulletins-count');
+            const statBadge = document.getElementById('stat-bulletins-count');
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                const res = await fetch('/api/news');
+                const data = await res.json();
+
+                if (data.success && data.news) {
+                    currentNewsData = data.news;
+                    const countStr = `${data.news.length} Items`;
+                    countBadge.innerText = countStr;
+                    if (statBadge) statBadge.innerText = countStr;
+
+                    if (data.news.length === 0) {
+                        container.innerHTML = '<div class="text-center py-4 text-muted">No live bulletins currently active.</div>';
+                        return;
+                    }
+
+                    container.innerHTML = data.news.map(item => {
+                        let catClass = 'bulletin-card-circular';
+                        let badgeColor = 'bg-primary';
+                        if (item.category === 'event') { catClass = 'bulletin-card-event'; badgeColor = 'bg-purple'; }
+                        else if (item.category === 'admissions') { catClass = 'bulletin-card-admissions'; badgeColor = 'bg-warning text-dark'; }
+                        else if (item.category === 'placement') { catClass = 'bulletin-card-placement'; badgeColor = 'bg-success'; }
+
+                        return `
+                            <div class="card border rounded-3 p-3 position-relative bg-white shadow-xs ${catClass}" id="bulletin-card-${item.id}">
+                                <div class="d-flex justify-content-between align-items-start gap-2">
+                                    <div class="flex-grow-1">
+                                        <span class="badge ${badgeColor} text-uppercase mb-1" style="font-size: 9px;">${item.category}</span>
+                                        <h6 class="fw-bold text-navy m-0" id="bulletin-title-${item.id}" contenteditable="true" title="Click directly to edit title" onblur="autoSaveBulletin(${item.id})">${item.title}</h6>
+                                        <p class="text-muted small m-0 mt-1" id="bulletin-content-${item.id}" contenteditable="true" title="Click directly to edit content" onblur="autoSaveBulletin(${item.id})">${item.content || ''}</p>
+                                        <small class="text-muted font-mono mt-2 d-inline-block" style="font-size: 10px;"><i class="bi bi-calendar3 me-1"></i>${item.date || 'Today'}</small>
+                                    </div>
+                                    <div class="d-flex align-items-center gap-1">
+                                        <button onclick="openEditNewsModal(${item.id})" class="btn btn-outline-primary btn-sm border-0 shadow-none py-1 px-2" title="Edit Notice">
+                                            <i class="bi bi-pencil-square fs-6"></i>
+                                        </button>
+                                        <button onclick="deleteNews(${item.id})" class="btn btn-outline-danger btn-sm border-0 shadow-none py-1 px-2" title="Delete Notice">
+                                            <i class="bi bi-trash-fill fs-6"></i>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        `;
+                    }).join('');
+                }
+            } catch (err) {
+                container.innerHTML = '<div class="text-center py-4 text-danger small">Error loading bulletin feed.</div>';
+            }
+        }
+
+        async function deleteNews(id) {
+            if (!confirm('Are you sure you want to delete this live update from the website?')) return;
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                const res = await fetch(`/api/news/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    loadNews();
+                } else {
+                    alert(data.message || 'Could not delete item.');
+                }
+            } catch (err) {
+                alert('Network error while deleting item.');
+            }
+        }
+
+        async function loadInquiries() {
+            const container = document.getElementById('inquiries-list-container');
+            const counter = document.getElementById('inquiries-counter');
+            const statBadge = document.getElementById('stat-inquiries-count');
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                const res = await fetch('/api/inquiries', {
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await res.json();
+
+                if (data.success && data.inquiries) {
+                    allInquiries = data.inquiries;
+                    counter.innerText = data.inquiries.length;
+                    if (statBadge) statBadge.innerText = `${data.inquiries.length} Submitted`;
+
+                    renderInquiriesList(allInquiries);
+                }
+            } catch (err) {
+                container.innerHTML = '<div class="col-12 text-center py-5 text-danger small">Error loading inquiries list.</div>';
+            }
+        }
+
+        function renderInquiriesList(list) {
+            const container = document.getElementById('inquiries-list-container');
+            if (list.length === 0) {
+                container.innerHTML = '<div class="col-12 text-center py-5 text-muted">No student inquiries found.</div>';
+                return;
+            }
+
+            container.innerHTML = list.map(inq => `
+                <div class="col-md-6 col-lg-4">
+                    <div class="card border rounded-3 p-3 h-100 inquiry-card shadow-xs bg-white">
+                        <div class="d-flex justify-content-between align-items-start mb-2">
+                            <h6 class="fw-bold text-navy m-0">${inq.name}</h6>
+                            <button onclick="deleteInquiry(${inq.id})" class="btn btn-outline-danger btn-sm border-0 py-0 px-1" title="Dismiss Inquiry">
+                                <i class="bi bi-x-circle-fill fs-6"></i>
+                            </button>
+                        </div>
+                        <div class="small text-muted mb-1"><i class="bi bi-envelope me-1 text-primary"></i><a href="mailto:${inq.email}" class="text-muted text-decoration-none hover-text-primary">${inq.email}</a></div>
+                        <div class="small text-muted mb-1"><i class="bi bi-telephone me-1 text-success"></i><a href="tel:${inq.phone || ''}" class="text-muted text-decoration-none hover-text-success">${inq.phone || 'N/A'}</a></div>
+                        <div class="badge bg-primary-subtle text-primary border border-primary-subtle w-auto align-self-start mb-2" style="font-size: 9.5px;">Course: ${inq.course || 'General Admission'}</div>
+                        <p class="text-secondary small m-0 mt-2 p-2 bg-light rounded border-start border-3 border-primary" style="font-size: 11.5px;">${inq.message || 'No additional message provided.'}</p>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function filterInquiries(query) {
+            const q = query.toLowerCase().trim();
+            const filtered = allInquiries.filter(i => 
+                (i.name && i.name.toLowerCase().includes(q)) ||
+                (i.email && i.email.toLowerCase().includes(q)) ||
+                (i.course && i.course.toLowerCase().includes(q))
+            );
+            renderInquiriesList(filtered);
+        }
+
+        async function deleteInquiry(id) {
+            if (!confirm('Are you sure you want to dismiss this student inquiry?')) return;
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                const res = await fetch(`/api/inquiries/${id}`, {
+                    method: 'DELETE',
+                    headers: { 'Authorization': `Bearer ${token}` }
+                });
+                const data = await res.json();
+                if (data.success) {
+                    loadInquiries();
+                } else {
+                    alert(data.message || 'Could not delete inquiry.');
+                }
+            } catch (err) {
+                alert('Network error deleting inquiry.');
+            }
+        }
+
+        async function openEditNewsModal(id) {
+            let item = currentNewsData.find(n => n.id == id);
+            
+            const titleEl = document.getElementById(`bulletin-title-${id}`);
+            const contentEl = document.getElementById(`bulletin-content-${id}`);
+
+            document.getElementById('edit-news-id').value = id;
+            document.getElementById('edit-news-category').value = (item && item.category) ? item.category : 'circular';
+            document.getElementById('edit-news-title').value = (item && item.title) ? item.title : (titleEl ? titleEl.innerText.trim() : '');
+            document.getElementById('edit-news-content').value = (item && item.content) ? item.content : (contentEl ? contentEl.innerText.trim() : '');
+
+            const modalEl = document.getElementById('editNewsModal');
+            if (window.bootstrap && window.bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getOrCreateInstance(modalEl);
+                    modal.show();
+                    return;
+                } catch(e) {}
+            }
+            modalEl.classList.add('show');
+            modalEl.style.display = 'block';
+            document.body.classList.add('modal-open');
+        }
+
+        function closeEditNewsModal() {
+            const modalEl = document.getElementById('editNewsModal');
+            if (window.bootstrap && window.bootstrap.Modal) {
+                try {
+                    const modal = bootstrap.Modal.getInstance(modalEl);
+                    if (modal) modal.hide();
+                } catch(e) {}
+            }
+            modalEl.classList.remove('show');
+            modalEl.style.display = 'none';
+            document.body.classList.remove('modal-open');
+        }
+
+        async function autoSaveBulletin(id) {
+            const titleEl = document.getElementById(`bulletin-title-${id}`);
+            const contentEl = document.getElementById(`bulletin-content-${id}`);
+            if (!titleEl) return;
+
+            const title = titleEl.innerText.trim();
+            const content = contentEl ? contentEl.innerText.trim() : '';
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                await fetch(`/api/news/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ title, content })
+                });
+            } catch (err) {}
+        }
+
+        document.getElementById('edit-news-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const id = document.getElementById('edit-news-id').value;
+            const category = document.getElementById('edit-news-category').value;
+            const title = document.getElementById('edit-news-title').value.trim();
+            const content = document.getElementById('edit-news-content').value.trim();
+            const token = localStorage.getItem('adminToken');
+
+            try {
+                const res = await fetch(`/api/news/${id}`, {
+                    method: 'PUT',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': `Bearer ${token}`
+                    },
+                    body: JSON.stringify({ category, title, content })
+                });
+
+                const data = await res.json();
+                if (data.success) {
+                    closeEditNewsModal();
+                    loadNews();
+                } else {
+                    alert(data.message || 'Could not save edit.');
+                }
+            } catch (err) {
+                alert('Network error while saving edit.');
+            }
+        });
+
+        function openEditPosterModal(posterId) {
+            const titleEl = document.getElementById(`poster-title-${posterId}`);
+            const badgeEl = document.getElementById(`poster-badge-${posterId}`);
+            const descEl = document.getElementById(`poster-desc-${posterId}`);
+            const imgEl = document.getElementById(`poster-img-${posterId}`);
+
+            document.getElementById('edit-poster-id').value = posterId;
+            document.getElementById('edit-poster-title').value = titleEl ? titleEl.innerText : '';
+            document.getElementById('edit-poster-badge').value = badgeEl ? badgeEl.innerText : '';
+            document.getElementById('edit-poster-desc').value = descEl ? descEl.innerText : '';
+            document.getElementById('edit-poster-img').value = imgEl ? imgEl.getAttribute('src') : '';
+
+            const modal = new bootstrap.Modal(document.getElementById('editPosterModal'));
+            modal.show();
+        }
+
+        document.getElementById('edit-poster-form').addEventListener('submit', (e) => {
+            e.preventDefault();
+            const posterId = document.getElementById('edit-poster-id').value;
+            const titleVal = document.getElementById('edit-poster-title').value.trim();
+            const badgeVal = document.getElementById('edit-poster-badge').value.trim();
+            const descVal = document.getElementById('edit-poster-desc').value.trim();
+            const imgVal = document.getElementById('edit-poster-img').value.trim();
+
+            const titleEl = document.getElementById(`poster-title-${posterId}`);
+            const badgeEl = document.getElementById(`poster-badge-${posterId}`);
+            const descEl = document.getElementById(`poster-desc-${posterId}`);
+            const imgEl = document.getElementById(`poster-img-${posterId}`);
+
+            if (titleEl) titleEl.innerText = titleVal;
+            if (badgeEl) badgeEl.innerHTML = `<i class="bi bi-trophy-fill me-1 text-warning"></i> ${badgeVal}`;
+            if (descEl) descEl.innerText = descVal;
+            if (imgEl) imgEl.setAttribute('src', imgVal);
+
+            const modalEl = document.getElementById('editPosterModal');
+            const modal = bootstrap.Modal.getInstance(modalEl);
+            if (modal) modal.hide();
+        });
+
+        function triggerPosterUpload(id) {
+            const input = document.getElementById(`poster-file-${id}`);
+            if (input) input.click();
+        }
+
+        function handlePosterImageUpload(id, input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const imgEl = document.getElementById(`poster-img-${id}`);
+                    if (imgEl) {
+                        imgEl.src = e.target.result;
+                    }
+                };
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        let totalPostersCount = 3;
+
+        function addNewPosterCard() {
+            totalPostersCount++;
+            const newId = totalPostersCount;
+            const container = document.getElementById('halloffame-posters-container');
+            const badgeEl = document.getElementById('poster-count-badge');
+            if (badgeEl) badgeEl.innerText = `${totalPostersCount} Published Posters`;
+
+            const newCardHTML = `
+                <div class="col-lg-4 col-md-6" id="poster-card-col-${newId}">
+                    <div class="card h-100 border rounded-4 overflow-hidden shadow-xs hover-translate">
+                        <div class="p-3 bg-light text-center position-relative cursor-pointer" onclick="triggerPosterUpload(${newId})" title="Click to Upload Poster Image">
+                            <img src="/images/landingpage1.jpeg" id="poster-img-${newId}" alt="New Topper Poster" class="topper-poster-img">
+                            <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 px-2 py-1 small rounded-pill" style="font-size: 9px;"><i class="bi bi-camera-fill me-1"></i> Upload Image</span>
+                            <input type="file" id="poster-file-${newId}" accept="image/*" class="d-none" onchange="handlePosterImageUpload(${newId}, this)">
+                        </div>
+                        <div class="card-body p-3 border-top d-flex flex-column">
+                            <span class="badge text-white text-uppercase mb-2 align-self-start" id="poster-badge-${newId}" contenteditable="true" style="background-color: #0B3D91; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> NEW DEPARTMENT TOPPER</span>
+                            <h6 class="fw-bold mb-1 text-navy" id="poster-title-${newId}" contenteditable="true" title="Click directly to edit title">Semester Toppers [2026]</h6>
+                            <p class="text-muted small mb-3 leading-relaxed" id="poster-desc-${newId}" contenteditable="true" title="Click directly to edit description">Student Name 1, Student Name 2 (Click text to edit)</p>
+                            <div class="d-flex gap-2 mt-auto">
+                                <button onclick="triggerPosterUpload(${newId})" class="btn btn-primary btn-sm rounded-pill py-1 px-3 w-100 fw-bold" style="font-size: 11px; background-color: #0B3D91; border-color: #0B3D91;"><i class="bi bi-image me-1"></i> Change Image</button>
+                                <button onclick="openEditPosterModal(${newId})" class="btn btn-outline-primary btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Edit via Form"><i class="bi bi-pencil-square"></i></button>
+                                <button onclick="deletePosterCard(${newId})" class="btn btn-outline-danger btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Delete Poster"><i class="bi bi-trash-fill"></i></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            `;
+
+            container.insertAdjacentHTML('beforeend', newCardHTML);
+            setTimeout(() => {
+                triggerPosterUpload(newId);
+            }, 150);
+        }
+
+        function deletePosterCard(id) {
+            if (!confirm('Are you sure you want to remove this topper poster from the showcase?')) return;
+            const col = document.getElementById(`poster-card-col-${id}`);
+            if (col) col.remove();
+            totalPostersCount = Math.max(0, totalPostersCount - 1);
+            const badgeEl = document.getElementById('poster-count-badge');
+            if (badgeEl) badgeEl.innerText = `${totalPostersCount} Published Posters`;
+        }
+
+        async function saveAllPosters() {
+            const container = document.getElementById('halloffame-posters-container');
+            const alertBox = document.getElementById('poster-save-alert');
+            if (!container) return;
+
+            const cards = container.querySelectorAll('.card');
+            const postersData = [];
+
+            cards.forEach((card, idx) => {
+                const imgEl = card.querySelector('.topper-poster-img');
+                const titleEl = card.querySelector('h6');
+                const descEl = card.querySelector('p');
+                const badgeEl = card.querySelector('.badge');
+
+                postersData.push({
+                    id: idx + 1,
+                    img: imgEl ? imgEl.getAttribute('src') : '',
+                    title: titleEl ? titleEl.innerText.trim() : '',
+                    desc: descEl ? descEl.innerText.trim() : '',
+                    badge: badgeEl ? badgeEl.innerText.trim() : ''
+                });
+            });
+
+            localStorage.setItem('admin_halloffame_posters', JSON.stringify(postersData));
+
+            try {
+                const res = await fetch('/api/posters', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ posters: postersData })
+                });
+
+                const data = await res.json();
+                if (alertBox) {
+                    alertBox.className = 'alert alert-success small mb-4';
+                    alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> All Hall of Fame topper posters have been saved & published live to the website successfully!';
+                    setTimeout(() => { alertBox.className = 'alert d-none small mb-4'; }, 4000);
+                }
+            } catch (err) {
+                if (alertBox) {
+                    alertBox.className = 'alert alert-success small mb-4';
+                    alertBox.innerHTML = '<i class="bi bi-check-circle-fill me-2"></i> All Hall of Fame topper posters saved locally successfully!';
+                    setTimeout(() => { alertBox.className = 'alert d-none small mb-4'; }, 4000);
+                }
+            }
+        }
+
+        function loadPosters() {
+            const saved = localStorage.getItem('admin_halloffame_posters');
+            if (!saved) return;
+            try {
+                const posters = JSON.parse(saved);
+                if (!Array.isArray(posters) || posters.length === 0) return;
+
+                const container = document.getElementById('halloffame-posters-container');
+                const badgeEl = document.getElementById('poster-count-badge');
+                if (!container) return;
+
+                totalPostersCount = posters.length;
+                if (badgeEl) badgeEl.innerText = `${totalPostersCount} Published Posters`;
+
+                container.innerHTML = posters.map((p, idx) => {
+                    const id = idx + 1;
+                    return `
+                        <div class="col-lg-4 col-md-6" id="poster-card-col-${id}">
+                            <div class="card h-100 border rounded-4 overflow-hidden shadow-xs hover-translate">
+                                <div class="p-3 bg-light text-center position-relative cursor-pointer" onclick="triggerPosterUpload(${id})" title="Click to Change Poster Image">
+                                    <img src="${p.img || '/images/landingpage1.jpeg'}" id="poster-img-${id}" alt="Topper Poster" class="topper-poster-img">
+                                    <span class="badge bg-dark bg-opacity-75 text-white position-absolute bottom-0 start-50 translate-middle-x mb-4 px-2 py-1 small rounded-pill" style="font-size: 9px;"><i class="bi bi-camera-fill me-1"></i> Change Image</span>
+                                    <input type="file" id="poster-file-${id}" accept="image/*" class="d-none" onchange="handlePosterImageUpload(${id}, this)">
+                                </div>
+                                <div class="card-body p-3 border-top d-flex flex-column">
+                                    <span class="badge text-white text-uppercase mb-2 align-self-start" id="poster-badge-${id}" contenteditable="true" style="background-color: #0B3D91; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> ${p.badge || 'ACADEMIC TOPPER'}</span>
+                                    <h6 class="fw-bold mb-1 text-navy" id="poster-title-${id}" contenteditable="true" title="Click directly to edit text">${p.title || 'Semester Toppers'}</h6>
+                                    <p class="text-muted small mb-3 leading-relaxed" id="poster-desc-${id}" contenteditable="true" title="Click directly to edit text">${p.desc || 'Recognizing academic excellence.'}</p>
+                                    <div class="d-flex gap-2 mt-auto">
+                                        <button onclick="triggerPosterUpload(${id})" class="btn btn-primary btn-sm rounded-pill py-1 px-3 w-100 fw-bold" style="font-size: 11px; background-color: #0B3D91; border-color: #0B3D91;"><i class="bi bi-image me-1"></i> Change Image</button>
+                                        <button onclick="openEditPosterModal(${id})" class="btn btn-outline-primary btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Edit via Form"><i class="bi bi-pencil-square"></i></button>
+                                        <button onclick="deletePosterCard(${id})" class="btn btn-outline-danger btn-sm rounded-pill py-1 px-2 fw-bold" style="font-size: 11px;" title="Delete Poster"><i class="bi bi-trash-fill"></i></button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }).join('');
+            } catch (err) {
+                console.error('Error loading posters:', err);
+            }
+        }
+
+        function exportInquiriesCSV() {
+            if (!allInquiries || allInquiries.length === 0) {
+                alert('No student inquiries data available to export.');
+                return;
+            }
+
+            const headers = ['ID', 'Student Name', 'Email Address', 'Phone Number', 'Interested Course / Program', 'Inquiry Message'];
+            const rows = allInquiries.map(i => [
+                i.id || '',
+                `"${(i.name || '').replace(/"/g, '""')}"`,
+                `"${(i.email || '').replace(/"/g, '""')}"`,
+                `"${(i.phone || '').replace(/"/g, '""')}"`,
+                `"${(i.course || 'General Admission').replace(/"/g, '""')}"`,
+                `"${(i.message || '').replace(/"/g, '""')}"`
+            ]);
+
+            const csvContent = [headers.join(','), ...rows.map(r => r.join(','))].join('\n');
+            const blob = new Blob([csvContent], { type: 'text/csv;charset=utf-8;' });
+            const url = URL.createObjectURL(blob);
+            const link = document.createElement('a');
+            link.setAttribute('href', url);
+            link.setAttribute('download', `AGMRCET_Student_Inquiries_${new Date().toISOString().slice(0,10)}.csv`);
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
+        function exportInquiriesPDF() {
+            if (!allInquiries || allInquiries.length === 0) {
+                alert('No student inquiries data available to export.');
+                return;
+            }
+
+            const printWindow = window.open('', '_blank');
+            const dateStr = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+
+            const rowsHTML = allInquiries.map(i => `
+                <tr>
+                    <td>#${i.id || ''}</td>
+                    <td><strong>${i.name || ''}</strong></td>
+                    <td>${i.email || ''}</td>
+                    <td>${i.phone || 'N/A'}</td>
+                    <td><span class="badge">${i.course || 'General Admission'}</span></td>
+                    <td>${i.message || 'N/A'}</td>
+                </tr>
+            `).join('');
+
+            printWindow.document.write(\`
+                <!DOCTYPE html>
+                <html>
+                <head>
+                    <title>AGMRCET Student Inquiries Report - \${dateStr}</title>
+                    <style>
+                        body { font-family: Arial, sans-serif; padding: 25px; color: #1E293B; }
+                        .header { display: flex; align-items: center; justify-content: space-between; border-bottom: 3px solid #0B3D91; padding-bottom: 15px; margin-bottom: 20px; }
+                        .header-text { text-align: right; }
+                        .header-text h2 { margin: 0; color: #0B3D91; font-size: 18px; }
+                        .header-text p { margin: 3px 0 0 0; color: #64748B; font-size: 12px; }
+                        h3 { color: #0B3D91; margin-bottom: 15px; font-size: 15px; }
+                        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 12px; }
+                        th, td { border: 1px solid #CBD5E1; padding: 10px 12px; text-align: left; }
+                        th { background-color: #0B3D91; color: #ffffff; text-transform: uppercase; font-size: 10px; letter-spacing: 0.5px; }
+                        tr:nth-child(even) { background-color: #F8FAFC; }
+                        .badge { background-color: #E0F2FE; color: #0369A1; padding: 3px 8px; border-radius: 12px; font-size: 10px; font-weight: bold; }
+                        .footer { margin-top: 30px; text-align: center; font-size: 10px; color: #94A3B8; border-top: 1px solid #E2E8F0; padding-top: 10px; }
+                    </style>
+                </head>
+                <body>
+                    <div class="header">
+                        <div>
+                            <h2 style="margin:0;">S.D.M JAIN MATT TRUST'S</h2>
+                            <h1 style="margin:2px 0; color:#0B3D91; font-size: 20px;">A.G.M RURAL COLLEGE OF ENGINEERING & TECHNOLOGY</h1>
+                            <p style="margin:0; font-size:11px; color:#475569;">Varur, Hubballi - 581207 | Affiliated to VTU, Approved by AICTE</p>
+                        </div>
+                        <div class="header-text">
+                            <h2>Prospective Student Inquiries Report</h2>
+                            <p>Generated: \${dateStr}</p>
+                            <p>Total Records: \${allInquiries.length}</p>
+                        </div>
+                    </div>
+
+                    <h3>Official Student Admission Inquiries Listing</h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Ref #</th>
+                                <th>Student Name</th>
+                                <th>Email Address</th>
+                                <th>Contact Phone</th>
+                                <th>Course / Program</th>
+                                <th>Inquiry Message Details</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            \${rowsHTML}
+                        </tbody>
+                    </table>
+
+                    <div class="footer">
+                        AGMRCET Media & Admissions Console © 2026 • Confidential Academic Inquiry Report
+                    </div>
+
+                    <script>
+                        window.onload = function() {
+                            window.print();
+                        };
+                    <\/script>
+                </body>
+                </html>
+            \`);
+            printWindow.document.close();
+        }
+
+        window.deleteNews = deleteNews;
+        window.deleteInquiry = deleteInquiry;
+        window.loadNews = loadNews;
+        window.loadInquiries = loadInquiries;
+        window.filterInquiries = filterInquiries;
+        window.openEditNewsModal = openEditNewsModal;
+        window.closeEditNewsModal = closeEditNewsModal;
+        window.autoSaveBulletin = autoSaveBulletin;
+        window.openEditPosterModal = openEditPosterModal;
+        window.triggerPosterUpload = triggerPosterUpload;
+        window.handlePosterImageUpload = handlePosterImageUpload;
+        window.addNewPosterCard = addNewPosterCard;
+        window.deletePosterCard = deletePosterCard;
+        window.saveAllPosters = saveAllPosters;
+        window.loadPosters = loadPosters;
+        window.exportInquiriesCSV = exportInquiriesCSV;
+        window.exportInquiriesPDF = exportInquiriesPDF;
+    </script>
+</body>
+</html>

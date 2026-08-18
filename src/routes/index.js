@@ -21,6 +21,12 @@ router.get('/research', pagesController.renderResearch);
 router.get('/faculty', pagesController.renderFaculty);
 router.get('/portal', pagesController.renderPortal);
 router.get('/portal/:role', pagesController.renderPortalRole);
+router.get('/admin/login', (req, res) => {
+    res.render('admin-login', { title: 'Advertisement Login | AGMRCET' });
+});
+router.get('/admin/dashboard', (req, res) => {
+    res.render('admin-dashboard', { layout: false, title: 'Media Admin Dashboard | AGMRCET' });
+});
 router.get('/gallery', pagesController.renderGallery);
 router.get('/contact', pagesController.renderContact);
 router.get('/news', pagesController.renderNews);
@@ -42,7 +48,11 @@ router.get('/api/auth/verify', pagesController.verifyAuthToken);
 router.get('/api/news', pagesController.getNewsJSON);
 router.post('/api/news', pagesController.addNews);
 router.delete('/api/news/:id', pagesController.deleteNews);
+router.put('/api/news/:id', pagesController.updateNews);
 router.get('/api/inquiries', pagesController.getInquiries);
+router.delete('/api/inquiries/:id', pagesController.deleteInquiry);
+router.get('/api/posters', pagesController.getPosters);
+router.post('/api/posters', pagesController.savePosters);
 
 // Real-Time Inter-Connected ERP Endpoints
 router.get('/api/portal/profile', pagesController.getStudentProfileAPI);

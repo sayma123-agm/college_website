@@ -108,5 +108,20 @@ module.exports = {
             newsData.splice(index, 1);
         }
         return true;
+    },
+    updateNews: async (id, { category, title, content }) => {
+        try {
+            await db.query('UPDATE news SET category = ?, title = ?, content = ? WHERE id = ?', [category, title, content, id]);
+        } catch (err) {
+            console.warn('[DB WARNING] Failed to update news in database.');
+        }
+        const index = newsData.findIndex(item => item.id == id);
+        if (index !== -1) {
+            if (category) newsData[index].category = category;
+            if (title) newsData[index].title = title;
+            if (content !== undefined) newsData[index].content = content;
+            return newsData[index];
+        }
+        return null;
     }
 };

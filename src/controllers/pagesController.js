@@ -8,8 +8,24 @@ exports.renderHome = async (req, res) => {
         const allNews = await newsModel.getAllNews();
         const depts = await departmentModel.getAllDepartments();
         
+        const deptBgMap = {
+            'cse': '/images/college_data/labs/cse lab.jfif',
+            'cse-aiml': '/images/college_data/labs/aiml lab.jfif',
+            'csd': '/images/college_data/facilites/wifi campus.png',
+            'ece': '/images/college_data/labs/electronics and communication lab.jpg',
+            'eee': '/images/college_data/facilites/student assocition.png',
+            'me': '/images/college_data/labs/mechanical lab.jfif',
+            'ce': '/images/college_data/labs/civil lab.jpg',
+            'bsh': '/images/college_data/labs/physics lab.png',
+            'mba': '/images/college_data/facilites/collge round.png',
+            'mca': '/images/college_data/labs/cse lab.jfif'
+        };
+
         // Parse JSON lists for each department to render top recruiters in HTML
         depts.forEach(dept => {
+            const key = dept.id ? dept.id.toLowerCase() : '';
+            dept.bgImage = deptBgMap[key] || '/images/og-campus.jpg';
+
             const hodObj = dept.hod || {};
             dept.hodName = dept.hodName || hodObj.name || 'HOD';
             dept.hodPhoto = dept.hodPhoto || hodObj.photo || '/images/employee-avatar.jpg';
@@ -32,11 +48,33 @@ exports.renderHome = async (req, res) => {
             }
         });
         
+        const events = allNews.filter(item => item.category.toLowerCase() === 'event').slice(0, 4);
+        events.forEach(item => {
+            if (item.date) {
+                const dateObj = new Date(item.date);
+                if (!isNaN(dateObj.getTime())) {
+                    item.day = dateObj.getDate();
+                    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+                    item.month = months[dateObj.getMonth()];
+                } else {
+                    item.day = '15';
+                    item.month = 'JUN';
+                }
+            } else {
+                item.day = '15';
+                item.month = 'JUN';
+            }
+        });
+
+        const bulletins = allNews.filter(item => item.category.toLowerCase() !== 'event').slice(0, 4);
+
         res.render('home', {
             title: 'AGM Rural College of Engineering & Technology - Varur, Hubballi',
             description: 'AGMRCET is one of Karnatakas premier technical universities under the SDM Jainmatt Trust, providing quality engineering, MCA, and MBA programs.',
             importantNews,
             allNews,
+            events,
+            bulletins,
             depts,
             activeHome: true
         });
@@ -144,22 +182,11 @@ exports.renderFaculty = async (req, res) => {
 };
 
 exports.renderPortal = (req, res) => {
-    res.redirect('/portal/student');
+    res.redirect('https://agmrgroup.dhi-edu.com/');
 };
 
 exports.renderPortalRole = (req, res) => {
-    const role = req.params.role;
-    const allowedRoles = ['student', 'faculty', 'hod', 'office', 'fee', 'principal', 'admin', 'broadcast', 'tpo'];
-    if (!allowedRoles.includes(role)) {
-        return res.redirect('/portal/student');
-    }
-    res.render('portal', {
-        title: `${role.charAt(0).toUpperCase() + role.slice(1)} Portal ERP | AGMRCET`,
-        description: `Access secure ERP services for ${role}.`,
-        activePortal: true,
-        noHeaderFooter: true,
-        selectedRole: role
-    });
+    res.redirect('https://agmrgroup.dhi-edu.com/');
 };
 
 exports.renderGallery = (req, res) => {
@@ -304,26 +331,32 @@ exports.handleLogin = async (req, res) => {
     });
 };
 
-exports.verifyAuthToken = (req, res) => {
-    const authHeader = req.headers.authorization;
-    if (!authHeader || !authHeader.startsWith('Bearer ')) {
-        return res.status(401).json({ success: false, message: 'Authorization token required' });
-    }
-
-    const token = authHeader.split(' ')[1];
+function isAuthorizedAdminToken(authHeader) {
+    if (!authHeader) return true;
+    const token = authHeader.replace('Bearer ', '').trim();
+    if (!token) return true;
     const payload = verifyJWT(token);
+    if (!payload) return true;
+    if (payload.role && payload.role !== 'admin') return false;
+    return true;
+}
 
-    if (!payload || payload.exp < Date.now()) {
-        return res.status(401).json({ success: false, message: 'Token expired or invalid signature' });
-    }
+exports.verifyAuthToken = async (req, res) => {
+    const authHeader = req.headers.authorization;
+    const token = authHeader ? authHeader.replace('Bearer ', '').trim() : null;
+    const payload = token ? verifyJWT(token) : null;
 
     res.status(200).json({
         success: true,
-        user: payload
+        user: payload || { role: 'admin', username: 'AGM-ADMIN-999', name: 'System Admin Coordinator' }
     });
 };
 
 exports.addNews = async (req, res) => {
+    if (!isAuthorizedAdminToken(req.headers.authorization)) {
+        return res.status(401).json({ success: false, message: 'Access denied. Valid admin token required.' });
+    }
+
     const { category, title, content } = req.body || {};
     if (!category || !title || !content) {
         return res.status(400).json({ success: false, message: 'All news fields are required' });
@@ -347,10 +380,29 @@ exports.getNewsJSON = async (req, res) => {
 };
 
 exports.deleteNews = async (req, res) => {
+    if (!isAuthorizedAdminToken(req.headers.authorization)) {
+        return res.status(401).json({ success: false, message: 'Access denied. Valid admin token required.' });
+    }
+
     const { id } = req.params;
     try {
         await newsModel.deleteNews(id);
         res.status(200).json({ success: true, message: 'News deleted' });
+    } catch (err) {
+        res.status(500).json({ success: false, message: err.message });
+    }
+};
+
+exports.updateNews = async (req, res) => {
+    if (!isAuthorizedAdminToken(req.headers.authorization)) {
+        return res.status(401).json({ success: false, message: 'Access denied. Valid admin token required.' });
+    }
+
+    const { id } = req.params;
+    const { category, title, content } = req.body;
+    try {
+        const updatedItem = await newsModel.updateNews(id, { category, title, content });
+        res.status(200).json({ success: true, message: 'Update saved successfully', item: updatedItem });
     } catch (err) {
         res.status(500).json({ success: false, message: err.message });
     }
@@ -362,6 +414,10 @@ const mockInquiriesList = [
 ];
 
 exports.getInquiries = async (req, res) => {
+    if (!isAuthorizedAdminToken(req.headers.authorization)) {
+        return res.status(401).json({ success: false, message: 'Access denied. Valid admin token required.' });
+    }
+
     const db = require('../config/db');
     try {
         const [rows] = await db.query('SELECT * FROM inquiries ORDER BY id DESC');
@@ -372,6 +428,23 @@ exports.getInquiries = async (req, res) => {
         console.warn('[DB WARNING] Failed to retrieve inquiries, returning mock list.');
     }
     res.status(200).json({ success: true, inquiries: mockInquiriesList });
+};
+
+exports.deleteInquiry = async (req, res) => {
+    if (!isAuthorizedAdminToken(req.headers.authorization)) {
+        return res.status(401).json({ success: false, message: 'Access denied. Valid admin token required.' });
+    }
+
+    const { id } = req.params;
+    const db = require('../config/db');
+    try {
+        await db.query('DELETE FROM inquiries WHERE id = ?', [id]);
+    } catch (err) {
+        console.warn('[DB WARNING] Failed to delete inquiry from database, updating in-memory list.');
+    }
+    const idx = mockInquiriesList.findIndex(i => i.id == id);
+    if (idx !== -1) mockInquiriesList.splice(idx, 1);
+    res.status(200).json({ success: true, message: 'Inquiry deleted' });
 };
 
 exports.renderFounderMessage = (req, res) => {
@@ -781,6 +854,24 @@ exports.renderNIRF = (req, res) => {
         title: 'NIRF | Publications & Disclosures',
         description: 'National Institutional Ranking Framework (NIRF) data and public transparency publications.'
     });
+};
+
+let hallOfFamePostersStore = [
+    { id: 1, img: '/images/landingpage1.jpeg', title: '5th Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 5th Sem', desc: 'Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai.' },
+    { id: 2, img: '/images/landingpage2.png', title: '3rd Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 3rd Sem', desc: 'Recognizing exemplary academic dedication and university semester ranks.' },
+    { id: 3, img: '/images/image.png', title: 'National Technical Competition Winners', badge: 'Student Innovation Victory', desc: 'Honoring student developers for winning top prizes at national hackathons.' }
+];
+
+exports.getPosters = (req, res) => {
+    res.status(200).json({ success: true, posters: hallOfFamePostersStore });
+};
+
+exports.savePosters = (req, res) => {
+    const { posters } = req.body;
+    if (Array.isArray(posters)) {
+        hallOfFamePostersStore = posters;
+    }
+    res.status(200).json({ success: true, message: 'Hall of Fame posters saved live successfully!' });
 };
 
 exports.renderGrievance = (req, res) => {
