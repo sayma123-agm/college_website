@@ -6,6 +6,13 @@ const app = express();
 
 const PORT = process.env.PORT || 3000;
 
+// Ensure document PDFs exist in public/docs
+try {
+    require('./scripts/generate_docs');
+} catch (e) {
+    console.warn('[DOCS WARNING] Document generation skipped:', e.message);
+}
+
 // Setup Handlebars View Engine
 app.engine('hbs', engine({
     extname: '.hbs',
@@ -23,10 +30,27 @@ app.engine('hbs', engine({
 app.set('view engine', 'hbs');
 app.set('views', path.join(__dirname, 'src/views/pages'));
 
+// HTTP Security Headers Middleware
+app.use((req, res, next) => {
+    res.setHeader('X-Content-Type-Options', 'nosniff');
+    res.setHeader('X-Frame-Options', 'SAMEORIGIN');
+    res.setHeader('X-XSS-Protection', '1; mode=block');
+    res.setHeader('Referrer-Policy', 'strict-origin-when-cross-origin');
+    next();
+});
+
 // Middleware
 app.use(require('compression')());
 app.use(express.json({ limit: '50mb' }));
 app.use(express.urlencoded({ limit: '50mb', extended: true }));
+
+// Legacy 301 Redirect Middleware
+const redirectMiddleware = require('./src/routes/redirects');
+app.use(redirectMiddleware);
+
+// SEO Routes (/sitemap.xml, /robots.txt)
+const seoRoutes = require('./src/routes/seo');
+app.use('/', seoRoutes);
 
 // Serve static assets with a max-age cache header to reduce server load
 app.use(express.static(path.join(__dirname, 'src', 'public'), {
@@ -34,7 +58,7 @@ app.use(express.static(path.join(__dirname, 'src', 'public'), {
     etag: true
 }));
 
-// Mount Router
+// Mount Primary Router
 const routes = require('./src/routes');
 app.use('/', routes);
 
@@ -61,4 +85,4 @@ if (require.main === module) {
     });
 }
 
-module.exports = app;
+module.exports = app;

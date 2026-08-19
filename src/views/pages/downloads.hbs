@@ -1,0 +1,128 @@
+<!-- Centralized Downloads Repository Page -->
+<div class="bg-light py-5">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Downloads & Institutional Documents</li>
+            </ol>
+        </nav>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white mb-4">
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                <div>
+                    <h1 class="fw-bold mb-1" style="color: var(--primary-color);">Institutional Downloads & Documents</h1>
+                    <p class="text-muted mb-0">Access official disclosures, AICTE approvals, academic calendars, syllabi, and administrative forms.</p>
+                </div>
+                <div class="badge bg-primary fs-6 p-3 rounded-3 align-self-start align-self-md-center">
+                    <i class="bi bi-file-earmark-pdf me-2"></i>Official Verified Documents
+                </div>
+            </div>
+
+            <!-- Search / Filter Box -->
+            <div class="mb-4">
+                <div class="input-group">
+                    <span class="input-group-text bg-white border-end-0"><i class="bi bi-search text-muted"></i></span>
+                    <input type="text" id="docSearchInput" class="form-control border-start-0 ps-0" placeholder="Search document by name, category, or keyword...">
+                </div>
+            </div>
+
+            <!-- Document List Table -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle" id="docTable">
+                    <thead class="table-light">
+                        <tr>
+                            <th scope="col">Document Title</th>
+                            <th scope="col">Category</th>
+                            <th scope="col">Format</th>
+                            <th scope="col">Action</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger me-2 fs-5"></i>
+                                Mandatory Disclosure Statement (AICTE / VTU)
+                            </td>
+                            <td><span class="badge bg-secondary">Accreditation & Compliance</span></td>
+                            <td>PDF</td>
+                            <td><a href="/docs/MD.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="bi bi-download me-1"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger me-2 fs-5"></i>
+                                AICTE Extension of Approval (EoA & LoA 2025-26)
+                            </td>
+                            <td><span class="badge bg-secondary">AICTE Approval</span></td>
+                            <td>PDF</td>
+                            <td><a href="/docs/Eoa_and_Loa_25_26.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="bi bi-download me-1"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger me-2 fs-5"></i>
+                                Academic Calendar of Events (2025-26)
+                            </td>
+                            <td><span class="badge bg-info text-dark">Academics</span></td>
+                            <td>PDF</td>
+                            <td><a href="/docs/coe.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="bi bi-download me-1"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger me-2 fs-5"></i>
+                                AGMRCET HR Policy & Staff Service Rules
+                            </td>
+                            <td><span class="badge bg-dark">Administration</span></td>
+                            <td>PDF</td>
+                            <td><a href="/docs/AGMRCET HR POLICY.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="bi bi-download me-1"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-file-earmark-pdf-fill text-danger me-2 fs-5"></i>
+                                Semester End Examination (SEE) Guidelines & Notification
+                            </td>
+                            <td><span class="badge bg-warning text-dark">Examinations</span></td>
+                            <td>PDF</td>
+                            <td><a href="/docs/SEE.pdf" target="_blank" class="btn btn-outline-primary btn-sm rounded-pill px-3"><i class="bi bi-download me-1"></i> Download</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-link-45deg text-primary me-2 fs-5"></i>
+                                State Scholarship Portal (SSP) Download Forms
+                            </td>
+                            <td><span class="badge bg-success">Scholarships</span></td>
+                            <td>External Link</td>
+                            <td><a href="https://ssp.postmatric.karnataka.gov.in/2021/downloads.aspx" target="_blank" rel="noopener noreferrer" class="btn btn-outline-success btn-sm rounded-pill px-3"><i class="bi bi-box-arrow-up-right me-1"></i> Open Portal</a></td>
+                        </tr>
+                        <tr>
+                            <td class="fw-semibold">
+                                <i class="bi bi-link-45deg text-primary me-2 fs-5"></i>
+                                AICTE Online Student & Faculty Feedback Portal
+                            </td>
+                            <td><span class="badge bg-danger">Feedback</span></td>
+                            <td>External Link</td>
+                            <td><a href="https://www.aicte-india.org/feedback/index.php" target="_blank" rel="noopener noreferrer" class="btn btn-outline-danger btn-sm rounded-pill px-3"><i class="bi bi-box-arrow-up-right me-1"></i> Open Portal</a></td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const searchInput = document.getElementById('docSearchInput');
+        const tableRows = document.querySelectorAll('#docTable tbody tr');
+
+        if (searchInput) {
+            searchInput.addEventListener('input', (e) => {
+                const query = e.target.value.toLowerCase().trim();
+                tableRows.forEach(row => {
+                    const text = row.textContent.toLowerCase();
+                    row.style.display = text.includes(query) ? '' : 'none';
+                });
+            });
+        }
+    });
+</script>

@@ -223,6 +223,41 @@ exports.renderNews = async (req, res) => {
     }
 };
 
+exports.renderCodeOfConduct = (req, res) => {
+    res.render('code-of-conduct', {
+        title: 'Code of Conduct | AGMRCET',
+        description: 'Read the official code of conduct, campus discipline rules, and anti-ragging policies for students and staff at AGMRCET.'
+    });
+};
+
+exports.renderLearningOutcomes = (req, res) => {
+    res.render('learning-outcomes', {
+        title: 'Program Outcomes & Course Outcomes (POs & COs) | AGMRCET',
+        description: 'Explore outcome-based education, program outcomes, and course outcomes across engineering and post-graduate programs at AGMRCET.'
+    });
+};
+
+exports.renderBestPractices = (req, res) => {
+    res.render('best-practices', {
+        title: 'Institutional Best Practices | AGMRCET',
+        description: 'Discover institutional best practices, rural empowerment through technical education, and hands-on virtual lab initiatives at AGMRCET.'
+    });
+};
+
+exports.renderInstitutionalDistinctiveness = (req, res) => {
+    res.render('institutional-distinctiveness', {
+        title: 'Institutional Distinctiveness | AGMRCET',
+        description: 'Learn about AGMRCET’s distinct vision of combining modern technical education with ethical values in a serene green campus.'
+    });
+};
+
+exports.renderDownloads = (req, res) => {
+    res.render('downloads', {
+        title: 'Downloads & Official Documents | AGMRCET',
+        description: 'Centralized download repository for AICTE approval letters, mandatory disclosures, academic calendars, syllabi, and administrative forms.'
+    });
+};
+
 exports.handleInquiry = async (req, res) => {
     const { name, email, phone, course, message } = req.body || {};
     const db = require('../config/db');
