@@ -1,6 +1,13 @@
 const facultyModel = require('../models/facultyModel');
 const newsModel = require('../models/newsModel');
 const departmentModel = require('../models/departmentModel');
+const academicCalendarModel = require('../models/academicCalendarModel');
+
+let hallOfFamePostersStore = [
+    { id: 1, img: '/images/landingpage1.jpeg', title: '5th Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 5th Sem', desc: 'Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai.' },
+    { id: 2, img: '/images/landingpage2.png', title: '3rd Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 3rd Sem', desc: 'Recognizing exemplary academic dedication and university semester ranks.' },
+    { id: 3, img: '/images/image.png', title: 'National Technical Competition Winners', badge: 'Student Innovation Victory', desc: 'Honoring student developers for winning top prizes at national hackathons.' }
+];
 
 exports.renderHome = async (req, res) => {
     try {
@@ -76,6 +83,7 @@ exports.renderHome = async (req, res) => {
             events,
             bulletins,
             depts,
+            posters: hallOfFamePostersStore,
             activeHome: true
         });
     } catch (error) {
@@ -231,10 +239,65 @@ exports.renderAcademics = (req, res) => {
     });
 };
 
+exports.renderAcademicCalendar = async (req, res) => {
+    try {
+        const events = await academicCalendarModel.getAllEvents();
+        res.render('academic-calendar', {
+            title: 'Academic Calendar & Daily Schedule | AGMRCET',
+            description: 'Live daily updated academic calendar of events, examination schedules, internal assessment dates, and university holidays at AGMRCET.',
+            events,
+            activeAcademics: true
+        });
+    } catch (error) {
+        console.error('Error rendering academic calendar page:', error);
+        res.status(500).render('error', {
+            title: 'Internal Server Error | AGMRCET',
+            message: 'An error occurred while loading the academic calendar.'
+        });
+    }
+};
+
+exports.getAcademicCalendarAPI = async (req, res) => {
+    const events = await academicCalendarModel.getAllEvents();
+    res.json({ success: true, events });
+};
+
+exports.addAcademicCalendarAPI = async (req, res) => {
+    const newEvent = await academicCalendarModel.addEvent(req.body || {});
+    res.json({ success: true, event: newEvent });
+};
+
+exports.deleteAcademicCalendarAPI = async (req, res) => {
+    const { id } = req.params;
+    await academicCalendarModel.deleteEvent(id);
+    res.json({ success: true });
+};
+
 exports.renderCodeOfConduct = (req, res) => {
     res.render('code-of-conduct', {
         title: 'Code of Conduct | AGMRCET',
         description: 'Read the official code of conduct, campus discipline rules, and anti-ragging policies for students and staff at AGMRCET.'
+    });
+};
+
+exports.renderPrivacyPolicy = (req, res) => {
+    res.render('privacy-policy', {
+        title: 'Privacy Policy & Data Compliance | AGMRCET',
+        description: 'Read the official privacy policy, data security guidelines, and web analytics disclosures for AGMRCET.'
+    });
+};
+
+exports.renderTermsOfUse = (req, res) => {
+    res.render('terms-of-use', {
+        title: 'Terms of Use & Legal Mandate | AGMRCET',
+        description: 'Read the official website terms of use, intellectual property policy, and acceptable use guidelines for AGMRCET.'
+    });
+};
+
+exports.renderSitemapPage = (req, res) => {
+    res.render('sitemap', {
+        title: 'HTML Site Directory & Navigation Index | AGMRCET',
+        description: 'Explore the complete HTML site directory and navigation index of AGMRCET programs, departments, and compliance documents.'
     });
 };
 
@@ -899,12 +962,6 @@ exports.renderNIRF = (req, res) => {
     });
 };
 
-let hallOfFamePostersStore = [
-    { id: 1, img: '/images/landingpage1.jpeg', title: '5th Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 5th Sem', desc: 'Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai.' },
-    { id: 2, img: '/images/landingpage2.png', title: '3rd Semester Toppers [2025-26]', badge: 'CSE (AI & ML) • 3rd Sem', desc: 'Recognizing exemplary academic dedication and university semester ranks.' },
-    { id: 3, img: '/images/image.png', title: 'National Technical Competition Winners', badge: 'Student Innovation Victory', desc: 'Honoring student developers for winning top prizes at national hackathons.' }
-];
-
 exports.getPosters = (req, res) => {
     res.status(200).json({ success: true, posters: hallOfFamePostersStore });
 };
@@ -915,6 +972,33 @@ exports.savePosters = (req, res) => {
         hallOfFamePostersStore = posters;
     }
     res.status(200).json({ success: true, message: 'Hall of Fame posters saved live successfully!' });
+};
+
+let admissionBannerStore = {
+    enabled: true,
+    badgeText: 'SDM JAINMATT TRUST',
+    title: 'ADMISSIONS OPEN 2026-2027',
+    image: '/images/admission-banner.png',
+    phone: '+91 94810 87999',
+    email: 'principal@agmrcet.ac.in',
+    cetCode: 'E199',
+    comedkCode: 'E208',
+    mbaCode: 'B401',
+    mcaCode: 'C620',
+    location: 'Varur - Hubballi, Karnataka',
+    applyLink: '/admissions'
+};
+
+exports.getAdmissionBanner = (req, res) => {
+    res.status(200).json({ success: true, banner: admissionBannerStore });
+};
+
+exports.saveAdmissionBanner = (req, res) => {
+    const banner = req.body;
+    if (banner && typeof banner === 'object') {
+        admissionBannerStore = { ...admissionBannerStore, ...banner };
+    }
+    res.status(200).json({ success: true, message: 'Admission advertisement saved and published live successfully!', banner: admissionBannerStore });
 };
 
 exports.renderGrievance = (req, res) => {

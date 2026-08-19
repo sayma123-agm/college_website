@@ -249,51 +249,84 @@
             <p class="text-muted">Celebrating student dedication, top semester ranks, and national competition victories at AGMRCET.</p>
         </div>
 
-        <div class="row g-4 justify-content-center" data-aos="fade-up">
-            <!-- Topper Card 1: 5th Sem Toppers -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
-                    <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
-                        <img src="/images/landingpage1.jpeg" alt="CSE AI&ML 5th Semester Toppers" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
-                    </div>
-                    <div class="card-body p-4 border-top">
-                        <span class="badge text-white text-uppercase mb-2" style="background-color: #0B3D91 !important; font-size: 9px;"><i class="bi bi-trophy-fill me-1"></i> CSE (AI & ML) • 5th Sem</span>
-                        <h5 class="fw-bold text-navy mb-2">5th Semester Toppers [2025-26]</h5>
-                        <p class="text-muted small m-0 leading-relaxed">Heartiest congratulations to Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai and all toppers for outstanding academic performance!</p>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Topper Card 2: 3rd Sem Toppers -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
-                    <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
-                        <img src="/images/landingpage2.png" alt="CSE AI&ML 3rd Semester Toppers" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
-                    </div>
-                    <div class="card-body p-4 border-top">
-                        <span class="badge text-white text-uppercase mb-2" style="background-color: #0B3D91 !important; font-size: 9px;"><i class="bi bi-trophy-fill me-1"></i> CSE (AI & ML) • 3rd Sem</span>
-                        <h5 class="fw-bold text-navy mb-2">3rd Semester Toppers [2025-26]</h5>
-                        <p class="text-muted small m-0 leading-relaxed">Recognizing exemplary academic dedication, top ranks, and excellence in university semester examinations.</p>
+        <div class="row g-4 justify-content-center" id="hall-of-fame-cards-container" data-aos="fade-up">
+            {{#if posters}}
+                {{#each posters}}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
+                        <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
+                            <img src="{{this.img}}" alt="{{this.title}}" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
+                        </div>
+                        <div class="card-body p-4 border-top">
+                            <span class="badge text-white text-uppercase mb-2" style="background-color: #0B3D91 !important; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> {{this.badge}}</span>
+                            <h5 class="fw-bold text-navy mb-2">{{this.title}}</h5>
+                            <p class="text-muted small m-0 leading-relaxed">{{this.desc}}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
-
-            <!-- Topper Card 3: Hackathon / Competition Victory -->
-            <div class="col-lg-4 col-md-6">
-                <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
-                    <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
-                        <img src="/images/image.png" alt="National Hackathon Winners" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
-                    </div>
-                    <div class="card-body p-4 border-top">
-                        <span class="badge bg-success text-white text-uppercase mb-2" style="font-size: 9px;"><i class="bi bi-award-fill me-1"></i> Student Innovation Victory</span>
-                        <h5 class="fw-bold text-navy mb-2">National Technical Competition Winners</h5>
-                        <p class="text-muted small m-0 leading-relaxed">Honoring our student developers and mentors for winning top cash prizes and trophies at national technical hackathons.</p>
+                {{/each}}
+            {{else}}
+                <!-- Default Fallback Posters -->
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
+                        <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
+                            <img src="/images/landingpage1.jpeg" alt="CSE AI&ML 5th Semester Toppers" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
+                        </div>
+                        <div class="card-body p-4 border-top">
+                            <span class="badge text-white text-uppercase mb-2" style="background-color: #0B3D91 !important; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> CSE (AI & ML) • 5th Sem</span>
+                            <h5 class="fw-bold text-navy mb-2">5th Semester Toppers [2025-26]</h5>
+                            <p class="text-muted small m-0 leading-relaxed">Heartiest congratulations to Mr. Mohammad Rumman Khan, Ms. Barigala Kavya, Ms. Bhavani Dengi, Ms. Tasbiha Desai and all toppers for outstanding academic performance!</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            {{/if}}
         </div>
     </div>
 </section>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const container = document.getElementById('hall-of-fame-cards-container');
+        if (!container) return;
+
+        function renderPostersList(posters) {
+            if (!Array.isArray(posters) || posters.length === 0) return;
+            container.innerHTML = posters.map(p => `
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden bg-white hover-translate">
+                        <div class="position-relative bg-light text-center p-3" style="min-height: 250px;">
+                            <img src="${p.img || '/images/landingpage1.jpeg'}" alt="${p.title || 'Hall of Fame'}" class="img-fluid rounded-3 shadow-sm object-fit-contain" style="max-height: 260px; width: 100%;">
+                        </div>
+                        <div class="card-body p-4 border-top">
+                            <span class="badge text-white text-uppercase mb-2" style="background-color: #0B3D91 !important; font-size: 9px;"><i class="bi bi-trophy-fill me-1 text-warning"></i> ${p.badge || 'ACADEMIC TOPPER'}</span>
+                            <h5 class="fw-bold text-navy mb-2">${p.title || ''}</h5>
+                            <p class="text-muted small m-0 leading-relaxed">${p.desc || ''}</p>
+                        </div>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        const savedPosters = localStorage.getItem('admin_halloffame_posters');
+        if (savedPosters) {
+            try {
+                const parsed = JSON.parse(savedPosters);
+                if (Array.isArray(parsed) && parsed.length > 0) {
+                    renderPostersList(parsed);
+                }
+            } catch(e) {}
+        }
+
+        fetch('/api/posters')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.posters && data.posters.length > 0) {
+                    renderPostersList(data.posters);
+                }
+            })
+            .catch(() => {});
+    });
+</script>
 <!-- Why Choose AGMRCET Section -->
 <section class="py-5 bg-light-slate position-relative overflow-hidden">
     <div class="container position-relative z-2">
@@ -630,31 +663,31 @@
                             <ul class="list-unstyled space-y-3 m-0" style="font-size: 13.5px;">
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/research" class="text-navy fw-bold text-decoration-none hover-text-danger">NIRF</a>
+                                    <a href="/nirf" class="text-navy fw-bold text-decoration-none hover-text-danger">NIRF</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/about" class="text-navy fw-bold text-decoration-none hover-text-danger">Mandatory Disclosure</a>
+                                    <a href="/docs/MD.pdf" target="_blank" class="text-navy fw-bold text-decoration-none hover-text-danger">Mandatory Disclosure</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/departments/cse" class="text-navy fw-bold text-decoration-none hover-text-danger">E-Learning</a>
+                                    <a href="https://agmrcetlibrary.wixsite.com/agmr" target="_blank" rel="noopener noreferrer" class="text-navy fw-bold text-decoration-none hover-text-danger">E-Learning</a>
                                 </li>
                                 <li class="d-flex align-items-start gap-2.5">
                                     <span class="rounded-circle bg-success mt-1.5" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/about" class="text-navy fw-bold text-decoration-none hover-text-danger leading-snug">Extension and Letter of Approval From AICTE</a>
+                                    <a href="/docs/Eoa_and_Loa_25_26.pdf" target="_blank" class="text-navy fw-bold text-decoration-none hover-text-danger leading-snug">Extension and Letter of Approval From AICTE</a>
                                 </li>
                                 <li class="d-flex align-items-start gap-2.5">
                                     <span class="rounded-circle bg-success mt-1.5" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/contact" class="text-navy fw-bold text-decoration-none hover-text-danger leading-snug">Feedback Analysis & Action Taken Report</a>
+                                    <a href="/feedback" class="text-navy fw-bold text-decoration-none hover-text-danger leading-snug">Feedback Analysis & Action Taken Report</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/campus-life" class="text-navy fw-bold text-decoration-none hover-text-danger">Code of Conduct For Students</a>
+                                    <a href="/code-of-conduct" class="text-navy fw-bold text-decoration-none hover-text-danger">Code of Conduct For Students</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/news" class="text-navy fw-bold text-decoration-none hover-text-danger">Academic Calendar</a>
+                                    <a href="/academic-calendar" class="text-navy fw-bold text-decoration-none hover-text-danger">Academic Calendar</a>
                                 </li>
                             </ul>
                         </div>
@@ -662,31 +695,31 @@
                             <ul class="list-unstyled space-y-3 m-0" style="font-size: 13.5px;">
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/departments/cse" class="text-navy fw-bold text-decoration-none hover-text-danger">Learning Outcomes</a>
+                                    <a href="/learning-outcomes" class="text-navy fw-bold text-decoration-none hover-text-danger">Learning Outcomes</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/about" class="text-navy fw-bold text-decoration-none hover-text-danger">Service Rules</a>
+                                    <a href="/docs/AGMRCET HR POLICY.pdf" target="_blank" class="text-navy fw-bold text-decoration-none hover-text-danger">Service Rules</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/about" class="text-navy fw-bold text-decoration-none hover-text-danger">Best Practices</a>
+                                    <a href="/best-practices" class="text-navy fw-bold text-decoration-none hover-text-danger">Best Practices</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/about" class="text-navy fw-bold text-decoration-none hover-text-danger">Institutional Distinctiveness</a>
+                                    <a href="/institutional-distinctiveness" class="text-navy fw-bold text-decoration-none hover-text-danger">Institutional Distinctiveness</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/contact" class="text-navy fw-bold text-decoration-none hover-text-danger">Grievance</a>
+                                    <a href="/grievance" class="text-navy fw-bold text-decoration-none hover-text-danger">Grievance</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/contact" class="text-navy fw-bold text-decoration-none hover-text-danger">AICTE Students Feedback</a>
+                                    <a href="https://www.aicte-india.org/feedback/index.php" target="_blank" rel="noopener noreferrer" class="text-navy fw-bold text-decoration-none hover-text-danger">AICTE Students Feedback</a>
                                 </li>
                                 <li class="d-flex align-items-center gap-2.5">
                                     <span class="rounded-circle bg-success" style="width: 8px; height: 8px; min-width: 8px;"></span>
-                                    <a href="/admissions" class="text-navy fw-bold text-decoration-none hover-text-danger">SSP Scholarship Downloads</a>
+                                    <a href="https://ssp.postmatric.karnataka.gov.in/2021/downloads.aspx" target="_blank" rel="noopener noreferrer" class="text-navy fw-bold text-decoration-none hover-text-danger">SSP Scholarship Downloads</a>
                                 </li>
                             </ul>
                         </div>

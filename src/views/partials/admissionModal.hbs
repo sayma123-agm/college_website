@@ -5,9 +5,9 @@
             <!-- Modal Header -->
             <div class="modal-header border-0 text-white p-3 px-4 d-flex align-items-center justify-content-between" style="background: linear-gradient(135deg, #610000 0%, #0B3D91 100%) !important;">
                 <div class="d-flex align-items-center gap-2">
-                    <span class="badge bg-warning text-dark fw-bold px-2.5 py-1 rounded-pill small">SDM JAINMATT TRUST</span>
+                    <span id="modal-trust-badge" class="badge bg-warning text-dark fw-bold px-2.5 py-1 rounded-pill small">SDM JAINMATT TRUST</span>
                     <h5 class="modal-title fw-extrabold text-white m-0" id="admissionBannerModalLabel" style="font-family: 'Plus Jakarta Sans', sans-serif; font-size: 16px;">
-                        <i class="bi bi-fire text-warning me-1"></i> ADMISSIONS OPEN 2026-2027
+                        <i class="bi bi-fire text-warning me-1"></i> <span id="modal-title-text">ADMISSIONS OPEN 2026-2027</span>
                     </h5>
                 </div>
                 <button type="button" class="btn-close btn-close-white shadow-none" data-bs-dismiss="modal" aria-label="Close"></button>
@@ -16,7 +16,7 @@
             <!-- Modal Body (Official Admission Banner Image) -->
             <div class="modal-body p-3 bg-light text-center">
                 <div class="position-relative rounded-3 overflow-hidden shadow-sm border mb-3">
-                    <img src="/images/admission-banner.png" alt="AGMRCET Official Admission Banner 2026-2027" class="img-fluid w-100 d-block" style="max-height: 480px; object-fit: contain;">
+                    <img id="modal-banner-img" src="/images/admission-banner.png" alt="AGMRCET Official Admission Banner" class="img-fluid w-100 d-block" style="max-height: 480px; object-fit: contain;">
                 </div>
 
                 <!-- Contact & Key Details Bar -->
@@ -26,15 +26,15 @@
                             <div class="fw-bold text-navy small mb-1" style="font-size: 12px;">
                                 <i class="bi bi-telephone-fill text-warning me-1"></i> For Admissions & Counseling:
                             </div>
-                            <a href="tel:+919481087999" class="fs-5 fw-extrabold text-danger text-decoration-none d-inline-block me-3">+91 94810 87999</a>
-                            <span class="text-muted small">| principal@agmrcet.ac.in</span>
+                            <a id="modal-phone-link" href="tel:+919481087999" class="fs-5 fw-extrabold text-danger text-decoration-none d-inline-block me-3">+91 94810 87999</a>
+                            <span id="modal-email-text" class="text-muted small">| principal@agmrcet.ac.in</span>
                         </div>
                         <div class="col-md-5 text-md-end">
                             <div class="d-flex flex-wrap gap-1 justify-content-md-end">
-                                <span class="badge bg-primary px-2 py-1 small fw-bold">CET: E199</span>
-                                <span class="badge bg-primary px-2 py-1 small fw-bold">COMEDK: E208</span>
-                                <span class="badge bg-primary px-2 py-1 small fw-bold">MBA: B401</span>
-                                <span class="badge bg-primary px-2 py-1 small fw-bold">MCA: C620</span>
+                                <span id="modal-cet-code" class="badge bg-primary px-2 py-1 small fw-bold">CET: E199</span>
+                                <span id="modal-comedk-code" class="badge bg-primary px-2 py-1 small fw-bold">COMEDK: E208</span>
+                                <span id="modal-mba-code" class="badge bg-primary px-2 py-1 small fw-bold">MBA: B401</span>
+                                <span id="modal-mca-code" class="badge bg-primary px-2 py-1 small fw-bold">MCA: C620</span>
                             </div>
                         </div>
                     </div>
@@ -44,14 +44,14 @@
             <!-- Modal Footer CTAs -->
             <div class="modal-footer border-0 p-3 bg-white d-flex align-items-center justify-content-between">
                 <span class="text-muted text-xs d-none d-sm-inline">
-                    <i class="bi bi-geo-alt-fill text-danger me-1"></i> Varur - Hubballi, Karnataka
+                    <i class="bi bi-geo-alt-fill text-danger me-1"></i> <span id="modal-location-text">Varur - Hubballi, Karnataka</span>
                 </span>
                 <div class="d-flex align-items-center gap-2 ms-auto">
                     <button type="button" class="btn btn-light btn-sm fw-bold px-3 text-secondary" data-bs-dismiss="modal">Close</button>
-                    <a href="tel:+919481087999" class="btn btn-warning btn-sm fw-bold px-3 text-dark shadow-sm">
+                    <a id="modal-call-btn" href="tel:+919481087999" class="btn btn-warning btn-sm fw-bold px-3 text-dark shadow-sm">
                         <i class="bi bi-telephone-fill me-1"></i> Call Helpline
                     </a>
-                    <a href="/admissions" class="btn btn-danger btn-sm fw-bold px-4 text-white shadow-sm" style="background-color: #610000 !important; border-color: #610000 !important;">
+                    <a id="modal-apply-btn" href="/admissions" class="btn btn-danger btn-sm fw-bold px-4 text-white shadow-sm" style="background-color: #610000 !important; border-color: #610000 !important;">
                         <i class="bi bi-card-checklist me-1"></i> Apply Online
                     </a>
                 </div>
@@ -60,9 +60,67 @@
     </div>
 </div>
 
-<!-- Auto-Show Modal Script (ONLY on Home Page '/', ONLY ONCE per session) -->
+<!-- Dynamic Modal Binding & Auto-Show Script -->
 <script>
     document.addEventListener('DOMContentLoaded', function () {
+        function applyBannerData(b) {
+            if (!b) return;
+            if (b.enabled === false) return; // Disabled
+
+            const badgeEl = document.getElementById('modal-trust-badge');
+            const titleEl = document.getElementById('modal-title-text');
+            const imgEl = document.getElementById('modal-banner-img');
+            const phoneEl = document.getElementById('modal-phone-link');
+            const emailEl = document.getElementById('modal-email-text');
+            const cetEl = document.getElementById('modal-cet-code');
+            const comedkEl = document.getElementById('modal-comedk-code');
+            const mbaEl = document.getElementById('modal-mba-code');
+            const mcaEl = document.getElementById('modal-mca-code');
+            const locEl = document.getElementById('modal-location-text');
+            const callBtn = document.getElementById('modal-call-btn');
+            const applyBtn = document.getElementById('modal-apply-btn');
+
+            if (b.badgeText && badgeEl) badgeEl.innerText = b.badgeText;
+            if (b.title && titleEl) titleEl.innerText = b.title.replace(/^🔥\s*/, '');
+            if (b.image && imgEl) imgEl.src = b.image;
+            if (b.phone) {
+                if (phoneEl) {
+                    phoneEl.innerText = b.phone;
+                    phoneEl.href = 'tel:' + b.phone.replace(/\s+/g, '');
+                }
+                if (callBtn) callBtn.href = 'tel:' + b.phone.replace(/\s+/g, '');
+            }
+            if (b.email && emailEl) emailEl.innerText = '| ' + b.email;
+            if (b.cetCode && cetEl) cetEl.innerText = 'CET: ' + b.cetCode;
+            if (b.comedkCode && comedkEl) comedkEl.innerText = 'COMEDK: ' + b.comedkCode;
+            if (b.mbaCode && mbaEl) mbaEl.innerText = 'MBA: ' + b.mbaCode;
+            if (b.mcaCode && mcaEl) mcaEl.innerText = 'MCA: ' + b.mcaCode;
+            if (b.location && locEl) locEl.innerText = b.location;
+            if (b.applyLink && applyBtn) applyBtn.href = b.applyLink;
+        }
+
+        // Check local saved data first
+        const localSaved = localStorage.getItem('admin_admission_banner');
+        if (localSaved) {
+            try {
+                const b = JSON.parse(localSaved);
+                applyBannerData(b);
+            } catch(e) {}
+        }
+
+        // Fetch live from server
+        fetch('/api/admission-banner')
+            .then(res => res.json())
+            .then(data => {
+                if (data.success && data.banner) {
+                    applyBannerData(data.banner);
+                    if (data.banner.enabled === false) {
+                        return; // do not show if disabled
+                    }
+                }
+            })
+            .catch(() => {});
+
         const isHomePage = window.location.pathname === '/' || window.location.pathname === '/index';
         const alreadyShown = sessionStorage.getItem('admissionModalShown');
         

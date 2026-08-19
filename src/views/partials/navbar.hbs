@@ -12,6 +12,8 @@
             <span class="text-white-50">|</span>
             <a href="/nirf" class="text-white text-decoration-none hover-text-warning">NIRF</a>
             <span class="text-white-50">|</span>
+            <a href="/academic-calendar" class="text-warning text-decoration-none fw-bold hover-text-white"><i class="bi bi-calendar-event-fill me-1"></i>Academic Calendar</a>
+            <span class="text-white-50">|</span>
             <a href="/grievance" class="text-white text-decoration-none hover-text-warning">Grievances</a>
             <span class="text-white-50">|</span>
             <a href="/research" class="text-white text-decoration-none hover-text-warning">Research</a>
@@ -39,6 +41,10 @@
 
         <!-- Admissions & Contact Info (Right Column) -->
         <div class="top-info-right d-flex align-items-center gap-2 text-nowrap flex-shrink-0">
+            <a href="/admin/login" class="btn btn-outline-light btn-xs fw-bold rounded-pill px-2.5 py-1 text-white shadow-xs d-flex align-items-center gap-1" style="font-size: 10.5px; white-space: nowrap; border-color: rgba(255,255,255,0.4);">
+                <i class="bi bi-megaphone-fill text-warning"></i> Adv Login
+            </a>
+            <span class="text-white-50 d-none d-sm-inline">|</span>
             <button type="button" class="btn btn-warning btn-xs fw-bold rounded-pill px-3 py-1 text-dark shadow-xs d-flex align-items-center gap-1 animate-pulse" data-bs-toggle="modal" data-bs-target="#admissionBannerModal" style="font-size: 10.5px; white-space: nowrap;">
                 <i class="bi bi-fire text-danger"></i> Admissions 2026-27
             </button>
@@ -47,32 +53,6 @@
         </div>
     </div>
 </div>
-
-<script>
-    document.addEventListener('DOMContentLoaded', () => {
-        const marqueeEl = document.getElementById('latest-updates-marquee');
-        if (marqueeEl) {
-            fetch('/api/news')
-                .then(res => res.json())
-                .then(data => {
-                    if (data.success && data.news && data.news.length > 0) {
-                        const scrollingText = data.news.map(item => {
-                            let link = '/news';
-                            if (item.category === 'admissions') link = '/admissions';
-                            else if (item.category === 'placement') link = '/placements';
-                            return `<span class="me-4 text-white"><i class="bi bi-megaphone-fill text-warning me-1"></i> [${item.category.toUpperCase()}] <a href="${link}" class="text-white text-decoration-none hover-text-warning">${item.title}</a></span>`;
-                        }).join(' <span class="mx-3 text-white-50">•</span> ');
-                        marqueeEl.innerHTML = scrollingText;
-                    } else {
-                        marqueeEl.innerHTML = 'Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.';
-                    }
-                })
-                .catch(() => {
-                    marqueeEl.innerHTML = 'Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.';
-                });
-        }
-    });
-</script>
 
 <!-- Tier 2: Premium Compact Branding Banner (White) -->
 <div class="main-branding-banner bg-white py-2.5 border-bottom d-none d-lg-block" style="font-family: 'Poppins', sans-serif;">
@@ -216,6 +196,7 @@
                         Academics
                     </a>
                     <ul class="dropdown-menu border-0 shadow-lg p-2 rounded-0" style="background-color: #0B3D91; min-width: 300px;">
+                        <li><a class="dropdown-item py-2 text-white fw-bold bg-warning bg-opacity-20 border-bottom border-white-10 text-warning" href="/academic-calendar"><i class="bi bi-calendar-event-fill me-2 text-warning"></i> Academic Calendar</a></li>
                         <li><a class="dropdown-item py-2 text-white small" href="/departments/cse"><i class="bi bi-laptop me-2 text-warning"></i> Computer Science Engineering</a></li>
                         <li><a class="dropdown-item py-2 text-white small" href="/departments/cse-aiml"><i class="bi bi-cpu me-2 text-warning"></i> CSE (AI & ML)</a></li>
                         <li><a class="dropdown-item py-2 text-white small" href="/departments/csd"><i class="bi bi-palette me-2 text-warning"></i> Computer Science & Design</a></li>
@@ -562,17 +543,19 @@
                     if (data.success && data.news && data.news.length > 0) {
                         const scrollingText = data.news.map(item => {
                             let link = '/news';
-                            if (item.category === 'admissions') link = '/admissions';
-                            else if (item.category === 'placement') link = '/placements';
-                            return `<span class="me-5 text-navy fw-bold"><i class="bi bi-megaphone-fill text-warning me-1"></i> [${item.category.toUpperCase()}] <a href="${link}" class="text-navy text-decoration-none hover-text-danger">${item.title}</a></span>`;
-                        }).join(' <span class="mx-3 text-muted">•</span> ');
+                            let badgeBg = '#0B3D91';
+                            if (item.category === 'admissions') { link = '/admissions'; badgeBg = '#B91C1C'; }
+                            else if (item.category === 'placement') { link = '/placements'; badgeBg = '#15803D'; }
+                            else if (item.category === 'event') { link = '/news'; badgeBg = '#6D28D9'; }
+                            return `<span class="me-5 d-inline-flex align-items-center"><span class="badge text-white px-2 py-0.5 me-1.5 rounded-1" style="background-color: ${badgeBg}; font-size: 9.5px; font-weight: 700;">${item.category.toUpperCase()}</span><a href="${link}" class="text-decoration-none fw-bold hover-underline" style="color: #0B3D91 !important; font-size: 12.5px;">${item.title}</a></span>`;
+                        }).join(' <span class="mx-3 text-muted fw-bold">•</span> ');
                         marqueeEl.innerHTML = scrollingText;
                     } else {
-                        marqueeEl.innerHTML = 'Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.';
+                        marqueeEl.innerHTML = '<span style="color: #0B3D91 !important; font-weight: bold;">Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.</span>';
                     }
                 })
                 .catch(() => {
-                    marqueeEl.innerHTML = 'Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.';
+                    marqueeEl.innerHTML = '<span style="color: #0B3D91 !important; font-weight: bold;">Welcome to AGM Rural College of Engineering & Technology (AGMRCET) Varur, Hubballi.</span>';
                 });
         }
     });

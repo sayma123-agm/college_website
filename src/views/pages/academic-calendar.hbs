@@ -1,0 +1,149 @@
+<!-- Dynamic Academic Calendar Page -->
+<div class="bg-light py-5">
+    <div class="container">
+        <!-- Breadcrumb -->
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a href="/" class="text-decoration-none">Home</a></li>
+                <li class="breadcrumb-item"><a href="/academics" class="text-decoration-none">Academics</a></li>
+                <li class="breadcrumb-item active" aria-current="page">Academic Calendar</li>
+            </ol>
+        </nav>
+
+        <div class="card border-0 shadow-sm rounded-4 p-4 p-md-5 bg-white mb-4">
+            <div class="d-flex flex-column flex-md-row align-items-md-center justify-content-between gap-3 mb-4">
+                <div>
+                    <span class="badge bg-primary text-white text-uppercase tracking-wider fw-bold px-3 py-1.5 rounded-pill mb-2" style="font-size: 11px;">
+                        <i class="bi bi-clock-history me-1"></i> Live Daily Updates
+                    </span>
+                    <h1 class="fw-bold mb-1" style="color: var(--primary-color);">Academic Calendar & Schedule</h1>
+                    <p class="text-muted mb-0">Official academic calendar of events, test schedules, university examinations, and general holidays.</p>
+                </div>
+                <div class="d-flex gap-2 flex-wrap">
+                    <a href="/docs/coe.pdf" target="_blank" class="btn btn-outline-danger fw-bold rounded-pill px-4">
+                        <i class="bi bi-file-earmark-pdf-fill me-1"></i> Official PDF (Calendar of Events)
+                    </a>
+                </div>
+            </div>
+
+            <!-- Filters & Search Bar -->
+            <div class="row g-3 mb-4 p-3 bg-light rounded-4 border">
+                <div class="col-md-5">
+                    <label class="form-label small fw-bold text-muted mb-1">Category Filter</label>
+                    <select id="categoryFilter" class="form-select border-0 shadow-xs">
+                        <option value="all">All Categories</option>
+                        <option value="Classes">Classes & Reopening</option>
+                        <option value="IA Test">Internal Assessment (IA Tests)</option>
+                        <option value="Examinations">VTU Semester Exams</option>
+                        <option value="Holiday">Holidays</option>
+                    </select>
+                </div>
+                <div class="col-md-5">
+                    <label class="form-label small fw-bold text-muted mb-1">Search Event</label>
+                    <input type="text" id="calendarSearchInput" class="form-control border-0 shadow-xs" placeholder="Search by event title, keyword...">
+                </div>
+                <div class="col-md-2 d-flex align-items-end">
+                    <button type="button" id="resetFiltersBtn" class="btn btn-secondary w-100 rounded-3 text-nowrap">Reset</button>
+                </div>
+            </div>
+
+            <!-- Academic Calendar Event Schedule Table -->
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle" id="calendarTable">
+                    <thead class="table-dark" style="background-color: #0B3D91;">
+                        <tr>
+                            <th scope="col" style="width: 140px;">Dates</th>
+                            <th scope="col">Event / Activity</th>
+                            <th scope="col" style="width: 130px;">Category</th>
+                            <th scope="col" style="width: 150px;">Audience</th>
+                            <th scope="col" style="width: 110px;">Status</th>
+                            <th scope="col" style="width: 110px;">Document</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {{#each events}}
+                        <tr data-category="{{this.category}}">
+                            <td class="fw-bold text-navy">
+                                {{this.startDate}}
+                                {{#if (eq this.startDate this.endDate)}}{{else}} to {{this.endDate}}{{/if}}
+                            </td>
+                            <td>
+                                <h6 class="fw-bold text-dark mb-1">{{this.title}}</h6>
+                                <p class="text-muted small mb-0">{{this.description}}</p>
+                            </td>
+                            <td>
+                                {{#if (eq this.category 'IA Test')}}
+                                    <span class="badge bg-warning text-dark"><i class="bi bi-pencil-square me-1"></i>{{this.category}}</span>
+                                {{else if (eq this.category 'Examinations')}}
+                                    <span class="badge bg-danger"><i class="bi bi-journal-text me-1"></i>{{this.category}}</span>
+                                {{else if (eq this.category 'Holiday')}}
+                                    <span class="badge bg-secondary"><i class="bi bi-building me-1"></i>{{this.category}}</span>
+                                {{else}}
+                                    <span class="badge bg-primary"><i class="bi bi-calendar-event me-1"></i>{{this.category}}</span>
+                                {{/if}}
+                            </td>
+                            <td class="small text-secondary fw-semibold">{{this.targetAudience}}</td>
+                            <td>
+                                <span class="badge bg-success rounded-pill px-3">{{this.status}}</span>
+                            </td>
+                            <td>
+                                {{#if this.document}}
+                                <a href="{{this.document}}" target="_blank" class="btn btn-sm btn-outline-primary rounded-pill px-2 py-1 text-nowrap">
+                                    <i class="bi bi-file-earmark-pdf me-1"></i> PDF
+                                </a>
+                                {{else}}
+                                <span class="text-muted small">-</span>
+                                {{/if}}
+                            </td>
+                        </tr>
+                        {{/each}}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Note Box -->
+            <div class="alert alert-info rounded-4 mt-4 p-4 d-flex align-items-center gap-3">
+                <i class="bi bi-info-circle-fill fs-2 text-primary"></i>
+                <div>
+                    <h6 class="fw-bold mb-1">VTU Belagavi Compliance Notice</h6>
+                    <p class="mb-0 small">The academic calendar is updated regularly based on VTU circulars and college governing council notifications. For urgent examination queries, contact the Controller of Examinations.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        const categoryFilter = document.getElementById('categoryFilter');
+        const searchInput = document.getElementById('calendarSearchInput');
+        const resetBtn = document.getElementById('resetFiltersBtn');
+        const tableRows = document.querySelectorAll('#calendarTable tbody tr');
+
+        function applyFilters() {
+            const categoryVal = categoryFilter ? categoryFilter.value : 'all';
+            const searchVal = searchInput ? searchInput.value.toLowerCase().trim() : '';
+
+            tableRows.forEach(row => {
+                const rowCat = row.getAttribute('data-category');
+                const rowText = row.textContent.toLowerCase();
+
+                const catMatch = (categoryVal === 'all' || rowCat === categoryVal);
+                const searchMatch = (!searchVal || rowText.includes(searchVal));
+
+                row.style.display = (catMatch && searchMatch) ? '' : 'none';
+            });
+        }
+
+        if (categoryFilter) categoryFilter.addEventListener('change', applyFilters);
+        if (searchInput) searchInput.addEventListener('input', applyFilters);
+        if (resetBtn) {
+            resetBtn.addEventListener('click', () => {
+                if (categoryFilter) categoryFilter.value = 'all';
+                if (searchInput) searchInput.value = '';
+                applyFilters();
+            });
+        }
+    });
+</script>

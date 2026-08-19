@@ -1,11 +1,11 @@
 const path = require('path');
 process.chdir(path.join(__dirname, '..'));
 
-console.log('=== STARTING PRODUCTION AUDIT & BUILD VALIDATION ===');
-try {
-    require('./test_build');
-    console.log('SUCCESS: All app modules, routes, 301 redirects, and PDF files validated.');
-} catch (err) {
-    console.error('FAILURE:', err);
-    process.exit(1);
-}
+console.log('=== STEP 1: VALIDATING INLINE JS SYNTAX IN VIEWS ===');
+require('./test_script_eval');
+
+console.log('\n=== STEP 2: RUNNING APP LOADS TEST ===');
+require('./verify_app_loads');
+
+console.log('\n=== STEP 3: RUNNING COMPLETE PRODUCTION VERIFICATION SUITE ===');
+require('./full_production_test');

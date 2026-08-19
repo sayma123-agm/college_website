@@ -73,11 +73,6 @@
 
 <script>
     document.addEventListener('DOMContentLoaded', () => {
-        // Redirect to dashboard if token already exists
-        if (localStorage.getItem('adminToken')) {
-            window.location.href = '/admin/dashboard';
-        }
-
         const form = document.getElementById('admin-login-form');
         const alertBox = document.getElementById('login-alert');
 
