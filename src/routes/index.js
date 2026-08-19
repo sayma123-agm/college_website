@@ -37,7 +37,7 @@ router.get('/nirf', pagesController.renderNIRF);
 router.get('/grievance', pagesController.renderGrievance);
 router.get('/nss', pagesController.renderNSS);
 router.get('/ieee', pagesController.renderIEEE);
-router.get('/academics', pagesController.renderAdmissions);
+router.get('/academics', pagesController.renderAcademics);
 router.get('/code-of-conduct', pagesController.renderCodeOfConduct);
 router.get('/learning-outcomes', pagesController.renderLearningOutcomes);
 router.get('/best-practices', pagesController.renderBestPractices);

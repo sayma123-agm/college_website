@@ -223,6 +223,14 @@ exports.renderNews = async (req, res) => {
     }
 };
 
+exports.renderAcademics = (req, res) => {
+    res.render('academics', {
+        title: 'Academic Programs & Governance | AGMRCET',
+        description: 'Explore undergraduate engineering (B.E.) and postgraduate (MBA, MCA) programs offered at AGMRCET, affiliated to VTU Belagavi.',
+        activeAcademics: true
+    });
+};
+
 exports.renderCodeOfConduct = (req, res) => {
     res.render('code-of-conduct', {
         title: 'Code of Conduct | AGMRCET',
